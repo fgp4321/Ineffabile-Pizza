@@ -45,14 +45,15 @@ User.create = async function(newUser, result){
 }
 
 //Auxiliar para Login
-User.findByUsername = async function(username_param, result){
-    const userFound = await User.findOne({ username: username_param})
+User.findById = async function(id_param, result){
+    const userFound = await User.findOne({ _id: id_param})
     if(userFound){
         result(userFound,null)
     }else{
-        result(null, {"err":"No hay usuarios con ese username"})
+        result(null, {"err":"No hay usuarios con ese ID"})
     }
 }
+
 
 User.findUsers = async function(result){
     const users = await User.find()
