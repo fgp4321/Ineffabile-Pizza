@@ -1,1 +1,106 @@
-<p>add-user works!</p>
+<div class="container-xl">
+    <div class="table-responsive">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h4><b>Nuevo Usuario</b></h4>
+                    </div>
+                    <div class="col-sm-6">
+                        <a href="#" routerLink="/Home" class="btn btn-success back"><i class="fas fa-arrow-circle-left"></i> Atrás</a>
+                    </div>
+                </div>
+            </div>
+            <form #userForm="ngForm">
+                <div class="table-content">
+                    <div class="form-group p-10 row">
+                        <div class="col-sm-3">
+                            <label for="nombre" class="p-t-b-10">Nombre<span class="requiredStar">*</span></label>
+                        </div>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="nombre" required maxlength="255" [(ngModel)]="addUserForm.nombre" name="nombre" #nombre="ngModel">
+                            <div *ngIf="nombre.errors && isSubmitted" class="alert alert-danger validationError">
+                                <div [hidden]="!nombre.errors?.['required']">
+                                    Nombre es un campo obligatorio
+                                </div>                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group p-10 row">
+                        <div class="col-sm-3">
+                            <label for="apellido" class="p-t-b-10">Apellido<span class="requiredStar">*</span></label>
+                        </div>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="apellido" required maxlength="255" [(ngModel)]="addUserForm.apellido" name="apellido" #apellido="ngModel">
+                            <div *ngIf="apellido.errors && isSubmitted" class="alert alert-danger validationError">
+                                <div [hidden]="!apellido.errors?.['required']">
+                                    Apellido es un campo obligatorio 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group p-10 row">
+                        <div class="col-sm-3">
+                            <label for="username" class="p-t-b-10">Nombre de usuario<span class="requiredStar">*</span></label>
+                        </div>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="username" required maxlength="255" [(ngModel)]="addUserForm.username" name="username" #username="ngModel" pattern="^[^\s]+$">
+                            <div *ngIf="username.errors && isSubmitted" class="alert alert-danger validationError">
+                                <div [hidden]="!username.errors?.['required']">
+                                    Nombre de usuario es un campo obligatorio
+                                </div>
+                                <div [hidden]="!username.errors?.['pattern']">
+                                    El nombre de usuario no puede contener espacios
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group p-10 row">
+                        <div class="col-sm-3">
+                            <label class="p-t-b-10">Email<span class="requiredStar">*</span></label>
+                        </div>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="email" required maxlength="255" [(ngModel)]="addUserForm.email" name="email" #email="ngModel" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$">
+                            <div *ngIf="email.errors && isSubmitted" class="alert alert-danger validationError">
+                                <div [hidden]="!email.errors?.['required']">
+                                    Email es un campo obligatorio
+                                </div>
+                                <div [hidden]="!email.errors?.['pattern']">
+                                    Email incorrecto. Compruebe la ortografía e inténtelo de nuevo
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group p-10 row">
+                        <div class="col-sm-3">
+                            <label class="p-t-b-10">Teléfono<span class="requiredStar">*</span></label>
+                        </div>
+                        <div class="col-sm-9">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">+34</span>
+                                </div>
+                                <input type="tel" class="form-control" id="telefono" required maxlength="11" [(ngModel)]="addUserForm.telefono" name="telefono" #telefono="ngModel" pattern="[0-9]{9}$">
+                            </div>
+                            <div *ngIf="telefono.errors && isSubmitted" class="alert alert-danger validationError">
+                                <div [hidden]="!telefono.errors?.['required']">
+                                    Teléfono es un campo obligatorio
+                                </div>
+                                <div [hidden]="!telefono.errors?.['pattern']">
+                                    Teléfono incorrecto. Compruebe los dígitos e inténtelo de nuevo
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+                <div class="table-footer">
+                    <button class="btn btn-success" (click)="AddUser(userForm.form.valid)">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
