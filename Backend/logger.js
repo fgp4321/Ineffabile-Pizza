@@ -4,7 +4,6 @@ const log4js = require("log4js")
 require("dotenv").config()
 
 if(app.get("env") == "development"){
-    console.log("Configure Logger")
     log4js.configure({
         appenders: {
             access: {

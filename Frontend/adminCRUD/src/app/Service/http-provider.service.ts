@@ -2,13 +2,13 @@ import { Injectable } from '@angular/core';
 import { Observable } from "rxjs";
 import { WebApiService } from "./web-api.service";
 
-var apiUrl = "http://localhost:9000/"
+var apiUrl = "http://localhost:9000"
 
 var httpLink = {
-  getAllUser: apiUrl + "/api/user/getAllUser",
-  deleteUserByID: apiUrl + "/api/user/deleteUserByID",
-  getUserDetailByID: apiUrl + "/api/user/getUserDetailByID",
-  saveUser: apiUrl + "/api/user/saveUser"
+  getAllUser: apiUrl + "/api/v2/usuarios",
+  deleteUserByID: apiUrl + "/api/v2/usuarios/deleteUserByID",
+  getUserDetailByID: apiUrl + "/api/v2/usuarios/getUserDetailByID",
+  saveUser: apiUrl + "/api/v2/usuarios/saveUser"
 }
 
 @Injectable({
@@ -23,11 +23,11 @@ export class HttpProviderService {
   }
 
   public deleteUserByID(model: any): Observable<any> {
-    return this.webApiService.post(httpLink.deleteUserByID + '?employeeId=' + model, "")
+    return this.webApiService.post(httpLink.deleteUserByID + '?userId=' + model, "")
   }
 
   public getUserDetailByID(model: any): Observable<any> {
-    return this.webApiService.get(httpLink.getUserDetailByID + '?employeeId=' + model)
+    return this.webApiService.get(httpLink.getUserDetailByID + '?userId=' + model)
   }
 
   public saveUser(model: any): Observable<any> {

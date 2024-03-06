@@ -1,7 +1,13 @@
 const UserController = require("../controllers/usuarios.controller")
 const express = require("express")
 const rutasProtegidasJWT = require("../middlewares/jwt.mw")
+const router = express.Router()
 
+router.get("/",UserController.buscarTodosUsuarios)
+router.get("/:id",UserController.buscarPorId)
+router.post("/",UserController.crearUsuario)
+router.put("/:id",UserController.actualizarUsuario)
+router.delete(":/id",UserController.eliminarUsuario)
 
 /*
 //Cargar la vista de registro
