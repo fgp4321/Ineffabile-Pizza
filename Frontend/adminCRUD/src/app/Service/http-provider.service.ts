@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Observable } from "rxjs";
-import { WebApiService } from "./web-api.service";
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+import { WebApiService } from './web-api.service';
 
-var apiUrl = "http://localhost:9000"
+var apiUrl = "http://localhost:9000";
 
 var httpLink = {
   getAllUser: apiUrl + "/api/v2/usuarios",
@@ -12,25 +13,44 @@ var httpLink = {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-
 export class HttpProviderService {
   constructor(private webApiService: WebApiService) { }
 
   public getAllUser(): Observable<any> {
-    return this.webApiService.get(httpLink.getAllUser)
+    return this.webApiService.get(httpLink.getAllUser).pipe(
+      catchError(error => {
+        console.error('Error en la solicitud getAllUser:', error);
+        return throwError(error);
+      })
+    );
   }
 
   public deleteUserByID(model: any): Observable<any> {
-    return this.webApiService.post(httpLink.deleteUserByID + '?userId=' + model, "")
+    return this.webApiService.post(`${httpLink.deleteUserByID}?userId=${model}`, "").pipe(
+      catchError(error => {
+        console.error('Error en la solicitud deleteUserByID:', error);
+        return throwError(error);
+      })
+    );
   }
 
   public getUserDetailByID(model: any): Observable<any> {
-    return this.webApiService.get(httpLink.getUserDetailByID + '?userId=' + model)
+    return this.webApiService.get(`${httpLink.getUserDetailByID}?userId=${model}`).pipe(
+      catchError(error => {
+        console.error('Error en la solicitud getUserDetailByID:', error);
+        return throwError(error);
+      })
+    );
   }
 
   public saveUser(model: any): Observable<any> {
-    return this.webApiService.post(httpLink.saveUser,model)
+    return this.webApiService.post(httpLink.saveUser, model).pipe(
+      catchError(error => {
+        console.error('Error en la solicitud saveUser:', error);
+        return throwError(error);
+      })
+    );
   }
 }

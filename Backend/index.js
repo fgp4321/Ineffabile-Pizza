@@ -31,7 +31,7 @@ const addMorganToLogger = morgan("combined", {
 })
 
 //Rutas permitidas para CORS
-const whiteList = ["http://localhost:4200","http://localhost:4200/Home","http://localhost:9000","http://localhost:9000/api/v2/usuarios"]
+const whiteList = ["http://localhost:9000/api/v2/usuarios","http://localhost:4200"]
 
 const corsOptions = {
     origin: (origin,callback) => {
@@ -43,7 +43,7 @@ const corsOptions = {
     },
     credentials: true
 }
-app.use(cors())
+app.use(cors(corsOptions))
 
 app.use(cookieParser("passwordforcookies"))
 app.use(session({
