@@ -17,7 +17,7 @@ import { HttpProviderService } from "../Service/http-provider.service";
     <p>¿Está seguro de que desea eliminar el usuario?</p>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-outline-secondary" (click)="modal.dismiss('cancel click')">CANCEL</button>
+    <button type="button" class="btn btn-outline-secondary" (click)="modal.dismiss('cancel click')">CANCELAR</button>
     <button type="button" ngbAutofocus class="btn btn-success" (click)="modal.close('Ok click')">OK</button>
   </div>
   `

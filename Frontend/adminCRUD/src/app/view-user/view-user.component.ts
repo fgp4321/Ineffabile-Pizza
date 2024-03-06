@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from "@angular/router";
+import { HttpProviderService } from "../Service/http-provider.service";
+import { WebApiService } from "../Service/web-api.service";
 
 @Component({
   selector: 'app-view-user',
@@ -6,10 +9,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./view-user.component.scss']
 })
 export class ViewUserComponent implements OnInit {
+  userId: any
+  userDetail: any = []
 
-  constructor() { }
+  constructor(public webApiService: WebApiService, private route: ActivatedRoute, private httpProvider: HttpProviderService) { }
 
   ngOnInit(): void {
+    this.userId = this.route.snapshot.params[this.userId]
+    this.getUserDetailByID()
+  }
+
+  getUserDetailByID(){
+    this.httpProvider.getUserDetailByID(this.userDetail).subscribe((data: any)=>{
+      if (data != null && data.body != null) {
+        var resultData = data.body
+        if (resultData) {
+          this.userDetail = resultData
+        }
+      }
+    },
+    (error: any)=>{})
   }
 
 }
