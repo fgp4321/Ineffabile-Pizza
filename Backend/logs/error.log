@@ -144,3 +144,9 @@ Or, if you meant to create an async function, pass `async: true` as an option.
     21|   <div class="container mt-5">
 
 partials is not defined
+[2024-03-07T13:15:36.710] [ERROR] error - 500 Cannot set headers after they are sent to the client
+[2024-03-07T13:17:51.117] [ERROR] error - 500 Cannot set headers after they are sent to the client
+[2024-03-07T13:19:14.630] [ERROR] error - 500 Cannot set headers after they are sent to the client
+[2024-03-07T13:19:27.881] [ERROR] error - 500 Cannot set headers after they are sent to the client
+[2024-03-07T13:20:06.111] [ERROR] error - 500 Cannot set headers after they are sent to the client
+[2024-03-07T13:20:58.181] [ERROR] error - 500 Cannot set headers after they are sent to the client

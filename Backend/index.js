@@ -7,6 +7,7 @@ const cors = require("cors")
 const fs = require("fs")
 const https = require("https")
 const express = require("express")
+const bodyParser = require('body-parser');
 const path = require("path")
 const logger = require("./logger")
 const morgan = require("morgan")
@@ -81,6 +82,26 @@ app.get('/', (req, res) => {
     res.render('home.ejs')
 })
 
+// Ruta para manejar la suscripción al newsletter desde el formulario del footer
+app.post('/subscribe', bodyParser.urlencoded({ extended: true }), (req, res) => {
+    const { email } = req.body;
+  
+    // Validar el formato del correo electrónico (puedes usar una librería como validator.js)
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      // Mostrar una alerta con SweetAlert2 indicando que el correo electrónico es inválido
+      res.send('<script>alert("Por favor, introduce un correo electrónico válido."); window.location="/";</script>');
+    }
+  
+    // Mostrar una alerta con SweetAlert2 indicando la suscripción exitosa y redirigir a /newsletter/success
+    res.send('<script>alert("Te has suscrito satisfactoriamente al newsletter."); window.location="/newsletter/success";</script>')
+    res.redirect('/newsletter/success');
+  });
+  
+  // Ruta para la página /newsletter
+  app.get('/newsletter/success', (req, res) => {
+    res.render('newsletter-success.ejs');
+  });
 
 app.use(errorHandler)
 
