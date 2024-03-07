@@ -8,6 +8,7 @@ const fs = require("fs")
 const https = require("https")
 const express = require("express")
 const bodyParser = require('body-parser');
+const favicon = require('serve-favicon');
 const path = require("path")
 const logger = require("./logger")
 const morgan = require("morgan")
@@ -60,6 +61,9 @@ app.use(session({
 app.use(express.urlencoded({extended:true}))
 app.use(express.json())
 
+const faviconPath = path.join(__dirname, 'public/favicon', 'favicon.ico');
+app.use(favicon(faviconPath));
+
 app.set("view_engine","ejs")
 app.set("views",path.join(__dirname,"/views"))
 
@@ -77,11 +81,16 @@ app.use(`/api/${version}/usuarios`,usuarioRoutes)
 //rutas categorias
 //rutas pedidos
 
-
+//RUTA HOME.EJS
 app.get('/', (req, res) => {
     res.render('home.ejs')
 })
 
+
+
+
+
+//NEWSLETTER
 // Ruta para manejar la suscripción al newsletter desde el formulario del footer
 app.post('/subscribe', bodyParser.urlencoded({ extended: true }), (req, res) => {
     const { email } = req.body;
@@ -102,6 +111,16 @@ app.post('/subscribe', bodyParser.urlencoded({ extended: true }), (req, res) => 
   app.get('/newsletter/success', (req, res) => {
     res.render('newsletter-success.ejs');
   });
+
+
+
+
+app.get('/contacto', (req, res) => {
+    res.render('contacto.ejs')
+})
+
+
+
 
 app.use(errorHandler)
 
