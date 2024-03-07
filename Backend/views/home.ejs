@@ -1,0 +1,33 @@
+<!-- views/home.ejs -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inicio</title>
+
+  <!-- Incluir Bootstrap CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+  <!-- Incluir FontAwesome CSS -->
+  <link rel="stylesheet" href="/fontawesome/css/all.min.css">
+</head>
+<body>
+
+  <!-- Incluir el navbar -->
+<%- include('./partials/navbar.ejs') %>
+
+
+  <!-- Contenido específico de la vista home -->
+  <div class="container mt-5">
+    <h1>Hola, bienvenido</h1>
+    <!-- Otro contenido de la página va aquí -->
+  </div>
+
+  <!-- Al final del cuerpo, antes de cerrar el body, incluir FontAwesome JS -->
+  <script src="/fontawesome/js/all.min.js"></script>
+
+  <!-- Incluir Bootstrap JS al final del cuerpo -->
+  <script src="/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

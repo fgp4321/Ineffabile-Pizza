@@ -5,6 +5,7 @@ const bcrypt = require("bcrypt")
 const jwt = require("jsonwebtoken")
 
 //AUTENTICACIÓN
+/*
 exports.showLogin = function(req,res){
     res.render("")
 }
@@ -70,67 +71,70 @@ exports.logout = (req, res) => {
         }
     })
 }
-
-
+*/
 
 
 
 //CRUD
-exports.buscarTodosUsuarios = wrapAsync(async (req,res) => {
-    await User.findUsers((error,usuarios)=>{
-        if(error){
-            res.status(500).json(error)
-        }else{
-            res.status(200).json(usuarios)            
+exports.buscarTodosUsuarios = wrapAsync(async (req, res) => {
+    await User.findUsers((error, usuarios) => {
+        if (error) {
+            res.status(500).json(error);
+        } else {
+            res.status(200).json(usuarios);
         }
-    })
-})
+    });
+});
 
-exports.buscarPorId = wrapAsync(async (req,res) => {
-    const {NIF} = req.params
-    await User.findById(NIF,(error,usuario)=>{
-        if(error){
-            res.status(500).json(error)
-        }else{
-            if(usuario.length > 0){
-                res.status(200).json(usuario)
-            }else{
-                res.status(404).json({msg:"Usuario no encontrado"})
-            }            
+exports.buscarPorId = wrapAsync(async (req, res) => {
+    const { id } = req.params;
+    await User.findById(id, (error, usuario) => {
+        if (error) {
+            res.status(500).json(error);
+        } else {
+            if (usuario) {
+                res.status(200).json(usuario);
+            } else {
+                res.status(404).json({ msg: "Usuario no encontrado" });
+            }
         }
-    })
-})
+    });
+});
 
-exports.crearUsuario = wrapAsync(async (req,res) => {
-    const nuevoUsuario = new Usuario(req.body)
-    await User.create(nuevoUsuario,(error,usuarioCreado)=>{
-        if(error){
-            res.status(500).json(error)
-        }else{            
-            res.status(200).json(usuarioCreado)                   
+exports.crearUsuario = wrapAsync(async (req, res) => {
+    const nuevoUsuario = new User(req.body);
+    await User.create(nuevoUsuario, (error, usuarioCreado) => {
+        if (error) {
+            res.status(500).json(error);
+        } else {
+            res.status(200).json(usuarioCreado);
         }
-    })
-})
+    });
+});
 
-exports.actualizarUsuario = wrapAsync(async (req,res) => {
-    const usuarioParaActualizar = new Usuario(req.body)
-    const {NIF} = req.params
-    await User.actualizarUser(NIF,usuarioParaActualizar,(error,usuarioActualizado)=>{
-        if(error){
-            res.status(500).json(error)
-        }else{            
-            res.status(200).json(usuarioActualizado)                               
+exports.actualizarUsuario = wrapAsync(async (req, res) => {
+    const usuarioParaActualizar = new User(req.body);
+    const { id } = req.params;
+    await User.actualizarUser(id, usuarioParaActualizar, (error, usuarioActualizado) => {
+        if (error) {
+            res.status(500).json(error);
+        } else {
+            if (usuarioActualizado) {
+                res.status(200).json(usuarioActualizado);
+            } else {
+                res.status(404).json({ msg: "Usuario no encontrado" });
+            }
         }
-    })
-})
+    });
+});
 
-exports.eliminarUsuario = wrapAsync(async (req,res) => {    
-    const {NIF} = req.params
-    await User.eliminarUser(NIF,(error,usuarioEliminado)=>{
-        if(error){
-            res.status(500).json(error)
-        }else{            
-            res.status(200).json(usuarioEliminado)                       
+exports.eliminarUsuario = wrapAsync(async (req, res) => {
+    const { id } = req.params;
+    await User.eliminarUser(id, (error, usuarioEliminado) => {
+        if (error) {
+            res.status(500).json(error);
+        } else {
+            res.status(200).json(usuarioEliminado);
         }
-    })
-})
+    });
+});

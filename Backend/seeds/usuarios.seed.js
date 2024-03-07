@@ -17,6 +17,7 @@ const ejecutar = async()=>{
             username:"Prueba_25",
             email:"prueba@gmail.com",
             password:"prueba123",
+            telefono:678912397,
             rol:"USER"
         }
     ]

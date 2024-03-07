@@ -45,7 +45,7 @@ const corsOptions = {
 }
 app.use(cors(corsOptions))
 
-app.use(cookieParser("passwordforcookies"))
+/*app.use(cookieParser("passwordforcookies"))
 app.use(session({
     secret: "cookiePassword",
     resave: false,
@@ -54,14 +54,19 @@ app.use(session({
         //sameSite: "none",
         maxAge: 60 * 60 * 24 * 1000,
     }
-}))
+}))*/
 
 app.use(express.urlencoded({extended:true}))
 app.use(express.json())
 
 app.set("view_engine","ejs")
 app.set("views",path.join(__dirname,"/views"))
+
 app.use(express.static(path.join(__dirname,"public")))
+app.use('/css', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/css')));
+app.use('/fontawesome', express.static(path.join(__dirname, 'node_modules/@fortawesome/fontawesome-free')));
+app.use('/js', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/js')));
+
 
 app.use(addMorganToLogger)
 
@@ -70,6 +75,12 @@ app.use(`/api/${version}/usuarios`,usuarioRoutes)
 //rutas productos
 //rutas categorias
 //rutas pedidos
+
+
+app.get('/', (req, res) => {
+    res.render('home.ejs')
+})
+
 
 app.use(errorHandler)
 

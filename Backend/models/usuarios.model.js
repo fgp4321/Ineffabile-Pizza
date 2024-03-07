@@ -25,6 +25,10 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    telefono: {
+        type: Number,
+        required: true
+    },
     rol: {
         type: String,
         required: true,
