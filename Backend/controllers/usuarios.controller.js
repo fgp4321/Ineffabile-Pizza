@@ -5,6 +5,7 @@ const bcrypt = require("bcrypt")
 const jwt = require("jsonwebtoken")
 
 //AUTENTICACIÓN
+/*
 exports.showLogin = function(req,res){
     res.render("")
 }
@@ -70,67 +71,71 @@ exports.logout = (req, res) => {
         }
     })
 }
-
-
+*/
 
 
 
 //CRUD
-exports.buscarTodosUsuarios = wrapAsync(async (req,res) => {
-    await User.findUsers((error,usuarios)=>{
-        if(error){
-            res.status(500).json(error)
-        }else{
-            res.status(200).json(usuarios)            
+exports.buscarTodosUsuarios = wrapAsync(async (req, res) => {
+    try {
+        const usuarios = await User.findUsers()
+        res.status(200).json(usuarios)
+    } catch (error) {
+        res.status(500).json({ error: "Error al obtener los usuarios" })
+    }
+});
+
+exports.buscarPorId = wrapAsync(async (req, res) => {
+    const { id } = req.params;
+    try {
+        const usuario = await User.buscarPorId(id);
+        if (usuario) {
+            res.status(200).json(usuario);
+        } else {
+            res.status(404).json({ msg: "Usuario no encontrado" });
         }
-    })
+    } catch (error) {
+        console.error("Error al obtener el usuario por ID:", error);
+        res.status(500).json({ error: "Error interno al obtener el usuario por ID" });
+    }
+});
+
+exports.crearUsuario = wrapAsync(async (req, res) => {
+    const nuevoUsuario = req.body
+    try {
+        const usuarioCreado = await User.create(nuevoUsuario)
+        res.status(200).json(usuarioCreado)
+    } catch (error) {
+        res.status(500).json({ error: "Error al crear al usuario" })
+    }
+});
+
+
+exports.actualizarUsuario = wrapAsync(async (req, res) => {
+    const { id } = req.params
+    const datosActualizados = req.body
+    try {
+        const usuarioActualizado = await User.actualizarUsuario(id, datosActualizados)
+        if (usuarioActualizado) {
+            res.status(200).json(usuarioActualizado)
+        } else {
+            res.status(404).json({ msg: "Usuario no encontrado" })
+        }
+    } catch (error) {
+        res.status(500).json({ error: "Error al actualizar usuario" })
+    }
 })
 
-exports.buscarPorId = wrapAsync(async (req,res) => {
-    const {NIF} = req.params
-    await User.findById(NIF,(error,usuario)=>{
-        if(error){
-            res.status(500).json(error)
-        }else{
-            if(usuario.length > 0){
-                res.status(200).json(usuario)
-            }else{
-                res.status(404).json({msg:"Usuario no encontrado"})
-            }            
+exports.eliminarUsuario = wrapAsync(async (req, res) => {
+    const { id } = req.params
+    try {
+        const usuarioEliminado = await User.eliminarUsuario(id)
+        if (usuarioEliminado) {
+            res.status(200).json(usuarioEliminado)
+        } else {
+            res.status(404).json({ msg: "Usuario no encontrada" })
         }
-    })
-})
-
-exports.crearUsuario = wrapAsync(async (req,res) => {
-    const nuevoUsuario = new Usuario(req.body)
-    await User.create(nuevoUsuario,(error,usuarioCreado)=>{
-        if(error){
-            res.status(500).json(error)
-        }else{            
-            res.status(200).json(usuarioCreado)                   
-        }
-    })
-})
-
-exports.actualizarUsuario = wrapAsync(async (req,res) => {
-    const usuarioParaActualizar = new Usuario(req.body)
-    const {NIF} = req.params
-    await User.actualizarUser(NIF,usuarioParaActualizar,(error,usuarioActualizado)=>{
-        if(error){
-            res.status(500).json(error)
-        }else{            
-            res.status(200).json(usuarioActualizado)                               
-        }
-    })
-})
-
-exports.eliminarUsuario = wrapAsync(async (req,res) => {    
-    const {NIF} = req.params
-    await User.eliminarUser(NIF,(error,usuarioEliminado)=>{
-        if(error){
-            res.status(500).json(error)
-        }else{            
-            res.status(200).json(usuarioEliminado)                       
-        }
-    })
+    } catch (error) {
+        res.status(500).json({ error: "Error al eliminar el usuario" })
+    }
 })

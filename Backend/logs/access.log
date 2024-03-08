@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [2024-03-06T14:57:14.071] [DEBUG] access - http://localhost:9000
 ::1 - - [06/Mar/2024:13:57:20 +0000] "GET /api/v2/usuarios HTTP/1.1" 404 154 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 [2024-03-06T14:58:12.815] [DEBUG] access - http://localhost:9000
@@ -109,3 +110,236 @@
 ::1 - - [06/Mar/2024:14:52:17 +0000] "GET /api/v2/usuarios HTTP/1.1" 500 168 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 ::1 - - [06/Mar/2024:14:52:21 +0000] "GET /api/v2/usuarios HTTP/1.1" 500 168 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 [2024-03-08T11:41:10.209] [DEBUG] access - http://localhost:9000
+=======
+[2024-03-08T08:40:39.062] [DEBUG] access - http://localhost:9000
+[2024-03-08T08:45:05.011] [DEBUG] access - http://localhost:9000
+[2024-03-08T08:47:36.387] [DEBUG] access - http://localhost:9000
+::1 - - [08/Mar/2024:07:47:38 +0000] "GET /api/v2/usuarios/getAllUser HTTP/1.1" 500 362 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+[2024-03-08T08:48:29.162] [DEBUG] access - http://localhost:9000
+::1 - - [08/Mar/2024:07:48:31 +0000] "GET /api/v2/usuarios/getAllUser HTTP/1.1" 500 366 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:07:49:19 +0000] "GET /api/v2/usuarios/getAllUser HTTP/1.1" 500 366 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:07:49:20 +0000] "GET /api/v2/usuarios/getAllUser HTTP/1.1" 500 366 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:07:49:21 +0000] "GET /api/v2/usuarios/getAllUser HTTP/1.1" 500 366 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:07:49:21 +0000] "GET /api/v2/usuarios/getAllUser HTTP/1.1" 500 366 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:07:49:21 +0000] "GET /api/v2/usuarios/getAllUser HTTP/1.1" 500 366 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:07:49:21 +0000] "GET /api/v2/usuarios/getAllUser HTTP/1.1" 500 366 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+[2024-03-08T08:50:24.274] [DEBUG] access - http://localhost:9000
+::1 - - [08/Mar/2024:07:50:24 +0000] "GET /api/v2/usuarios/getAllUser HTTP/1.1" 500 366 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:07:50:25 +0000] "GET /api/v2/usuarios/getAllUser HTTP/1.1" 500 366 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:07:50:27 +0000] "GET /api/v2/usuarios/getAllUser HTTP/1.1" 500 366 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+[2024-03-08T08:50:30.869] [DEBUG] access - http://localhost:9000
+::1 - - [08/Mar/2024:07:50:32 +0000] "GET /api/v2/usuarios/getAllUser HTTP/1.1" 500 366 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+[2024-03-08T08:50:52.689] [DEBUG] access - http://localhost:9000
+::1 - - [08/Mar/2024:07:50:52 +0000] "GET /api/v2/usuarios/getAllUser HTTP/1.1" 404 165 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:07:50:59 +0000] "GET /api/v2/users/getAllUser HTTP/1.1" 500 366 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+[2024-03-08T08:53:06.356] [DEBUG] access - http://localhost:9000
+::1 - - [08/Mar/2024:07:53:07 +0000] "GET /api/v2/users/getAllUser HTTP/1.1" 500 366 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:07:53:08 +0000] "GET /api/v2/users/getAllUser HTTP/1.1" 500 366 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+[2024-03-08T08:53:11.539] [DEBUG] access - http://localhost:9000
+[2024-03-08T08:53:26.832] [DEBUG] access - http://localhost:9000
+::1 - - [08/Mar/2024:07:53:31 +0000] "GET /api/v2/ususarios/getAllUser HTTP/1.1" 404 166 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:07:53:34 +0000] "GET /api/v2/usuarios/getAllUser HTTP/1.1" 500 366 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+[2024-03-08T08:59:17.388] [DEBUG] access - http://localhost:9000
+[2024-03-08T09:00:12.951] [DEBUG] access - http://localhost:9000
+::1 - - [08/Mar/2024:08:00:18 +0000] "GET /api/v2/usuarios/getAllUser HTTP/1.1" 500 41 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:08:00:34 +0000] "GET /api/v2/usuarios/getAllUser HTTP/1.1" 500 41 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+[2024-03-08T09:01:40.988] [DEBUG] access - http://localhost:9000
+[2024-03-08T09:01:43.144] [DEBUG] access - http://localhost:9000
+::1 - - [08/Mar/2024:08:01:45 +0000] "GET /api/v2/usuarios/getAllUser HTTP/1.1" 200 366 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:08:02:14 +0000] "GET /api/v2/usuarios/getAllUser HTTP/1.1" 200 366 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:08:03:18 +0000] "GET /api/v2/usuarios/getUserDetailByID?userId= HTTP/1.1" 404 172 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:08:03:20 +0000] "GET /api/v2/usuarios/getAllUser HTTP/1.1" 200 366 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:08:03:21 +0000] "GET /api/v2/usuarios/getUserDetailByID?userId=undefined HTTP/1.1" 404 172 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:08:03:24 +0000] "GET /api/v2/usuarios/getAllUser HTTP/1.1" 200 366 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:08:03:28 +0000] "POST /api/v2/usuarios/deleteUserByID?userId=undefined HTTP/1.1" 404 170 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:08:03:30 +0000] "GET /api/v2/usuarios/getAllUser HTTP/1.1" 200 366 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:08:03:31 +0000] "GET /api/v2/usuarios/getAllUser HTTP/1.1" 304 - "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:08:03:32 +0000] "GET /api/v2/usuarios/getAllUser HTTP/1.1" 304 - "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+[2024-03-08T09:04:52.810] [DEBUG] access - http://localhost:9000
+[2024-03-08T09:05:48.706] [DEBUG] access - http://localhost:9000
+[2024-03-08T09:07:06.988] [DEBUG] access - http://localhost:9000
+[2024-03-08T09:07:56.259] [DEBUG] access - http://localhost:9000
+[2024-03-08T09:08:02.338] [DEBUG] access - http://localhost:9000
+[2024-03-08T09:08:06.576] [DEBUG] access - http://localhost:9000
+[2024-03-08T09:09:46.508] [DEBUG] access - http://localhost:9000
+[2024-03-08T09:10:34.429] [DEBUG] access - http://localhost:9000
+[2024-03-08T09:12:15.328] [DEBUG] access - http://localhost:9000
+[2024-03-08T09:13:12.127] [DEBUG] access - http://localhost:9000
+[2024-03-08T09:13:36.417] [DEBUG] access - http://localhost:9000
+::1 - - [08/Mar/2024:08:14:16 +0000] "GET /api/v2/usuarios/getAllUser HTTP/1.1" 200 366 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:08:14:19 +0000] "GET /api/v2/usuarios/getUserDetailByID?userId= HTTP/1.1" 404 172 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:08:14:43 +0000] "GET /api/v2/usuarios/getAllUser HTTP/1.1" 200 366 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:08:14:48 +0000] "GET /api/v2/usuarios/getUserDetailByID?userId=undefined HTTP/1.1" 404 172 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:08:14:56 +0000] "GET /api/v2/usuarios/getAllUser HTTP/1.1" 200 366 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:08:14:59 +0000] "POST /api/v2/usuarios/deleteUserByID?userId=undefined HTTP/1.1" 404 170 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:08:15:20 +0000] "POST /api/v2/usuarios/saveUser HTTP/1.1" 500 37 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:08:15:20 +0000] "GET /api/v2/usuarios/getAllUser HTTP/1.1" 200 366 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:08:20:12 +0000] "GET /api/v2/usuarios/getAllUser HTTP/1.1" 200 366 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:08:20:15 +0000] "GET /api/v2/usuarios/getUserDetailByID?userId= HTTP/1.1" 404 172 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:08:22:38 +0000] "GET /api/v2/usuarios/getUserDetailByID/ HTTP/1.1" 404 173 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:08:22:39 +0000] "GET /api/v2/usuarios/getUserDetailByID/ HTTP/1.1" 404 173 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:08:22:40 +0000] "GET /api/v2/usuarios/getAllUser HTTP/1.1" 200 366 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:08:22:44 +0000] "GET /api/v2/usuarios/getUserDetailByID/ HTTP/1.1" 404 173 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:08:22:47 +0000] "GET /api/v2/usuarios/getUserDetailByID/ HTTP/1.1" 404 173 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:08:23:10 +0000] "GET /api/v2/usuarios/getUserDetailByID?userId= HTTP/1.1" 404 172 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+[2024-03-08T09:26:35.417] [DEBUG] access - http://localhost:9000
+[2024-03-08T09:26:43.861] [DEBUG] access - http://localhost:9000
+::1 - - [08/Mar/2024:08:27:13 +0000] "GET /api/v2/usuarios/getUserDetailByID/ HTTP/1.1" 404 173 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:08:27:14 +0000] "GET /api/v2/usuarios/getUserDetailByID/ HTTP/1.1" 404 173 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:08:27:18 +0000] "GET /api/v2/usuarios/getAllUser HTTP/1.1" 200 366 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:08:27:21 +0000] "GET /api/v2/usuarios/getUserDetailByID/ HTTP/1.1" 404 173 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:08:29:20 +0000] "GET /api/v2/usuarios/getUserDetailByID/undefined HTTP/1.1" 500 46 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:08:29:29 +0000] "GET /api/v2/usuarios/getUserDetailByID/undefined HTTP/1.1" 500 46 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:08:30:03 +0000] "GET /api/v2/usuarios/getUserDetailByID/undefined HTTP/1.1" 500 46 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:08:30:06 +0000] "GET /api/v2/usuarios/getUserDetailByID/undefined HTTP/1.1" 500 46 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+[2024-03-08T09:31:01.761] [DEBUG] access - http://localhost:9000
+::1 - - [08/Mar/2024:08:31:06 +0000] "GET /api/v2/usuarios/getUserDetailByID/undefined HTTP/1.1" 500 54 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:08:31:19 +0000] "GET /api/v2/usuarios/getUserDetailByID HTTP/1.1" 404 172 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:08:31:29 +0000] "GET /api/v2/usuarios/getUserDetailByID/65e97c1a098567f5afb4a511 HTTP/1.1" 500 54 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+[2024-03-08T09:33:53.545] [DEBUG] access - http://localhost:9000
+::1 - - [08/Mar/2024:08:33:56 +0000] "GET /api/v2/usuarios/getUserDetailByID/undefined HTTP/1.1" 500 54 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+[2024-03-08T09:34:54.740] [DEBUG] access - http://localhost:9000
+::1 - - [08/Mar/2024:08:34:55 +0000] "GET /api/v2/usuarios/getUserDetailByID/undefined HTTP/1.1" 500 54 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+[2024-03-08T09:35:15.689] [DEBUG] access - http://localhost:9000
+::1 - - [08/Mar/2024:08:35:19 +0000] "GET /api/v2/usuarios/getUserDetailByID/undefined HTTP/1.1" 500 54 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:08:36:14 +0000] "GET /api/v2/usuarios/getUserDetailByID/undefined HTTP/1.1" 500 54 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:08:36:20 +0000] "GET /api/v2/usuarios/getAllUser HTTP/1.1" 200 366 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:08:36:21 +0000] "GET /api/v2/usuarios/getAllUser HTTP/1.1" 200 366 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:08:36:26 +0000] "GET /api/v2/usuarios/getUserDetailByID/undefined HTTP/1.1" 500 54 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+[2024-03-08T09:36:49.916] [DEBUG] access - http://localhost:9000
+::1 - - [08/Mar/2024:08:36:52 +0000] "GET /api/v2/usuarios/getUserDetailByID/undefined HTTP/1.1" 500 54 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:08:38:06 +0000] "GET /api/v2/usuarios/getUserDetailByID/undefined HTTP/1.1" 500 54 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:08:38:10 +0000] "GET /api/v2/usuarios/getUserDetailByID/undefined HTTP/1.1" 500 54 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:08:45:54 +0000] "GET /api/v2/usuarios/getUserDetailByID/ HTTP/1.1" 404 173 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:08:46:01 +0000] "GET /api/v2/usuarios/getUserDetailByID/ HTTP/1.1" 404 173 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:08:46:04 +0000] "GET /api/v2/usuarios/getUserDetailByID/65e97c1a098567f5afb4a511 HTTP/1.1" 500 54 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+[2024-03-08T09:46:33.309] [DEBUG] access - http://localhost:9000
+::1 - - [08/Mar/2024:08:46:35 +0000] "GET /api/v2/usuarios/getUserDetailByID/65e97c1a098567f5afb4a511 HTTP/1.1" 500 54 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+[2024-03-08T09:46:47.120] [DEBUG] access - http://localhost:9000
+::1 - - [08/Mar/2024:08:46:50 +0000] "GET /api/v2/usuarios/getUserDetailByID/65e97c1a098567f5afb4a511 HTTP/1.1" 200 189 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:08:46:59 +0000] "GET /api/v2/usuarios/getUserDetailByID/ HTTP/1.1" 404 173 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:08:51:04 +0000] "GET /api/v2/usuarios/getUserDetailByID?userId= HTTP/1.1" 404 172 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:08:51:05 +0000] "GET /api/v2/usuarios/getUserDetailByID?userId= HTTP/1.1" 404 172 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:08:51:14 +0000] "GET /api/v2/usuarios/getAllUser HTTP/1.1" 200 366 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:08:51:17 +0000] "GET /api/v2/usuarios/getUserDetailByID?userId= HTTP/1.1" 404 172 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:08:54:24 +0000] "GET /api/v2/usuarios/getUserDetailByID/ HTTP/1.1" 404 173 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:08:54:28 +0000] "GET /api/v2/usuarios/getUserDetailByID/ HTTP/1.1" 404 173 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:08:56:15 +0000] "GET /api/v2/usuarios/getAllUser HTTP/1.1" 200 366 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:08:56:16 +0000] "GET /api/v2/usuarios/getAllUser HTTP/1.1" 200 366 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:08:56:18 +0000] "GET /api/v2/usuarios/getUserDetailByID/ HTTP/1.1" 404 173 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:08:57:03 +0000] "GET /api/v2/usuarios/getUserDetailByID/ HTTP/1.1" 404 173 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:08:57:16 +0000] "GET /api/v2/usuarios/getUserDetailByID/undefined HTTP/1.1" 500 54 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:08:57:19 +0000] "GET /api/v2/usuarios/getUserDetailByID/undefined HTTP/1.1" 500 54 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+[2024-03-08T09:57:28.343] [DEBUG] access - http://localhost:9000
+::1 - - [08/Mar/2024:08:57:31 +0000] "GET /api/v2/usuarios/getUserDetailByID/undefined HTTP/1.1" 500 54 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+[2024-03-08T09:58:04.652] [DEBUG] access - http://localhost:9000
+::1 - - [08/Mar/2024:08:58:07 +0000] "GET /api/v2/usuarios/getUserDetailByID/undefined HTTP/1.1" 404 31 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+[2024-03-08T09:58:47.019] [DEBUG] access - http://localhost:9000
+[2024-03-08T09:59:41.439] [DEBUG] access - http://localhost:9000
+::1 - - [08/Mar/2024:08:59:43 +0000] "GET /api/v2/usuarios/getUserDetailByID/undefined HTTP/1.1" 500 54 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:08:59:58 +0000] "GET /api/v2/usuarios/getUserDetailByID/undefined HTTP/1.1" 500 54 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:09:00:04 +0000] "GET /api/v2/usuarios/getAllUser HTTP/1.1" 304 - "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:09:00:05 +0000] "GET /api/v2/usuarios/getUserDetailByID/65e97c1a098567f5afb4a511 HTTP/1.1" 304 - "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:09:00:05 +0000] "GET /api/v2/usuarios/getUserDetailByID/65e97c1a098567f5afb4a511 HTTP/1.1" 304 - "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+[2024-03-08T10:00:20.730] [DEBUG] access - http://localhost:9000
+::1 - - [08/Mar/2024:09:00:22 +0000] "GET /api/v2/usuarios/getUserDetailByID/undefined HTTP/1.1" 404 182 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:09:00:27 +0000] "GET /api/v2/usuarios/getUserDetailByID/undefined HTTP/1.1" 404 182 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:09:02:01 +0000] "GET /api/v2/usuarios/getUserDetailByID/undefined HTTP/1.1" 404 182 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:09:04:28 +0000] "GET /api/v2/usuarios/getUserDetailByID/ HTTP/1.1" 404 173 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:09:04:33 +0000] "GET /api/v2/usuarios/getUserDetailByID?userId= HTTP/1.1" 404 172 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+[2024-03-08T10:04:39.410] [DEBUG] access - http://localhost:9000
+::1 - - [08/Mar/2024:09:04:48 +0000] "GET /api/v2/usuarios/getUserDetailByID/65e97c1a098567f5afb4a511 HTTP/1.1" 304 - "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:09:04:49 +0000] "GET /api/v2/usuarios/getAllUser HTTP/1.1" 304 - "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:09:04:52 +0000] "GET /api/v2/usuarios/getUserDetailByID?userId= HTTP/1.1" 404 172 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:09:04:52 +0000] "GET /api/v2/usuarios/getAllUser HTTP/1.1" 200 366 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:09:04:57 +0000] "GET /api/v2/usuarios/getUserDetailByID?userId= HTTP/1.1" 404 172 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:09:05:49 +0000] "GET /api/v2/usuarios/getUserDetailByID?id= HTTP/1.1" 404 172 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:09:05:58 +0000] "GET /api/v2/usuarios/getUserDetailByID?userId= HTTP/1.1" 404 172 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:09:06:25 +0000] "GET /api/v2/usuarios/getUserDetailByID?userId= HTTP/1.1" 404 172 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:09:19:10 +0000] "GET /api/v2/usuarios/getUserDetailByID/undefined HTTP/1.1" 500 54 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:09:19:24 +0000] "GET /api/v2/usuarios/getUserDetailByID/ HTTP/1.1" 404 173 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:09:19:27 +0000] "GET /api/v2/usuarios/getUserDetailByID?userId= HTTP/1.1" 404 172 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+[2024-03-08T10:19:43.125] [DEBUG] access - http://localhost:9000
+::1 - - [08/Mar/2024:09:19:50 +0000] "GET /api/v2/usuarios/getAllUser HTTP/1.1" 304 - "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:09:19:52 +0000] "GET /api/v2/usuarios/getUserDetailByID/65e97c1a098567f5afb4a511 HTTP/1.1" 304 - "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:09:19:59 +0000] "GET /api/v2/usuarios/getUserDetailByID/65e98b46fd86ff1de51b04f6 HTTP/1.1" 200 174 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:09:20:13 +0000] "GET /api/v2/usuarios/getUserDetailByID?userId= HTTP/1.1" 404 172 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:09:20:13 +0000] "GET /api/v2/usuarios/getAllUser HTTP/1.1" 200 366 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:09:20:17 +0000] "GET /api/v2/usuarios/getAllUser HTTP/1.1" 200 366 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:09:20:19 +0000] "POST /api/v2/usuarios/deleteUserByID?userId=undefined HTTP/1.1" 404 170 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:09:20:27 +0000] "GET /api/v2/usuarios/getUserDetailByID?userId=undefined HTTP/1.1" 404 172 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:09:20:31 +0000] "GET /api/v2/usuarios/getAllUser HTTP/1.1" 200 366 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:09:26:09 +0000] "GET /api/v2/usuarios/getAllUser HTTP/1.1" 200 366 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:09:26:12 +0000] "GET /api/v2/usuarios/getAllUser HTTP/1.1" 304 - "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:09:26:14 +0000] "GET / HTTP/1.1" 200 8019 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:09:26:17 +0000] "GET /contacto HTTP/1.1" 200 11849 "http://localhost:9000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+[2024-03-08T10:27:17.438] [DEBUG] access - http://localhost:9000
+::1 - - [08/Mar/2024:09:27:20 +0000] "GET /contacto HTTP/1.1" 404 147 "http://localhost:9000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+[2024-03-08T10:28:07.136] [DEBUG] access - http://localhost:9000
+::1 - - [08/Mar/2024:09:29:59 +0000] "GET /contacto HTTP/1.1" 404 147 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:09:30:04 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:09:30:06 +0000] "GET /contacto HTTP/1.1" 404 147 "http://localhost:9000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+[2024-03-08T10:31:20.502] [DEBUG] access - http://localhost:9000
+::1 - - [08/Mar/2024:09:31:21 +0000] "GET /contacto HTTP/1.1" 200 12063 "http://localhost:9000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:09:32:07 +0000] "GET /contacto/success HTTP/1.1" - - "http://localhost:9000/contacto" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:09:32:11 +0000] "GET /contacto-success HTTP/1.1" 404 155 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+[2024-03-08T10:32:20.202] [DEBUG] access - http://localhost:9000
+::1 - - [08/Mar/2024:09:32:23 +0000] "GET /contacto/success HTTP/1.1" 200 7856 "http://localhost:9000/contacto" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:09:33:29 +0000] "GET /contacto/success HTTP/1.1" 200 7260 "http://localhost:9000/contacto" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:09:33:57 +0000] "GET /contacto HTTP/1.1" 200 12063 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:09:34:09 +0000] "GET /contacto/success HTTP/1.1" 304 - "http://localhost:9000/contacto" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:09:34:40 +0000] "GET /contacto/success HTTP/1.1" 304 - "http://localhost:9000/contacto" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:09:34:51 +0000] "GET /contacto/success HTTP/1.1" 304 - "http://localhost:9000/contacto" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:09:35:00 +0000] "GET /contacto/success HTTP/1.1" 304 - "http://localhost:9000/contacto" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:09:35:04 +0000] "GET /contacto HTTP/1.1" 200 12063 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:09:35:14 +0000] "GET /contacto/success HTTP/1.1" 304 - "http://localhost:9000/contacto" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:09:36:45 +0000] "GET / HTTP/1.1" 304 - "http://localhost:9000/contacto/success" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+[2024-03-08T10:42:37.462] [DEBUG] access - http://localhost:9000
+::1 - - [08/Mar/2024:09:43:28 +0000] "GET / HTTP/1.1" 304 - "http://localhost:9000/contacto/success" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:09:43:42 +0000] "GET / HTTP/1.1" 200 8031 "http://localhost:9000/contacto/success" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:09:43:45 +0000] "GET /valoraciones HTTP/1.1" 200 9885 "http://localhost:9000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:09:45:16 +0000] "GET /valoraciones HTTP/1.1" 200 9994 "http://localhost:9000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:09:45:27 +0000] "GET / HTTP/1.1" 304 - "http://localhost:9000/valoraciones" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:09:45:33 +0000] "GET /contacto HTTP/1.1" 200 12075 "http://localhost:9000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:09:45:46 +0000] "GET /valoraciones HTTP/1.1" 304 - "http://localhost:9000/contacto" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:09:48:07 +0000] "GET /valoraciones HTTP/1.1" 200 10028 "http://localhost:9000/contacto" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:09:50:52 +0000] "GET /valoraciones HTTP/1.1" 200 10128 "http://localhost:9000/contacto" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:09:51:40 +0000] "GET /valoraciones HTTP/1.1" 200 10128 "http://localhost:9000/contacto" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::ffff:127.0.0.1 - - [08/Mar/2024:09:51:46 +0000] "GET /valoraciones HTTP/1.1" 200 10128 "-" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:123.0) Gecko/20100101 Firefox/123.0"
+::1 - - [08/Mar/2024:09:52:03 +0000] "POST /valoraciones HTTP/1.1" 302 86 "http://localhost:9000/valoraciones" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:09:52:03 +0000] "GET /valoraciones/success HTTP/1.1" 200 7281 "http://localhost:9000/valoraciones" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:09:52:06 +0000] "GET /valoraciones HTTP/1.1" 200 10128 "http://localhost:9000/contacto" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:09:52:08 +0000] "POST /valoraciones HTTP/1.1" 302 86 "http://localhost:9000/valoraciones" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:09:52:08 +0000] "GET /valoraciones/success HTTP/1.1" 304 - "http://localhost:9000/valoraciones" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:09:52:10 +0000] "GET /valoraciones HTTP/1.1" 200 10128 "http://localhost:9000/contacto" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+[2024-03-08T10:52:18.887] [DEBUG] access - http://localhost:9000
+::1 - - [08/Mar/2024:09:52:20 +0000] "GET /valoraciones HTTP/1.1" 304 - "http://localhost:9000/contacto" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:09:52:21 +0000] "GET /valoraciones HTTP/1.1" 304 - "http://localhost:9000/contacto" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:09:53:41 +0000] "GET /valoraciones HTTP/1.1" 200 8766 "http://localhost:9000/contacto" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:09:53:45 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:09:53:49 +0000] "GET /valoraciones HTTP/1.1" 304 - "http://localhost:9000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:09:54:24 +0000] "GET /valoraciones HTTP/1.1" 200 8261 "http://localhost:9000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:09:54:27 +0000] "POST /valoraciones HTTP/1.1" 302 86 "http://localhost:9000/valoraciones" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:09:54:27 +0000] "GET /valoraciones/success HTTP/1.1" 200 7684 "http://localhost:9000/valoraciones" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:09:54:39 +0000] "GET /valoraciones HTTP/1.1" 200 8261 "http://localhost:9000/valoraciones/success" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:09:55:25 +0000] "GET /valoraciones HTTP/1.1" 200 9097 "http://localhost:9000/valoraciones/success" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:09:56:05 +0000] "GET /valoraciones HTTP/1.1" 200 9866 "http://localhost:9000/valoraciones/success" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:09:56:07 +0000] "GET /valoraciones HTTP/1.1" 304 - "http://localhost:9000/valoraciones/success" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:09:57:29 +0000] "POST /valoraciones HTTP/1.1" 302 86 "http://localhost:9000/valoraciones" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:09:57:29 +0000] "GET /valoraciones/success HTTP/1.1" 304 - "http://localhost:9000/valoraciones" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:09:58:30 +0000] "GET /valoraciones HTTP/1.1" 200 10035 "http://localhost:9000/valoraciones/success" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:09:58:39 +0000] "GET /valoraciones HTTP/1.1" 200 9866 "http://localhost:9000/valoraciones/success" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:09:59:42 +0000] "GET /valoraciones HTTP/1.1" 200 9878 "http://localhost:9000/valoraciones/success" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:09:59:43 +0000] "GET /valoraciones HTTP/1.1" 304 - "http://localhost:9000/valoraciones/success" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+[2024-03-08T11:08:39.083] [DEBUG] access - http://localhost:9000
+::1 - - [08/Mar/2024:10:08:44 +0000] "GET / HTTP/1.1" 304 - "http://localhost:9000/valoraciones/success" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:10:08:48 +0000] "GET /valoraciones HTTP/1.1" 304 - "http://localhost:9000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:10:11:22 +0000] "GET /valoraciones HTTP/1.1" 200 9987 "http://localhost:9000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:10:11:24 +0000] "POST /valoraciones HTTP/1.1" 302 86 "http://localhost:9000/valoraciones" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:10:11:24 +0000] "GET /valoraciones/success HTTP/1.1" 304 - "http://localhost:9000/valoraciones" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:10:12:34 +0000] "GET /valoraciones HTTP/1.1" 200 9433 "http://localhost:9000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:10:13:55 +0000] "GET /valoraciones HTTP/1.1" 200 10874 "http://localhost:9000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:10:16:13 +0000] "GET /valoraciones HTTP/1.1" 200 10941 "http://localhost:9000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [08/Mar/2024:10:18:15 +0000] "GET /valoraciones HTTP/1.1" 200 10897 "http://localhost:9000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+>>>>>>> master
+[2024-03-08T11:41:36.047] [DEBUG] access - http://localhost:9000

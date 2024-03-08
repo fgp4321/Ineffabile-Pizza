@@ -1,4 +1,3 @@
-//BBDD de reservas en MongoDB
 const mongoose = require("mongoose")
 const mongoConn = mongoose.createConnection()
 

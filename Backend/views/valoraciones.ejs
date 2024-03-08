@@ -1,0 +1,168 @@
+<!-- views/valoraciones.ejs -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valoraciones</title>
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/fontawesome/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11">
+
+
+  <!-- Agregar cualquier otro estilo necesario -->
+
+  <!-- Estilo personalizado para centrar el formulario y ajustar el tamaño -->
+  <style>
+    .center-form {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 10vh; /* Ajusta la altura mínima para centrar el formulario */
+    }
+
+    .custom-form {
+      max-width: 800px; /* Ajusta el ancho máximo del formulario */
+      width: 100%;
+    }
+
+    .img-fluid {
+      width: 100px;
+      height: 100px;
+    }
+    
+    .form-group {
+      margin-bottom: 20px; /* Ajusta el espacio entre campos del formulario */
+    }
+
+    .slider-container {
+      margin-top: 20px;
+      width: 80%;
+      position: relative;
+    }
+
+    #rating {
+      width: 100%;
+      -webkit-appearance: none;
+      appearance: none;
+      height: 10px;
+      background: #d3d3d3;
+      outline: none;
+      opacity: 0.7;
+      -webkit-transition: .2s;
+      transition: opacity .2s;
+    }
+
+    #rating::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      background: #4CAF50;
+      cursor: pointer;
+      margin-top: -5px;
+    }
+
+    #rating::-moz-range-thumb {
+      width: 20px;
+      height: 20px;
+      background: #4CAF50;
+      cursor: pointer;
+      margin-top: -5px;
+    }
+
+    .slider-markers {
+      position: absolute;
+      top: -35px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 10px; /* Ajusta el espacio alrededor de los marcadores */
+    }
+
+    .slider-markers span {
+      font-size: 20px;
+    }
+
+    #sliderValue {
+      display: inline-block;
+      margin-left: 10px;
+    }
+  </style>
+</head>
+
+<body class="bg-light">
+
+  <!-- Incluir el navbar -->
+  <%- include('./partials/navbar.ejs') %>
+
+  <!-- Contenido del formulario -->
+  <div class="container center-form">
+    <form class="custom-form" action="/valoraciones" method="post">
+      <h2 class="text-center mb-4">Valoraciones</h2>
+
+      <div class="form-group">
+        <label for="rating">Valoración:</label>
+        <div class="slider-container">
+          <input type="range" class="form-control-range" id="rating" name="rating" min="0" max="10" step="1" value="5">
+          <div class="slider-markers">
+            <span>😢</span>
+            <span>😐</span>
+            <span>😎</span>
+          </div>
+          <span id="sliderValue">5</span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="message">Comentarios:</label>
+        <textarea class="form-control" id="message" name="message" rows="4" placeholder="Escribe tus comentarios aquí"></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Enviar Valoración</button>
+    </form>
+  </div>
+  <br>
+  <br>
+
+  <!-- Incluir el footer -->
+  <%- include('./partials/footer.ejs') %>
+
+  <script src="/fontawesome/js/all.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var slider = document.getElementById("rating");
+      var sliderValue = document.getElementById("sliderValue");
+      var sliderMarkers = document.querySelectorAll('.slider-markers span');
+
+      slider.addEventListener("input", function () {
+        sliderValue.textContent = slider.value;
+      });
+
+      // Actualizar emoticonos cuando cambia el valor
+      slider.addEventListener("input", function () {
+        var value = parseInt(slider.value);
+        sliderMarkers.forEach((marker, index) => {
+          marker.innerHTML = index * 5 === value ? "😢" : index * 5 < value ? "😐" : "😎";
+        });
+      });
+
+      // Selecciona el formulario y agrega un evento de envío
+      var form = document.querySelector('.custom-form');
+      form.addEventListener('submit', function (event) {
+        // Detén el envío del formulario por defecto
+        event.preventDefault();
+  
+        // Obtiene el valor del slider y otros datos del formulario
+        var rating = slider.value;
+        var message = form.querySelector('#message').value.trim();
+        // Puedes agregar aquí el código para enviar la valoración al servidor si es necesario
+        // form.submit();
+      });
+    });
+  </script>
+</body>
+</html>

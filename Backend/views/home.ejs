@@ -1,0 +1,53 @@
+<!-- views/home.ejs -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inicio</title>
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/fontawesome/css/all.min.css">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+</head>
+
+<body class="bg-light">
+
+  <!-- Incluir el navbar -->
+<%- include('./partials/navbar.ejs') %>
+
+
+<div class="container mt-3">
+  <!-- Menú desplegable de categorías -->
+  <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="categoriasDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="dropdown-menu fade" aria-labelledby="categoriasDropdown">
+      <!-- Mock data para categorías y subcategorías -->
+      <h6 class="dropdown-header">Categoría 1</h6>
+      <a class="dropdown-item" href="#">Subcategoría 1.1</a>
+      <a class="dropdown-item" href="#">Subcategoría 1.2</a>
+      <div class="dropdown-divider"></div>
+      
+      <h6 class="dropdown-header">Categoría 2</h6>
+      <a class="dropdown-item" href="#">Subcategoría 2.1</a>
+      <a class="dropdown-item" href="#">Subcategoría 2.2</a>
+      <!-- Añade más categorías y subcategorías según sea necesario -->
+    </div>
+  </div>
+</div>
+
+<br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br>
+
+
+  <%- include('./partials/footer.ejs') %>
+
+  <script src="/fontawesome/js/all.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js"></script>
+  <!-- Elimina una de las siguientes líneas dependiendo de tus necesidades -->
+  <!-- script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script -->
+  <script src="/js/bootstrap.bundle.min.js"></script></body>
+</html>

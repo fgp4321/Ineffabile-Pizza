@@ -25,6 +25,10 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    telefono: {
+        type: String,
+        required: true
+    },
     rol: {
         type: String,
         required: true,
@@ -35,32 +39,35 @@ const userSchema = new mongoose.Schema({
 const User = mongoose.model("User", userSchema)
 
 //Registrar Usuarios
-User.create = async function(newUser, result){
-    await newUser.save()
-    .then(function(data){
-        result(data, null)
-    }).catch(function(err){
-        result(null, err)
-    })
-}
+User.create = async (nuevoUsuario) => {
+    try {
+        const usuarioCreado = await User.create(nuevoUsuario)
+        return nuevoUsuario;
+    } catch (error) {
+        throw error
+    }
+};
 
 //Auxiliar para Login
-User.findById = async function(id_param, result){
-    const userFound = await User.findOne({ _id: id_param})
-    if(userFound){
-        result(userFound,null)
-    }else{
-        result(null, {"err":"No hay usuarios con ese ID"})
+User.buscarPorId = async function (usuarioId) {
+    try {
+        const usuario = await User.findById(usuarioId)
+        if (usuario) {
+            return usuario
+        } else {
+            return null
+        }
+    } catch (error) {
+        throw error
     }
-}
+};
 
-
-User.findUsers = async function(result){
-    const users = await User.find()
-    if(users){
-        result(users,null)
-    }else{
-        result(null, {"err":"No hay usuarios en la base de datos"})
+User.findUsers = async function(){
+    try {
+        const usuarios = await User.find()
+        return usuarios
+    } catch (error) {
+        throw error;
     }
 }
 
@@ -77,11 +84,24 @@ User.actualizarUser = async function (userId, datosActualizados) {
     }
 };
 
-User.eliminarUser = async function (userId) {
+User.actualizarUsuario = async function (userId, datosActualizados) {
     try {
-        const userEliminado = await User.findByIdAndDelete(userId)
-        if (userEliminado) {
-            return userEliminado
+        const usuarioActualizado = await User.findByIdAndUpdate(userId, datosActualizados, { new: true })
+        if (usuarioActualizado) {
+            return usuarioActualizado
+        } else {
+            return null
+        }
+    } catch (error) {
+        throw error
+    }
+};
+
+User.eliminarUsuario = async function (usuarioId) {
+    try {
+        const usuarioEliminado = await User.findByIdAndDelete(usuarioId)
+        if (usuarioEliminado) {
+            return usuarioEliminado
         } else {
             return null
         }

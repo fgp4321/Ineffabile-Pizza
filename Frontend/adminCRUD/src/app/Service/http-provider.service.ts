@@ -1,3 +1,4 @@
+// http-provider-service.ts
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
@@ -6,10 +7,11 @@ import { WebApiService } from './web-api.service';
 var apiUrl = "http://localhost:9000";
 
 var httpLink = {
-  getAllUser: apiUrl + "/api/v2/usuarios",
+  getAllUser: apiUrl + "/api/v2/usuarios/getAllUser",
   deleteUserByID: apiUrl + "/api/v2/usuarios/deleteUserByID",
   getUserDetailByID: apiUrl + "/api/v2/usuarios/getUserDetailByID",
-  saveUser: apiUrl + "/api/v2/usuarios/saveUser"
+  saveUser: apiUrl + "/api/v2/usuarios/saveUser",
+  editUser: apiUrl + "/api/v2/usuarios/editUser",
 }
 
 @Injectable({
@@ -49,6 +51,15 @@ export class HttpProviderService {
     return this.webApiService.post(httpLink.saveUser, model).pipe(
       catchError(error => {
         console.error('Error en la solicitud saveUser:', error);
+        return throwError(error);
+      })
+    );
+  }
+
+  public editUser(userId: string, model: any): Observable<any> {
+    return this.webApiService.put(`${httpLink.editUser}/${userId}`, model).pipe(
+      catchError(error => {
+        console.error('Error en la solicitud editUser:', error);
         return throwError(error);
       })
     );

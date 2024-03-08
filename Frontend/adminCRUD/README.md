@@ -2,6 +2,8 @@ npm install @angular/cli@13.2
 npm i
 npx ng serve
 
+nvm use 14.15
+
 # AdminCRUD
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.6.

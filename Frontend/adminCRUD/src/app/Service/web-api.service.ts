@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from "@angular/common/http";
 import { Observable, throwError } from "rxjs";
-import { map } from "rxjs/operators";
-import { catchError } from "rxjs/internal/operators/catchError";
+import { map, catchError } from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +9,7 @@ import { catchError } from "rxjs/internal/operators/catchError";
 export class WebApiService {
   constructor(private httpClient: HttpClient) { }
 
-  //GET call
+  // GET call
   get(url:string): Observable<any> {
     const httpOptions = {
       headers: new HttpHeaders({
@@ -30,6 +29,7 @@ export class WebApiService {
     )
   }
 
+  // POST call
   post(url: string, model: any): Observable<any> {
     const httpOptions = {
       headers: new HttpHeaders({
@@ -47,6 +47,25 @@ export class WebApiService {
       
     );
   }
+
+  // PUT call
+  put(url: string, model: any): Observable<any> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      }), 
+      observe: "response" as 'body'
+    };
+    return this.httpClient.put(  
+      url,
+      model,
+      httpOptions)
+      .pipe(
+        map((response: any) => this.ReturnResponseData(response)),
+        catchError(this.handleError)
+      
+    );
+  }
   
   private ReturnResponseData(response: any) {
     return response;
@@ -55,6 +74,4 @@ export class WebApiService {
   private handleError(error: any) {
     return throwError(error);
   }
-
-
 }
