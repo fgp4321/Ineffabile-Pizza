@@ -143,7 +143,24 @@ app.get('/contacto/success', (req, res) => {
     res.render('contacto-success.ejs');
 });
 
+app.get('/valoraciones', (req, res) => {
+    res.render('valoraciones.ejs');
+});
 
+// Ruta para manejar el envío del formulario de valoraciones
+app.post('/valoraciones', bodyParser.urlencoded({ extended: true }), (req, res) => {
+    const { stars, message } = req.body;
+
+    // Puedes agregar aquí el código para almacenar la valoración en la base de datos o realizar otras acciones
+
+    // Redirige a la página de éxito
+    res.redirect('/valoraciones/success');
+});
+
+// Ruta para la página de éxito después de enviar la valoración
+app.get('/valoraciones/success', (req, res) => {
+    res.render('valoraciones-success.ejs');
+});
 
 
 app.use(errorHandler)
