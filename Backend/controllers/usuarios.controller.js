@@ -77,64 +77,65 @@ exports.logout = (req, res) => {
 
 //CRUD
 exports.buscarTodosUsuarios = wrapAsync(async (req, res) => {
-    await User.findUsers((error, usuarios) => {
-        if (error) {
-            res.status(500).json(error);
-        } else {
-            res.status(200).json(usuarios);
-        }
-    });
+    try {
+        const usuarios = await User.findUsers()
+        res.status(200).json(usuarios)
+    } catch (error) {
+        res.status(500).json({ error: "Error al obtener los usuarios" })
+    }
 });
 
 exports.buscarPorId = wrapAsync(async (req, res) => {
     const { id } = req.params;
-    await User.findById(id, (error, usuario) => {
-        if (error) {
-            res.status(500).json(error);
+    try {
+        const usuario = await User.buscarPorId(id);
+        if (usuario) {
+            res.status(200).json(usuario);
         } else {
-            if (usuario) {
-                res.status(200).json(usuario);
-            } else {
-                res.status(404).json({ msg: "Usuario no encontrado" });
-            }
+            res.status(404).json({ msg: "Usuario no encontrado" });
         }
-    });
+    } catch (error) {
+        console.error("Error al obtener el usuario por ID:", error);
+        res.status(500).json({ error: "Error interno al obtener el usuario por ID" });
+    }
 });
 
 exports.crearUsuario = wrapAsync(async (req, res) => {
-    const nuevoUsuario = new User(req.body);
-    await User.create(nuevoUsuario, (error, usuarioCreado) => {
-        if (error) {
-            res.status(500).json(error);
-        } else {
-            res.status(200).json(usuarioCreado);
-        }
-    });
+    const nuevoUsuario = req.body
+    try {
+        const usuarioCreado = await User.create(nuevoUsuario)
+        res.status(200).json(usuarioCreado)
+    } catch (error) {
+        res.status(500).json({ error: "Error al crear al usuario" })
+    }
 });
+
 
 exports.actualizarUsuario = wrapAsync(async (req, res) => {
-    const usuarioParaActualizar = new User(req.body);
-    const { id } = req.params;
-    await User.actualizarUser(id, usuarioParaActualizar, (error, usuarioActualizado) => {
-        if (error) {
-            res.status(500).json(error);
+    const { id } = req.params
+    const datosActualizados = req.body
+    try {
+        const usuarioActualizado = await User.actualizarUsuario(id, datosActualizados)
+        if (usuarioActualizado) {
+            res.status(200).json(usuarioActualizado)
         } else {
-            if (usuarioActualizado) {
-                res.status(200).json(usuarioActualizado);
-            } else {
-                res.status(404).json({ msg: "Usuario no encontrado" });
-            }
+            res.status(404).json({ msg: "Usuario no encontrado" })
         }
-    });
-});
+    } catch (error) {
+        res.status(500).json({ error: "Error al actualizar usuario" })
+    }
+})
 
 exports.eliminarUsuario = wrapAsync(async (req, res) => {
-    const { id } = req.params;
-    await User.eliminarUser(id, (error, usuarioEliminado) => {
-        if (error) {
-            res.status(500).json(error);
+    const { id } = req.params
+    try {
+        const usuarioEliminado = await User.eliminarUsuario(id)
+        if (usuarioEliminado) {
+            res.status(200).json(usuarioEliminado)
         } else {
-            res.status(200).json(usuarioEliminado);
+            res.status(404).json({ msg: "Usuario no encontrada" })
         }
-    });
-});
+    } catch (error) {
+        res.status(500).json({ error: "Error al eliminar el usuario" })
+    }
+})

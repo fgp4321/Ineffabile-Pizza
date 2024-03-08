@@ -33,7 +33,7 @@ const addMorganToLogger = morgan("combined", {
 })
 
 //Rutas permitidas para CORS
-const whiteList = ["http://localhost:9000/api/v2/usuarios","http://localhost:4200"]
+const whiteList = ["http://localhost:4200"]
 
 const corsOptions = {
     origin: (origin,callback) => {
@@ -105,19 +105,43 @@ app.post('/subscribe', bodyParser.urlencoded({ extended: true }), (req, res) => 
     // Mostrar una alerta con SweetAlert2 indicando la suscripción exitosa y redirigir a /newsletter/success
     res.send('<script>alert("Te has suscrito satisfactoriamente al newsletter."); window.location="/newsletter/success";</script>')
     res.redirect('/newsletter/success');
-  });
+});
   
   // Ruta para la página /newsletter
-  app.get('/newsletter/success', (req, res) => {
+app.get('/newsletter/success', (req, res) => {
     res.render('newsletter-success.ejs');
-  });
+});
 
 
 
 
 app.get('/contacto', (req, res) => {
-    res.render('contacto.ejs')
-})
+    res.render('contacto.ejs', { error: req.query.error });
+});
+
+// Ruta para manejar el envío del formulario de contacto
+app.post('/contacto', bodyParser.urlencoded({ extended: true }), (req, res) => {
+    const { nombre, email, mensaje } = req.body;
+
+    // Valida los campos del formulario
+    if (!nombre || !email || !mensaje) {
+        // Si algún campo está vacío, redirige a la página de contacto con un mensaje de error
+        res.redirect('/contacto?error=empty-fields');
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        // Si el formato del correo electrónico es incorrecto, redirige a la página de contacto con un mensaje de error
+        res.redirect('/contacto?error=invalid-email');
+    } else {
+        // Puedes agregar aquí el código para guardar el mensaje en la base de datos o enviar notificaciones, etc.
+
+        // Redirige a la página de éxito
+        res.redirect('/contacto/success');
+    }
+});
+
+// Ruta para la página de éxito después de enviar el formulario de contacto
+app.get('/contacto/success', (req, res) => {
+    res.render('contacto-success.ejs');
+});
 
 
 

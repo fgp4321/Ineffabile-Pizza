@@ -140,11 +140,15 @@
                     icon: 'success',
                     title: 'Mensaje Enviado',
                     text: 'Tu mensaje ha sido enviado correctamente. Comprueba tu bandeja de entrada en los próximos días.',
-                    timer: 3000,
+                    timer: 2350,
                     timerProgressBar: true,
                     showConfirmButton: false,
                     didOpen: () => {
                         Swal.showLoading();
+                    },
+                    // Redirige a la página de éxito después de cerrar la alerta
+                    willClose: () => {
+                        window.location.href = '/contacto/success';
                     },
                 });
 
