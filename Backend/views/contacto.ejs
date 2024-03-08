@@ -177,9 +177,18 @@
           attribution: '© OpenStreetMap contributors'
       }).addTo(map);
 
-      L.marker([38.63944449527361, -0.8644422700067568]).addTo(map)
-          .bindPopup('Innefabile')
-          .openPopup();
+      var marker = L.marker([38.63944449527361, -0.8644422700067568]).addTo(map);
+
+      // Contenido personalizado del popup
+      var popupContent = `
+        <div>
+          <h4>Innefabile</h4>
+          <img src="/images/logo3.png" alt="Local Image" style="width: 100%; max-width: 200px;">
+          <p>Teléfono: +34 692 158 742</p>
+        </div>
+      `;
+
+      marker.bindPopup(popupContent).openPopup();
     });
 </script>
 </body>
