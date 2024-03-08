@@ -103,14 +103,15 @@
 
       <div class="form-group">
         <label for="rating">Valoración:</label>
+        <br>
+        <br>
         <div class="slider-container">
           <input type="range" class="form-control-range" id="rating" name="rating" min="0" max="10" step="1" value="5">
           <div class="slider-markers">
-            <span>😢</span>
-            <span>😐</span>
-            <span>😎</span>
+            <span>😢0</span>
+            <span>😐5</span>
+            <span>😎10</span>
           </div>
-          <span id="sliderValue">5</span>
         </div>
       </div>
 
@@ -132,37 +133,5 @@
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      var slider = document.getElementById("rating");
-      var sliderValue = document.getElementById("sliderValue");
-      var sliderMarkers = document.querySelectorAll('.slider-markers span');
-
-      slider.addEventListener("input", function () {
-        sliderValue.textContent = slider.value;
-      });
-
-      // Actualizar emoticonos cuando cambia el valor
-      slider.addEventListener("input", function () {
-        var value = parseInt(slider.value);
-        sliderMarkers.forEach((marker, index) => {
-          marker.innerHTML = index * 5 === value ? "😢" : index * 5 < value ? "😐" : "😎";
-        });
-      });
-
-      // Selecciona el formulario y agrega un evento de envío
-      var form = document.querySelector('.custom-form');
-      form.addEventListener('submit', function (event) {
-        // Detén el envío del formulario por defecto
-        event.preventDefault();
-  
-        // Obtiene el valor del slider y otros datos del formulario
-        var rating = slider.value;
-        var message = form.querySelector('#message').value.trim();
-        // Puedes agregar aquí el código para enviar la valoración al servidor si es necesario
-        // form.submit();
-      });
-    });
-  </script>
 </body>
 </html>

@@ -162,6 +162,10 @@ app.get('/valoraciones/success', (req, res) => {
     res.render('valoraciones-success.ejs');
 });
 
+app.get('/mapa', (req, res) => {
+    res.render('map.ejs');
+});
+
 
 app.use(errorHandler)
 

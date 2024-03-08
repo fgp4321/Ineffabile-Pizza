@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="/css/bootstrap.min.css">
   <link rel="stylesheet" href="/fontawesome/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11">
+  <link rel="stylesheet" href="/leaflet/leaflet.css"/>
+
   <!-- Agregar cualquier otro estilo necesario -->
 
   <!-- Estilo personalizado para centrar el formulario y ajustar el tamaño -->
@@ -28,9 +30,22 @@
       width: 100px;
       height: 100px;
     }
+
+    .img-fluid-map {
+      width: 100px;
+      height: 100px;
+      margin-left: 70px
+    }
     
     .form-group {
       margin-bottom: 20px; /* Ajusta el espacio entre campos del formulario */
+    }
+
+    #map {
+      height: 300px; /* Ajusta la altura del mapa según tus necesidades */
+      width: 100%;   /* Ajusta el ancho del mapa al 100% del contenedor */
+      border: 1px solid #ddd; /* Agrega un borde para mejor visualización */
+      margin-left: 50px; /* Ajusta el margen izquierdo del mapa */
     }
   </style>
 </head>
@@ -76,12 +91,8 @@
   <div class="row mt-5">
     <!-- Columna 1: Ubicación -->
     <div class="col-md-4 text-center">
-      <img src="/images/maps2.png" alt="Ubicación" class="img-fluid">
-      <div class="embed-responsive embed-responsive-16by9 mt-3">
-        <iframe class="embed-responsive-item" 
-                src="https://www.google.com/maps/embed/v1/place?key=YOUR_API_KEY&PARAMETERS"
-                allowfullscreen="" loading="lazy"></iframe>
-      </div>
+      <img src="/images/maps2.png" alt="Ubicación" class="img-fluid-map">
+        <div id="map"></div>
     </div>
 
     <!-- Columna 2: Horario -->
@@ -93,7 +104,7 @@
 
     <!-- Columna 3: Teléfono -->
     <div class="col-md-4 text-center">
-        <img src="/images/telefono.png" alt="Teléfono" class="img-fluid">
+        <img src="/images/telefono.png" alt="Teléfono" width="90px" height="90px">
         <p class="mt-3">Teléfono:</p>
         <p>+34 692 158 742</p>
     </div>
@@ -107,6 +118,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="/leaflet/leaflet.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function () {
         // Selecciona el formulario y agrega un evento de envío
@@ -156,6 +168,18 @@
                 // form.submit();
             }
         });
+    });
+    
+    document.addEventListener('DOMContentLoaded', function () {
+      var map = L.map('map').setView([38.63944449527361, -0.8644422700067568], 13); // Nuevas coordenadas y nivel de zoom
+
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: '© OpenStreetMap contributors'
+      }).addTo(map);
+
+      L.marker([38.63944449527361, -0.8644422700067568]).addTo(map)
+          .bindPopup('Innefabile')
+          .openPopup();
     });
 </script>
 </body>
