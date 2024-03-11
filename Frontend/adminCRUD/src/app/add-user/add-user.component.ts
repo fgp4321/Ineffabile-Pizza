@@ -10,46 +10,63 @@ import { HttpProviderService } from "../Service/http-provider.service";
   styleUrls: ['./add-user.component.scss']
 })
 export class AddUserComponent implements OnInit {
-  addUserForm: userForm = new userForm()
+  addUserForm: UserForm = new UserForm();
 
   @ViewChild("userForm")
-  userForm!: NgForm
-  isSubmitted: boolean = false
+  userForm!: NgForm;
+  isSubmitted: boolean = false;
+
   constructor(private router: Router, private httpProvider: HttpProviderService, private toastr: ToastrService) { }
 
   ngOnInit(): void {}
 
-  AddUser(isValid: any){
-    this.isSubmitted = true
+  AddUser(isValid: any) {
+    this.isSubmitted = true;
     if (isValid) {
       this.httpProvider.saveUser(this.addUserForm).subscribe(async data => {
         if (data != null && data.body != null) {
-          if (data != null && data.body != null) {
-            var resultData = data.body
-            if (resultData != null && resultData.isSuccess) {
-              this.toastr.success(resultData.message)
-              setTimeout(()=>{
-                this.router.navigate(['/Home'])
-              }, 500)
-            }
+          var resultData = data.body;
+          if (resultData != null && resultData.isSuccess) {
+            this.toastr.success(resultData.message);
+            setTimeout(() => {
+              this.router.navigate(['/Home']);
+            }, 500);
           }
         }
       },
       async error => {
-        this.toastr.error(error.message)
-        setTimeout(()=>{
-          this.router.navigate(['/Home'])
-        },500)
-      })
+        this.toastr.error(error.message);
+        setTimeout(() => {
+          this.router.navigate(['/Home']);
+        }, 500);
+      });
     }
   }
+
+  togglePasswordVisibility(): void {
+    const passwordInput = document.getElementById('password') as HTMLInputElement;
+    const eyeIcon = document.querySelector('.password-input-container i') as HTMLElement;
+
+    if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        eyeIcon.classList.remove('fa-eye');
+        eyeIcon.classList.add('fa-eye-slash');
+    } else {
+        passwordInput.type = 'password';
+        eyeIcon.classList.remove('fa-eye-slash');
+        eyeIcon.classList.add('fa-eye');
+    }
+}
 }
 
 
-export class userForm {
-  nombre: string = ""
-  apellido: string = ""
-  username: string = ""
-  email: string = ""
-  telefono: string = ""
+
+export class UserForm {
+  nombre: string = "";
+  apellido: string = "";
+  username: string = "";
+  email: string = "";
+  password: string = "";
+  telefono: string = "";
+  rol: string[] = []; // Updated to store multiple roles
 }

@@ -64,3 +64,18 @@
         }
     }
 }
+.password-input-container {
+    position: relative;
+  }
+  
+  .password-input-container input {
+    padding-right: 30px; /* Ajusta el espacio para el ícono */
+  }
+  
+  .password-input-container i {
+    position: absolute;
+    top: 50%;
+    right: 10px; /* Ajusta la posición del ícono a la derecha */
+    transform: translateY(-50%);
+    cursor: pointer;
+  }

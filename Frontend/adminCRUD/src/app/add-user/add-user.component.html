@@ -75,6 +75,23 @@
                     
                     <div class="form-group p-10 row">
                         <div class="col-sm-3">
+                            <label for="password" class="p-t-b-10">Contraseña<span class="requiredStar">*</span></label>
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="password-input-container">
+                                <input type="password" class="form-control" id="password" required maxlength="255" [(ngModel)]="addUserForm.password" name="password" #password="ngModel">
+                                <i class="fas fa-eye" (click)="togglePasswordVisibility()"></i>
+                            </div>
+                            <div *ngIf="password.errors && isSubmitted" class="alert alert-danger validationError">
+                                <div [hidden]="!password.errors?.['required']">
+                                    Contraseña es un campo obligatorio
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group p-10 row">
+                        <div class="col-sm-3">
                             <label class="p-t-b-10">Teléfono<span class="requiredStar">*</span></label>
                         </div>
                         <div class="col-sm-9">
@@ -91,6 +108,25 @@
                                 <div [hidden]="!telefono.errors?.['pattern']">
                                     Teléfono incorrecto. Compruebe los dígitos e inténtelo de nuevo
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group p-10 row">
+                        <div class="col-sm-3">
+                            <label for="rol" class="p-t-b-10">Rol<span class="requiredStar">*</span></label>
+                        </div>
+                        <div class="col-sm-9">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" id="admin" [(ngModel)]="addUserForm.rol" name="rol" value="ADMIN">
+                                <label class="form-check-label" for="admin">Admin</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" id="user" [(ngModel)]="addUserForm.rol" name="rol" value="USER">
+                                <label class="form-check-label" for="user">User</label>
+                            </div>
+                            <div *ngIf="!addUserForm.rol && isSubmitted" class="alert alert-danger validationError">
+                                Rol es un campo obligatorio
                             </div>
                         </div>
                     </div>
