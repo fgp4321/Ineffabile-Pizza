@@ -30,8 +30,23 @@
                         <td><span>{{ userDetail.email }}</span></td>
                     </tr>
                     <tr>
+                        <td><label><b>Contraseña</b></label></td>
+                        <td>
+                            <div class="password-container">
+                                <input [type]="showPassword ? 'text' : 'password'" value="{{ userDetail.password }}" readonly>
+                                <button (click)="togglePasswordVisibility()" class="toggle-password">
+                                    <i class="fa" [ngClass]="{'fa-eye': !showPassword, 'fa-eye-slash': showPassword}"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
                         <td><label><b>Teléfono</b></label></td>
                         <td><span>{{ userDetail.telefono }}</span></td>
+                    </tr>
+                    <tr>
+                        <td><label><b>Rol</b></label></td>
+                        <td><span>{{ userDetail.rol }}</span></td>
                     </tr>
                 </tbody>
             </table>

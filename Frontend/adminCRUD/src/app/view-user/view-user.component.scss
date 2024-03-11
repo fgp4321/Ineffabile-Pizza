@@ -49,3 +49,23 @@
         }
     }
 }
+
+.password-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  .password-container input {
+    border: none;
+    border-bottom: 1px solid #ccc; /* Puedes ajustar el color y el grosor del borde según tus preferencias */
+    padding-right: 30px; /* Ajusta según sea necesario */
+  }
+  
+  .password-container .toggle-password {
+    position: absolute;
+    right: 5px; /* Ajusta según sea necesario */
+    background: none;
+    border: none;
+    cursor: pointer;
+  }

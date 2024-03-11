@@ -11,6 +11,7 @@ import { WebApiService } from "../Service/web-api.service";
 export class ViewUserComponent implements OnInit {
   userId: any
   userDetail: any = []
+  showPassword: boolean = false;
 
   constructor(public webApiService: WebApiService, private route: ActivatedRoute, private httpProvider: HttpProviderService) { }
 
@@ -35,5 +36,8 @@ export class ViewUserComponent implements OnInit {
     );
   }
 
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
+  }
 
 }
