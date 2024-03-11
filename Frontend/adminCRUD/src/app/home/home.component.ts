@@ -83,7 +83,7 @@ export class HomeComponent implements OnInit {
   }
 
   deleteUser(user: any){
-    this.httpProvider.deleteUserByID(user.id).subscribe((data:any)=>{
+    this.httpProvider.deleteUserByID(user._id).subscribe((data:any)=>{
       if (data != null && data.body != null) {
         var resultData = data.body
         if (resultData != null && resultData.isSuccess) {

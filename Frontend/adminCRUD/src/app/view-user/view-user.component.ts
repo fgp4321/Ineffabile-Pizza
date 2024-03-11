@@ -15,20 +15,25 @@ export class ViewUserComponent implements OnInit {
   constructor(public webApiService: WebApiService, private route: ActivatedRoute, private httpProvider: HttpProviderService) { }
 
   ngOnInit(): void {
-    this.userId = this.route.snapshot.params[this.userId]
-    this.getUserDetailByID()
+    this.userId = this.route.snapshot.params['userId']
+    this.getUserDetailByID();
   }
 
   getUserDetailByID(){
-    this.httpProvider.getUserDetailByID(this.userDetail).subscribe((data: any)=>{
-      if (data != null && data.body != null) {
-        var resultData = data.body
-        if (resultData) {
-          this.userDetail = resultData
+    this.httpProvider.getUserDetailByID(this.userId).subscribe(
+      (data: any) => {
+        if (data != null && data.body != null) {
+          var resultData = data.body;
+          if (resultData) {
+            this.userDetail = resultData;
+          }
         }
+      },
+      (error: any) => {
+        console.error('Error obteniendo detalles del usuario:', error);
       }
-    },
-    (error: any)=>{})
+    );
   }
+
 
 }

@@ -32,8 +32,8 @@
                         <td>{{ user.email }}</td>
                         <td>{{ user.telefono }}</td>
                         <td>
-                            <a href="#" [routerLink]="['/ViewUser/', user.id]" class="btn"><i class="fas fa-eye view"></i></a>
-                            <a href="#" [routerLink]="['/EditUser/', user.id]" class="btn"><i class="fa fa-edit edit"></i></a>
+                            <a href="#" [routerLink]="['/ViewUser/', user._id]" class="btn"><i class="fas fa-eye view"></i></a>
+                            <a href="#" [routerLink]="['/EditUser/', user._id]" class="btn"><i class="fa fa-edit edit"></i></a>
                             <button type="button" (click)="deleteUserConfirmation(user)" class="btn"><i class="fas fa-trash-alt delete"></i></button>
                         </td>
                     </tr>

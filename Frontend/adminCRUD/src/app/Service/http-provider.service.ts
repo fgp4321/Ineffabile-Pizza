@@ -38,8 +38,8 @@ export class HttpProviderService {
     );
   }
 
-  public getUserDetailByID(model: any): Observable<any> {
-    return this.webApiService.get(`${httpLink.getUserDetailByID}?userId=${model}`).pipe(
+  public getUserDetailByID(userId: string): Observable<any> {
+    return this.webApiService.get(`${httpLink.getUserDetailByID}/${userId}`).pipe(
       catchError(error => {
         console.error('Error en la solicitud getUserDetailByID:', error);
         return throwError(error);
@@ -49,12 +49,12 @@ export class HttpProviderService {
 
   public saveUser(model: any): Observable<any> {
     return this.webApiService.post(httpLink.saveUser, model).pipe(
-      catchError(error => {
-        console.error('Error en la solicitud saveUser:', error);
-        return throwError(error);
-      })
+        catchError(error => {
+            console.error('Error en la solicitud saveUser:', error);
+            return throwError(error);
+        })
     );
-  }
+}
 
   public editUser(userId: string, model: any): Observable<any> {
     return this.webApiService.put(`${httpLink.editUser}/${userId}`, model).pipe(

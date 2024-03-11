@@ -39,7 +39,7 @@ const userSchema = new mongoose.Schema({
 const User = mongoose.model("User", userSchema)
 
 //Registrar Usuarios
-User.create = async (nuevoUsuario) => {
+User.crearUsuario = async (nuevoUsuario) => {
     try {
         const usuarioCreado = await User.create(nuevoUsuario)
         return nuevoUsuario;
@@ -70,19 +70,6 @@ User.findUsers = async function(){
         throw error;
     }
 }
-
-User.actualizarUser = async function (userId, datosActualizados) {
-    try {
-        const userActualizado = await User.findByIdAndUpdate(userId, datosActualizados, { new: true })
-        if (userActualizado) {
-            return userActualizado
-        } else {
-            return null
-        }
-    } catch (error) {
-        throw error
-    }
-};
 
 User.actualizarUsuario = async function (userId, datosActualizados) {
     try {
