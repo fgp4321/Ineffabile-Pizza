@@ -174,6 +174,18 @@ app.get('/productos/pizzas', (req, res) => {
     res.render('pizzas.ejs');
 });
 
+app.get('/productos/pastas', (req, res) => {
+    res.render('pastas.ejs');
+});
+
+app.get('/productos/postres', (req, res) => {
+    res.render('postres.ejs');
+});
+
+app.get('/productos/bebidas', (req, res) => {
+    res.render('bebidas.ejs');
+});
+
 
 
 
