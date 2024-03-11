@@ -18,6 +18,7 @@ export class EditUserComponent implements OnInit {
 
   isSubmitted: boolean = false
   userId: any
+  showPassword: boolean = false;
 
   constructor(private toastr: ToastrService, private route: ActivatedRoute, private router: Router, private httpProvider: HttpProviderService) { }
 
@@ -42,37 +43,43 @@ export class EditUserComponent implements OnInit {
     (error:any) => { })
   }
 
-  EditUser(isValid: any){
-    this.isSubmitted = true
+  EditUser(isValid: any) {
+    this.isSubmitted = true;
+  
     if (isValid) {
-      this.httpProvider.saveUser(this.editUserForm).subscribe(async data =>{
-        if (data != null && data.body != null) {
-          var resultData = data.body
-          if (resultData != null && resultData.isSuccess) {
+      this.httpProvider.editUser(this.userId, this.editUserForm).subscribe(
+        async (data) => {
+          if (data != null && data.body != null) {
+            var resultData = data.body;
             if (resultData != null && resultData.isSuccess) {
-              this.toastr.success(resultData.message)
-              setTimeout(()=>{
-                this.router.navigate(['/Home'])
-              },500)
+              this.toastr.success(resultData.message);
+              setTimeout(() => {
+                this.router.navigate(['/Home']);
+              }, 500);
             }
           }
+        },
+        async (error) => {
+          this.toastr.error(error.message);
+          setTimeout(() => {
+            this.router.navigate(['/Home']);
+          }, 500);
         }
-      },
-      async error => {
-        this.toastr.error(error.message)
-        setTimeout(()=>{
-          this.router.navigate(['/Home'])
-        },500)
-      }
-      )
+      );
     }
+  }
+
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
   }
 }
 
 export class userForm {
-  nombre: string = ""
-  apellido: string = ""
-  username: string = ""
-  email: string = ""
-  telefono: string = ""
+  nombre: string = "";
+  apellido: string = "";
+  username: string = "";
+  email: string = "";
+  password: string = "";
+  telefono: string = "";
+  rol: string[] = []; // Updated to store multiple roles
 }

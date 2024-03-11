@@ -74,6 +74,22 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="form-group p-10 row">
+                        <div class="col-sm-3">
+                          <label class="p-t-b-10">Contraseña<span class="requiredStar">*</span></label>
+                        </div>
+                        <div class="col-sm-9">
+                          <div class="input-group">
+                            <input type="{{ showPassword ? 'text' : 'password' }}" class="form-control" id="password" required [(ngModel)]="editUserForm.password" name="password">
+                            <div class="input-group-append">
+                              <button class="btn btn-outline-secondary" type="button" (click)="togglePasswordVisibility()">
+                                <i class="fa" [ngClass]="{'fa-eye': showPassword, 'fa-eye-slash': !showPassword}"></i>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     
                     <div class="form-group p-10 row">
                         <div class="col-sm-3">
@@ -96,7 +112,26 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="form-group p-10 row">
+                        <div class="col-sm-3">
+                            <label class="p-t-b-10">Rol<span class="requiredStar">*</span></label>
+                        </div>
+                        <div class="col-sm-9">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" id="userRole" value="USER" [(ngModel)]="editUserForm.rol" name="rol">
+                                <label class="form-check-label" for="userRole">Usuario</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" id="adminRole" value="ADMIN" [(ngModel)]="editUserForm.rol" name="rol">
+                                <label class="form-check-label" for="adminRole">Admin</label>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
+               
+
                 <div class="table-footer">
                     <button class="btn btn-success" (click)="EditUser(userForm.form.valid)">Guardar</button>
                   </div>
