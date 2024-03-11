@@ -3,6 +3,8 @@
     padding: 0px;
     margin-top:6%;
     width: 50%;
+    opacity: 0; /* Inicialmente oculto */
+    animation: fadeIn 1.15s ease-in-out forwards; /* Animación de entrada */
 
     .table-responsive {
         margin: 30px 0;
@@ -64,6 +66,11 @@
         }
     }
 }
+@keyframes fadeIn {
+    to {
+      opacity: 1; /* Opacidad completa al final de la animación */
+    }
+  }
 .password-input-container {
     position: relative;
   }

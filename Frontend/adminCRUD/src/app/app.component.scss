@@ -1,0 +1,30 @@
+.toolbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    background-color: #eeae25;
+    color: white;
+    font-weight: 600;
+    opacity: 0; /* Inicialmente oculto */
+    animation: fadeIn 1.15s ease-in-out forwards; /* Animación de entrada */
+  }
+
+  .toolbar i {
+    padding-left: 30px;
+    cursor: pointer;
+  }
+  .toolbar .user {
+    float: right;
+    padding-right: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: large;
+}
+@keyframes fadeIn {
+    to {
+      opacity: 1; /* Opacidad completa al final de la animación */
+    }
+  }
