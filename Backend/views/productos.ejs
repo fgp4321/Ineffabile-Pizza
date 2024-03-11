@@ -1,0 +1,93 @@
+<!-- views/contact.ejs -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Productos</title>
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/fontawesome/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f8f9fa;
+    }
+
+    .center-form {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      min-height: 80vh;
+    }
+
+    .btn-lg {
+      font-size: 1.5rem;
+      padding: 20px 40px;
+      border-radius: 10px;
+      margin: 10px;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .btn-lg:hover {
+      transform: scale(1.1);
+    }
+
+    .btn-primary {
+      background-color: #007bff;
+      border-color: #007bff;
+    }
+
+    .btn-primary:hover {
+      background-color: #0056b3;
+      border-color: #0056b3;
+    }
+
+    h2 {
+      color: #007bff;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+
+<body class="bg-light">
+
+  <!-- Incluir el navbar -->
+  <%- include('./partials/navbar.ejs') %>
+
+  <!-- Contenido del formulario -->
+  <div class="container center-form">
+    <h2 class="text-center mb-4">¿Qué te apetece hoy?</h2>
+  
+    <div class="row">
+      <!-- Botones de opciones -->
+      <div class="col-md-3 text-center">
+        <a href="/productos/pizzas" class="btn btn-primary btn-lg">Pizzas</a>
+      </div>
+      <div class="col-md-3 text-center">
+        <a href="/productos/pastas" class="btn btn-primary btn-lg">Pastas</a>
+      </div>
+      <div class="col-md-3 text-center">
+        <a href="/productos/postres" class="btn btn-primary btn-lg">Postres</a>
+      </div>
+      <div class="col-md-3 text-center">
+        <a href="/productos/bebidas" class="btn btn-primary btn-lg">Bebidas</a>
+      </div>
+    </div>
+  </div>
+  <br>
+  <br>
+
+
+  <!-- Incluir el footer -->
+  <%- include('./partials/footer.ejs') %>
+
+  <script src="/fontawesome/js/all.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>

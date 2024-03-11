@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nuestras Pizzas</title>
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/fontawesome/css/all.min.css">
+  <!-- Agregar cualquier otra hoja de estilos necesaria -->
+
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f8f9fa;
+    }
+
+    .container {
+      padding: 20px;
+    }
+
+    h2 {
+      color: #007bff;
+      margin-bottom: 30px;
+    }
+
+    .product {
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+      background-color: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .product img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
+    .product-title {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .price {
+      font-size: 16px;
+      color: #28a745; /* Verde para el precio en oferta */
+      margin-bottom: 5px;
+    }
+
+    .original-price {
+      text-decoration: line-through;
+      color: #ccc; /* Color para el precio original tachado */
+      margin-right: 10px;
+    }
+
+    .discount-price {
+      color: #dc3545; /* Rojo para el precio de descuento */
+    }
+
+    .btn-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+    }
+
+    .btn-details,
+    .btn-add-to-cart {
+      flex: 1;
+      padding: 3px;
+      border: 1px solid #007bff;
+      border-radius: 5px;
+      background-color: #007bff;
+      color: #fff;
+      text-align: center;
+      text-decoration: none;
+      margin-right: 5px;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .btn-add-to-cart:hover {
+      background-color: #0056b3;
+    }
+
+    .btn-details:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Incluir el navbar -->
+  <%- include('./partials/navbar.ejs') %>
+
+  <!-- Contenido de la página -->
+  <div class="container">
+    <h2 class="text-center mb-4">Nuestras Pizzas</h2>
+
+    <div class="row">
+      <div class="col-md-3">
+        <div class="product">
+          <img src="/images/product-placeholder.jpg" alt="Pizza Placeholder">
+          <div class="product-title">Pizza Margarita</div>
+          <div class="price">
+            <span class="original-price">$15.99</span>
+            <span class="discount-price">$12.99</span>
+          </div>
+          <div class="btn-container">
+            <a href="#" class="btn btn-details"><i class="far fa-eye"></i></a>
+            <a href="#" class="btn btn-add-to-cart"><i class="fas fa-shopping-cart"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="product">
+          <img src="/images/product-placeholder.jpg" alt="Pizza Placeholder">
+          <div class="product-title">Pizza Margarita</div>
+          <div class="price">
+            <span class="original-price">$15.99</span>
+            <span class="discount-price">$12.99</span>
+          </div>
+          <div class="btn-container">
+            <a href="#" class="btn btn-details"><i class="far fa-eye"></i></a>
+            <a href="#" class="btn btn-add-to-cart"><i class="fas fa-shopping-cart"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="product">
+          <img src="/images/product-placeholder.jpg" alt="Pizza Placeholder">
+          <div class="product-title">Pizza Margarita</div>
+          <div class="price">
+            <span class="original-price">$15.99</span>
+            <span class="discount-price">$12.99</span>
+          </div>
+          <div class="btn-container">
+            <a href="#" class="btn btn-details"><i class="far fa-eye"></i></a>
+            <a href="#" class="btn btn-add-to-cart"><i class="fas fa-shopping-cart"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="product">
+          <img src="/images/product-placeholder.jpg" alt="Pizza Placeholder">
+          <div class="product-title">Pizza Margarita</div>
+          <div class="price">
+            <span class="original-price">$15.99</span>
+            <span class="discount-price">$12.99</span>
+          </div>
+          <div class="btn-container">
+            <a href="#" class="btn btn-details"><i class="far fa-eye"></i></a>
+            <a href="#" class="btn btn-add-to-cart"><i class="fas fa-shopping-cart"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="product">
+          <img src="/images/product-placeholder.jpg" alt="Pizza Placeholder">
+          <div class="product-title">Pizza Margarita</div>
+          <div class="price">
+            <span class="original-price">$15.99</span>
+            <span class="discount-price">$12.99</span>
+          </div>
+          <div class="btn-container">
+            <a href="#" class="btn btn-details"><i class="far fa-eye"></i></a>
+            <a href="#" class="btn btn-add-to-cart"><i class="fas fa-shopping-cart"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="product">
+          <img src="/images/product-placeholder.jpg" alt="Pizza Placeholder">
+          <div class="product-title">Pizza Margarita</div>
+          <div class="price">
+            <span class="original-price">$15.99</span>
+            <span class="discount-price">$12.99</span>
+          </div>
+          <div class="btn-container">
+            <a href="#" class="btn btn-details"><i class="far fa-eye"></i></a>
+            <a href="#" class="btn btn-add-to-cart"><i class="fas fa-shopping-cart"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="product">
+          <img src="/images/product-placeholder.jpg" alt="Pizza Placeholder">
+          <div class="product-title">Pizza Margarita</div>
+          <div class="price">
+            <span class="original-price">$15.99</span>
+            <span class="discount-price">$12.99</span>
+          </div>
+          <div class="btn-container">
+            <a href="#" class="btn btn-details"><i class="far fa-eye"></i></a>
+            <a href="#" class="btn btn-add-to-cart"><i class="fas fa-shopping-cart"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="product">
+          <img src="/images/product-placeholder.jpg" alt="Pizza Placeholder">
+          <div class="product-title">Pizza Margarita</div>
+          <div class="price">
+            <span class="original-price">$15.99</span>
+            <span class="discount-price">$12.99</span>
+          </div>
+          <div class="btn-container">
+            <a href="#" class="btn btn-details"><i class="far fa-eye"></i></a>
+            <a href="#" class="btn btn-add-to-cart"><i class="fas fa-shopping-cart"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="product">
+          <img src="/images/product-placeholder.jpg" alt="Pizza Placeholder">
+          <div class="product-title">Pizza Margarita</div>
+          <div class="price">
+            <span class="original-price">$15.99</span>
+            <span class="discount-price">$12.99</span>
+          </div>
+          <div class="btn-container">
+            <a href="#" class="btn btn-details"><i class="far fa-eye"></i></a>
+            <a href="#" class="btn btn-add-to-cart"><i class="fas fa-shopping-cart"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="product">
+          <img src="/images/product-placeholder.jpg" alt="Pizza Placeholder">
+          <div class="product-title">Pizza Margarita</div>
+          <div class="price">
+            <span class="original-price">$15.99</span>
+            <span class="discount-price">$12.99</span>
+          </div>
+          <div class="btn-container">
+            <a href="#" class="btn btn-details"><i class="far fa-eye"></i></a>
+            <a href="#" class="btn btn-add-to-cart"><i class="fas fa-shopping-cart"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Incluir el footer -->
+  <%- include('./partials/footer.ejs') %>
+
+  <script src="/fontawesome/js/all.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

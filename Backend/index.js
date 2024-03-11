@@ -166,6 +166,36 @@ app.get('/mapa', (req, res) => {
     res.render('map.ejs');
 });
 
+app.get('/productos', (req, res) => {
+    res.render('productos.ejs');
+});
+
+app.get('/productos/pizzas', (req, res) => {
+    res.render('pizzas.ejs');
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 app.use(errorHandler)
 
