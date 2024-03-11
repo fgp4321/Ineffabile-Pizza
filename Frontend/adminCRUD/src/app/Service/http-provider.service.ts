@@ -29,8 +29,8 @@ export class HttpProviderService {
     );
   }
 
-  public deleteUserByID(model: any): Observable<any> {
-    return this.webApiService.post(`${httpLink.deleteUserByID}?userId=${model}`, "").pipe(
+  public deleteUserByID(userId: string): Observable<any> {
+    return this.webApiService.delete(`${httpLink.deleteUserByID}/${userId}`).pipe(
       catchError(error => {
         console.error('Error en la solicitud deleteUserByID:', error);
         return throwError(error);

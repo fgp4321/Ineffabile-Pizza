@@ -67,6 +67,23 @@ export class WebApiService {
     );
   }
   
+// DELETE call
+delete(url: string): Observable<any> {
+  const httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json'
+    }),
+    observe: "response" as 'body'
+  };
+  return this.httpClient.delete(
+    url,
+    httpOptions
+  ).pipe(
+    map((response: any) => this.ReturnResponseData(response)),
+    catchError(this.handleError)
+  );
+}
+
   private ReturnResponseData(response: any) {
     return response;
   }

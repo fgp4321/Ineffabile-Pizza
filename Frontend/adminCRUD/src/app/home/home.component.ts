@@ -3,6 +3,7 @@ import { Router } from "@angular/router";
 import { NgbModal, NgbActiveModal } from "@ng-bootstrap/ng-bootstrap";
 import { ToastrService } from "ngx-toastr";
 import { HttpProviderService } from "../Service/http-provider.service";
+import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'ng-modal-confirm',
@@ -42,7 +43,7 @@ export class HomeComponent implements OnInit {
   closeResult = ''
   userList: any = []
 
-  constructor(private router: Router, private modalService: NgbModal, private toastr: ToastrService, private httpProvider: HttpProviderService) { }
+  constructor(private router: Router, private modalService: NgbModal, private toastr: ToastrService, private httpProvider: HttpProviderService, private cdRef: ChangeDetectorRef) { }
 
   ngOnInit(): void {
     this.getAllUser()
@@ -82,16 +83,18 @@ export class HomeComponent implements OnInit {
       (reason)=>{})
   }
 
-  deleteUser(user: any){
-    this.httpProvider.deleteUserByID(user._id).subscribe((data:any)=>{
+  deleteUser(user: any) {
+    this.httpProvider.deleteUserByID(user._id).subscribe((data: any) => {
       if (data != null && data.body != null) {
         var resultData = data.body
         if (resultData != null && resultData.isSuccess) {
-          this.toastr.success(resultData.message)
-          this.getAllUser()
+          this.toastr.success(resultData.message);
+          //Para refrescar
+          this.getAllUser();
+          this.cdRef.detectChanges();
         }
       }
     },
-    (error:any)=>{})
+    (error: any) => {})
   }
 }
