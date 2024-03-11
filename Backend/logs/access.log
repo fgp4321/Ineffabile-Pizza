@@ -457,3 +457,4 @@
 ::1 - - [08/Mar/2024:14:52:17 +0000] "GET / HTTP/1.1" 200 8131 "http://localhost:9000/contacto" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 ::1 - - [08/Mar/2024:14:52:28 +0000] "GET / HTTP/1.1" 200 8112 "http://localhost:9000/contacto" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 ::1 - - [08/Mar/2024:14:52:34 +0000] "GET /contacto HTTP/1.1" 200 13193 "http://localhost:9000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+[2024-03-08T15:53:03.062] [DEBUG] access - http://localhost:9000
