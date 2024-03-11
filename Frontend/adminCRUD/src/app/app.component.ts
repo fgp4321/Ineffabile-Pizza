@@ -10,6 +10,6 @@ export class AppComponent {
   constructor(private router: Router) { }
 
   HomeClick(){
-    this.router.navigate(['Home']);
+    window.location.href = 'http://localhost:9000';
   }
 }
