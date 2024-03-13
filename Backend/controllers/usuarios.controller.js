@@ -6,14 +6,6 @@ const jwt = require("jsonwebtoken")
 
 //AUTENTICACIÓN
 /*
-exports.showLogin = function(req,res){
-    res.render("")
-}
-
-exports.showRegister = function(req,res){
-    res.render("")
-}
-
 exports.register = async function(req,res){
     const newUser = new User(req.body)
 
@@ -73,7 +65,9 @@ exports.logout = (req, res) => {
 }
 */
 
-
+exports.mostrarLoginRegistro = function(req,res){
+    res.render("login-register.ejs")
+}
 
 //CRUD
 exports.buscarTodosUsuarios = wrapAsync(async (req, res) => {

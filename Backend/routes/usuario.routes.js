@@ -9,7 +9,6 @@ router.post("/saveUser", UserController.crearUsuario);
 router.put("/editUser/:id", UserController.actualizarUsuario);
 router.delete("/deleteUserByID/:id", UserController.eliminarUsuario);
 
-
 /*
 //Cargar la vista de registro
 router.get("/register", UserController.showRegister)

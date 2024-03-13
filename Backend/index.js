@@ -195,7 +195,9 @@ app.get('/carta', (req, res) => {
     }
 })
 
-
+app.get('/usuarios/login-register', (req, res) => {
+    res.render('login-register.ejs');
+});
 
 
 

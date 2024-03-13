@@ -1,6 +1,6 @@
 home.ejs -> Sistema de categorias, imágenes, estilos, vídeos y promociones de productos.
 
-productos.ejs -> Esta pagina te preguntará que desea visualizar y 
+//productos.ejs -> Esta pagina te preguntará que desea visualizar y 
 tendra botones que redirigirán a las diferentes páginas de productos, es decir, 
 el botón de pizzas llevará a pizzas.ejs, el de postres a postres.ejs. 
 Lo bueno de esto, es que al hacer una vista de productos, por ejemplo las pizzas, 
