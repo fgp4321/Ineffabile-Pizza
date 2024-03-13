@@ -277,3 +277,11 @@
 ::1 - - [13/Mar/2024:14:15:13 +0000] "GET /usuarios/login-register HTTP/1.1" 304 - "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 ::1 - - [13/Mar/2024:14:15:13 +0000] "GET /usuarios/login-register HTTP/1.1" 304 - "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 ::1 - - [13/Mar/2024:14:15:17 +0000] "GET /usuarios/login-register HTTP/1.1" 304 - "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+[2024-03-13T15:20:28.746] [DEBUG] access - http://localhost:9800
+::1 - - [13/Mar/2024:14:20:29 +0000] "GET /usuarios/login-register HTTP/1.1" 304 - "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [13/Mar/2024:14:20:38 +0000] "GET /usuarios/login-register HTTP/1.1" 304 - "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [13/Mar/2024:14:20:38 +0000] "GET /images/background-pizza.jpeg HTTP/1.1" 404 167 "http://localhost:9800/css/login-register.css" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [13/Mar/2024:14:20:40 +0000] "GET /usuarios/login-register HTTP/1.1" 304 - "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [13/Mar/2024:14:20:42 +0000] "GET /usuarios/login-register HTTP/1.1" 200 10883 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [13/Mar/2024:14:20:43 +0000] "GET /images/background-pizza.jpeg HTTP/1.1" 404 167 "http://localhost:9800/css/login-register.css" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [13/Mar/2024:14:20:50 +0000] "GET /usuarios/login-register HTTP/1.1" 304 - "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
