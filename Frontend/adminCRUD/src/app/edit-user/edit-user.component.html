@@ -83,9 +83,9 @@
                           <div class="input-group">
                             <input type="{{ showPassword ? 'text' : 'password' }}" class="form-control" id="password" required [(ngModel)]="editUserForm.password" name="password">
                             <div class="input-group-append">
-                              <button class="btn btn-outline-secondary" type="button" (click)="togglePasswordVisibility()">
-                                <i class="fa" [ngClass]="{'fa-eye': showPassword, 'fa-eye-slash': !showPassword}"></i>
-                              </button>
+                                <button class="btn btn-outline-secondary" type="button" (click)="togglePasswordVisibility()">
+                                    <i class="fa" [ngClass]="{'fa-eye': !showPassword, 'fa-eye-slash': showPassword}"></i>
+                                  </button>
                             </div>
                           </div>
                         </div>

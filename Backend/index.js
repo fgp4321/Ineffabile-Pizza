@@ -186,6 +186,17 @@ app.get('/productos/bebidas', (req, res) => {
     res.render('bebidas.ejs');
 });
 
+app.get('/carta', (req, res) => {
+    const pdfPath = path.join(__dirname, 'public', 'images', 'dummy.pdf');
+    if (fs.existsSync(pdfPath)) {
+      res.sendFile(pdfPath);
+    } else {
+      res.status(404).send('PDF no encontrado');
+    }
+})
+
+
+
 
 
 

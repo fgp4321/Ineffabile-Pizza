@@ -3,7 +3,7 @@ import { Router } from "@angular/router";
 import { NgbModal, NgbActiveModal } from "@ng-bootstrap/ng-bootstrap";
 import { ToastrService } from "ngx-toastr";
 import { HttpProviderService } from "../Service/http-provider.service";
-import { ChangeDetectorRef } from '@angular/core';
+import { NgZone } from '@angular/core';
 
 @Component({
   selector: 'ng-modal-confirm',
@@ -43,7 +43,7 @@ export class HomeComponent implements OnInit {
   closeResult = ''
   userList: any = []
 
-  constructor(private router: Router, private modalService: NgbModal, private toastr: ToastrService, private httpProvider: HttpProviderService, private cdRef: ChangeDetectorRef) { }
+  constructor(private router: Router, private modalService: NgbModal, private toastr: ToastrService, private httpProvider: HttpProviderService, private ngZone: NgZone) { }
 
   ngOnInit(): void {
     this.getAllUser()
@@ -90,8 +90,9 @@ export class HomeComponent implements OnInit {
         if (resultData != null && resultData.isSuccess) {
           this.toastr.success(resultData.message);
           //Para refrescar
-          this.getAllUser();
-          this.cdRef.detectChanges();
+          this.ngZone.run(() => {
+            this.getAllUser();
+          });
         }
       }
     },
