@@ -18,7 +18,7 @@ const session = require("express-session")
 const methodOverride = require('method-override');
 
 const app = express()
-const port = process.env.PORT || 9000
+const port = process.env.PORT || 9800
 const usuarioRoutes = require("./routes/usuario.routes")
 //rutas productos
 //rutas categorias
@@ -61,7 +61,7 @@ app.use(session({
 app.use(express.urlencoded({extended:true}))
 app.use(express.json())
 
-const faviconPath = path.join(__dirname, 'public/favicon', 'favicon.ico');
+const faviconPath = path.join(__dirname, 'public/favicon', 'favicon3.ico');
 app.use(favicon(faviconPath));
 
 app.set("view_engine","ejs")
@@ -227,6 +227,6 @@ app.use(errorHandler)
 //Levantar el server
 app.listen(port,()=>{
     mongoConn.establecerConexion()
-    console.log("http://localhost:9000")
-    logger.access.debug(`http://localhost:9000`)
+    console.log("http://localhost:9800")
+    logger.access.debug(`http://localhost:9800`)
 })
