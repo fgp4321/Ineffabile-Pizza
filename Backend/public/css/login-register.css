@@ -10,7 +10,7 @@
       align-items: center;
       justify-content: center;
       height: 100vh;
-      background-image: url(../images/background_login.jpeg);
+      /*background-image: url(../images/background_login.jpeg);*/
       background-size: cover;
   }
   
@@ -167,6 +167,23 @@
     position: absolute;
     transform: translateY(-300%);
   }
+
+  .back-button {
+    background-color: transparent;
+    border: solid 2px #e7c01f;
+    border-radius: 20px;
+    padding: 10px 20px;
+    color: #e7c01f;
+    text-decoration: none;
+    transition: background-color .3s ease;
+}
+
+.back-button:hover {
+    background-color: #e7c01f;
+    border: none;
+    color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
+}
   
   /*RESPONSIVE FORM*/
   
@@ -201,14 +218,19 @@
       border-bottom-left-radius: 20px;
       border-top-right-radius: 0;
     }
+    .back-button {
+      width: 100%;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    } 
     #logo {
       width: 150px; /* Reducir el tamaño del logo para dispositivos pequeños */
       margin-bottom: 20px; /* Añadir margen inferior para separar el logo del botón */
-  }
+    }
   
-  .info-childs input {
+    .info-childs input {
       width: 100%; /* Asegurarse de que el ancho del botón sea del 100% para ocupar todo el espacio disponible */
-  }
+    }
   }
   
  #logo {
