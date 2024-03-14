@@ -8,6 +8,7 @@
   .navbar-search {
     display: flex;
     align-items: center;
+    margin-left: 20px; /* Agrega espacio a la izquierda */
   }
 
   /* Ancho personalizado para la barra de búsqueda en el navbar */
@@ -25,6 +26,11 @@
     margin-left: -40px; /* Ajusta el margen para superponer el icono de búsqueda en el input */
     border-radius: 20px;
   }
+
+  #navbarDropdown{
+    margin-left: 60px;
+    margin-right: 20px;
+  }
 </style>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -41,19 +47,36 @@
       <ul class="navbar-nav mx-auto">
         <li class="nav-item">
           <form class="form-inline my-2 my-lg-0 navbar-search">
-            <!-- Buscador con icono de lupa -->
             <input class="form-control mr-sm-2" type="search" placeholder="..." aria-label="Buscar">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
               <i class="fas fa-search"></i>
             </button>
           </form>
         </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Productos
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Promociones</a>
+            <a class="dropdown-item" href="#">Pizzas</a>
+            <a class="dropdown-item" href="#">Pastas</a>
+            <a class="dropdown-item" href="#">Postres</a>
+            <a class="dropdown-item" href="#">Bebidas</a>
+          </div>
+        </li>
+        <!-- Nuevo elemento para el enlace "Acerca de" -->
+        <li class="nav-item">
+          <a class="nav-link" href="/about-us">
+            <i class="fas fa-info-circle"></i> Sobre Nosotros
+          </a>
+        </li>
       </ul>
 
       <ul class="navbar-nav ml-auto">
         <li class="nav-item separator">
           <a class="nav-link" href="/usuarios/login-register">
-            <i class="fas fa-user fa-2x"></i>
+            <i class="far fa-user fa-2x"></i>
           </a>
         </li>
         <li class="nav-item separator">
