@@ -29,7 +29,7 @@
     display: flex;
     align-items: center;
     text-align: center;
-    background-color: #b04628;
+    background-color: #e93333;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
   }
@@ -154,13 +154,13 @@
     border: none;
     padding: 10px 15px;
     cursor: pointer;
-    margin-top: 10px;
+    margin-bottom: 15px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
     width: calc(100% - 40px); /* Ajuste para compensar el padding en el formulario */
 }
   
   .form input[type="submit"]:hover {
-    background-color: #7a7a9a;
+    background-color: #b8f051;
   }
   
   .hide {
@@ -201,8 +201,16 @@
       border-bottom-left-radius: 20px;
       border-top-right-radius: 0;
     }
+    #logo {
+      width: 150px; /* Reducir el tamaño del logo para dispositivos pequeños */
+      margin-bottom: 20px; /* Añadir margen inferior para separar el logo del botón */
   }
   
-  #logo {
+  .info-childs input {
+      width: 100%; /* Asegurarse de que el ancho del botón sea del 100% para ocupar todo el espacio disponible */
+  }
+  }
+  
+ #logo {
     width: 250px; /* Ajusta el tamaño según lo necesario */
 }
