@@ -195,6 +195,10 @@ app.get('/carta', (req, res) => {
     }
 })
 
+app.get('/condiciones-generales', (req, res) => {
+    res.render('condiciones-generales.ejs');
+});
+
 app.get('/usuarios/login-register', (req, res) => {
     res.render('login-register.ejs');
 });
