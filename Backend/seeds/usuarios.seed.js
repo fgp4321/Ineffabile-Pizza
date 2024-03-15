@@ -12,12 +12,30 @@ const ejecutar = async()=>{
 
     const users = [
         {   
-            nombre:"Prueba",
-            apellido:"Prueba",
-            username:"Prueba_25",
-            email:"prueba@gmail.com",
-            password:"prueba123",
-            telefono:678912397,
+            nombre:"Mario",
+            apellido:"Parra",
+            username:"mario_parra31",
+            email:"marioparra@gmail.com",
+            password:"mario",
+            telefono:687256871,
+            rol:"USER"
+        },
+        {   
+            nombre:"Fran",
+            apellido:"Gonzalez",
+            username:"fran-gon65",
+            email:"frangonzalez@hotmail.com",
+            password:"fran",
+            telefono:693235687,
+            rol:"USER"
+        },
+        {   
+            nombre:"Alexander",
+            apellido:"Sanchez",
+            username:"alex_sanch22",
+            email:"alexsan@outlook.com",
+            password:"alex",
+            telefono:655288769,
             rol:"USER"
         }
     ]
