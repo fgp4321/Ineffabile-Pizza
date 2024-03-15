@@ -51,12 +51,10 @@ export class EditUserComponent implements OnInit {
         async (data) => {
           if (data != null && data.body != null) {
             var resultData = data.body;
-            if (resultData != null && resultData.isSuccess) {
-              this.toastr.success(resultData.message);
-              setTimeout(() => {
-                this.router.navigate(['/Home']);
-              }, 500);
-            }
+            this.toastr.success(`Usuario: ${resultData.nombre} modificado correctamente.`);
+            setTimeout(() => {
+              this.router.navigate(['/Home']);
+            }, 500);
           }
         },
         async (error) => {

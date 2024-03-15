@@ -87,13 +87,9 @@ export class HomeComponent implements OnInit {
     this.httpProvider.deleteUserByID(user._id).subscribe((data: any) => {
       if (data != null && data.body != null) {
         var resultData = data.body
-        if (resultData != null && resultData.isSuccess) {
-          this.toastr.success(resultData.message);
-          //Para refrescar
-          this.ngZone.run(() => {
-            this.getAllUser();
-          });
-        }
+        this.toastr.success(`Usuario con nombre ${resultData.nombre} eliminado correctamente.`);
+        //Para refrescar
+        this.getAllUser();
       }
     },
     (error: any) => {})

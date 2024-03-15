@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
 import { HttpProviderService } from "../Service/http-provider.service";
 import { WebApiService } from "../Service/web-api.service";
+import { ToastrService } from "ngx-toastr";
 
 @Component({
   selector: 'app-view-user',
@@ -13,7 +14,7 @@ export class ViewUserComponent implements OnInit {
   userDetail: any = []
   showPassword: boolean = false;
 
-  constructor(public webApiService: WebApiService, private route: ActivatedRoute, private httpProvider: HttpProviderService) { }
+  constructor(private toastr: ToastrService,public webApiService: WebApiService, private route: ActivatedRoute, private httpProvider: HttpProviderService) { }
 
   ngOnInit(): void {
     this.userId = this.route.snapshot.params['userId']
@@ -26,6 +27,7 @@ export class ViewUserComponent implements OnInit {
         if (data != null && data.body != null) {
           var resultData = data.body;
           if (resultData) {
+            this.toastr.success(`Visualizando detalles de ${resultData.username}.`);
             this.userDetail = resultData;
           }
         }

@@ -26,12 +26,10 @@ export class AddUserComponent implements OnInit {
       this.httpProvider.saveUser(this.addUserForm).subscribe(async data => {
         if (data != null && data.body != null) {
           var resultData = data.body;
-          if (resultData != null && resultData.isSuccess) {
-            this.toastr.success(resultData.message);
-            setTimeout(() => {
-              this.router.navigate(['/Home']);
-            }, 500);
-          }
+          this.toastr.success(`Usuario: ${resultData.nombre} registrado correctamente.`);
+          setTimeout(() => {
+            this.router.navigate(['/Home']);
+          }, 500);
         }
       },
       async error => {
