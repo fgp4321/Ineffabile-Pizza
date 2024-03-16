@@ -10,21 +10,36 @@
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
   <style>
     #video-container {
-      border: 2px solid #ccc;
-      padding: 150px;
-      max-width: 80%;
-      text-align: center;
-      margin: 150px;
-      margin-top: 50px;
-    }
+    border: 2px solid #ccc;
+    padding: 150px;
+    max-width: 80%;
+    text-align: center;
+    margin: 50px auto 150px; /* Modificado el margen superior y el margen inferior */
+    height: 750px; /* Ajustado el tamaño de altura del contenedor */
+  }
     #carouselExampleIndicators{
       margin-top: 10px; /* Ajusta según sea necesario */
       background-color: black;
     }
     .carousel-item img {
-      max-height: 300px; /* Ajusta la altura según sea necesario */
+      max-height: 500px; /* Ajusta la altura según sea necesario */
       margin: auto;
     }
+    #scrollToTopBtn {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 99;
+      font-size: 18px;
+      border: none;
+      outline: none;
+      background-color: #007bff;
+      color: white;
+      cursor: pointer;
+      border-radius: 50%;
+    }
+  </style>
   </style>
 </head>
 
@@ -32,11 +47,6 @@
 
   <!-- Incluir el navbar -->
 <%- include('./partials/navbar.ejs') %>
-
-<!-- Div vacío con bordes y texto "Video" -->
-<div id="video-container">
-  Video o carrusel de img
-</div>
 
 <!-- Carousel de ejemplo -->
 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
@@ -47,7 +57,7 @@
   </div>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="/images/logo-prueba.png" class="d-block w-100" alt="...">
+      <img src="/images/banner1.png" class="d-block w-100" alt="...">
     </div>
     <div class="carousel-item">
       <img src="/images/logo-prueba.png" class="d-block w-100" alt="...">
@@ -58,14 +68,20 @@
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
+    <span class="visually-hidden">Anterior</span>
   </button>
   <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
+    <span class="visually-hidden">Siguiente</span>
   </button>
 </div>
 
+<!-- Div vacío con bordes y texto "Video" -->
+<div id="video-container">
+  Video
+</div>
+
+<button id="scrollToTopBtn" title="Volver arriba"><i class="fas fa-arrow-up"></i></button>
 
 <div class="container mt-3">
   <!-- Menú desplegable de categorías 
@@ -99,5 +115,27 @@
   <!-- Elimina una de las siguientes líneas dependiendo de tus necesidades -->
   <!-- script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script -->
   <script src="/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Función para mostrar u ocultar el botón de volver arriba
+    window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("scrollToTopBtn").style.display = "block";
+      } else {
+        document.getElementById("scrollToTopBtn").style.display = "none";
+      }
+    }
+
+    // Función para hacer scroll suave hacia arriba al hacer clic en el botón
+    document.getElementById("scrollToTopBtn").addEventListener("click", function() {
+      scrollToTop();
+    });
+
+    function scrollToTop() {
+      const body = document.getElementsByTagName("body")[0];
+      body.scrollIntoView({ behavior: "smooth" });
+    }
+  </script>
 </body>
 </html>
