@@ -10,7 +10,7 @@
       align-items: center;
       justify-content: center;
       height: 100vh;
-      /*background-image: url(../images/background_login.jpeg);*/
+      background-image: url(../images/background_login.jpeg);
       background-size: cover;
   }
   
