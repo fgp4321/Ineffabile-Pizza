@@ -187,7 +187,7 @@ app.get('/productos/bebidas', (req, res) => {
 });
 
 app.get('/carta', (req, res) => {
-    const pdfPath = path.join(__dirname, 'public', 'images', 'dummy.pdf');
+    const pdfPath = path.join(__dirname, 'public', 'images', 'INEFFABILE-pizza-menu.pdf');
     if (fs.existsSync(pdfPath)) {
       res.sendFile(pdfPath);
     } else {
