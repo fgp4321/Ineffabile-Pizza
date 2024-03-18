@@ -58,3 +58,7 @@ Condiciones Generales -> http://localhost:9800/condiciones-generales
 Newsletter (Footer)
 - Simulacro de mensaje de newsletter al introducir correo electrónico.
 * Probar que "funciona"
+
+
+---------- TODO ----------
+Acerca de nosotros, carrito, política de privacidad, aviso legal, tabla de alérgenos (pdf), páginas de cada producto, gastos de envío, como comprar, redes sociales y pasarela de pago ficticio.

@@ -261,3 +261,4 @@
 ::1 - - [18/Mar/2024:09:39:17 +0000] "GET /valoraciones/success HTTP/1.1" 200 9293 "http://localhost:9800/valoraciones" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 ::1 - - [18/Mar/2024:09:40:34 +0000] "GET /condiciones-generales HTTP/1.1" 200 24515 "http://localhost:9800/valoraciones" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 ::1 - - [18/Mar/2024:09:43:05 +0000] "GET /usuarios/login-register HTTP/1.1" 200 11076 "http://localhost:9800/condiciones-generales" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [18/Mar/2024:09:46:33 +0000] "GET / HTTP/1.1" 304 - "http://localhost:9800/usuarios/login-register" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
