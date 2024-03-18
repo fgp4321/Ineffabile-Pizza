@@ -1,0 +1,60 @@
+Compilar Backend:
+1. cd Backend
+2. node index.js O nodemon
+3. Acceder a localhost:9800
+
+Ejecutar seed de usuarios:
+1. cd Backend/seeds
+2. node usuarios.seed.js
+
+Compilar Frontend:
+1. cd Frontend/adminCRUD
+2. npm i -force (Forzar instalación de dependencias ya que algunas están muy anticuadas)
+3. npx ng serve
+4. Acceder a localhost:4200
+
+Páginas realizadas y visibles con CSR (Angular13):
+* Gracias a la seed anteriormente ejecutada, tendremos 3 usuarios de prueba.
+
+Home (Listado de usuarios) ->  http://localhost:4200/Home
+ViewUser (Detalles de usuario) ->  http://localhost:4200/ViewUser/{id}
+AddUser (Añadir usuario) ->  http://localhost:4200/AddUser
+EditUser (Editar usuario) ->  http://localhost:4200/EditUser/{id}
+(Eliminar usuario) No tiene ruta específica. Icono de papelera roja
+
+
+Páginas realizadas y visibles con SSR (EJS Views):
+Partials: navbar y footer. (Estarán en casi todas las páginas)
+
+Home -> http://localhost:9800/
+- Se verá un banner de promociones u ofertas destacadas de nuestros productos
+- Posible vídeo
+- Filas de nuestros productos donde vayan moviendose tipo SlideBar
+
+Productos -> http://localhost:9800/productos
+* Sujeto a cambios
+- Te preguntará que que desea consumir y se podrá consultar la carta en PDF
+
+Pizzas -> http://localhost:9800/productos/pizzas
+* Sujeto a cambios
+- Así es como se verían los productos. El icono del ojo mostraría una ventana
+Pop-Up con todos los detalles del producto. El icono del carrito lo añadiria al pedido.
+
+Login y registro -> http://localhost:9800/usuarios/login-register
+- El usuario accederá a su zona privada a través de este login o se creará una cuenta a través del register. La idea es agregar OAuth2 y Login con GitHub
+
+Contacto -> http://localhost:9800/contacto
+- Formulario de contacto que enviará un simulacro de mensaje al administrador. También tiene insertado un mapa.
+* Probar que "funciona"
+
+Valoraciones -> http://localhost:9800/valoraciones
+* Sujeto a cambios
+- Formulario de valoraciones donde se pedirá un rating al usuario. La idea es añadir las tipicas 5 estrellas en vez de una barra de checkpoints pero de momento no ha sido posible. Simulacro
+* Probar que "funciona"
+
+Condiciones Generales -> http://localhost:9800/condiciones-generales
+- Condiciones generales donde el usuario está relativamente obligado a leerlas antes de realizar cualquier pedido. Información estática.
+
+Newsletter (Footer)
+- Simulacro de mensaje de newsletter al introducir correo electrónico.
+* Probar que "funciona"
