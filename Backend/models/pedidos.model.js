@@ -5,10 +5,10 @@ const pedidosSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    producto_nombre: {
+    productos_nombre: [{
         type: String,
         required: true,
-    },
+    }],
     fecha: {
         type: Date,
         required: true,
