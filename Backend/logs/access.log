@@ -14,3 +14,12 @@
 ::1 - - [15/Mar/2024:13:43:46 +0000] "GET /api/v2/usuarios/getUserDetailByID/65f4503f5ceba64e308767ad HTTP/1.1" 200 193 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 ::1 - - [15/Mar/2024:13:43:48 +0000] "GET /api/v2/usuarios/getAllUser HTTP/1.1" 200 582 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 ::1 - - [15/Mar/2024:13:44:38 +0000] "GET /api/v2/usuarios/getAllUser HTTP/1.1" 200 582 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+[2024-03-15T14:58:09.824] [DEBUG] access - http://localhost:9800
+::1 - - [15/Mar/2024:13:58:22 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [15/Mar/2024:13:58:24 +0000] "GET /about-us HTTP/1.1" 404 147 "http://localhost:9800/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [15/Mar/2024:13:58:53 +0000] "GET /api/v2/usuarios/getAllUser HTTP/1.1" 200 582 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [15/Mar/2024:13:58:53 +0000] "GET /api/v2/usuarios/getAllUser HTTP/1.1" 200 582 "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [15/Mar/2024:13:58:54 +0000] "GET / HTTP/1.1" 304 - "http://localhost:4200/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [15/Mar/2024:13:58:55 +0000] "GET / HTTP/1.1" 304 - "http://localhost:9800/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [15/Mar/2024:13:58:56 +0000] "GET / HTTP/1.1" 304 - "http://localhost:9800/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [15/Mar/2024:13:59:05 +0000] "GET /usuarios/login-register HTTP/1.1" 304 - "http://localhost:9800/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
