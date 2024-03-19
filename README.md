@@ -11,7 +11,7 @@ Asegúrate de tener instaladas las siguientes herramientas antes de comenzar:
 
 ## Configuración del Frontend
 Abre una terminal en Frontend/adminCRUD e instala las dependencias.
-- npm i
+- npm i -force
 
 ## Compilar Angular con Node.js v14.15:
 - npx ng build
