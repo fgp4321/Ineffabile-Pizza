@@ -1,0 +1,71 @@
+<!-- views/about-us.ejs -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sobre Nosotros - Ineffabile Pizza</title>
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/fontawesome/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Flamenco&display=swap" rel="stylesheet">
+  <!-- Agregar cualquier otro estilo necesario -->
+</head>
+<style>
+    #slogan {
+    font-family: 'Flamenco', cursive; /* Aplica la fuente Flamenco al div del eslogan */
+    }
+
+    /* Opcional: si deseas que el resto del texto tenga una fuente diferente, puedes aplicarla a nivel global */
+    body {
+        font-family: Arial, sans-serif; /* Otra fuente para el resto del texto */
+    }
+
+</style>
+
+<body class="bg-light">
+
+  <!-- Incluir el navbar -->
+  <%- include('./partials/navbar.ejs') %>
+
+  <!-- Contenido de la página Sobre Nosotros -->
+  <div class="container">
+    <div class="row mt-5">
+      <div class="col-md-6">
+        <img src="/images/image1.jpg" class="img-fluid" alt="Imagen 1">
+      </div>
+      <div class="col-md-6">
+        <h2>Quiénes Somos</h2>
+        <p>Somos Ineffabile Pizza, una pizzería familiar con una tradición que se remonta a 1892 en Villena, Alicante. Desde hace 5 generaciones, llevamos ofreciendo a nuestros clientes la mejor pizza artesanal de la zona.</p>
+      </div>
+    </div>
+
+    <div class="row mt-5">
+      <div class="col-md-6">
+        <h2>Nuestra Historia</h2>
+        <p>Nuestra historia comenzó en 1892 cuando nuestros bisabuelos abrieron las puertas de Ineffabile Pizza en la calle Sax. Desde entonces, hemos mantenido vivo el legado familiar, perfeccionando nuestras recetas y técnicas de cocina.</p>
+      </div>
+      <div class="col-md-6">
+        <img src="/images/image2.jpg" class="img-fluid" alt="Imagen 2">
+      </div>
+    </div>
+
+    <div class="row mt-5">
+      <div class="col-md-12 text-center">
+        <h1 class="font-italic display-4" id="slogan">La auténtica tradición italiana en cada bocado</h1>
+      </div>
+    </div>
+  </div>
+  <br>
+  <br>
+  <br>
+
+  <!-- Incluir el footer -->
+  <%- include('./partials/footer.ejs') %>
+
+  <script src="/fontawesome/js/all.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Agregar cualquier otro script necesario -->
+</script>
+</body>
+</html>

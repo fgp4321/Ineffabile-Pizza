@@ -164,24 +164,80 @@ app.get('/mapa', (req, res) => {
     res.render('map.ejs');
 });
 
+app.get('/about-us', (req, res) => {
+    res.render('about-us.ejs');
+});
+
 app.get('/productos', (req, res) => {
     res.render('productos.ejs');
 });
 
-app.get('/productos/pizzas', (req, res) => {
-    res.render('pizzas.ejs');
+// Para la vista de pizzas
+app.get('/productos/pizzas', async (req, res) => {
+    try {
+        // Hacer una solicitud al endpoint de productos para obtener las pizzas
+        const response = await fetch('http://localhost:9100/api/v2/productos/getAllProduct');
+        const productos = await response.json();
+        // Filtrar las pizzas
+        const pizzas = productos.filter(producto => producto.categoria_nombre === 'Pizzas');
+        // Renderizar la vista de pizzas y pasar los datos de las pizzas
+        res.render('pizzas.ejs', { pizzas });
+    } catch (error) {
+        // Manejo de errores
+        console.error('Error al obtener las pizzas:', error);
+        res.render('error.ejs', { message: 'Error al obtener las pizzas' });
+    }
 });
 
-app.get('/productos/pastas', (req, res) => {
-    res.render('pastas.ejs');
+// Para la vista de pastas
+app.get('/productos/pastas', async (req, res) => {
+    try {
+        // Hacer una solicitud al endpoint de productos para obtener todas las pastas
+        const response = await fetch('http://localhost:9100/api/v2/productos/getAllProduct');
+        const productos = await response.json();
+        // Filtrar las pastas
+        const pastas = productos.filter(producto => producto.categoria_nombre === 'Pastas');
+        // Renderizar la vista de pastas y pasar los datos de las pastas
+        res.render('pastas.ejs', { pastas });
+    } catch (error) {
+        // Manejo de errores
+        console.error('Error al obtener las pastas:', error);
+        res.render('error.ejs', { message: 'Error al obtener las pastas' });
+    }
 });
 
-app.get('/productos/complementos', (req, res) => {
-    res.render('complementos.ejs');
+// Para la vista de complementos
+app.get('/productos/complementos', async (req, res) => {
+    try {
+        // Hacer una solicitud al endpoint de productos para obtener todos los complementos
+        const response = await fetch('http://localhost:9100/api/v2/productos/getAllProduct');
+        const productos = await response.json();
+        // Filtrar los complementos
+        const complementos = productos.filter(producto => producto.categoria_nombre === 'Complementos');
+        // Renderizar la vista de complementos y pasar los datos de los complementos
+        res.render('complementos.ejs', { complementos });
+    } catch (error) {
+        // Manejo de errores
+        console.error('Error al obtener los complementos:', error);
+        res.render('error.ejs', { message: 'Error al obtener los complementos' });
+    }
 });
 
-app.get('/productos/bebidas', (req, res) => {
-    res.render('bebidas.ejs');
+// Para la vista de bebidas
+app.get('/productos/bebidas', async (req, res) => {
+    try {
+        // Hacer una solicitud al endpoint de productos para obtener todas las bebidas
+        const response = await fetch('http://localhost:9100/api/v2/productos/getAllProduct');
+        const productos = await response.json();
+        // Filtrar las bebidas
+        const bebidas = productos.filter(producto => producto.categoria_nombre === 'Bebidas');
+        // Renderizar la vista de bebidas y pasar los datos de las bebidas
+        res.render('bebidas.ejs', { bebidas });
+    } catch (error) {
+        // Manejo de errores
+        console.error('Error al obtener las bebidas:', error);
+        res.render('error.ejs', { message: 'Error al obtener las bebidas' });
+    }
 });
 
 app.get('/carrito', (req, res) => {
