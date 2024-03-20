@@ -18,9 +18,9 @@ const session = require("express-session")
 const methodOverride = require('method-override');
 
 const app = express()
-const port = process.env.PORT || 9800
+const port = process.env.PORT || 9100
 const usuarioRoutes = require("./routes/usuario.routes")
-//rutas productos
+const productoRoutes = require("./routes/producto.routes")
 //rutas categorias
 //rutas pedidos
 const version = "v2"
@@ -71,13 +71,13 @@ app.use(express.static(path.join(__dirname,"public")))
 app.use('/css', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/css')));
 app.use('/fontawesome', express.static(path.join(__dirname, 'node_modules/@fortawesome/fontawesome-free')));
 app.use('/js', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/js')));
-app.use(express.static(path.join(__dirname, "js")));
 
 
 app.use(addMorganToLogger)
 
 //Rutas
 app.use(`/api/${version}/usuarios`,usuarioRoutes)
+app.use(`/api/${version}/productos`,productoRoutes)
 //rutas productos
 //rutas categorias
 //rutas pedidos
@@ -86,9 +86,6 @@ app.use(`/api/${version}/usuarios`,usuarioRoutes)
 app.get('/', (req, res) => {
     res.render('home.ejs')
 })
-
-
-
 
 
 //NEWSLETTER
@@ -237,6 +234,6 @@ app.use(errorHandler)
 //Levantar el server
 app.listen(port,()=>{
     mongoConn.establecerConexion()
-    console.log("http://localhost:9800")
-    logger.access.debug(`http://localhost:9800`)
+    console.log("http://localhost:9100")
+    logger.access.debug(`http://localhost:9100`)
 })
