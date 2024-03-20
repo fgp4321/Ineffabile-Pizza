@@ -71,6 +71,7 @@ app.use(express.static(path.join(__dirname,"public")))
 app.use('/css', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/css')));
 app.use('/fontawesome', express.static(path.join(__dirname, 'node_modules/@fortawesome/fontawesome-free')));
 app.use('/js', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/js')));
+app.use(express.static(path.join(__dirname, "js")));
 
 
 app.use(addMorganToLogger)
@@ -178,13 +179,18 @@ app.get('/productos/pastas', (req, res) => {
     res.render('pastas.ejs');
 });
 
-app.get('/productos/postres', (req, res) => {
-    res.render('postres.ejs');
+app.get('/productos/complementos', (req, res) => {
+    res.render('complementos.ejs');
 });
 
 app.get('/productos/bebidas', (req, res) => {
     res.render('bebidas.ejs');
 });
+
+app.get('/carrito', (req, res) => {
+    res.render('carrito.ejs');
+});
+
 
 app.get('/carta', (req, res) => {
     const pdfPath = path.join(__dirname, 'public', 'images', 'INEFFABILE-pizza-menu.pdf');

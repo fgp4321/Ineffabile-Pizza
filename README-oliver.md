@@ -60,3 +60,6 @@ Newsletter (Footer)
 
 # ---------- TODO Pages ----------
 Acerca de nosotros, carrito, política de privacidad, aviso legal, tabla de alérgenos (pdf), páginas de cada producto, gastos de envío, como comprar, redes sociales y pasarela de pago ficticio.
+
+# ---------- TODO Funcionalidad ----------
+Login, register, logout, area personal, sistema de carrito
