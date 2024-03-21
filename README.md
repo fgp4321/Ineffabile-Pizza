@@ -20,7 +20,7 @@ Abre una terminal en Frontend/adminCRUD e instala las dependencias.
 Una vez que hayas configurado el frontend, puedes ejecutar la aplicación con el siguiente comando:
 - npx ng serve
 
-Esto iniciará el servidor de desarrollo y podrás acceder a la aplicación desde http://localhost:4200/ en tu navegador.
+Esto iniciará el servidor de desarrollo frontend y podrás acceder a la aplicación desde http://localhost:4200/ en tu navegador.
 
 # ------------------
 
@@ -42,3 +42,5 @@ Con nodemon (recomendado para desarrollo):
 
 Con Node.js:
 - node index.js
+
+Esto iniciará el servidor de desarrollo backend y podrás acceder a la aplicación desde http://localhost:9100/ en tu navegador.
