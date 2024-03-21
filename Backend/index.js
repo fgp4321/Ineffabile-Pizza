@@ -240,6 +240,25 @@ app.get('/productos/bebidas', async (req, res) => {
     }
 });
 
+app.get('/promociones', async (req, res) => {
+    try {
+        // Hacer una solicitud al endpoint de productos para obtener todas las promociones
+        const response = await fetch('http://localhost:9100/api/v2/productos/getAllProduct');
+        const productos = await response.json();
+        // Filtrar las promociones
+        const pizzas = productos.filter(producto => producto.categoria_nombre === 'Pizzas');
+        const pastas = productos.filter(producto => producto.categoria_nombre === 'Pastas');
+        const complementos = productos.filter(producto => producto.categoria_nombre === 'Complementos');
+        const bebidas = productos.filter(producto => producto.categoria_nombre === 'Bebidas');
+        // Renderizar la vista de promociones y pasar los datos de las promociones
+        res.render('promociones.ejs', { pizzas, pastas, complementos, bebidas });
+    } catch (error) {
+        // Manejo de errores
+        console.error('Error al obtener las promociones:', error);
+        res.render('error.ejs', { message: 'Error al obtener las promociones' });
+    }
+});
+
 app.get('/carrito', (req, res) => {
     res.render('carrito.ejs');
 });
