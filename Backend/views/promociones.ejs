@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Promociones</title>
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/fontawesome/css/all.min.css">
+  <!-- Agregar cualquier otra hoja de estilos necesaria -->
+
+  <style>
+    /* Estilos adicionales si los necesitas */
+  </style>
+</head>
+<body>
+
+  <!-- Incluir el navbar -->
+  <%- include('./partials/navbar.ejs') %>
+
+  <!-- Contenido de la página -->
+  <div class="container">
+    <h2 class="text-center mb-4">Nuestras Promociones</h2>
+
+    <!-- Carrusel de promociones -->
+    <div id="carouselPromociones" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+
+        <!-- Pizzas en promoción -->
+        <div class="carousel-item active">
+          <div class="row">
+            <% pizzas.forEach(function(pizza, index) { %>
+              <div class="col-md-4">
+                <div class="card">
+                  <img src="/images/pizzas/<%= pizza.imagen1 %>" class="card-img-top" alt="<%= pizza.nombre %>">
+                  <div class="card-body">
+                    <h5 class="card-title"><%= pizza.nombre %></h5>
+                    <p class="card-text">
+                      <span class="original-price"><%= pizza.precio_pvp %>€</span>
+                      <span class="discount-price"><%= pizza.precio_promocion %>€</span>
+                    </p>
+                    <div class="btn-container">
+                      <a href="#" class="btn btn-details" data-toggle="modal" data-target="#pizzaDetailsModal"><i class="far fa-eye"></i></a>
+                      <a href="#" class="btn btn-add-to-cart"><i class="fas fa-shopping-cart"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <% }); %>
+          </div>
+        </div>
+
+      </div>
+      <!-- Flechas de navegación -->
+      <a class="carousel-control-prev" href="#carouselPromociones" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Anterior</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselPromociones" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Siguiente</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Incluir el footer -->
+  <%- include('./partials/footer.ejs') %>
+
+  <script src="/fontawesome/js/all.min.js"></script>
+  <script src="/js/bootstrap.bundle.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js"></script>
+</body>
+</html>

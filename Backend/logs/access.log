@@ -167,3 +167,24 @@
 ::ffff:127.0.0.1 - - [21/Mar/2024:11:07:14 +0000] "GET /api/v2/productos/getAllProduct HTTP/1.1" 200 9030 "-" "node"
 ::1 - - [21/Mar/2024:11:07:14 +0000] "GET /promociones HTTP/1.1" 200 12700 "http://localhost:9100/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 ::1 - - [21/Mar/2024:11:07:29 +0000] "GET /about-us HTTP/1.1" 304 - "http://localhost:9100/promociones" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+[2024-03-21T12:08:06.926] [DEBUG] access - http://localhost:9100
+::1 - - [21/Mar/2024:11:08:08 +0000] "GET / HTTP/1.1" 304 - "http://localhost:9100/about-us" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::ffff:127.0.0.1 - - [21/Mar/2024:11:08:14 +0000] "GET /api/v2/productos/getAllProduct HTTP/1.1" 200 9030 "-" "node"
+::1 - - [21/Mar/2024:11:08:14 +0000] "GET /promociones HTTP/1.1" 304 - "http://localhost:9100/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::ffff:127.0.0.1 - - [21/Mar/2024:11:08:55 +0000] "GET /api/v2/productos/getAllProduct HTTP/1.1" 200 9030 "-" "node"
+::1 - - [21/Mar/2024:11:08:55 +0000] "GET /promociones HTTP/1.1" 304 - "http://localhost:9100/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::ffff:127.0.0.1 - - [21/Mar/2024:11:11:31 +0000] "GET /api/v2/productos/getAllProduct HTTP/1.1" 200 9030 "-" "node"
+::1 - - [21/Mar/2024:11:11:31 +0000] "GET /promociones HTTP/1.1" 200 18536 "http://localhost:9100/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::ffff:127.0.0.1 - - [21/Mar/2024:11:11:54 +0000] "GET /api/v2/productos/getAllProduct HTTP/1.1" 200 9030 "-" "node"
+::1 - - [21/Mar/2024:11:11:54 +0000] "GET /promociones HTTP/1.1" 200 18884 "http://localhost:9100/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::ffff:127.0.0.1 - - [21/Mar/2024:11:19:09 +0000] "GET /api/v2/productos/getAllProduct HTTP/1.1" 200 9030 "-" "node"
+::1 - - [21/Mar/2024:11:19:09 +0000] "GET /promociones HTTP/1.1" 200 18856 "http://localhost:9100/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::ffff:127.0.0.1 - - [21/Mar/2024:11:19:09 +0000] "GET /api/v2/productos/getAllProduct HTTP/1.1" 200 9030 "-" "node"
+::1 - - [21/Mar/2024:11:19:09 +0000] "GET /promociones HTTP/1.1" 304 - "http://localhost:9100/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::ffff:127.0.0.1 - - [21/Mar/2024:11:19:10 +0000] "GET /api/v2/productos/getAllProduct HTTP/1.1" 200 9030 "-" "node"
+::1 - - [21/Mar/2024:11:19:10 +0000] "GET /promociones HTTP/1.1" 304 - "http://localhost:9100/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::ffff:127.0.0.1 - - [21/Mar/2024:12:41:28 +0000] "GET /api/v2/productos/getAllProduct HTTP/1.1" 200 9030 "-" "node"
+::1 - - [21/Mar/2024:12:41:28 +0000] "GET /promociones HTTP/1.1" 304 - "http://localhost:9100/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+[2024-03-21T14:06:54.644] [DEBUG] access - http://localhost:9100
+[2024-03-21T14:09:55.668] [DEBUG] access - http://localhost:9100
+[2024-03-21T14:14:09.287] [DEBUG] access - http://localhost:9100

@@ -26,81 +26,81 @@ const ejecutar = async () => {
             precio_pvp: "8.50",
             descripcion: "Clásica pizza de 4 quesos, donde se mezclan a la perfección los clásicos: mozzarella, parmesano, gorgonzola y queso de cabra.",
             categoria_nombre: "Pizzas",
-            imagen1: "pizza-margarita1.jpg",
-            imagen2: "pizza-margarita2.jpg",
-            imagen3: "pizza-margarita3.jpg"
+            imagen1: "pizza-4quesos1.jpg",
+            imagen2: "pizza-4quesos2.jpg",
+            imagen3: "pizza-4quesos3.jpg"
         },
         {
             nombre: "Pizza atún",
             precio_pvp: "8.50",
             descripcion: "Pizza con atún fresco, cebolla, aceitunas negras y salsa de tomate.",
             categoria_nombre: "Pizzas",
-            imagen1: "pizza-margarita1.jpg",
-            imagen2: "pizza-margarita2.jpg",
-            imagen3: "pizza-margarita3.jpg"
+            imagen1: "pizza-atun1.jpg",
+            imagen2: "pizza-atun2.jpg",
+            imagen3: "pizza-atun3.jpg"
         },
         {
             nombre: "Pizza Hawaiana",
             precio_pvp: "9.50",
             descripcion: "Pizza con jamón, piña y salsa de tomate.",
             categoria_nombre: "Pizzas",
-            imagen1: "pizza-margarita1.jpg",
-            imagen2: "pizza-margarita2.jpg",
-            imagen3: "pizza-margarita3.jpg"
+            imagen1: "pizza-hawaiana1.jpg",
+            imagen2: "pizza-hawaiana2.jpg",
+            imagen3: "pizza-hawaiana3.jpg"
         },
         {
             nombre: "Pizza Vegetal",
             precio_pvp: "6.20",
             descripcion: "Pizza vegetariana con una selección de verduras frescas y queso mozzarella.",
             categoria_nombre: "Pizzas",
-            imagen1: "pizza-margarita1.jpg",
-            imagen2: "pizza-margarita2.jpg",
-            imagen3: "pizza-margarita3.jpg"
+            imagen1: "pizza-vegetal1.jpg",
+            imagen2: "pizza-vegetal2.jpg",
+            imagen3: "pizza-vegetal3.jpg"
         },
         {
             nombre: "Pizza Romana",
             precio_pvp: "6.20",
             descripcion: "Pizza estilo Romana con tomate, anchoas y aceitunas negras.",
             categoria_nombre: "Pizzas",
-            imagen1: "pizza-margarita1.jpg",
-            imagen2: "pizza-margarita2.jpg",
-            imagen3: "pizza-margarita3.jpg"
+            imagen1: "pizza-romana1.jpg",
+            imagen2: "pizza-romana2.jpg",
+            imagen3: "pizza-romana3.jpg"
         },
         {
             nombre: "Pizza 4 estaciones",
             precio_pvp: "7.50",
             descripcion: "Pizza dividida en cuatro secciones, cada una con ingredientes representativos de una estación del año.",
             categoria_nombre: "Pizzas",
-            imagen1: "pizza-margarita1.jpg",
-            imagen2: "pizza-margarita2.jpg",
-            imagen3: "pizza-margarita3.jpg"
+            imagen1: "pizza-4estaciones1.jpg",
+            imagen2: "pizza-4estaciones2.jpg",
+            imagen3: "pizza-4estaciones3.jpg"
         },
         {
             nombre: "Pizza Vegana",
             precio_pvp: "6.50",
             descripcion: "Pizza totalmente vegetal, sin ingredientes de origen animal.",
             categoria_nombre: "Pizzas",
-            imagen1: "pizza-margarita1.jpg",
-            imagen2: "pizza-margarita2.jpg",
-            imagen3: "pizza-margarita3.jpg"
+            imagen1: "pizza-vegana1.jpg",
+            imagen2: "pizza-vegana2.jpg",
+            imagen3: "pizza-vegana3.jpg"
         },
         {
             nombre: "Pizza Napoli",
             precio_pvp: "7.50",
             descripcion: "Pizza estilo Napolitana con tomate, mozzarella, anchoas, aceitunas negras y alcaparras.",
             categoria_nombre: "Pizzas",
-            imagen1: "pizza-margarita1.jpg",
-            imagen2: "pizza-margarita2.jpg",
-            imagen3: "pizza-margarita3.jpg"
+            imagen1: "pizza-napoli1.jpg",
+            imagen2: "pizza-napoli2.jpg",
+            imagen3: "pizza-napoli3.jpg"
         },
         {
             nombre: "Pizza con setas",
             precio_pvp: "8.50",
             descripcion: "Pizza con una variedad de setas frescas y queso mozzarella.",
             categoria_nombre: "Pizzas",
-            imagen1: "pizza-margarita1.jpg",
-            imagen2: "pizza-margarita2.jpg",
-            imagen3: "pizza-margarita3.jpg"
+            imagen1: "pizza-setas1.jpg",
+            imagen2: "pizza-setas2.jpg",
+            imagen3: "pizza-setas3.jpg"
         },
         // Pastas
         {
