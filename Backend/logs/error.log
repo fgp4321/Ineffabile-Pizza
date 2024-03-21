@@ -25,3 +25,4 @@ pizza is not defined
     141|             <img src="/images/pizzas/<%= pizza.imagen2 %>" alt="<%= pizza.nombre %>" id="modal-img2" class="img-fluid mb-3">
 
 pizza is not defined
+[2024-03-21T15:02:49.412] [ERROR] error - 500 Failed to lookup view "complementos.ejs" in views directory "/home/fran/Documentos/Gestor-Pizzeria/Backend/views"
