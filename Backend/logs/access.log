@@ -135,3 +135,10 @@
 ::1 - - [21/Mar/2024:10:02:52 +0000] "GET /carrito HTTP/1.1" 304 - "http://localhost:9100/about-us" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 ::1 - - [21/Mar/2024:10:02:56 +0000] "GET / HTTP/1.1" 304 - "http://localhost:9100/carrito" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 ::1 - - [21/Mar/2024:10:02:57 +0000] "GET /about-us HTTP/1.1" 200 11718 "http://localhost:9100/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+[2024-03-21T11:04:45.182] [DEBUG] access - http://localhost:9100
+::1 - - [21/Mar/2024:10:04:46 +0000] "GET / HTTP/1.1" 304 - "http://localhost:9100/about-us" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [21/Mar/2024:10:04:51 +0000] "GET /condiciones-generales HTTP/1.1" 304 - "http://localhost:9100/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [21/Mar/2024:10:04:53 +0000] "GET / HTTP/1.1" 304 - "http://localhost:9100/condiciones-generales" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [21/Mar/2024:10:04:56 +0000] "GET /about-us HTTP/1.1" 304 - "http://localhost:9100/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [21/Mar/2024:10:05:01 +0000] "GET /contacto HTTP/1.1" 304 - "http://localhost:9100/about-us" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [21/Mar/2024:10:05:35 +0000] "GET /contacto HTTP/1.1" 200 15294 "http://localhost:9100/about-us" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
