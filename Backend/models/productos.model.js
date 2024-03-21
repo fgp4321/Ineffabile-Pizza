@@ -15,10 +15,19 @@ const productsSchema = new mongoose.Schema({
     },
     categoria_nombre: {
         type: String,
+    },
+    imagen1: {
+        type: String
+    },
+    imagen2: {
+        type: String
+    },
+    imagen3: {
+        type: String
     }
 })
 
-const Producto = mongoose.model("Producto", productsSchema)
+const Producto = mongoose.model("Producto", productsSchema, "products")
 
 Producto.findProductos = async function(){
     try {
