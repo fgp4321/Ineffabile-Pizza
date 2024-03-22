@@ -1,0 +1,28 @@
+[2024-03-21T09:41:26.520] [ERROR] error - 500 /home/fran/Documentos/Gestor-Pizzeria/Backend/views/pizzas.ejs:138
+    136|         <div class="row">
+    137|           <div class="col-md-6">
+ >> 138|             <img src="/images/pizzas/<%= pizza.imagen1 %>" alt="<%= pizza.nombre %>" id="modal-img1" class="img-fluid mb-3">
+    139|           </div>
+    140|           <div class="col-md-6">
+    141|             <img src="/images/pizzas/<%= pizza.imagen2 %>" alt="<%= pizza.nombre %>" id="modal-img2" class="img-fluid mb-3">
+
+pizza is not defined
+[2024-03-21T09:41:31.430] [ERROR] error - 500 /home/fran/Documentos/Gestor-Pizzeria/Backend/views/pizzas.ejs:138
+    136|         <div class="row">
+    137|           <div class="col-md-6">
+ >> 138|             <img src="/images/pizzas/<%= pizza.imagen1 %>" alt="<%= pizza.nombre %>" id="modal-img1" class="img-fluid mb-3">
+    139|           </div>
+    140|           <div class="col-md-6">
+    141|             <img src="/images/pizzas/<%= pizza.imagen2 %>" alt="<%= pizza.nombre %>" id="modal-img2" class="img-fluid mb-3">
+
+pizza is not defined
+[2024-03-21T09:41:43.634] [ERROR] error - 500 /home/fran/Documentos/Gestor-Pizzeria/Backend/views/pizzas.ejs:138
+    136|         <div class="row">
+    137|           <div class="col-md-6">
+ >> 138|             <img src="/images/pizzas/<%= pizza.imagen1 %>" alt="<%= pizza.nombre %>" id="modal-img1" class="img-fluid mb-3">
+    139|           </div>
+    140|           <div class="col-md-6">
+    141|             <img src="/images/pizzas/<%= pizza.imagen2 %>" alt="<%= pizza.nombre %>" id="modal-img2" class="img-fluid mb-3">
+
+pizza is not defined
+[2024-03-21T15:02:49.412] [ERROR] error - 500 Failed to lookup view "complementos.ejs" in views directory "/home/fran/Documentos/Gestor-Pizzeria/Backend/views"

@@ -1,28 +1,36 @@
-[2024-03-21T09:41:26.520] [ERROR] error - 500 /home/fran/Documentos/Gestor-Pizzeria/Backend/views/pizzas.ejs:138
-    136|         <div class="row">
-    137|           <div class="col-md-6">
- >> 138|             <img src="/images/pizzas/<%= pizza.imagen1 %>" alt="<%= pizza.nombre %>" id="modal-img1" class="img-fluid mb-3">
-    139|           </div>
-    140|           <div class="col-md-6">
-    141|             <img src="/images/pizzas/<%= pizza.imagen2 %>" alt="<%= pizza.nombre %>" id="modal-img2" class="img-fluid mb-3">
+[2024-03-22T15:24:48.341] [ERROR] error - 500 /home/fran/Documentos/Gestor-Pizzeria/Backend/views/carrito.ejs:30
+    28|       <div class="card mb-3">
+    29|         <div class="card-body">
+ >> 30|           <% if (productos.length > 0) { %>
+    31|             <% productos.forEach(function(producto) { %>
+    32|               <div class="d-flex justify-content-between align-items-center mb-3">
+    33|                 <div class="producto-info">
 
-pizza is not defined
-[2024-03-21T09:41:31.430] [ERROR] error - 500 /home/fran/Documentos/Gestor-Pizzeria/Backend/views/pizzas.ejs:138
-    136|         <div class="row">
-    137|           <div class="col-md-6">
- >> 138|             <img src="/images/pizzas/<%= pizza.imagen1 %>" alt="<%= pizza.nombre %>" id="modal-img1" class="img-fluid mb-3">
-    139|           </div>
-    140|           <div class="col-md-6">
-    141|             <img src="/images/pizzas/<%= pizza.imagen2 %>" alt="<%= pizza.nombre %>" id="modal-img2" class="img-fluid mb-3">
+productos is not defined
+[2024-03-22T15:25:11.584] [ERROR] error - 500 /home/fran/Documentos/Gestor-Pizzeria/Backend/views/carrito.ejs:30
+    28|       <div class="card mb-3">
+    29|         <div class="card-body">
+ >> 30|           <% if (productos.length > 0) { %>
+    31|             <% productos.forEach(function(producto) { %>
+    32|               <div class="d-flex justify-content-between align-items-center mb-3">
+    33|                 <div class="producto-info">
 
-pizza is not defined
-[2024-03-21T09:41:43.634] [ERROR] error - 500 /home/fran/Documentos/Gestor-Pizzeria/Backend/views/pizzas.ejs:138
-    136|         <div class="row">
-    137|           <div class="col-md-6">
- >> 138|             <img src="/images/pizzas/<%= pizza.imagen1 %>" alt="<%= pizza.nombre %>" id="modal-img1" class="img-fluid mb-3">
-    139|           </div>
-    140|           <div class="col-md-6">
-    141|             <img src="/images/pizzas/<%= pizza.imagen2 %>" alt="<%= pizza.nombre %>" id="modal-img2" class="img-fluid mb-3">
+productos is not defined
+[2024-03-22T15:25:15.027] [ERROR] error - 500 /home/fran/Documentos/Gestor-Pizzeria/Backend/views/carrito.ejs:30
+    28|       <div class="card mb-3">
+    29|         <div class="card-body">
+ >> 30|           <% if (productos.length > 0) { %>
+    31|             <% productos.forEach(function(producto) { %>
+    32|               <div class="d-flex justify-content-between align-items-center mb-3">
+    33|                 <div class="producto-info">
 
-pizza is not defined
-[2024-03-21T15:02:49.412] [ERROR] error - 500 Failed to lookup view "complementos.ejs" in views directory "/home/fran/Documentos/Gestor-Pizzeria/Backend/views"
+productos is not defined
+[2024-03-22T15:25:21.086] [ERROR] error - 500 /home/fran/Documentos/Gestor-Pizzeria/Backend/views/carrito.ejs:30
+    28|       <div class="card mb-3">
+    29|         <div class="card-body">
+ >> 30|           <% if (productos.length > 0) { %>
+    31|             <% productos.forEach(function(producto) { %>
+    32|               <div class="d-flex justify-content-between align-items-center mb-3">
+    33|                 <div class="producto-info">
+
+productos is not defined
