@@ -110,8 +110,7 @@
             <span class="normal-price"><%= pasta.precio_pvp %>€</span>
           </div>
           <div class="btn-container">
-            <a href="#" class="btn btn-details" data-toggle="modal" data-target="#pastaDetailsModal"
-              data-index="<%= index %>"><i class="far fa-eye"></i></a>
+            <a href="#" class="btn btn-details" data-toggle="modal" data-target="#pastaDetailsModal" data-id="<%= pasta._id %>"><i class="far fa-eye"></i></a>
             <a href="#" class="btn btn-add-to-cart"><i class="fas fa-shopping-cart"></i></a>
           </div>
         </div>
@@ -166,23 +165,33 @@
   <!-- Elimina una de las siguientes líneas dependiendo de tus necesidades -->
   <!-- script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script -->
   <script>
-        $(document).ready(function() {
-        $('#pastaDetailsModal').on('show.bs.modal', function(event) {
-        var button = $(event.relatedTarget); // Botón que abrió el modal
-        var index = button.data('index'); // Obtener el índice de la pasta seleccionada
-        var pasta = pastas[index]; // Obtener los detalles de la pasta
-        console.log('Detalles de la pasta:', pasta); // Imprimir los detalles de la pasta en la consola
-        // Mostrar los detalles de la pasta en el modal
-        $('#pastaModalTitle').text('Detalles de ' + pasta.nombre);
-        $('#modal-img1').attr('src', '/images/pastas/' + pasta.imagen1);
-        $('#modal-img2').attr('src', '/images/pastas/' + pasta.imagen2);
-        $('#modal-img3').attr('src', '/images/pastas/' + pasta.imagen3);
-        $('.modal-pasta-title').text(pasta.nombre);
-        $('.modal-pasta-description').text(pasta.descripcion);
-        $('.modal-pasta-price').text('Precio: ' + pasta.precio_pvp + '€');
-        // Abrir el modal
-        $('#pastaDetailsModal').modal('show');
-        });
+    $(document).ready(function() {
+      $('.btn-details').click(function(event) {
+        event.preventDefault();
+        var pastaId = $(this).data('id'); // Obtener el _id de la pasta
+        console.log('ID de la pasta:', pastaId); // Imprimir el _id de la pasta en la consola
+  
+        // Realizar una solicitud para obtener los detalles de la pasta por su _id
+        fetch('http://localhost:9100/api/v2/productos/getProductDetailByID/' + pastaId)
+          .then(response => response.json())
+          .then(data => {
+            console.log('Detalles de la pasta:', data); // Imprimir los detalles de la pasta en la consola
+            // Mostrar los detalles de la pasta en el modal
+            $('#pastaModalTitle').text('Detalles de ' + data.nombre);
+            $('#modal-img1').attr('src', '/images/pastas/' + data.imagen1);
+            $('#modal-img2').attr('src', '/images/pastas/' + data.imagen2);
+            $('#modal-img3').attr('src', '/images/pastas/' + data.imagen3);
+            $('.modal-pasta-title').text(data.nombre);
+            $('.modal-pasta-description').text(data.descripcion);
+            $('.modal-pasta-price').text('Precio: ' + data.precio_pvp + '€');
+            // Abrir el modal
+            $('#pastaDetailsModal').modal('show');
+          })
+          .catch(error => {
+            console.error('Error al obtener los detalles de la pasta:', error); // Manejo de errores
+            alert('Error al obtener los detalles de la pasta');
+          });
+      });
     });
   </script>
 </body>
