@@ -228,3 +228,5 @@
 ::1 - - [17/Mar/2024:20:01:41 +0000] "GET / HTTP/1.1" 200 13135 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
 ::1 - - [17/Mar/2024:20:01:48 +0000] "GET / HTTP/1.1" 200 13135 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
 ::1 - - [17/Mar/2024:20:01:58 +0000] "GET / HTTP/1.1" 200 13135 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+[2024-03-17T21:04:09.160] [DEBUG] access - http://localhost:9800
+::1 - - [17/Mar/2024:20:04:09 +0000] "GET /usuarios/login-register HTTP/1.1" 304 - "http://localhost:9800/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
