@@ -196,51 +196,65 @@
   </script>
   <script>
     $(document).ready(function() {
-  $('.btn-add-to-cart').click(function(event) {
-    event.preventDefault();
-    var pizzaId = $(this).closest('.product').find('.btn-details').data('id');
-    var pizzaName = $(this).closest('.product').find('.product-title').text();
-    var pizzaPrice = $(this).closest('.product').find('.price .normal-price').text();
-    var quantity = 1; // Puedes permitir que el usuario elija la cantidad si lo deseas
-
-    // Utilizar fetch para realizar la solicitud
-    fetch('/add-to-cart', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        id: pizzaId,
-        name: pizzaName,
-        price: pizzaPrice,
-        quantity: quantity
-      })
-    })
-    .then(response => {
-      if (response.ok) {
-        // Mostrar alerta de éxito con SweetAlert2
+      $('.btn-add-to-cart').click(function(event) {
+        event.preventDefault();
+        var complementoId = $(this).closest('.product').find('.btn-details').data('id');
+        var complementoName = $(this).closest('.product').find('.product-title').text();
+        var quantity = 1; // Inicialmente, la cantidad es 1
+  
+        // Mostrar un cuadro de diálogo para que el usuario elija la cantidad
         Swal.fire({
-          icon: 'success',
-          title: '¡Producto agregado al carrito!',
-          showConfirmButton: false,
-          timer: 1500
+          title: '¿Cuántas unidades deseas añadir?',
+          input: 'number',
+          inputAttributes: {
+            min: 1,
+            step: 1,
+          },
+          inputValue: quantity,
+          showCancelButton: true,
+          confirmButtonText: 'Añadir al carrito',
+          cancelButtonText: 'Cancelar',
+          reverseButtons: true
+        }).then((result) => {
+          if (result.isConfirmed) {
+            quantity = result.value; // Actualiza la cantidad con el valor ingresado por el usuario
+            // Agregar el complemento al carrito utilizando fetch
+            fetch('/add-to-cart', {  // Cambiado a /add-to-cart
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({
+                id: complementoId,
+                name: complementoName,
+                quantity: quantity
+              })
+            }).then(response => {
+              if (response.ok) {
+                // Muestra un mensaje de éxito utilizando SweetAlert2
+                Swal.fire({
+                  icon: 'success',
+                  title: 'Producto agregado al carrito',
+                  showConfirmButton: false,
+                  timer: 1500
+                });
+              } else {
+                throw new Error('Error al agregar el producto al carrito');
+              }
+            }).catch(error => {
+              console.error('Error al agregar el producto al carrito:', error);
+              // Muestra un mensaje de error utilizando SweetAlert2
+              Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Error al agregar el producto al carrito',
+                confirmButtonText: 'Cerrar'
+              });
+            });
+          }
         });
-      } else {
-        // Mostrar alerta de error con SweetAlert2
-        throw new Error('Error al agregar producto al carrito');
-      }
-    })
-    .catch(error => {
-      console.error('Error al agregar producto al carrito:', error);
-      // Mostrar alerta de error con SweetAlert2
-      Swal.fire({
-        icon: 'error',
-        title: 'Error',
-        text: 'Error al agregar producto al carrito',
       });
     });
-  });
-});
-</script>
+  </script>
 </body>
 </html>

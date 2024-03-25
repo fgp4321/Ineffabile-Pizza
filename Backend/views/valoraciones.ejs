@@ -1,4 +1,3 @@
-<!-- views/valoraciones.ejs -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -59,8 +58,13 @@
       color: #ffcc00;
     }
 
-    .rating label:hover:before {
+    .rating input:checked ~ label:hover:before,
+    .rating input:not(:checked):hover ~ label:before {
       color: #ffcc00;
+    }
+
+    .rating label:hover:before {
+      color: #ccc;
     }
 
     .message-info {

@@ -34,14 +34,6 @@
               <h5 class="card-title"><%= item.name %></h5>
               <p class="card-text">Precio: <%= item.price %>/Ud</p>
             </div>
-            <div class="producto-cantidad">
-              <!-- Dropdown para seleccionar la cantidad -->
-              <select class="form-select cantidad-selector" data-id="<%= item.id %>">
-                <% for (let i = 1; i <= 10; i++) { %>
-                  <option value="<%= i %>" <%= item.quantity === i ? 'selected' : '' %>><%= i %></option>
-                <% } %>
-              </select>
-            </div>
             <div class="producto-eliminar">
               <!-- Botón para eliminar el producto del carrito -->
               <button class="btn btn-danger eliminar-producto" data-id="<%= item.id %>">
@@ -56,6 +48,11 @@
     <div class="card mb-3">
       <div class="card-body">
         <h5 class="card-title">Total: <%= totalPrice.toFixed(2) %>€</h5>
+      </div>
+    </div>
+    <div class="card mb-3">
+      <div class="card-body">
+        <button class="btn btn-success pasar-por-caja">
       </div>
     </div>
   <% } else { %>
