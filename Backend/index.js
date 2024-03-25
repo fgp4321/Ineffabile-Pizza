@@ -256,7 +256,7 @@ app.get('/promociones', async (req, res) => {
 
 // Ruta para agregar productos al carrito
 app.post('/add-to-cart', (req, res) => {
-    const { id, name, price_pvp, quantity } = req.body;
+    const { id, name, price_pvp, quantity } = req.body; // Cambia price a price_pvp
     
     // Obtén el carrito de la sesión
     let cart = req.session.cart || [];
@@ -265,7 +265,7 @@ app.post('/add-to-cart', (req, res) => {
     cart.push({
       id: id,
       name: name,
-      price: price_pvp,
+      price: price_pvp, // Cambia price a price_pvp
       quantity: quantity
     });
   
@@ -274,7 +274,7 @@ app.post('/add-to-cart', (req, res) => {
     
     // Devuelve una respuesta exitosa
     res.status(200).send('Producto agregado al carrito');
-  });
+});
 
   app.post('/eliminar-producto', (req, res) => {
     const productId = req.body.id;

@@ -5,7 +5,7 @@ const bcrypt = require("bcrypt")
 const jwt = require("jsonwebtoken")
 
 //AUTENTICACIÓN
-/*
+
 exports.register = async function(req,res){
     const newUser = new User(req.body)
 
@@ -15,10 +15,12 @@ exports.register = async function(req,res){
         if(err){
             res.status(500).json(err)
         }else{
-            res.redirect("")
+            res.json(userCreated)
+            res.redirect("/usuarios/login-register")
         }
     })
 }
+
 
 exports.login = async function(req,res){
     const { username, password } = req.body   
@@ -63,7 +65,7 @@ exports.logout = (req, res) => {
         }
     })
 }
-*/
+
 
 exports.mostrarLoginRegistro = function(req,res){
     res.render("login-register.ejs")
