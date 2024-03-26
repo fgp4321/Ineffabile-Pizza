@@ -7,16 +7,37 @@ const jwt = require("jsonwebtoken")
 //AUTENTICACIÓN
 
 exports.register = async function(req, res) {
-    const newUser = req.body;
-    newUser.password = await bcrypt.hash(newUser.password, 12);
-    
-    await User.create(newUser, function(err, userCreated) {
-        if(err) {
-            res.status(500).json(err);
-        } else {
-            res.redirect("/usuarios/login-register");
+    try {
+        const { nombre, apellido, username, email, password, telefono } = req.body;
+
+        // Verificar si el usuario ya existe en la base de datos
+        const existingUser = await User.findOne({ email });
+        if (existingUser) {
+            // Puedes utilizar SweetAlert2 para mostrar una alerta de error
+            return res.render('login-register', { error: 'El correo electrónico ya está registrado.' });
         }
-    });
+
+        // Crear un nuevo usuario
+        const hashedPassword = await bcrypt.hash(password, 12);
+        const newUser = new User({
+            nombre,
+            apellido,
+            username,
+            email,
+            password: hashedPassword,
+            telefono,
+            rol: 'USER' // Establecer el rol como 'USER'
+        });
+
+        await newUser.save();
+
+        // Puedes utilizar SweetAlert2 para mostrar una alerta de éxito
+        res.render('login-register', { success: 'Usuario registrado exitosamente.' });
+    } catch (error) {
+        console.error('Error al registrar usuario:', error);
+        // Puedes utilizar SweetAlert2 para mostrar una alerta de error genérico
+        res.render('login-register', { error: 'Error interno del servidor.' });
+    }
 };
 
 

@@ -10,7 +10,7 @@ router.put("/editUser/:id", UserController.actualizarUsuario);
 router.delete("/deleteUserByID/:id", UserController.eliminarUsuario);
 
 //Crear/Registrar usuario
-router.post("/register", UserController.register)
+router.post('/register', UserController.register);
 
 //Autenticar
 router.post("/usuarios/login",UserController.login)

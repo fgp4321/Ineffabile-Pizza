@@ -31,7 +31,7 @@
                     <i class='bx bxl-linkedin' ></i>
                 </div>
                 <p>o usa tu email para registrarte</p>
-                <form class="form" action="/register" method="POST">
+                <form class="form" action="/api/v2/usuarios/register" method="POST">
                   <label>
                       <i class='bx bx-user'></i>
                       <input type="text" placeholder="Nombre" name="nombre">
@@ -46,7 +46,7 @@
                   </label>
                   <label>
                       <i class='bx bx-envelope'></i>
-                      <input type="email" placeholder="Correo Electronico" name="email">
+                      <input type="email" placeholder="Correo Electrónico" name="email">
                   </label>
                   <label>
                       <i class='bx bx-lock-alt'></i>
@@ -56,7 +56,6 @@
                       <i class='bx bx-phone'></i>
                       <input type="tel" placeholder="Teléfono" name="telefono">
                   </label>
-                  <input type="hidden" name="rol" value="USER">
                   <input type="submit" value="Registrarse">
               </form>
             </div>
