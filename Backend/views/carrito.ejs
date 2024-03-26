@@ -26,13 +26,18 @@
   <% if (cart.length > 0) { %>
     <% let totalPrice = 0; %>
     <% cart.forEach(function(item) { %>
-      <% totalPrice += parseFloat(item.price) * item.quantity; %>
+      <% let itemTotalPrice = parseFloat(item.price_pvp) * item.quantity; %>
+      <% totalPrice += itemTotalPrice; %>
       <div class="card mb-3">
         <div class="card-body">
           <div class="d-flex justify-content-between align-items-center mb-3">
             <div class="producto-info">
               <h5 class="card-title"><%= item.name %></h5>
-              <p class="card-text">Precio: <%= item.price %>/Ud</p>
+              <p class="card-text">Precio: <%= item.price_pvp %>€/Ud</p>
+              <p class="card-text">Cantidad: <%= item.quantity %></p>
+              <p class="card-text">Categoría: <%= item.categoria_nombre %></p>
+              <img src="<%= item.imagen1 %>" alt="Imagen del producto" class="img-fluid">
+              <p class="card-text">Total: <%= itemTotalPrice.toFixed(2) %>€</p> <!-- Mostrar el total por producto -->
             </div>
             <div class="producto-eliminar">
               <!-- Botón para eliminar el producto del carrito -->

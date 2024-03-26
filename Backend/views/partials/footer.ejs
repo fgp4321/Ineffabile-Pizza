@@ -1,71 +1,70 @@
-<!-- views/partials/footer.ejs -->
 <footer class="footer mt-5">
-    <div class="container">
-      <div class="row">
-        <!-- 1º Columna: Productos -->
-        <div class="col-md-2">
-          <h5><a href="/productos">Productos</a></h5>
-          <ul class="list-unstyled">
-            <li><a href="/productos/pizzas">Pizzas</a></li>
-            <li><a href="/productos/pastas">Pastas</a></li>
-            <li><a href="/productos/complementos">Complementos</a></li>
-            <li><a href="/productos/bebidas">Bebidas</a></li>
-            <!-- Agrega más categorías según sea necesario -->
-          </ul>
-        </div>
-  
-        <!-- 2º Columna: Políticas -->
-        <div class="col-md-2">
-          <h5>Políticas</h5>
-          <ul class="list-unstyled">
-            <li><a href="#">Política de privacidad</a></li>
-            <li><a href="#">Aviso legal</a></li>
-            <li><a href="#">Tabla de alérgenos</a></li>
-          </ul>
-        </div>
-  
-        <!-- 3º Columna: Sobre nosotros -->
-        <div class="col-md-2">
-          <h5>Sobre nosotros</h5>
-          <ul class="list-unstyled">
-            <li><a href="/about-us">Acerca de</a></li>
-            <li><a href="/contacto">Contacto</a></li>
-            <li><a href="/valoraciones">Valóranos</a></li>
-          </ul>
-        </div>
-  
-        <!-- 4º Columna: Envíos y devoluciones -->
-        <div class="col-md-3">
-          <h5>Envíos y devoluciones</h5>
-          <ul class="list-unstyled">
-            <li><a href="#">Gastos de envío</a></li>
-            <li><a href="#">Cómo comprar</a></li>
-            <li><a href="/condiciones-generales">Condiciones generales</a></li>
-          </ul>
-        </div>
-  
-        <!-- 5º Columna: Subscríbete a nuestro newsletter -->
-        <div class="col-md-3">
-            <h5>Subscríbete a nuestro newsletter</h5>
-            <form id="newsletterForm" action="/subscribe" method="post">
-              <div class="input-group">
-                <input type="email" class="form-control" placeholder="Correo electrónico" name="email" required>
-                <div class="input-group-append">
-                  <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i></button>
-                </div>
-              </div>
-            </form>
-          </div>
-  
-      <!-- Iconos de redes sociales -->
-      <div class="row mt-3">
-        <div class="col text-center">
-          <p>Síguenos:</p>
-          <a href="#" class="social-icon mx-2"><i class="fab fa-instagram fa-lg"></i></a>
-          <a href="#" class="social-icon mx-2"><i class="fab fa-twitter fa-lg"></i></a>
-          <a href="#" class="social-icon mx-2"><i class="fab fa-youtube fa-lg"></i></a>
-        </div>
+  <div class="container">
+    <div class="row">
+      <!-- 1º Columna: Productos -->
+      <div class="col-md-2">
+        <h5><a href="/productos" style="color: #ffc200;">Productos</a></h5>
+        <ul class="list-unstyled">
+          <li><a href="/productos/pizzas" style="color: #ffc200;">Pizzas</a></li>
+          <li><a href="/productos/pastas" style="color: #ffc200;">Pastas</a></li>
+          <li><a href="/productos/complementos" style="color: #ffc200;">Complementos</a></li>
+          <li><a href="/productos/bebidas" style="color: #ffc200;">Bebidas</a></li>
+          <!-- Agrega más categorías según sea necesario -->
+        </ul>
       </div>
+
+      <!-- 2º Columna: Políticas -->
+      <div class="col-md-2">
+        <h5 style="color: #ffc200;">Políticas</h5>
+        <ul class="list-unstyled">
+          <li><a href="#" style="color: #ffc200;">Política de privacidad</a></li>
+          <li><a href="#" style="color: #ffc200;">Aviso legal</a></li>
+          <li><a href="#" style="color: #ffc200;">Tabla de alérgenos</a></li>
+        </ul>
+      </div>
+
+      <!-- 3º Columna: Sobre nosotros -->
+      <div class="col-md-2">
+        <h5 style="color: #ffc200;">Sobre nosotros</h5>
+        <ul class="list-unstyled">
+          <li><a href="/about-us" style="color: #ffc200;">Acerca de</a></li>
+          <li><a href="/contacto" style="color: #ffc200;">Contacto</a></li>
+          <li><a href="/valoraciones" style="color: #ffc200;">Valóranos</a></li>
+        </ul>
+      </div>
+
+      <!-- 4º Columna: Envíos y devoluciones -->
+      <div class="col-md-3">
+        <h5 style="color: #ffc200;">Envíos y devoluciones</h5>
+        <ul class="list-unstyled">
+          <li><a href="#" style="color: #ffc200;">Gastos de envío</a></li>
+          <li><a href="#" style="color: #ffc200;">Cómo comprar</a></li>
+          <li><a href="/condiciones-generales" style="color: #ffc200;">Condiciones generales</a></li>
+        </ul>
+      </div>
+
+      <!-- 5º Columna: Subscríbete a nuestro newsletter -->
+      <div class="col-md-3">
+        <h5 style="color: #ffc200;">Subscríbete a nuestro newsletter</h5>
+        <form id="newsletterForm" action="/subscribe" method="post">
+          <div class="input-group">
+            <input type="email" class="form-control" placeholder="Correo electrónico" name="email" required>
+            <div class="input-group-append">
+              <button type="submit" class="btn btn-primary" style="background-color: #ffc200; border-color: #ffc200;"><i class="fas fa-paper-plane" style="color: #fff;"></i></button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- Iconos de redes sociales -->
+    <div class="row mt-3">
+      <div class="col text-center">
+        <p style="color: #ffc200;">Síguenos:</p>
+        <a href="#" class="social-icon mx-2" style="color: #ffc200;"><i class="fab fa-instagram fa-lg"></i></a>
+        <a href="#" class="social-icon mx-2" style="color: #ffc200;"><i class="fab fa-twitter fa-lg"></i></a>
+        <a href="#" class="social-icon mx-2" style="color: #ffc200;"><i class="fab fa-youtube fa-lg"></i></a>
+      </div>
+    </div>
     <!-- Cuadro de texto con derechos de autor -->
     <div class="row mt-3">
       <div class="col text-center">
@@ -75,39 +74,4 @@
       </div>
     </div>
   </div>
-  </footer>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="/fontawesome/js/all.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.6.4.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="/js/bootstrap.bundle.min.js"></script>
-<script>
-  // Script para mostrar la alerta de SweetAlert2 al enviar el formulario de suscripción
-  document.addEventListener('DOMContentLoaded', function () {
-    const newsletterForm = document.getElementById('newsletterForm');
-
-    newsletterForm.addEventListener('submit', function (event) {
-      event.preventDefault();
-
-      const emailInput = document.querySelector('[name="email"]');
-      const email = emailInput.value;
-
-      // Validar el formato del correo electrónico (puedes usar una librería como validator.js)
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(email)) {
-        Swal.fire({
-          icon: 'error',
-          title: '¡Error!',
-          text: 'Por favor, introduce un correo electrónico válido.'
-        });
-        return;
-      }
-
-      // Puedes redirigir a /newsletter/success si es necesario
-      window.location.href = '/newsletter/success';
-    });
-  });
-</script>
-  <br>
-  <br>
-  
+</footer>
