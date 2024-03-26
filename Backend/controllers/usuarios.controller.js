@@ -6,20 +6,18 @@ const jwt = require("jsonwebtoken")
 
 //AUTENTICACIÓN
 
-exports.register = async function(req,res){
-    const newUser = new User(req.body)
-
-    newUser.password = await bcrypt.hash(newUser.password, 12)
-
-    await User.create(newUser,function(userCreated,err){
-        if(err){
-            res.status(500).json(err)
-        }else{
-            res.json(userCreated)
-            res.redirect("/usuarios/login-register")
+exports.register = async function(req, res) {
+    const newUser = req.body;
+    newUser.password = await bcrypt.hash(newUser.password, 12);
+    
+    await User.create(newUser, function(err, userCreated) {
+        if(err) {
+            res.status(500).json(err);
+        } else {
+            res.redirect("/usuarios/login-register");
         }
-    })
-}
+    });
+};
 
 
 exports.login = async function(req,res){
