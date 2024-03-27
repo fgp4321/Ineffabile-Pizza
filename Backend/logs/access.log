@@ -186,3 +186,6 @@
 [2024-03-26T15:46:58.278] [DEBUG] access - http://localhost:9100
 ::1 - - [26/Mar/2024:14:47:06 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 ::1 - - [26/Mar/2024:14:47:10 +0000] "GET /usuarios/login-register HTTP/1.1" 304 - "http://localhost:9100/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+[2024-03-26T15:59:40.877] [DEBUG] access - http://localhost:9100
+::1 - - [26/Mar/2024:14:59:42 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+[2024-03-26T15:59:53.176] [DEBUG] access - http://localhost:9100
