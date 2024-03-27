@@ -26,17 +26,17 @@ exports.register = async function(req, res) {
             email,
             password: hashedPassword,
             telefono,
-            rol: 'USER' // Establecer el rol como 'USER'
+            rol: 'USER'
         });
 
         await newUser.save();
 
         // Puedes utilizar SweetAlert2 para mostrar una alerta de éxito
-        res.render('login-register', { success: 'Usuario registrado exitosamente.' });
+        res.render('login-register.ejs', { success: 'Usuario registrado exitosamente.' });
     } catch (error) {
         console.error('Error al registrar usuario:', error);
         // Puedes utilizar SweetAlert2 para mostrar una alerta de error genérico
-        res.render('login-register', { error: 'Error interno del servidor.' });
+        res.render('login-register.ejs', { error: 'Error interno del servidor.' });
     }
 };
 

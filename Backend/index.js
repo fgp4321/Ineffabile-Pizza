@@ -60,8 +60,8 @@ app.use(express.json())
 const faviconPath = path.join(__dirname, 'public/favicon', 'favicon3.ico');
 app.use(favicon(faviconPath));
 
-app.set("view_engine","ejs")
 app.set("views",path.join(__dirname,"/views"))
+app.set("view_engine","ejs")
 
 app.use(express.static(path.join(__dirname,"public")))
 app.use('/css', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/css')));
