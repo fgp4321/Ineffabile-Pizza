@@ -14,7 +14,8 @@ exports.register = async function(req, res) {
         const existingUser = await User.findOne({ email });
         if (existingUser) {
             // Puedes utilizar SweetAlert2 para mostrar una alerta de error
-            return res.render('login-register', { error: 'El correo electrónico ya está registrado.' });
+            console.error({"err":"Usuario ya existente"})
+            res.redirect("/usuarios/login-register")
         }
 
         // Crear un nuevo usuario
@@ -32,15 +33,14 @@ exports.register = async function(req, res) {
         await newUser.save();
 
         // Puedes utilizar SweetAlert2 para mostrar una alerta de éxito
-        res.render('login-register.ejs', { success: 'Usuario registrado exitosamente.' });
+        res.redirect("/usuarios/login-register");
     } catch (error) {
-        console.error('Error al registrar usuario:', error);
+        console.error({"err":"Error al registrar el usuario"})
         // Puedes utilizar SweetAlert2 para mostrar una alerta de error genérico
-        res.render('login-register.ejs', { error: 'Error interno del servidor.' });
+        res.status(401).json({"err":"Error interno del servidor"})
     }
 };
-
-
+/*
 exports.login = async function(req,res){
     const { username, password } = req.body   
 
@@ -84,11 +84,9 @@ exports.logout = (req, res) => {
         }
     })
 }
+*/
 
 
-exports.mostrarLoginRegistro = function(req,res){
-    res.render("login-register.ejs")
-}
 
 //CRUD
 exports.buscarTodosUsuarios = wrapAsync(async (req, res) => {

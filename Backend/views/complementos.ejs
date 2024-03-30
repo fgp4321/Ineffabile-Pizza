@@ -71,9 +71,9 @@
     .btn-add-to-cart {
       flex: 1;
       padding: 3px;
-      border: 1px solid #ffc200;
+      border: 1px solid #007bff;
       border-radius: 5px;
-      background-color: #ffc200;
+      background-color: #007bff;
       color: #fff;
       text-align: center;
       text-decoration: none;
@@ -82,11 +82,11 @@
     }
 
     .btn-add-to-cart:hover {
-      background-color: #be9200;
+      background-color: #0056b3;
     }
 
     .btn-details:hover {
-      background-color: #be9200;
+      background-color: #0056b3;
     }
   </style>
 </head>
@@ -242,77 +242,5 @@
   });
 });
 </script>
-  <!--<script>
-    $(document).ready(function() {
-      $('.btn-add-to-cart').click(function(event) {
-        event.preventDefault();
-        var complementoId = $(this).closest('.product').find('.btn-details').data('id');
-        var complementoName = $(this).closest('.product').find('.product-title').text();
-        var complementoPrecio = $(this).closest('.product').find('.product-price').data('price'); // Revisa este selector
-        var complementoCat = $(this).closest('.product').find('.product-category').text(); // Revisa este selector
-        var complementoImg = $(this).closest('.product').find('.product-image').attr('src');
-
-        console.log('ID:', complementoId);
-        console.log('Nombre:', complementoName);
-        console.log('Precio:', complementoPrecio);
-        console.log('Categoría:', complementoCat);
-        console.log('Imagen:', complementoImg);
-
-        // Mostrar un cuadro de diálogo para que el usuario elija la cantidad
-        Swal.fire({
-          title: '¿Cuántas unidades deseas añadir?',
-          input: 'number',
-          inputAttributes: {
-            min: 1,
-            step: 1,
-          },
-          showCancelButton: true,
-          confirmButtonText: 'Añadir al carrito',
-          cancelButtonText: 'Cancelar',
-          reverseButtons: true
-        }).then((result) => {
-          if (result.isConfirmed) {
-            var cantidad = result.value; // Obtener la cantidad seleccionada por el usuario
-            // Agregar el complemento al carrito utilizando fetch
-            fetch('/add-to-cart', {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json'
-              },
-              body: JSON.stringify({
-                id: complementoId,
-                name: complementoName,
-                price_pvp: complementoPrecio,
-                quantity: cantidad,
-                categoria_nombre: complementoCat,
-                imagen1: complementoImg
-              })
-            }).then(response => {
-              if (response.ok) {
-                // Muestra un mensaje de éxito utilizando SweetAlert2
-                Swal.fire({
-                  icon: 'success',
-                  title: 'Producto agregado al carrito',
-                  showConfirmButton: false,
-                  timer: 1500
-                });
-              } else {
-                throw new Error('Error al agregar el producto al carrito');
-              }
-            }).catch(error => {
-              console.error('Error al agregar el producto al carrito:', error);
-              // Muestra un mensaje de error utilizando SweetAlert2
-              Swal.fire({
-                icon: 'error',
-                title: 'Error',
-                text: 'Error al agregar el producto al carrito',
-                confirmButtonText: 'Cerrar'
-              });
-            });
-          }
-        });
-      });
-    });
-  </script>-->
 </body>
 </html>

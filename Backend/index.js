@@ -60,8 +60,8 @@ app.use(express.json())
 const faviconPath = path.join(__dirname, 'public/favicon', 'favicon3.ico');
 app.use(favicon(faviconPath));
 
-app.set("views",path.join(__dirname,"/views"))
 app.set("view_engine","ejs")
+app.set("views",path.join(__dirname,"/views"))
 
 app.use(express.static(path.join(__dirname,"public")))
 app.use('/css', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/css')));
@@ -256,9 +256,8 @@ app.get('/promociones', async (req, res) => {
 
 // Ruta para agregar productos al carrito
 app.post('/add-to-cart', (req, res) => {
-    const { id, name, price_pvp, quantity, categoria_nombre, imagen1 } = req.body;
+    const { id, name, price, quantity } = req.body;
     
-    console.log('Datos recibidos:', req.body);
     // Obtén el carrito de la sesión
     let cart = req.session.cart || [];
     
@@ -266,10 +265,8 @@ app.post('/add-to-cart', (req, res) => {
     cart.push({
       id: id,
       name: name,
-      price_pvp: price_pvp,
-      quantity: quantity,
-      categoria_nombre: categoria_nombre,
-      imagen1: imagen1
+      price: price,
+      quantity: quantity
     });
   
     // Guarda el carrito en la sesión
@@ -277,19 +274,19 @@ app.post('/add-to-cart', (req, res) => {
     
     // Devuelve una respuesta exitosa
     res.status(200).send('Producto agregado al carrito');
-});
+  });
 
-app.post('/eliminar-producto', (req, res) => {
+  app.post('/eliminar-producto', (req, res) => {
     const productId = req.body.id;
     // Elimina el producto del carrito (implementa la lógica según tu aplicación)
     // Por ejemplo:
     req.session.cart = req.session.cart.filter(item => item.id !== productId);
     // Retorna una respuesta adecuada, como un código de estado 200 para indicar éxito
     res.sendStatus(200);
-});
+  });
   
   // Ruta para mostrar el carrito
-app.get('/carrito', (req, res) => {
+  app.get('/carrito', (req, res) => {
     // Obtén el carrito de la sesión
     const cart = req.session.cart || [];
     
@@ -300,7 +297,7 @@ app.get('/carrito', (req, res) => {
         }
         acc[product.id].quantity += 1;
         return acc;
-}, {});
+    }, {});
 
     // Convierte el objeto agrupado en un array para pasarlo a la vista
     const cartItems = Object.values(groupedCart);
@@ -326,7 +323,6 @@ app.get('/condiciones-generales', (req, res) => {
 app.get('/usuarios/login-register', (req, res) => {
     res.render('login-register.ejs');
 });
-
 
 
 
