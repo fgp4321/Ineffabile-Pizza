@@ -5,21 +5,42 @@ const bcrypt = require("bcrypt")
 const jwt = require("jsonwebtoken")
 
 //AUTENTICACIÓN
-/*
-exports.register = async function(req,res){
-    const newUser = new User(req.body)
 
-    newUser.password = await bcrypt.hash(newUser.password, 12)
+exports.register = async function(req, res) {
+    try {
+        const { nombre, apellido, username, email, password, telefono } = req.body;
 
-    await User.create(newUser,function(userCreated,err){
-        if(err){
-            res.status(500).json(err)
-        }else{
-            res.redirect("")
+        // Verificar si el usuario ya existe en la base de datos
+        const existingUser = await User.findOne({ email });
+        if (existingUser) {
+            // Puedes utilizar SweetAlert2 para mostrar una alerta de error
+            console.error({"err":"Usuario ya existente"})
+            res.redirect("/usuarios/login-register")
         }
-    })
-}
 
+        // Crear un nuevo usuario
+        const hashedPassword = await bcrypt.hash(password, 12);
+        const newUser = new User({
+            nombre,
+            apellido,
+            username,
+            email,
+            password: hashedPassword,
+            telefono,
+            rol: 'USER'
+        });
+
+        await newUser.save();
+
+        // Puedes utilizar SweetAlert2 para mostrar una alerta de éxito
+        res.redirect("/usuarios/login-register");
+    } catch (error) {
+        console.error({"err":"Error al registrar el usuario"})
+        // Puedes utilizar SweetAlert2 para mostrar una alerta de error genérico
+        res.status(401).json({"err":"Error interno del servidor"})
+    }
+};
+/*
 exports.login = async function(req,res){
     const { username, password } = req.body   
 
@@ -65,9 +86,7 @@ exports.logout = (req, res) => {
 }
 */
 
-exports.mostrarLoginRegistro = function(req,res){
-    res.render("login-register.ejs")
-}
+
 
 //CRUD
 exports.buscarTodosUsuarios = wrapAsync(async (req, res) => {

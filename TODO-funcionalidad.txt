@@ -1,4 +1,0 @@
-- Login y register con JWT.
-- OAuth2 Google
-- Sistema de carrito
-- ...

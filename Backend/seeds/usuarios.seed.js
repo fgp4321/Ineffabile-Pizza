@@ -4,7 +4,7 @@ const mongoConn = require("../config/mongoDB.config")
 const ejecutar = async()=>{
     await mongoConn.conectarMongoDB()
     .then(()=>{
-        console.log("Creando base de datos y documentos...")
+        console.log("Conexión a MongoDB establecida...")
     })
     .catch((err)=>{
         console.log(err)

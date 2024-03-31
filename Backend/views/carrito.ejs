@@ -1,0 +1,119 @@
+<!-- views/contact.ejs -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto</title>
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/fontawesome/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11">
+
+  <!-- Agregar cualquier otro estilo necesario -->
+
+  <!-- Estilo personalizado para centrar el formulario y ajustar el tamaño -->
+
+</head>
+
+<body class="bg-light">
+
+  <!-- Incluir el navbar -->
+  <%- include('./partials/navbar.ejs') %>
+
+<!-- Contenido del carrito -->
+<div class="container">
+  <h2 class="text-center mb-4">Tu Carrito de Compras</h2>
+  <% if (cart.length > 0) { %>
+    <% let totalPrice = 0; %>
+    <% cart.forEach(function(item) { %>
+      <% totalPrice += parseFloat(item.price) * item.quantity; %>
+      <div class="card mb-3">
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <div class="producto-info">
+              <h5 class="card-title"><%= item.name %></h5>
+              <p class="card-text">Precio: <%= item.price %>/Ud</p>
+            </div>
+            <div class="producto-cantidad">
+              <!-- Dropdown para seleccionar la cantidad -->
+              <select class="form-select cantidad-selector" data-id="<%= item.id %>">
+                <% for (let i = 1; i <= 10; i++) { %>
+                  <option value="<%= i %>" <%= item.quantity === i ? 'selected' : '' %>><%= i %></option>
+                <% } %>
+              </select>
+            </div>
+            <div class="producto-eliminar">
+              <!-- Botón para eliminar el producto del carrito -->
+              <button class="btn btn-danger eliminar-producto" data-id="<%= item.id %>">
+                <i class="fas fa-trash-alt"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% }); %>
+    <!-- Mostrar el precio total -->
+    <div class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Total: <%= totalPrice.toFixed(2) %>€</h5>
+      </div>
+    </div>
+  <% } else { %>
+    <p>No hay productos en tu carrito.</p>
+  <% } %>
+</div>
+
+<!-- Incluir el footer -->
+<%- include('./partials/footer.ejs') %>
+
+<script src="/fontawesome/js/all.min.js"></script>
+<script src="/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Evento para eliminar un producto del carrito
+    document.querySelectorAll('.eliminar-producto').forEach(button => {
+      button.addEventListener('click', function() {
+        const productId = this.dataset.id;
+
+        // Realiza una solicitud fetch para eliminar el producto del carrito
+        fetch('/eliminar-producto', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ id: productId })
+        })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Error al eliminar el producto del carrito');
+          }
+          // Si la eliminación fue exitosa, muestra una alerta con SweetAlert2
+          Swal.fire({
+            icon: 'success',
+            title: 'Producto eliminado',
+            text: 'El producto ha sido eliminado del carrito',
+            showConfirmButton: false,
+            timer: 1500 // Cerrar la alerta después de 1.5 segundos
+          });
+          // Recarga la página para actualizar el carrito
+          setTimeout(() => {
+            window.location.reload();
+          }, 1500);
+        })
+        .catch(error => {
+          console.error('Error al eliminar producto del carrito:', error.message);
+          // Muestra una alerta de error con SweetAlert2
+          Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'Error al eliminar el producto del carrito',
+            confirmButtonText: 'Cerrar'
+          });
+        });
+      });
+    });
+  });
+</script>
+</body>
+</html>

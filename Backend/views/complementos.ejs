@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Complementos</title>
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/fontawesome/css/all.min.css">
+  <!-- Agregar cualquier otra hoja de estilos necesaria -->
+
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f8f9fa;
+    }
+
+    .container {
+      padding: 20px;
+    }
+
+    h2 {
+      color: #007bff;
+      margin-bottom: 30px;
+    }
+
+    .product {
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+      background-color: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .product img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
+    .product-title {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .price {
+      font-size: 16px;
+      color: #28a745; /* Verde para el precio en oferta */
+      margin-bottom: 5px;
+    }
+
+    .original-price {
+      text-decoration: line-through;
+      color: #ccc; /* Color para el precio original tachado */
+      margin-right: 10px;
+    }
+
+    .discount-price {
+      color: #dc3545; /* Rojo para el precio de descuento */
+    }
+
+    .btn-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+    }
+
+    .btn-details,
+    .btn-add-to-cart {
+      flex: 1;
+      padding: 3px;
+      border: 1px solid #007bff;
+      border-radius: 5px;
+      background-color: #007bff;
+      color: #fff;
+      text-align: center;
+      text-decoration: none;
+      margin-right: 5px;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .btn-add-to-cart:hover {
+      background-color: #0056b3;
+    }
+
+    .btn-details:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Incluir el navbar -->
+  <%- include('./partials/navbar.ejs') %>
+
+  <!-- Contenido de la página -->
+<div class="container">
+  <h2 class="text-center mb-4">Nuestros Complementos</h2>
+  <div class="row">
+    <div class="row">
+      <% complementos.forEach(function(complemento, index) { %>
+      <div class="col-md-3">
+        <div class="product">
+          <img src="/images/complementos/<%= complemento.imagen1 %>" alt="<%= complemento.nombre %>">
+          <div class="product-title"><%= complemento.nombre %></div>
+          <div class="price">
+            <span class="normal-price"><%= complemento.precio_pvp %>€</span>
+          </div>
+          <div class="btn-container">
+            <a href="#" class="btn btn-details" data-toggle="modal" data-target="#complementoDetailsModal" data-id="<%= complemento._id %>"><i class="far fa-eye"></i></a>
+            <a href="#" class="btn btn-add-to-cart"><i class="fas fa-shopping-cart"></i></a>
+          </div>
+        </div>
+      </div>
+      <% }); %>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="complementoDetailsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="complementoModalTitle">Detalles del Complemento</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-6">
+            <img src="" alt="" id="modal-img1" class="img-fluid mb-3">
+          </div>
+          <div class="col-md-6">
+            <img src="" alt="" id="modal-img2" class="img-fluid mb-3">
+          </div>
+        </div>
+        <img src="" alt="" id="modal-img3" class="img-fluid mb-3">
+        <h4 class="modal-complemento-title"></h4>
+        <p class="modal-complemento-description"></p>
+        <p class="modal-complemento-price"></p>
+        <div class="form-group">
+          <label for="quantity">Cantidad:</label>
+          <input type="number" class="form-control" id="quantity" value="1">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" id="add-to-cart-modal">Agregar al carrito</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Incluir el footer -->
+  <%- include('./partials/footer.ejs') %>
+
+  <script src="/fontawesome/js/all.min.js"></script>
+  <script src="/js/bootstrap.bundle.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js"></script>
+  <!-- Elimina una de las siguientes líneas dependiendo de tus necesidades -->
+  <!-- script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script -->
+  <script>
+    $(document).ready(function() {
+      $('.btn-details').click(function(event) {
+        event.preventDefault();
+        var complementoId = $(this).data('id'); // Obtener el _id del complemento
+        console.log('ID del complemento:', complementoId); // Imprimir el _id del complemento en la consola
+  
+        // Realizar una solicitud para obtener los detalles del complemento por su _id
+        fetch('http://localhost:9100/api/v2/productos/getProductDetailByID/' + complementoId)
+          .then(response => response.json())
+          .then(data => {
+            console.log('Detalles del complemento:', data); // Imprimir los detalles del complemento en la consola
+            // Mostrar los detalles del complemento en el modal
+            $('#pastaModalTitle').text('Detalles de ' + data.nombre);
+            $('#modal-img1').attr('src', '/images/complementos/' + data.imagen1);
+            $('#modal-img2').attr('src', '/images/complementos/' + data.imagen2);
+            $('#modal-img3').attr('src', '/images/complementos/' + data.imagen3);
+            $('.modal-complemento-title').text(data.nombre);
+            $('.modal-complemento-description').text(data.descripcion);
+            $('.modal-complemento-price').text('Precio: ' + data.precio_pvp + '€');
+            // Abrir el modal
+            $('#complementoDetailsModal').modal('show');
+          })
+          .catch(error => {
+            console.error('Error al obtener los detalles del complemento:', error); // Manejo de errores
+            alert('Error al obtener los detalles del complemento');
+          });
+      });
+    });
+  </script>
+  <script>
+    $(document).ready(function() {
+  $('.btn-add-to-cart').click(function(event) {
+    event.preventDefault();
+    var complementoId = $(this).closest('.product').find('.btn-details').data('id');
+    var complementoName = $(this).closest('.product').find('.product-title').text();
+    var complementoPrice = $(this).closest('.product').find('.price .normal-price').text();
+    var quantity = 1; // Puedes permitir que el usuario elija la cantidad si lo deseas
+
+    // Utilizar fetch para realizar la solicitud
+    fetch('/add-to-cart', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        id: complementoId,
+        name: complementoName,
+        price: complementoPrice,
+        quantity: quantity
+      })
+    })
+    .then(response => {
+      if (response.ok) {
+        // Mostrar alerta de éxito con SweetAlert2
+        Swal.fire({
+          icon: 'success',
+          title: '¡Producto agregado al carrito!',
+          showConfirmButton: false,
+          timer: 1500
+        });
+      } else {
+        // Mostrar alerta de error con SweetAlert2
+        throw new Error('Error al agregar producto al carrito');
+      }
+    })
+    .catch(error => {
+      console.error('Error al agregar producto al carrito:', error);
+      // Mostrar alerta de error con SweetAlert2
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Error al agregar producto al carrito',
+      });
+    });
+  });
+});
+</script>
+</body>
+</html>

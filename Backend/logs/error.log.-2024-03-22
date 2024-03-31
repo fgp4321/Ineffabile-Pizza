@@ -1,0 +1,36 @@
+[2024-03-22T15:24:48.341] [ERROR] error - 500 /home/fran/Documentos/Gestor-Pizzeria/Backend/views/carrito.ejs:30
+    28|       <div class="card mb-3">
+    29|         <div class="card-body">
+ >> 30|           <% if (productos.length > 0) { %>
+    31|             <% productos.forEach(function(producto) { %>
+    32|               <div class="d-flex justify-content-between align-items-center mb-3">
+    33|                 <div class="producto-info">
+
+productos is not defined
+[2024-03-22T15:25:11.584] [ERROR] error - 500 /home/fran/Documentos/Gestor-Pizzeria/Backend/views/carrito.ejs:30
+    28|       <div class="card mb-3">
+    29|         <div class="card-body">
+ >> 30|           <% if (productos.length > 0) { %>
+    31|             <% productos.forEach(function(producto) { %>
+    32|               <div class="d-flex justify-content-between align-items-center mb-3">
+    33|                 <div class="producto-info">
+
+productos is not defined
+[2024-03-22T15:25:15.027] [ERROR] error - 500 /home/fran/Documentos/Gestor-Pizzeria/Backend/views/carrito.ejs:30
+    28|       <div class="card mb-3">
+    29|         <div class="card-body">
+ >> 30|           <% if (productos.length > 0) { %>
+    31|             <% productos.forEach(function(producto) { %>
+    32|               <div class="d-flex justify-content-between align-items-center mb-3">
+    33|                 <div class="producto-info">
+
+productos is not defined
+[2024-03-22T15:25:21.086] [ERROR] error - 500 /home/fran/Documentos/Gestor-Pizzeria/Backend/views/carrito.ejs:30
+    28|       <div class="card mb-3">
+    29|         <div class="card-body">
+ >> 30|           <% if (productos.length > 0) { %>
+    31|             <% productos.forEach(function(producto) { %>
+    32|               <div class="d-flex justify-content-between align-items-center mb-3">
+    33|                 <div class="producto-info">
+
+productos is not defined

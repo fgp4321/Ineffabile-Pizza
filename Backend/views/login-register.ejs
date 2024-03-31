@@ -31,33 +31,30 @@
                     <i class='bx bxl-linkedin' ></i>
                 </div>
                 <p>o usa tu email para registrarte</p>
-                <form class="form">
+                <form class="form" action="/api/v2/usuarios/register" method="POST">
                     <label>
                         <i class='bx bx-user' ></i>
-                        <input type="text" placeholder="Nombre">
+                        <input type="text" placeholder="Nombre" name="nombre">
                     </label>
                     <label>
                         <i class='bx bx-user' ></i>
-                        <input type="text" placeholder="Apellido">
+                        <input type="text" placeholder="Apellido" name="apellido">
                     </label>
                     <label>
                         <i class='bx bx-user' ></i>
-                        <input type="text" placeholder="Nombre de usuario">
+                        <input type="text" placeholder="Nombre de usuario" name="username">
                     </label>
                     <label >
                         <i class='bx bx-envelope' ></i>
-                        <input type="email" placeholder="Correo Electronico">
+                        <input type="email" placeholder="Correo Electronico" name="email">
                     </label>
                     <label>
                         <i class='bx bx-lock-alt' ></i>
-                        <input type="password" placeholder="Contraseña">
+                        <input type="password" placeholder="Contraseña" name="password">
                     </label>
                     <label>
                       <i class='bx bx-phone' ></i>
-                      <input type="tel" placeholder="Teléfono">
-                    </label>
-                    <label>
-                      <input type="hidden" name="rol" value="USER">
+                      <input type="tel" placeholder="Teléfono" name="telefono">
                     </label>
                     <input type="submit" value="Registrarse">
                 </form>

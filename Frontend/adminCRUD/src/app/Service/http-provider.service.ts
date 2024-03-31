@@ -4,7 +4,7 @@ import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { WebApiService } from './web-api.service';
 
-var apiUrl = "http://localhost:9800";
+var apiUrl = "http://localhost:9100";
 
 var httpLink = {
   getAllUser: apiUrl + "/api/v2/usuarios/getAllUser",

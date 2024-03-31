@@ -18,9 +18,9 @@ const session = require("express-session")
 const methodOverride = require('method-override');
 
 const app = express()
-const port = process.env.PORT || 9800
+const port = process.env.PORT || 9100
 const usuarioRoutes = require("./routes/usuario.routes")
-//rutas productos
+const productoRoutes = require("./routes/producto.routes")
 //rutas categorias
 //rutas pedidos
 const version = "v2"
@@ -47,16 +47,12 @@ const corsOptions = {
 }
 app.use(cors(corsOptions))
 
-/*app.use(cookieParser("passwordforcookies"))
+app.use(cookieParser("passwordforcookies"))
 app.use(session({
-    secret: "cookiePassword",
+    secret: "secret-key",
     resave: false,
     saveUninitialized: true,
-    cookie: {
-        //sameSite: "none",
-        maxAge: 60 * 60 * 24 * 1000,
-    }
-}))*/
+}))
 
 app.use(express.urlencoded({extended:true}))
 app.use(express.json())
@@ -77,7 +73,7 @@ app.use(addMorganToLogger)
 
 //Rutas
 app.use(`/api/${version}/usuarios`,usuarioRoutes)
-//rutas productos
+app.use(`/api/${version}/productos`,productoRoutes)
 //rutas categorias
 //rutas pedidos
 
@@ -85,9 +81,6 @@ app.use(`/api/${version}/usuarios`,usuarioRoutes)
 app.get('/', (req, res) => {
     res.render('home.ejs')
 })
-
-
-
 
 
 //NEWSLETTER
@@ -166,25 +159,153 @@ app.get('/mapa', (req, res) => {
     res.render('map.ejs');
 });
 
+app.get('/about-us', (req, res) => {
+    res.render('about-us.ejs');
+});
+
 app.get('/productos', (req, res) => {
     res.render('productos.ejs');
 });
 
-app.get('/productos/pizzas', (req, res) => {
-    res.render('pizzas.ejs');
+// Para la vista de pizzas
+app.get('/productos/pizzas', async (req, res) => {
+    try {
+        // Hacer una solicitud al endpoint de productos para obtener las pizzas
+        const response = await fetch('http://localhost:9100/api/v2/productos/getAllProduct');
+        const productos = await response.json();
+        // Filtrar las pizzas
+        const pizzas = productos.filter(producto => producto.categoria_nombre === 'Pizzas');
+        // Renderizar la vista de pizzas y pasar los datos de las pizzas
+        res.render('pizzas.ejs', { pizzas });
+    } catch (error) {
+        // Manejo de errores
+        console.error('Error al obtener las pizzas:', error);
+        res.render('error.ejs', { message: 'Error al obtener las pizzas' });
+    }
 });
 
-app.get('/productos/pastas', (req, res) => {
-    res.render('pastas.ejs');
+// Para la vista de pastas
+app.get('/productos/pastas', async (req, res) => {
+    try {
+        // Hacer una solicitud al endpoint de productos para obtener todas las pastas
+        const response = await fetch('http://localhost:9100/api/v2/productos/getAllProduct');
+        const productos = await response.json();
+        // Filtrar las pastas
+        const pastas = productos.filter(producto => producto.categoria_nombre === 'Pastas');
+        // Renderizar la vista de pastas y pasar los datos de las pastas
+        res.render('pastas.ejs', { pastas });
+    } catch (error) {
+        // Manejo de errores
+        console.error('Error al obtener las pastas:', error);
+        res.render('error.ejs', { message: 'Error al obtener las pastas' });
+    }
 });
 
-app.get('/productos/postres', (req, res) => {
-    res.render('postres.ejs');
+// Para la vista de complementos
+app.get('/productos/complementos', async (req, res) => {
+    try {
+        // Hacer una solicitud al endpoint de productos para obtener todos los complementos
+        const response = await fetch('http://localhost:9100/api/v2/productos/getAllProduct');
+        const productos = await response.json();
+        // Filtrar los complementos
+        const complementos = productos.filter(producto => producto.categoria_nombre === 'Complementos');
+        // Renderizar la vista de complementos y pasar los datos de los complementos
+        res.render('complementos.ejs', { complementos });
+    } catch (error) {
+        // Manejo de errores
+        console.error('Error al obtener los complementos:', error);
+        res.render('error.ejs', { message: 'Error al obtener los complementos' });
+    }
 });
 
-app.get('/productos/bebidas', (req, res) => {
-    res.render('bebidas.ejs');
+// Para la vista de bebidas
+app.get('/productos/bebidas', async (req, res) => {
+    try {
+        // Hacer una solicitud al endpoint de productos para obtener todas las bebidas
+        const response = await fetch('http://localhost:9100/api/v2/productos/getAllProduct');
+        const productos = await response.json();
+        // Filtrar las bebidas
+        const bebidas = productos.filter(producto => producto.categoria_nombre === 'Bebidas');
+        // Renderizar la vista de bebidas y pasar los datos de las bebidas
+        res.render('bebidas.ejs', { bebidas });
+    } catch (error) {
+        // Manejo de errores
+        console.error('Error al obtener las bebidas:', error);
+        res.render('error.ejs', { message: 'Error al obtener las bebidas' });
+    }
 });
+
+app.get('/promociones', async (req, res) => {
+    try {
+        // Hacer una solicitud al endpoint de productos para obtener todas las promociones
+        const response = await fetch('http://localhost:9100/api/v2/productos/getAllProduct');
+        const productos = await response.json();
+        // Filtrar las promociones
+        const pizzas = productos.filter(producto => producto.categoria_nombre === 'Pizzas');
+        const pastas = productos.filter(producto => producto.categoria_nombre === 'Pastas');
+        const complementos = productos.filter(producto => producto.categoria_nombre === 'Complementos');
+        const bebidas = productos.filter(producto => producto.categoria_nombre === 'Bebidas');
+        // Renderizar la vista de promociones y pasar los datos de las promociones
+        res.render('promociones.ejs', { pizzas, pastas, complementos, bebidas });
+    } catch (error) {
+        // Manejo de errores
+        console.error('Error al obtener las promociones:', error);
+        res.render('error.ejs', { message: 'Error al obtener las promociones' });
+    }
+});
+
+// Ruta para agregar productos al carrito
+app.post('/add-to-cart', (req, res) => {
+    const { id, name, price, quantity } = req.body;
+    
+    // Obtén el carrito de la sesión
+    let cart = req.session.cart || [];
+    
+    // Agrega el nuevo producto al carrito
+    cart.push({
+      id: id,
+      name: name,
+      price: price,
+      quantity: quantity
+    });
+  
+    // Guarda el carrito en la sesión
+    req.session.cart = cart;
+    
+    // Devuelve una respuesta exitosa
+    res.status(200).send('Producto agregado al carrito');
+  });
+
+  app.post('/eliminar-producto', (req, res) => {
+    const productId = req.body.id;
+    // Elimina el producto del carrito (implementa la lógica según tu aplicación)
+    // Por ejemplo:
+    req.session.cart = req.session.cart.filter(item => item.id !== productId);
+    // Retorna una respuesta adecuada, como un código de estado 200 para indicar éxito
+    res.sendStatus(200);
+  });
+  
+  // Ruta para mostrar el carrito
+  app.get('/carrito', (req, res) => {
+    // Obtén el carrito de la sesión
+    const cart = req.session.cart || [];
+    
+    // Agrupa los productos del carrito por su ID y calcula la cantidad total de cada producto
+    const groupedCart = cart.reduce((acc, product) => {
+        if (!acc[product.id]) {
+            acc[product.id] = { ...product, quantity: 0 };
+        }
+        acc[product.id].quantity += 1;
+        return acc;
+    }, {});
+
+    // Convierte el objeto agrupado en un array para pasarlo a la vista
+    const cartItems = Object.values(groupedCart);
+    
+    // Renderiza la vista del carrito y pasa los productos del carrito
+    res.render('carrito.ejs', { cart: cartItems });
+});
+
 
 app.get('/carta', (req, res) => {
     const pdfPath = path.join(__dirname, 'public', 'images', 'INEFFABILE-pizza-menu.pdf');
@@ -231,6 +352,6 @@ app.use(errorHandler)
 //Levantar el server
 app.listen(port,()=>{
     mongoConn.establecerConexion()
-    console.log("http://localhost:9800")
-    logger.access.debug(`http://localhost:9800`)
+    console.log("http://localhost:9100")
+    logger.access.debug(`http://localhost:9100`)
 })

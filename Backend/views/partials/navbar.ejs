@@ -1,7 +1,8 @@
 <!-- views/partials/navbar.ejs -->
 <style>
+
   .separator {
-    border-right: 1px solid #ccc;
+    border-right: 1px solid #000000;
     padding-right: 5px;
   }
 
@@ -14,7 +15,7 @@
   /* Ancho personalizado para la barra de búsqueda en el navbar */
   .navbar-search input {
     width: 450px;
-    border: 1px solid #ccc; /* Agrega un borde al input */
+    border: 1px solid #000000; /* Agrega un borde al input */
     border-radius: 20px;
     padding: 5px 10px; /* Ajusta el relleno para un mejor aspecto */
   }
@@ -31,9 +32,11 @@
     margin-left: 60px;
     margin-right: 20px;
   }
+
+
 </style>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light">
   <div class="container">
     <h1 class="navbar-title"></h1>
     <a class="navbar-brand" href="/">
@@ -55,20 +58,20 @@
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Productos
+            <b>Productos</b>
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Promociones</a>
-            <a class="dropdown-item" href="#">Pizzas</a>
-            <a class="dropdown-item" href="#">Pastas</a>
-            <a class="dropdown-item" href="#">Postres</a>
-            <a class="dropdown-item" href="#">Bebidas</a>
+            <a class="dropdown-item" href="/promociones" style="text-decoration: underline;">Promociones</a>
+            <a class="dropdown-item" href="/productos/pizzas">Pizzas</a>
+            <a class="dropdown-item" href="/productos/pastas">Pastas</a>
+            <a class="dropdown-item" href="/productos/complementos">Complementos</a>
+            <a class="dropdown-item" href="/productos/bebidas">Bebidas</a>
           </div>
         </li>
         <!-- Nuevo elemento para el enlace "Acerca de" -->
         <li class="nav-item">
           <a class="nav-link" href="/about-us">
-            <i class="fas fa-info-circle"></i> Sobre Nosotros
+            <i class="fas fa-info-circle" style="color: #000000;"></i> <b>Sobre Nosotros</b>
           </a>
         </li>
       </ul>
@@ -76,12 +79,12 @@
       <ul class="navbar-nav ml-auto">
         <li class="nav-item separator">
           <a class="nav-link" href="/usuarios/login-register">
-            <i class="far fa-user fa-2x"></i>
+            <i class="fas fa-user fa-2x" style="color: #000000;"></i>
           </a>
         </li>
         <li class="nav-item separator">
-          <a class="nav-link" href="#">
-            <i class="fas fa-shopping-cart fa-2x"></i>
+          <a class="nav-link" href="/carrito">
+            <i class="fas fa-shopping-cart fa-2x" style="color: #000000;"></i>
           </a>
         </li>
         <li class="nav-item">
@@ -92,4 +95,5 @@
       </ul>
     </div>
   </div>
+</div>
 </nav>

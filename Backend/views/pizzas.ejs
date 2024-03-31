@@ -97,168 +97,151 @@
   <%- include('./partials/navbar.ejs') %>
 
   <!-- Contenido de la página -->
-  <div class="container">
-    <h2 class="text-center mb-4">Nuestras Pizzas</h2>
-
+<div class="container">
+  <h2 class="text-center mb-4">Nuestras Pizzas</h2>
+  <div class="row">
     <div class="row">
+      <% pizzas.forEach(function(pizza, index) { %>
       <div class="col-md-3">
         <div class="product">
-          <img src="/images/pizzas/pizza-margarita.jpg" alt="Pizza Placeholder">
-          <div class="product-title">Pizza Margarita</div>
+          <img src="/images/pizzas/<%= pizza.imagen1 %>" alt="<%= pizza.nombre %>">
+          <div class="product-title"><%= pizza.nombre %></div>
           <div class="price">
-            <span class="original-price">$15.99</span>
-            <span class="discount-price">$12.99</span>
+            <span class="normal-price"><%= pizza.precio_pvp %>€</span>
           </div>
           <div class="btn-container">
-            <a href="#" class="btn btn-details"><i class="far fa-eye"></i></a>
+            <a href="#" class="btn btn-details" data-toggle="modal" data-target="#pizzaDetailsModal" data-id="<%= pizza._id %>"><i class="far fa-eye"></i></a>
             <a href="#" class="btn btn-add-to-cart"><i class="fas fa-shopping-cart"></i></a>
           </div>
         </div>
       </div>
+      <% }); %>
+    </div>
+  </div>
+</div>
 
-      <div class="col-md-3">
-        <div class="product">
-          <img src="/images/product-placeholder.jpg" alt="Pizza Placeholder">
-          <div class="product-title">Pizza Margarita</div>
-          <div class="price">
-            <span class="original-price">$15.99</span>
-            <span class="discount-price">$12.99</span>
+<!-- Modal -->
+<div class="modal fade" id="pizzaDetailsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="pizzaModalTitle">Detalles de la Pizza</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-6">
+            <img src="" alt="" id="modal-img1" class="img-fluid mb-3">
           </div>
-          <div class="btn-container">
-            <a href="#" class="btn btn-details"><i class="far fa-eye"></i></a>
-            <a href="#" class="btn btn-add-to-cart"><i class="fas fa-shopping-cart"></i></a>
+          <div class="col-md-6">
+            <img src="" alt="" id="modal-img2" class="img-fluid mb-3">
           </div>
+        </div>
+        <img src="" alt="" id="modal-img3" class="img-fluid mb-3">
+        <h4 class="modal-pizza-title"></h4>
+        <p class="modal-pizza-description"></p>
+        <p class="modal-pizza-price"></p>
+        <div class="form-group">
+          <label for="quantity">Cantidad:</label>
+          <input type="number" class="form-control" id="quantity" value="1">
         </div>
       </div>
-
-      <div class="col-md-3">
-        <div class="product">
-          <img src="/images/product-placeholder.jpg" alt="Pizza Placeholder">
-          <div class="product-title">Pizza Margarita</div>
-          <div class="price">
-            <span class="original-price">$15.99</span>
-            <span class="discount-price">$12.99</span>
-          </div>
-          <div class="btn-container">
-            <a href="#" class="btn btn-details"><i class="far fa-eye"></i></a>
-            <a href="#" class="btn btn-add-to-cart"><i class="fas fa-shopping-cart"></i></a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-3">
-        <div class="product">
-          <img src="/images/product-placeholder.jpg" alt="Pizza Placeholder">
-          <div class="product-title">Pizza Margarita</div>
-          <div class="price">
-            <span class="original-price">$15.99</span>
-            <span class="discount-price">$12.99</span>
-          </div>
-          <div class="btn-container">
-            <a href="#" class="btn btn-details"><i class="far fa-eye"></i></a>
-            <a href="#" class="btn btn-add-to-cart"><i class="fas fa-shopping-cart"></i></a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-3">
-        <div class="product">
-          <img src="/images/product-placeholder.jpg" alt="Pizza Placeholder">
-          <div class="product-title">Pizza Margarita</div>
-          <div class="price">
-            <span class="original-price">$15.99</span>
-            <span class="discount-price">$12.99</span>
-          </div>
-          <div class="btn-container">
-            <a href="#" class="btn btn-details"><i class="far fa-eye"></i></a>
-            <a href="#" class="btn btn-add-to-cart"><i class="fas fa-shopping-cart"></i></a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-3">
-        <div class="product">
-          <img src="/images/product-placeholder.jpg" alt="Pizza Placeholder">
-          <div class="product-title">Pizza Margarita</div>
-          <div class="price">
-            <span class="original-price">$15.99</span>
-            <span class="discount-price">$12.99</span>
-          </div>
-          <div class="btn-container">
-            <a href="#" class="btn btn-details"><i class="far fa-eye"></i></a>
-            <a href="#" class="btn btn-add-to-cart"><i class="fas fa-shopping-cart"></i></a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-3">
-        <div class="product">
-          <img src="/images/product-placeholder.jpg" alt="Pizza Placeholder">
-          <div class="product-title">Pizza Margarita</div>
-          <div class="price">
-            <span class="original-price">$15.99</span>
-            <span class="discount-price">$12.99</span>
-          </div>
-          <div class="btn-container">
-            <a href="#" class="btn btn-details"><i class="far fa-eye"></i></a>
-            <a href="#" class="btn btn-add-to-cart"><i class="fas fa-shopping-cart"></i></a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-3">
-        <div class="product">
-          <img src="/images/product-placeholder.jpg" alt="Pizza Placeholder">
-          <div class="product-title">Pizza Margarita</div>
-          <div class="price">
-            <span class="original-price">$15.99</span>
-            <span class="discount-price">$12.99</span>
-          </div>
-          <div class="btn-container">
-            <a href="#" class="btn btn-details"><i class="far fa-eye"></i></a>
-            <a href="#" class="btn btn-add-to-cart"><i class="fas fa-shopping-cart"></i></a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-3">
-        <div class="product">
-          <img src="/images/product-placeholder.jpg" alt="Pizza Placeholder">
-          <div class="product-title">Pizza Margarita</div>
-          <div class="price">
-            <span class="original-price">$15.99</span>
-            <span class="discount-price">$12.99</span>
-          </div>
-          <div class="btn-container">
-            <a href="#" class="btn btn-details"><i class="far fa-eye"></i></a>
-            <a href="#" class="btn btn-add-to-cart"><i class="fas fa-shopping-cart"></i></a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-3">
-        <div class="product">
-          <img src="/images/product-placeholder.jpg" alt="Pizza Placeholder">
-          <div class="product-title">Pizza Margarita</div>
-          <div class="price">
-            <span class="original-price">$15.99</span>
-            <span class="discount-price">$12.99</span>
-          </div>
-          <div class="btn-container">
-            <a href="#" class="btn btn-details"><i class="far fa-eye"></i></a>
-            <a href="#" class="btn btn-add-to-cart"><i class="fas fa-shopping-cart"></i></a>
-          </div>
-        </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" id="add-to-cart-modal">Agregar al carrito</button>
       </div>
     </div>
   </div>
+</div>
 
   <!-- Incluir el footer -->
   <%- include('./partials/footer.ejs') %>
 
+
   <script src="/fontawesome/js/all.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="/js/bootstrap.bundle.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js"></script>
+  <!-- Elimina una de las siguientes líneas dependiendo de tus necesidades -->
+  <!-- script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script -->
+  <script>
+    $(document).ready(function() {
+      $('.btn-details').click(function(event) {
+        event.preventDefault();
+        var pizzaId = $(this).data('id'); // Obtener el _id de la pizza
+        console.log('ID de la pizza:', pizzaId); // Imprimir el _id de la pizza en la consola
+  
+        // Realizar una solicitud para obtener los detalles de la pizza por su _id
+        fetch('http://localhost:9100/api/v2/productos/getProductDetailByID/' + pizzaId)
+          .then(response => response.json())
+          .then(data => {
+            console.log('Detalles de la pizza:', data); // Imprimir los detalles de la pizza en la consola
+            // Mostrar los detalles de la pizza en el modal
+            $('#pizzaModalTitle').text('Detalles de ' + data.nombre);
+            $('#modal-img1').attr('src', '/images/pizzas/' + data.imagen1);
+            $('#modal-img2').attr('src', '/images/pizzas/' + data.imagen2);
+            $('#modal-img3').attr('src', '/images/pizzas/' + data.imagen3);
+            $('.modal-pizza-title').text(data.nombre);
+            $('.modal-pizza-description').text(data.descripcion);
+            $('.modal-pizza-price').text('Precio: ' + data.precio_pvp + '€');
+            // Abrir el modal
+            $('#pizzaDetailsModal').modal('show');
+          })
+          .catch(error => {
+            console.error('Error al obtener los detalles de la pizza:', error); // Manejo de errores
+            alert('Error al obtener los detalles de la pizza');
+          });
+      });
+    });
+  </script>
+  <script>
+    $(document).ready(function() {
+  $('.btn-add-to-cart').click(function(event) {
+    event.preventDefault();
+    var pizzaId = $(this).closest('.product').find('.btn-details').data('id');
+    var pizzaName = $(this).closest('.product').find('.product-title').text();
+    var pizzaPrice = $(this).closest('.product').find('.price .normal-price').text();
+    var quantity = 1; // Puedes permitir que el usuario elija la cantidad si lo deseas
+
+    // Utilizar fetch para realizar la solicitud
+    fetch('/add-to-cart', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        id: pizzaId,
+        name: pizzaName,
+        price: pizzaPrice,
+        quantity: quantity
+      })
+    })
+    .then(response => {
+      if (response.ok) {
+        // Mostrar alerta de éxito con SweetAlert2
+        Swal.fire({
+          icon: 'success',
+          title: '¡Producto agregado al carrito!',
+          showConfirmButton: false,
+          timer: 1500
+        });
+      } else {
+        // Mostrar alerta de error con SweetAlert2
+        throw new Error('Error al agregar producto al carrito');
+      }
+    })
+    .catch(error => {
+      console.error('Error al agregar producto al carrito:', error);
+      // Mostrar alerta de error con SweetAlert2
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Error al agregar producto al carrito',
+      });
+    });
+  });
+});
+</script>
 </body>
 </html>
