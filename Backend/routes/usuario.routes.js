@@ -9,8 +9,13 @@ router.post("/saveUser", UserController.crearUsuario);
 router.put("/editUser/:id", UserController.actualizarUsuario);
 router.delete("/deleteUserByID/:id", UserController.eliminarUsuario);
 
+
 //Crear/Registrar usuario
 router.post('/register', UserController.register);
+
+
+//Autenticar
+router.post("/login",UserController.login)
 
 /*
 //Cargar la vista de registro
@@ -23,7 +28,6 @@ router.post("/register", UserController.register)
 router.get("/login", UserController.showLogin)
 
 //Autenticar
-router.post("/login",UserController.login)
 
 
 router.get("/guess-list",UserController.showListGuess)
