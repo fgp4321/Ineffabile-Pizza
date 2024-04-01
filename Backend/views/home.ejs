@@ -14,22 +14,18 @@
       color: #333333; /* Texto principal en negro */
     }
 
-    /* Contenedor del texto descriptivo */
-    .text-container {
-      opacity: 0; /* El texto no es visible inicialmente */
-      transition: opacity 1s ease-in-out; /* Efecto de transición */
-    }
-
-    /* Mostrar el texto cuando el contenedor es visible en la ventana */
-    .text-container.visible {
-      opacity: 1;
-    }
-
     /* Estilos para el texto descriptivo */
     .section {
       background-color: #ffffff;
       padding: 50px 0;
       text-align: center;
+      opacity: 0; /* El contenido no es visible inicialmente */
+      transition: opacity 1s ease-in-out; /* Efecto de transición */
+    }
+
+    /* Mostrar el contenido gradualmente cuando el usuario haga scroll */
+    .visible {
+      opacity: 1 !important;
     }
 
     .section h2 {
@@ -39,33 +35,6 @@
 
     .section p {
       font-size: 18px;
-    }
-
-    .section img {
-      max-width: 100%;
-      height: auto;
-      margin-top: 30px;
-    }
-
-    /* Estilos para los botones */
-    .btn-primary {
-      background-color: #ff3333; /* Color naranja */
-      border-color: #FF5733; /* Borde del mismo color */
-    }
-
-    .btn-primary:hover {
-      background-color: #FF8C61; /* Cambio de color al pasar el ratón */
-      border-color: #FF8C61;
-    }
-
-    .btn-success {
-      background-color: #28A745; /* Color verde */
-      border-color: #28A745; /* Borde del mismo color */
-    }
-
-    .btn-success:hover {
-      background-color: #5FD16D; /* Cambio de color al pasar el ratón */
-      border-color: #5FD16D;
     }
 
     /* Centrar el video */
@@ -78,6 +47,43 @@
     #video-container iframe {
       max-width: 100%;
       height: 650px;
+    }
+
+    #scrollToTopBtn {       
+      display: none;       
+      position: fixed;       
+      bottom: 20px;       
+      right: 20px;       
+      z-index: 99;       
+      font-size: 18px;       
+      border: none;       
+      outline: none;       
+      background-color: #ff3333;       
+      color: white;       
+      cursor: pointer;       
+      border-radius: 50%;     
+    }
+
+    .btn-lg {
+      font-size: 1.2rem; /* Reducir el tamaño de fuente */
+      padding: 10px 20px; /* Reducir el padding */
+      border-radius: 10px;
+      margin: 10px; /* Mantener el margen */
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .btn-lg:hover {
+      transform: scale(1.1);
+    }
+
+    .btn-primary {
+      background-color: #ff3333;
+      border-color: #ff3333;
+    }
+
+    .btn-primary:hover {
+      background-color: #ff6a6a;
+      border-color: #ff6a6a;
     }
   </style>
 </head>
@@ -93,13 +99,13 @@
   </div>
 
   <!-- Texto descriptivo 1 -->
-  <div class="section">
+  <div class="section visible">
     <div class="container">
       <div class="row">
-        <div class="col-lg-8 offset-lg-2 text-container">
+        <div class="col-lg-8 offset-lg-2">
           <h2>¡Bienvenido a Ineffabile Pizza!</h2>
           <p>Descubre el auténtico sabor italiano con nuestras pizzas artesanales, elaboradas con los mejores ingredientes frescos y horneadas a la perfección.</p>
-          <img src="/images/logo4.png" alt="Pizza" />
+          <img src="/images/logo4.png" alt="Pizza" style="width: 300px;"/>
         </div>
       </div>
     </div>
@@ -121,7 +127,7 @@
   <div class="section">
     <div class="container">
       <div class="row">
-        <div class="col-lg-8 offset-lg-2 text-container">
+        <div class="col-lg-8 offset-lg-2">
           <h2>¡Haz tu pedido ahora!</h2>
           <p>Disfruta de la comodidad de ordenar desde casa y recibir nuestras deliciosas pizzas directamente en tu puerta. ¡No te pierdas nuestras ofertas especiales!</p>
           <div class="container center-form">  
@@ -139,64 +145,61 @@
               <div class="col-md text-center">
                 <a href="/productos/bebidas" class="btn btn-primary btn-lg">Bebidas</a>
               </div>
-              </div>
-              </div>
-              </div>
-              </div>
-              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
               
-              <!-- Botón para volver arriba -->
-              <button id="scrollToTopBtn" title="Volver arriba"><i class="fas fa-arrow-up"></i></button>
+  <!-- Botón para volver arriba -->
+  <button id="scrollToTopBtn" title="Volver arriba"><i class="fas fa-arrow-up"></i></button>
               
-              <!-- Footer -->
-              <%- include('./partials/footer.ejs') %>
+  <!-- Footer -->
+  <%- include('./partials/footer.ejs') %>
               
-              <script src="/fontawesome/js/all.min.js"></script>
-              <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js"></script>
-              <!-- Elimina una de las siguientes líneas dependiendo de tus necesidades -->
-              <!-- script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script -->
-              <script src="/js/bootstrap.bundle.min.js"></script>
-              <script>
-                // Función para mostrar u ocultar el botón de volver arriba
-                window.onscroll = function() {scrollFunction()};
-              
-                function scrollFunction() {
-                  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-                    document.getElementById("scrollToTopBtn").style.display = "block";
-                  } else {
-                    document.getElementById("scrollToTopBtn").style.display = "none";
-                  }
-              
-                  // Aparecer los contenedores de texto gradualmente al hacer scroll
-                  var textContainers = document.querySelectorAll('.text-container');
-                  textContainers.forEach(function(container) {
-                    if (isElementInViewport(container)) {
-                      container.classList.add('visible');
-                    }
-                  });
-                }
-              
-                // Función para verificar si un elemento está visible en la ventana
-                function isElementInViewport(el) {
-                  var rect = el.getBoundingClientRect();
-                  return (
-                    rect.top >= 0 &&
-                    rect.left >= 0 &&
-                    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-                    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-                  );
-                }
-              
-                // Función para hacer scroll suave hacia arriba al hacer clic en el botón
-                document.getElementById("scrollToTopBtn").addEventListener("click", function() {
-                  scrollToTop();
-                });
-              
-                function scrollToTop() {
-                  const body = document.getElementsByTagName("body")[0];
-                  body.scrollIntoView({ behavior: "smooth" });
-                }
-              </script>
-              </body>
-              </html>
-              
+  <script src="/fontawesome/js/all.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js"></script>
+  <!-- Elimina una de las siguientes líneas dependiendo de tus necesidades -->
+  <!-- script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script -->
+  <script src="/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Función para mostrar u ocultar el botón de volver arriba y los elementos al hacer scroll
+    window.onscroll = function() {scrollFunction()};
+  
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("scrollToTopBtn").style.display = "block";
+      } else {
+        document.getElementById("scrollToTopBtn").style.display = "none";
+      }
+
+      // Aparecer los elementos gradualmente al hacer scroll
+      var sections = document.querySelectorAll('.section');
+      sections.forEach(function(section) {
+        if (isSectionInViewport(section)) {
+          section.classList.add('visible');
+        }
+      });
+    }
+  
+    // Función para verificar si una sección está visible en la ventana
+    function isSectionInViewport(section) {
+      var rect = section.getBoundingClientRect();
+      var windowHeight = window.innerHeight || document.documentElement.clientHeight;
+      // Verificar si la sección está al menos 20% visible
+      return rect.top <= windowHeight * 0.8;
+    }
+  
+    // Función para hacer scroll suave hacia arriba al hacer clic en el botón
+    document.getElementById("scrollToTopBtn").addEventListener("click", function() {
+      scrollToTop();
+    });
+  
+    function scrollToTop() {
+      const body = document.getElementsByTagName("body")[0];
+      body.scrollIntoView({ behavior: "smooth" });
+    }
+  </script>
+</body>
+</html>
