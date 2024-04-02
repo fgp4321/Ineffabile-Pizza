@@ -1,0 +1,42 @@
+<!-- views/como-comprar.ejs -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cómo Comprar</title>
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/fontawesome/css/all.min.css">
+  <!-- Agregar cualquier otro estilo necesario -->
+</head>
+
+<body class="bg-light">
+
+  <!-- Incluir el navbar -->
+  <%- include('./partials/navbar.ejs') %>
+
+  <!-- Contenido de cómo comprar -->
+  <div class="container">
+    <h2 class="text-center mt-5">Cómo Comprar</h2>
+    <div class="mt-4">
+      <p>En nuestra web, ofrecemos un proceso sencillo y seguro para realizar tus compras. Aquí te explicamos cómo funciona:</p>
+      <ol>
+        <li><strong>Sistema de Roles:</strong> Tenemos un sistema de roles que determina qué acciones puede realizar un usuario en nuestro sitio web. Si eres un visitante no registrado, podrás ver el contenido público de la web y agregar productos al carrito, pero no podrás finalizar la compra hasta que te registres. Una vez registrado, podrás realizar pedidos.</li>
+        <br>
+        <li><strong>Productos y Promociones:</strong> Nuestros productos se encuentran organizados en diferentes secciones, cada una dedicada a un tipo específico de producto, como pizzas, bebidas, postres, etc. Además, te recomendamos visitar nuestra página de promociones, donde encontrarás nuestras mejores ofertas y descuentos.</li>
+        <br>
+        <li><strong>Proceso de Compra:</strong> Una vez que hayas seleccionado los productos que deseas comprar y estés registrado en nuestro sitio web, podrás proceder al pago de tu pedido. Simplemente sigue los pasos indicados en la pantalla para completar tu compra de forma segura.</li>
+      </ol>
+      <p>¡Recuerda que estamos aquí para ayudarte en cada paso del proceso! Si tienes alguna pregunta o necesitas asistencia, no dudes en ponerte en contacto con nuestro equipo de atención al cliente.</p>
+    </div>
+  </div>
+
+  <!-- Incluir el footer -->
+  <%- include('./partials/footer.ejs') %>
+
+  <script src="/fontawesome/js/all.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js"></script>
+  <script src="/js/bootstrap.bundle.min.js"></script>  
+  <!-- Agregar cualquier otro script necesario -->
+</body>
+</html>

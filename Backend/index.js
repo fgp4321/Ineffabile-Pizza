@@ -163,6 +163,18 @@ app.get('/about-us', (req, res) => {
     res.render('about-us.ejs');
 });
 
+app.get('/envio', (req, res) => {
+    res.render('envio.ejs');
+});
+
+app.get('/como-comprar', (req, res) => {
+    res.render('como-comprar.ejs');
+});
+
+app.get('/alergenos', (req, res) => {
+    res.render('alergenos.ejs');
+});
+
 app.get('/productos', (req, res) => {
     res.render('productos.ejs');
 });

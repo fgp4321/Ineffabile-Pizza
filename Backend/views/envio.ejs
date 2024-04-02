@@ -1,0 +1,41 @@
+<!-- views/envio.ejs -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gastos de Envío</title>
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/fontawesome/css/all.min.css">
+  <!-- Agregar cualquier otro estilo necesario -->
+</head>
+
+<body class="bg-light">
+
+  <!-- Incluir el navbar -->
+  <%- include('./partials/navbar.ejs') %>
+
+  <!-- Contenido de gastos de envío -->
+  <div class="container">
+    <h2 class="text-center mt-5">Gastos de Envío</h2>
+    <div class="mt-4">
+      <p>Para los pedidos realizados en nuestra pizzería, los gastos de envío se calculan de la siguiente manera:</p>
+      <ul>
+        <li>Si tu pedido alcanza o supera los 19.90€, ¡el envío será gratuito!</li>
+        <li>En caso contrario, se aplicará una tarifa de 3.99€ por gastos de gestión y envío.</li>
+      </ul>
+      <p>Ten en cuenta que realizamos entregas únicamente a nivel local en Villena. Si especificas una dirección fuera de Villena, tu pedido será cancelado automáticamente.</p>
+      <p>Además, nos comprometemos a entregar tu pedido lo más rápido posible. Nuestro equipo de reparto se esfuerza por cumplir con los plazos de entrega, aunque ocasionalmente pueden surgir retrasos debido a factores externos como el tráfico o las condiciones meteorológicas.</p>
+      <p>Si tienes alguna pregunta o necesitas más información sobre nuestros gastos de envío, no dudes en ponerte en contacto con nosotros.</p>
+    </div>
+  </div>
+
+  <!-- Incluir el footer -->
+  <%- include('./partials/footer.ejs') %>
+
+  <script src="/fontawesome/js/all.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js"></script>
+  <script src="/js/bootstrap.bundle.min.js"></script>  
+  <!-- Agregar cualquier otro script necesario -->
+</body>
+</html>

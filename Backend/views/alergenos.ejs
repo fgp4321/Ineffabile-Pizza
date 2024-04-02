@@ -1,0 +1,312 @@
+<!-- views/alergenos.ejs -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alergenos</title>
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/fontawesome/css/all.min.css">
+  <!-- Agregar cualquier otro estilo necesario -->
+  <style>
+    .alergenos-icons i {
+      font-size: 20px;
+      margin: 0 5px;
+    }
+  </style>
+</head>
+
+<body class="bg-light">
+
+  <!-- Incluir el navbar -->
+  <%- include('./partials/navbar.ejs') %>
+
+  <!-- Contenido de alergenos -->
+  <div class="container">
+    <h2 class="text-center mt-5">Tabla de Alérgenos</h2>
+    <div class="mt-4">
+      <table id="alergenos-table" class="table table-striped">
+        <thead>
+          <tr>
+            <th>Nuestros productos</th>
+            <th>Contiene</th>
+            <th>Puede contener</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Pizzas -->
+          <tr>
+            <td>Pizza Margarita</td>
+            <td class="alergenos-icons">
+                <i class="fas fa-tint"></i>
+                <i class="fas fa-cheese"></i>
+                <i class="fas fa-wheat"></i>
+            </td>
+            <td class="alergenos-icons">
+                <i class="fas fa-tint"></i>
+            </td>
+          </tr>
+          <tr>
+            <td>Pizza 4 quesos</td>
+            <td class="alergenos-icons">
+              <i class="fas fa-cheese"></i>
+              <i class="fas fa-wheat"></i>
+            </td>
+            <td class="alergenos-icons">
+                <i class="fas fa-tint"></i>
+            </td>
+          </tr>
+          <tr>
+            <td>Pizza Atún</td>
+            <td class="alergenos-icons">
+              <i class="fas fa-fish"></i>
+              <i class="fas fa-cheese"></i>
+              <i class="fas fa-wheat"></i>
+            </td>
+            <td class="alergenos-icons">
+                <i class="fas fa-tint"></i>
+            </td>
+          </tr>
+          <tr>
+            <td>Pizza Hawaiana</td>
+            <td class="alergenos-icons">
+              <i class="fas fa-fish"></i>
+              <i class="fas fa-cheese"></i>
+              <i class="fas fa-wheat"></i>
+            </td>
+            <td class="alergenos-icons">
+                <i class="fas fa-tint"></i>
+            </td>
+          </tr>
+          <tr>
+            <td>Pizza Vegetal</td>
+            <td class="alergenos-icons">
+              <i class="fas fa-fish"></i>
+              <i class="fas fa-cheese"></i>
+              <i class="fas fa-wheat"></i>
+            </td>
+            <td class="alergenos-icons">
+                <i class="fas fa-tint"></i>
+            </td>
+          </tr>
+          <tr>
+            <td>Pizza Romana</td>
+            <td class="alergenos-icons">
+              <i class="fas fa-fish"></i>
+              <i class="fas fa-cheese"></i>
+              <i class="fas fa-wheat"></i>
+            </td>
+            <td class="alergenos-icons">
+                <i class="fas fa-tint"></i>
+            </td>
+          </tr>
+          <tr>
+            <td>Pizza 4 estaciones</td>
+            <td class="alergenos-icons">
+              <i class="fas fa-fish"></i>
+              <i class="fas fa-cheese"></i>
+              <i class="fas fa-wheat"></i>
+            </td>
+            <td class="alergenos-icons">
+                <i class="fas fa-tint"></i>
+            </td>
+          </tr>
+          <tr>
+            <td>Pizza Vegana</td>
+            <td class="alergenos-icons">
+              <i class="fas fa-fish"></i>
+              <i class="fas fa-cheese"></i>
+              <i class="fas fa-wheat"></i>
+            </td>
+            <td class="alergenos-icons">
+                <i class="fas fa-tint"></i>
+            </td>
+          </tr>
+          <tr>
+            <td>Pizza Napoli</td>
+            <td class="alergenos-icons">
+              <i class="fas fa-fish"></i>
+              <i class="fas fa-cheese"></i>
+              <i class="fas fa-wheat"></i>
+            </td>
+            <td class="alergenos-icons">
+                <i class="fas fa-tint"></i>
+            </td>
+          </tr>
+          <tr>
+            <td>Pizza con setas</td>
+            <td class="alergenos-icons">
+              <i class="fas fa-fish"></i>
+              <i class="fas fa-cheese"></i>
+              <i class="fas fa-wheat"></i>
+            </td>
+            <td class="alergenos-icons">
+                <i class="fas fa-tint"></i>
+            </td>
+          </tr>
+          <!-- Agrega el resto de las pizzas con sus alergenos -->
+
+          <!-- Pastas -->
+          <tr>
+            <td>Espaguetis a la carbonara</td>
+            <td class="alergenos-icons">
+              <i class="fas fa-fish"></i>
+              <i class="fas fa-cheese"></i>
+              <i class="fas fa-wheat"></i>
+            </td>
+            <td class="alergenos-icons">
+                <i class="fas fa-tint"></i>
+            </td>
+          </tr>
+          <tr>
+            <td>Tagliatelle con trufa</td>
+            <td class="alergenos-icons">
+              <i class="fas fa-cheese"></i>
+            </td>
+            <td class="alergenos-icons">
+                <i class="fas fa-tint"></i>
+            </td>
+          </tr>
+          <tr>
+            <td>Macarrones a la boloñesa</td>
+            <td class="alergenos-icons">
+              <i class="fas fa-fish"></i>
+              <i class="fas fa-cheese"></i>
+              <i class="fas fa-wheat"></i>
+            </td>
+            <td class="alergenos-icons">
+                <i class="fas fa-tint"></i>
+            </td>
+          </tr>
+          <tr>
+            <td>Ravioli de setas</td>
+            <td class="alergenos-icons">
+              <i class="fas fa-fish"></i>
+              <i class="fas fa-cheese"></i>
+              <i class="fas fa-wheat"></i>
+            </td>
+            <td class="alergenos-icons">
+                <i class="fas fa-tint"></i>
+            </td>
+          </tr>
+          <tr>
+            <td>Tortellini de carne</td>
+            <td class="alergenos-icons">
+              <i class="fas fa-fish"></i>
+              <i class="fas fa-cheese"></i>
+              <i class="fas fa-wheat"></i>
+            </td>
+            <td class="alergenos-icons">
+                <i class="fas fa-tint"></i>
+            </td>
+          </tr>
+          <tr>
+            <td>Gnocchi con aceite de oliva y hierbas</td>
+            <td class="alergenos-icons">
+              <i class="fas fa-fish"></i>
+              <i class="fas fa-cheese"></i>
+              <i class="fas fa-wheat"></i>
+            </td>
+            <td class="alergenos-icons">
+                <i class="fas fa-tint"></i>
+            </td>
+          </tr>
+          <!-- Agrega el resto de las pastas con sus alergenos -->
+
+          <!-- Complementos -->
+          <tr>
+            <td>Nachos con queso</td>
+            <td class="alergenos-icons">
+              <i class="fas fa-cheese"></i>
+            </td>
+            <td class="alergenos-icons">
+                <i class="fas fa-tint"></i>
+            </td>
+          </tr>
+          <tr>
+            <td>Bolas de queso</td>
+            <td class="alergenos-icons">
+              <i class="fas fa-cheese"></i>
+            </td>
+            <td class="alergenos-icons">
+                <i class="fas fa-tint"></i>
+            </td>
+          </tr>
+          <tr>
+            <td>Aros de cebolla</td>
+            <td class="alergenos-icons">
+              <i class="fas fa-cheese"></i>
+            </td>
+            <td class="alergenos-icons">
+                <i class="fas fa-tint"></i>
+            </td>
+          </tr>
+          <tr>
+            <td>Fritos de pescado</td>
+            <td class="alergenos-icons">
+              <i class="fas fa-cheese"></i>
+            </td>
+            <td class="alergenos-icons">
+                <i class="fas fa-tint"></i>
+            </td>
+          </tr>
+          <tr>
+            <td>Jalapeños fritos</td>
+            <td class="alergenos-icons">
+              <i class="fas fa-cheese"></i>
+            </td>
+            <td class="alergenos-icons">
+                <i class="fas fa-tint"></i>
+            </td>
+          </tr>
+          <tr>
+            <td>Croquetas de jamón</td>
+            <td class="alergenos-icons">
+              <i class="fas fa-cheese"></i>
+            </td>
+            <td class="alergenos-icons">
+                <i class="fas fa-tint"></i>
+            </td>
+          </tr>
+          <tr>
+            <td>Alitas de pollo</td>
+            <td class="alergenos-icons">
+              <i class="fas fa-cheese"></i>
+            </td>
+            <td class="alergenos-icons">
+                <i class="fas fa-tint"></i>
+            </td>
+          </tr>
+          <tr>
+            <td>Patatas alioli</td>
+            <td class="alergenos-icons">
+              <i class="fas fa-cheese"></i>
+            </td>
+            <td class="alergenos-icons">
+                <i class="fas fa-tint"></i>
+            </td>
+          </tr>
+          <!-- Agrega el resto de los complementos con sus alergenos -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Incluir el footer -->
+  <%- include('./partials/footer.ejs') %>
+
+  <script src="/fontawesome/js/all.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://cdn.datatables.net/2.0.3/js/dataTables.js"></script>
+  <script src="https://cdn.datatables.net/2.0.3/js/dataTables.bootstrap4.js"></script>
+  <script src="/js/bootstrap.bundle.min.js"></script>  
+  <script>
+    $(document).ready(function() {
+      $('#alergenos-table').DataTable();
+    });
+  </script>
+  <!-- Agregar cualquier otro script necesario -->
+</body>
+</html>
