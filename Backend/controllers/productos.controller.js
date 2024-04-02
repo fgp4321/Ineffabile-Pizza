@@ -11,6 +11,16 @@ exports.obtenerTodosProductos = wrapAsync(async (req, res) => {
     }
 })
 
+exports.buscarProductosQuery = async (req, res) => {
+    const { query } = req.body;
+    try {
+      const productos = await Producto.find({ nombre: { $regex: query, $options: 'i' } });
+      res.json(productos);
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
+};
+
 exports.buscarPorId = wrapAsync(async (req, res) => {
     const { id } = req.params;
     try {

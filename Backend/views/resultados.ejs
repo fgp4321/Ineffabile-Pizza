@@ -1,0 +1,53 @@
+<!-- views/resultados.ejs -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resultados de Búsqueda</title>
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <!-- Agregar cualquier otro estilo necesario -->
+</head>
+<body class="bg-light">
+  <!-- Incluir el navbar -->
+  <% include('./partials/navbar.ejs') %>
+
+  <div class="container mt-5">
+    <h2 class="text-center">Resultados de Búsqueda para "<%= query %>"</h2>
+    <div class="row mt-4">
+      <% if (productos.length > 0) { %>
+        <% productos.forEach(producto => { %>
+          <div class="col-md-3">
+            <div class="product">
+              <img src="/images/<%= producto.imagen1 %>" alt="<%= producto.nombre %>">
+              <div class="product-title"><%= producto.nombre %></div>
+              <div class="price">
+                <% if (producto.precio_oferta) { %>
+                  <span class="normal-price"><%= producto.precio_oferta %>€</span>
+                  <span class="discount-price"><%= producto.precio_pvp %>€</span>
+                <% } else { %>
+                  <span class="normal-price"><%= producto.precio_pvp %>€</span>
+                <% } %>
+              </div>
+              <div class="btn-container">
+                <a href="#" class="btn btn-details" data-toggle="modal" data-target="#productoDetailsModal" data-id="<%= producto._id %>"><i class="far fa-eye"></i></a>
+                <a href="#" class="btn btn-add-to-cart"><i class="fas fa-shopping-cart"></i></a>
+              </div>
+            </div>
+          </div>
+        <% }) %>
+      <% } else { %>
+        <div class="col-md-12 text-center">
+          <p>No se encontraron productos.</p>
+        </div>
+      <% } %>
+    </div>
+  </div>
+
+  <!-- Incluir el footer -->
+  <% include('./partials/footer.ejs') %>
+
+  <script src="/js/bootstrap.bundle.min.js"></script>  
+  <!-- Agregar cualquier otro script necesario -->
+</body>
+</html>

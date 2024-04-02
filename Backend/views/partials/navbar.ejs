@@ -50,8 +50,8 @@
       <ul class="navbar-nav mx-auto">
         <li class="nav-item">
           <form class="form-inline my-2 my-lg-0 navbar-search">
-            <input class="form-control mr-sm-2" type="search" placeholder="..." aria-label="Buscar">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+            <input class="form-control mr-sm-2" type="search" placeholder="Buscar productos..." aria-label="Buscar" id="searchInput">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="searchBtn">
               <i class="fas fa-search"></i>
             </button>
           </form>
@@ -97,3 +97,34 @@
   </div>
 </div>
 </nav>
+
+<script>
+  $(document).ready(function() {
+    // Manejar la solicitud de búsqueda al hacer clic en el botón de búsqueda
+    $('#searchBtn').click(function(event) {
+      event.preventDefault();
+      var query = $('#searchInput').val();
+  
+      // Realizar la solicitud de búsqueda utilizando fetch
+      fetch('/search-products', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ query: query })
+      })
+      .then(response => response.json())
+      .then(data => {
+        // Renderizar los resultados en la vista resultados.ejs
+        window.location.href = '/resultados?query=' + query;
+      })
+      .catch(error => console.error('Error al buscar productos:', error));
+    });
+  
+    // Manejar el evento de clic en el botón "Agregar al carrito"
+    $('.btn-add-to-cart').click(function(event) {
+      event.preventDefault();
+      // Resto de tu lógica para agregar productos al carrito...
+    });
+  });
+</script>

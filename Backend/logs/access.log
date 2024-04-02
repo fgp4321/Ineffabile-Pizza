@@ -281,3 +281,18 @@
 ::1 - - [02/Apr/2024:07:59:08 +0000] "GET /alergenos HTTP/1.1" 200 17538 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 ::1 - - [02/Apr/2024:08:00:38 +0000] "GET /alergenos HTTP/1.1" 200 17906 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 ::1 - - [02/Apr/2024:08:00:43 +0000] "GET /about-us HTTP/1.1" 200 11363 "http://localhost:9100/alergenos" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+[2024-04-02T10:25:07.556] [DEBUG] access - http://localhost:9100
+::1 - - [02/Apr/2024:08:25:08 +0000] "GET /alergenos HTTP/1.1" 200 17966 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [02/Apr/2024:09:12:44 +0000] "GET /alergenos HTTP/1.1" 200 18333 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [02/Apr/2024:09:18:04 +0000] "GET /alergenos HTTP/1.1" 200 18286 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [02/Apr/2024:09:18:53 +0000] "GET /alergenos HTTP/1.1" 200 18230 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [02/Apr/2024:09:19:10 +0000] "GET /alergenos HTTP/1.1" 200 18286 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [02/Apr/2024:09:19:30 +0000] "GET /alergenos HTTP/1.1" 200 18295 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [02/Apr/2024:09:19:37 +0000] "GET / HTTP/1.1" 200 14798 "http://localhost:9100/alergenos" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [02/Apr/2024:09:19:43 +0000] "GET /alergenos HTTP/1.1" 304 - "http://localhost:9100/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [02/Apr/2024:09:22:56 +0000] "GET /alergenos HTTP/1.1" 200 18496 "http://localhost:9100/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [02/Apr/2024:09:24:54 +0000] "GET /alergenos HTTP/1.1" 200 18286 "http://localhost:9100/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+[2024-04-02T12:07:37.470] [DEBUG] access - http://localhost:9100
+::1 - - [02/Apr/2024:10:09:06 +0000] "GET /api/v2/productos/getAllProduct HTTP/1.1" 200 8510 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+[2024-04-02T12:19:32.561] [DEBUG] access - http://localhost:9100
+[2024-04-02T12:20:50.199] [DEBUG] access - http://localhost:9100
