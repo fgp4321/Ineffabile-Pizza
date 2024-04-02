@@ -12,6 +12,9 @@ import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { AddProductComponent } from './add-product/add-product.component';
+import { EditProductComponent } from './edit-product/edit-product.component';
+import { ViewProductComponent } from './view-product/view-product.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,10 @@ import { ToastrModule } from 'ngx-toastr';
     HomeComponent,
     ViewUserComponent,
     AddUserComponent,
-    EditUserComponent
+    EditUserComponent,
+    AddProductComponent,
+    EditProductComponent,
+    ViewProductComponent
   ],
   imports: [
     BrowserModule,

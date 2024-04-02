@@ -42,11 +42,13 @@ const MODALS: { [name:string]: Type<any> } = {
 export class HomeComponent implements OnInit {
   closeResult = ''
   userList: any = []
+  productList: any = []
 
   constructor(private router: Router, private modalService: NgbModal, private toastr: ToastrService, private httpProvider: HttpProviderService, private ngZone: NgZone) { }
 
   ngOnInit(): void {
     this.getAllUser()
+    this.getAllProduct()
   }
 
   async getAllUser(){
@@ -93,5 +95,57 @@ export class HomeComponent implements OnInit {
       }
     },
     (error: any) => {})
+  }
+
+
+
+  async getAllProduct(){
+    this.httpProvider.getAllProduct().subscribe((data: any)=>{
+      if (data != null && data.body != null) {
+        var resultData = data.body
+        if (resultData) {
+          this.productList = resultData
+        }
+      }
+    },
+    (error: any)=>{
+      if (error) {
+        if (error.status == 404) {
+          if (error.error && error.error.message) {
+            this.productList = []
+          }
+        }
+      }
+    })
+  }
+
+  AddProduct() {
+    this.router.navigate(['AddProduct'])
+  }
+
+  deleteProductConfirmation(product: any) {
+    this.modalService.open(MODALS['deleteModal'],
+    {
+      ariaLabelledBy: 'modal-basic-title'
+    }).result.then((result)=>{
+      this.deleteProduct(product)
+    },
+      (reason)=>{})
+  }
+
+  deleteProduct(product: any) {
+    this.httpProvider.deleteProductByID(product._id).subscribe((data: any) => {
+      if (data != null && data.body != null) {
+        var resultData = data.body
+        this.toastr.success(`Producto con nombre ${resultData.nombre} eliminado correctamente.`);
+        //Para refrescar
+        this.getAllProduct();
+      }
+    },
+    (error: any) => {})
+  }
+
+  isPrecioOfertaAvailable(product: any): boolean {
+    return product.precio_oferta !== null && product.precio_oferta !== undefined;
   }
 }
