@@ -9,7 +9,7 @@ router.put("/editProduct/:id", ProductoController.actualizarProducto);
 router.delete("/deleteProductByID/:id", ProductoController.eliminarProducto);
 
 // Ruta para buscar productos por nombre
-router.post('/search-products', ProductoController.buscarProductosQuery);
+router.post('/buscar', ProductoController.buscarProductosQuery);
 
 // Renderizar la vista resultados.ejs con los resultados de búsqueda
 router.get('/resultados', (req, res) => {

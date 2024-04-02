@@ -296,3 +296,7 @@
 ::1 - - [02/Apr/2024:10:09:06 +0000] "GET /api/v2/productos/getAllProduct HTTP/1.1" 200 8510 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 [2024-04-02T12:19:32.561] [DEBUG] access - http://localhost:9100
 [2024-04-02T12:20:50.199] [DEBUG] access - http://localhost:9100
+[2024-04-02T12:21:58.388] [DEBUG] access - http://localhost:9100
+::1 - - [02/Apr/2024:10:22:00 +0000] "GET / HTTP/1.1" 200 15859 "http://localhost:9100/alergenos" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [02/Apr/2024:10:22:08 +0000] "GET /? HTTP/1.1" 200 15859 "http://localhost:9100/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+[2024-04-02T12:25:36.849] [DEBUG] access - http://localhost:9100
