@@ -14,7 +14,8 @@ exports.register = async function(req, res) {
         const existingUser = await User.findOne({ email });
         if (existingUser) {
             // Puedes utilizar SweetAlert2 para mostrar una alerta de error
-            return res.render('login-register', { error: 'El correo electrónico ya está registrado.' });
+            console.error({"err":"Usuario ya existente"})
+            res.redirect("/usuarios/login-register")
         }
 
         // Crear un nuevo usuario
@@ -32,63 +33,55 @@ exports.register = async function(req, res) {
         await newUser.save();
 
         // Puedes utilizar SweetAlert2 para mostrar una alerta de éxito
-        res.render('login-register.ejs', { success: 'Usuario registrado exitosamente.' });
+        res.redirect("/usuarios/login-register");
     } catch (error) {
-        console.error('Error al registrar usuario:', error);
+        console.error({"err":"Error al registrar el usuario"})
         // Puedes utilizar SweetAlert2 para mostrar una alerta de error genérico
-        res.render('login-register.ejs', { error: 'Error interno del servidor.' });
+        res.status(401).json({"err":"Error interno del servidor"})
     }
 };
 
+//LOGIN
 
-exports.login = async function(req,res){
-    const { username, password } = req.body   
+exports.login = async function(req, res) {
+    const { email, password } = req.body;
 
-    const pwd_textoPlano = password
-    let userFoundData = null
-
-    await User.findByUsername(username,function(userFound,err){
-        if(err){
-            res.status(500).json(err)
-        }else{
-            userFoundData = userFound
+    try {
+        // Buscar al usuario por su correo electrónico
+        const user = await User.findOne({ email });
+        
+        if (!user) {
+            return res.status(401).json({ message: 'Usuario no encontrado' });
         }
-    })
 
-    if(userFoundData){
-        const validado = await bcrypt.compare(pwd_textoPlano, userFoundData.password)
-
-        if(validado){
-            //CREAR TOKEN JWT
-            const token = jwt.sign(
-                {check:true},
-                process.env.JWT_PASS,
-                {expiresIn:1440}
-            )            
-            req.session.jwtToken = token
-            req.session.userLogued = userFoundData
-            res.redirect("")
-        }else{
-            res.status(401).json({"err":"Usuario y/o contraseña incorrectos"})
+        // Verificar la contraseña
+        const isPasswordValid = await bcrypt.compare(password, user.password);
+        if (!isPasswordValid) {
+            return res.status(401).json({ message: 'Credenciales inválidas' });
         }
+
+        // Crear token JWT
+        const token = jwt.sign(
+            { userId: user._id },
+            process.env.JWT_SECRET, // Cambia por tu propia clave secreta
+            { expiresIn: '1h' }
+        );
+
+        // Renderizar la vista home.ejs
+        res.render('home');
+
+
+    } catch (error) {
+        res.status(500).json({ message: error.message });
     }
-}
+};
 
 exports.logout = (req, res) => {
-    jwt.sign(req.session.jwtToken,"", {expiresIn:1}, (logout,err) => {
-        if (err) {
-            console.error({"err":"Error al destruir la sesión"})
-        } else {
-            req.session.destroy()
-            res.redirect("")
-        }
-    })
-}
+    // Implementa la lógica de cierre de sesión según sea necesario
+    // Aquí podrías limpiar la sesión o invalidar el token JWT
+    res.status(200).json({ message: 'Cierre de sesión exitoso' });
+};
 
-
-exports.mostrarLoginRegistro = function(req,res){
-    res.render("login-register.ejs")
-}
 
 //CRUD
 exports.buscarTodosUsuarios = wrapAsync(async (req, res) => {

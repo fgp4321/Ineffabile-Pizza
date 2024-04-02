@@ -62,4 +62,4 @@ Newsletter (Footer)
 Política de privacidad, aviso legal, tabla de alérgenos (pdf), gastos de envío, como comprar, redes sociales y pasarela de pago ficticio.
 
 # ---------- TODO Funcionalidad ----------
-Login, register, logout, area personal, *sistema de carrito
+Login, logout, area personal

@@ -1,137 +1,201 @@
-<!-- views/home.ejs -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Inicio</title>
+  <title>Inicio - Ineffabile Pizza</title>
   <link rel="stylesheet" href="/css/bootstrap.min.css">
   <link rel="stylesheet" href="/fontawesome/css/all.min.css">
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
   <style>
-    #video-container {
-    border: 2px solid #ccc;
-    padding: 150px;
-    max-width: 80%;
-    text-align: center;
-    margin: 50px auto 150px; /* Modificado el margen superior y el margen inferior */
-    height: 750px; /* Ajustado el tamaño de altura del contenedor */
-  }
-    #carouselExampleIndicators{
-      margin-top: 10px; /* Ajusta según sea necesario */
-      background-color: black;
+    body {
+      background-color: #FBAB7E;
+      background-image: linear-gradient(62deg, #f7f7f7 0%, #ffffff 100%);
+      color: #333333; /* Texto principal en negro */
     }
-    .carousel-item img {
-      max-height: 370px; /* Ajusta la altura según sea necesario */
-      margin: auto;
+
+    /* Estilos para el texto descriptivo */
+    .section {
+      background-color: #ffffff;
+      padding: 50px 0;
+      text-align: center;
+      opacity: 0; /* El contenido no es visible inicialmente */
+      transition: opacity 1s ease-in-out; /* Efecto de transición */
     }
-    #scrollToTopBtn {
-      display: none;
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 99;
+
+    /* Mostrar el contenido gradualmente cuando el usuario haga scroll */
+    .visible {
+      opacity: 1 !important;
+    }
+
+    .section h2 {
+      font-size: 36px;
+      margin-bottom: 30px;
+    }
+
+    .section p {
       font-size: 18px;
-      border: none;
-      outline: none;
-      background-color: #ffc200;
-      color: white;
-      cursor: pointer;
-      border-radius: 50%;
     }
-  </style>
+
+    /* Centrar el video */
+    #video-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #video-container iframe {
+      max-width: 100%;
+      height: 650px;
+    }
+
+    #scrollToTopBtn {       
+      display: none;       
+      position: fixed;       
+      bottom: 20px;       
+      right: 20px;       
+      z-index: 99;       
+      font-size: 18px;       
+      border: none;       
+      outline: none;       
+      background-color: #ff3333;       
+      color: white;       
+      cursor: pointer;       
+      border-radius: 50%;     
+    }
+
+    .btn-lg {
+      font-size: 1.2rem; /* Reducir el tamaño de fuente */
+      padding: 10px 20px; /* Reducir el padding */
+      border-radius: 10px;
+      margin: 10px; /* Mantener el margen */
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .btn-lg:hover {
+      transform: scale(1.1);
+    }
+
+    .btn-primary {
+      background-color: #ff3333;
+      border-color: #ff3333;
+    }
+
+    .btn-primary:hover {
+      background-color: #ff6a6a;
+      border-color: #ff6a6a;
+    }
   </style>
 </head>
 
-<body class="bg-light">
+<body>
 
   <!-- Incluir el navbar -->
-<%- include('./partials/navbar.ejs') %>
+  <%- include('./partials/navbar.ejs') %>
 
-<!-- Carousel de ejemplo -->
-<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  <!-- Carousel de ejemplo -->
+  <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+    <!-- Aquí va el código del carousel -->
   </div>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="/images/banner2.jpg" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="/images/logo-prueba.png" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="/images/logo-prueba.png" class="d-block w-100" alt="...">
+
+  <!-- Texto descriptivo 1 -->
+  <div class="section visible">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+          <h2>¡Bienvenido a Ineffabile Pizza!</h2>
+          <p>Descubre el auténtico sabor italiano con nuestras pizzas artesanales, elaboradas con los mejores ingredientes frescos y horneadas a la perfección.</p>
+          <img src="/images/logo4.png" alt="Pizza" style="width: 300px;"/>
+        </div>
+      </div>
     </div>
   </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Anterior</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Siguiente</span>
-  </button>
-</div>
 
-<!-- Div vacío con bordes y texto "Video" -->
-<div id="video-container">
-  Video
-</div>
-
-<button id="scrollToTopBtn" title="Volver arriba"><i class="fas fa-arrow-up"></i></button>
-
-<div class="container mt-3">
-  <!-- Menú desplegable de categorías 
-  <div class="dropdown">
-    <button class="btn btn-secondary dropdown-toggle" type="button" id="categoriasDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      <i class="fas fa-bars"></i>
-    </button>
-    <div class="dropdown-menu fade" aria-labelledby="categoriasDropdown">
-      <h6 class="dropdown-header">Categoría 1</h6>
-      <a class="dropdown-item" href="#">Subcategoría 1.1</a>
-      <a class="dropdown-item" href="#">Subcategoría 1.2</a>
-      <div class="dropdown-divider"></div>
-      
-      <h6 class="dropdown-header">Categoría 2</h6>
-      <a class="dropdown-item" href="#">Subcategoría 2.1</a>
-      <a class="dropdown-item" href="#">Subcategoría 2.2</a>
+  <!-- Video destacado -->
+  <div id="video-container" class="section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+          <h2>¡Mira cómo hacemos nuestras deliciosas pizzas!</h2>
+          <iframe width="1000" height="650" src="https://www.youtube.com/embed/Fbrg90LGSs8?si=qAUndZO2QousLfLt" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+      </div>
     </div>
-  </div>-->
-</div>
+  </div>
 
-<br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br>
-
-
+  <!-- Texto descriptivo 2 -->
+  <div class="section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+          <h2>¡Haz tu pedido ahora!</h2>
+          <p>Disfruta de la comodidad de ordenar desde casa y recibir nuestras deliciosas pizzas directamente en tu puerta. ¡No te pierdas nuestras ofertas especiales!</p>
+          <div class="container center-form">  
+            <div class="row">
+              <!-- Botones de opciones -->
+              <div class="col-md text-center">
+                <a href="/productos/pizzas" class="btn btn-primary btn-lg">Pizzas</a>
+              </div>
+              <div class="col-md text-center">
+                <a href="/productos/pastas" class="btn btn-primary btn-lg">Pastas</a>
+              </div>
+              <div class="col-md text-center">
+                <a href="/productos/complementos" class="btn btn-primary btn-lg">Complementos</a>
+              </div>
+              <div class="col-md text-center">
+                <a href="/productos/bebidas" class="btn btn-primary btn-lg">Bebidas</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+              
+  <!-- Botón para volver arriba -->
+  <button id="scrollToTopBtn" title="Volver arriba"><i class="fas fa-arrow-up"></i></button>
+              
+  <!-- Footer -->
   <%- include('./partials/footer.ejs') %>
-
+              
   <script src="/fontawesome/js/all.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js"></script>
   <!-- Elimina una de las siguientes líneas dependiendo de tus necesidades -->
   <!-- script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script -->
   <script src="/js/bootstrap.bundle.min.js"></script>
   <script>
-    // Función para mostrar u ocultar el botón de volver arriba
+    // Función para mostrar u ocultar el botón de volver arriba y los elementos al hacer scroll
     window.onscroll = function() {scrollFunction()};
-
+  
     function scrollFunction() {
       if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
         document.getElementById("scrollToTopBtn").style.display = "block";
       } else {
         document.getElementById("scrollToTopBtn").style.display = "none";
       }
-    }
 
+      // Aparecer los elementos gradualmente al hacer scroll
+      var sections = document.querySelectorAll('.section');
+      sections.forEach(function(section) {
+        if (isSectionInViewport(section)) {
+          section.classList.add('visible');
+        }
+      });
+    }
+  
+    // Función para verificar si una sección está visible en la ventana
+    function isSectionInViewport(section) {
+      var rect = section.getBoundingClientRect();
+      var windowHeight = window.innerHeight || document.documentElement.clientHeight;
+      // Verificar si la sección está al menos 20% visible
+      return rect.top <= windowHeight * 0.8;
+    }
+  
     // Función para hacer scroll suave hacia arriba al hacer clic en el botón
     document.getElementById("scrollToTopBtn").addEventListener("click", function() {
       scrollToTop();
     });
-
+  
     function scrollToTop() {
       const body = document.getElementsByTagName("body")[0];
       body.scrollIntoView({ behavior: "smooth" });

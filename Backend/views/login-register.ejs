@@ -32,71 +32,71 @@
                 </div>
                 <p>o usa tu email para registrarte</p>
                 <form class="form" action="/api/v2/usuarios/register" method="POST">
-                  <label>
-                      <i class='bx bx-user'></i>
-                      <input type="text" placeholder="Nombre" name="nombre">
-                  </label>
-                  <label>
-                      <i class='bx bx-user'></i>
-                      <input type="text" placeholder="Apellido" name="apellido">
-                  </label>
-                  <label>
-                      <i class='bx bx-user'></i>
-                      <input type="text" placeholder="Nombre de usuario" name="username">
-                  </label>
-                  <label>
-                      <i class='bx bx-envelope'></i>
-                      <input type="email" placeholder="Correo Electrónico" name="email">
-                  </label>
-                  <label>
-                      <i class='bx bx-lock-alt'></i>
-                      <input type="password" placeholder="Contraseña" name="password">
-                  </label>
-                  <label>
-                      <i class='bx bx-phone'></i>
+                    <label>
+                        <i class='bx bx-user' ></i>
+                        <input type="text" placeholder="Nombre" name="nombre">
+                    </label>
+                    <label>
+                        <i class='bx bx-user' ></i>
+                        <input type="text" placeholder="Apellido" name="apellido">
+                    </label>
+                    <label>
+                        <i class='bx bx-user' ></i>
+                        <input type="text" placeholder="Nombre de usuario" name="username">
+                    </label>
+                    <label >
+                        <i class='bx bx-envelope' ></i>
+                        <input type="email" placeholder="Correo Electronico" name="email">
+                    </label>
+                    <label>
+                        <i class='bx bx-lock-alt' ></i>
+                        <input type="password" placeholder="Contraseña" name="password">
+                    </label>
+                    <label>
+                      <i class='bx bx-phone' ></i>
                       <input type="tel" placeholder="Teléfono" name="telefono">
-                  </label>
-                  <input type="submit" value="Registrarse">
-              </form>
+                    </label>
+                    <input type="submit" value="Registrarse">
+                </form>
             </div>
         </div>
     </div>
 
 
     <div class="container-form login hide">
-        <div class="information">
-            <div class="info-childs">
-                <h2>¡Bienvenido de nuevo!</h2>
-                <p>¿Todavía no se ha registrado? Pruebe a hacerlo gratis</p>
-                <input type="button" value="Registrarse" id="sign-up">
-                <img src="/images/logo5.png" alt="Logo" id="logo">
-                <a href="/" class="back-button">Volver</a>
-            </div>
-        </div>
-        <div class="form-information">
-            <div class="form-information-childs">
-                <h2>Iniciar Sesión</h2>
-                <div class="icons">
-                    <i class='bx bxl-google'></i>
-                    <i class='bx bxl-github'></i>
-                    <i class='bx bxl-linkedin' ></i>
-                </div>
-                <p>o Iniciar Sesión con una cuenta</p>
-                <form class="form" action="/usuarios/login" method="POST">
-
-                    <label >
-                        <i class='bx bx-envelope' ></i>
-                        <input type="email" placeholder="Correo Electronico">
-                    </label>
-                    <label>
-                        <i class='bx bx-lock-alt' ></i>
-                        <input type="password" placeholder="Contraseña">
-                    </label>
-                    <input type="submit" value="Iniciar Sesión">
-                </form>
-            </div>
-        </div>
-    </div>
+      <div class="information">
+          <div class="info-childs">
+              <h2>¡Bienvenido de nuevo!</h2>
+              <p>¿Todavía no se ha registrado? Pruebe a hacerlo gratis</p>
+              <input type="button" value="Registrarse" id="sign-up">
+              <img src="/images/logo5.png" alt="Logo" id="logo">
+              <a href="/" class="back-button">Volver</a>
+          </div>
+      </div>
+      <div class="form-information">
+          <div class="form-information-childs">
+              <h2>Iniciar Sesión</h2>
+              <div class="icons">
+                  <i class='bx bx-envelope' ></i>
+                  <i class='bx bx-lock-alt' ></i>
+              </div>
+              <p>o Iniciar Sesión con una cuenta</p>
+              <!-- Modificación del formulario -->
+              <form class="form" action="/api/v2/usuarios/login" method="POST">
+                  <label>
+                      <i class='bx bx-envelope' ></i>
+                      <input type="email" placeholder="Correo Electronico" name="email">
+                  </label>
+                  <label>
+                      <i class='bx bx-lock-alt' ></i>
+                      <input type="password" placeholder="Contraseña" name="password">
+                  </label>
+                  <input type="submit" value="Iniciar Sesión">
+              </form>
+          </div>
+      </div>
+  </div>
+  
     <script src="/fontawesome/js/all.min.js"></script>
     <script>
       const btnSignIn = document.getElementById("sign-in"),
