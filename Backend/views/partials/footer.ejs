@@ -1,4 +1,9 @@
 <!-- views/partials/footer.ejs -->
+<style>
+  a{
+    color: #ff3333;
+  }
+</style>
 <footer class="footer mt-5">
     <div class="container">
       <div class="row">
@@ -20,7 +25,7 @@
           <ul class="list-unstyled">
             <li><a href="#">Política de privacidad</a></li>
             <li><a href="#">Aviso legal</a></li>
-            <li><a href="#">Tabla de alérgenos</a></li>
+            <li><a href="/alergenos">Tabla de alérgenos</a></li>
           </ul>
         </div>
   
@@ -38,8 +43,8 @@
         <div class="col-md-3">
           <h5>Envíos y devoluciones</h5>
           <ul class="list-unstyled">
-            <li><a href="#">Gastos de envío</a></li>
-            <li><a href="#">Cómo comprar</a></li>
+            <li><a href="/envio">Gastos de envío</a></li>
+            <li><a href="/como-comprar">Cómo comprar</a></li>
             <li><a href="/condiciones-generales">Condiciones generales</a></li>
           </ul>
         </div>
@@ -51,7 +56,7 @@
               <div class="input-group">
                 <input type="email" class="form-control" placeholder="Correo electrónico" name="email" required>
                 <div class="input-group-append">
-                  <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i></button>
+                  <button type="submit" class="btn btn-outline-danger"><i class="fas fa-paper-plane"></i></button>
                 </div>
               </div>
             </form>

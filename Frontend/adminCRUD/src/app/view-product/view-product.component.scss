@@ -1,17 +1,17 @@
 .container-xl {
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important;
     padding: 0px;
-    margin-top:6%;
+    margin-top: 6%;
+    width: 50%;
     opacity: 0; /* Inicialmente oculto */
     animation: fadeIn 1.15s ease-in-out forwards; /* Animación de entrada */
-    
+
     .table-responsive {
         margin: 30px 0;
         .table-wrapper {
             background: #fff;
             padding: 20px 25px;
             border-radius: 3px;
-            min-width: 1000px;
             box-shadow: 0 1px 1px rgb(0 0 0 / 5%);
 
             .table-title {
@@ -22,6 +22,20 @@
                 min-width: 100%;
                 margin: -20px -25px 10px;
                 border-radius: 3px 3px 0 0;
+                .back {
+                    float: right;
+                    text-transform: uppercase;
+                    font-size: 13px !important;
+                }
+            }
+            .table-content {
+                margin-top: 30px;
+                .padding10 {
+                    padding: 10px;
+                }
+            }
+            .table-footer {
+                padding-top: 15px;
                 .btn {
                     color: #fff;
                     float: right;
@@ -32,32 +46,6 @@
                     border: none;
                     outline: none !important;
                     margin-left: 10px;
-                    i {
-                        float: left;
-                        font-size: 21px;
-                        margin-right: 5px;
-                    }
-                    span {
-                        float: left;
-                        margin-top: 2px;
-                    }
-                }
-            }
-            .table-content {
-                .center-align{
-                    text-align: center;
-                }
-                .delete {
-                    color: #f44336;
-                    padding: 3px;
-                }
-                .edit {
-                    color: #ffc107;
-                    padding: 3px;
-                }
-                .view {
-                    color: #0d6efd;
-                    padding: 3px;
                 }
             }
         }
@@ -67,4 +55,24 @@
     to {
       opacity: 1; /* Opacidad completa al final de la animación */
     }
+  }
+
+.password-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  .password-container input {
+    border: none;
+    border-bottom: 1px solid #ccc; /* Puedes ajustar el color y el grosor del borde según tus preferencias */
+    padding-right: 30px; /* Ajusta según sea necesario */
+  }
+  
+  .password-container .toggle-password {
+    position: absolute;
+    right: 5px; /* Ajusta según sea necesario */
+    background: none;
+    border: none;
+    cursor: pointer;
   }
