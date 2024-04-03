@@ -1,1 +1,44 @@
-<p>view-product works!</p>
+<div class="container-xl">
+    <div class="table-responsive">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h4><b>Mostrar producto</b></h4>
+                    </div>
+                    <div class="col-sm-6">
+                        <a href="#" routerLink="/Home" class="btn btn-success back"><i class="fas fa-arrow-circle-left"></i> Atrás</a>
+                    </div>
+                </div>
+            </div>
+            <table class="table table-striped table-hover table-bordered table-content">
+                <tbody>
+                    <tr>
+                        <td><label><b>Nombre</b></label></td>
+                        <td><span>{{ productDetail.nombre }}</span></td>
+                    </tr>
+                    <tr>
+                        <td><label><b>Descripción</b></label></td>
+                        <td><span>{{ productDetail.descripcion }}</span></td>
+                    </tr>
+                    <tr>
+                        <td><label><b>Precio</b></label></td>
+                        <td><span>{{ productDetail.precio_pvp }}€</span></td>
+                    </tr>
+                    <tr>
+                        <td><label><b>Precio oferta</b></label></td>
+                        <td><span>{{ productDetail.precio_oferta ? productDetail.precio_oferta : 'No disponible' }}</span></td> <!-- Se muestra "No disponible" si el precio de oferta es nulo -->
+                    </tr>
+                    <tr>
+                        <td><label><b>Categoria</b></label></td>
+                        <td><span>{{ productDetail.categoria_nombre }}</span></td>
+                    </tr>
+                    <tr>
+                        <td><label><b>Imagen</b></label></td>
+                        <td><img [src]="productDetail.imagen1" alt="Imagen del producto"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

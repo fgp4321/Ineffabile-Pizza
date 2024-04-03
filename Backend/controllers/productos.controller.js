@@ -12,7 +12,7 @@ exports.obtenerTodosProductos = wrapAsync(async (req, res) => {
 })
 
 exports.buscarProductosQuery = async (req, res) => {
-    const { query } = req.body;
+    const { query } = req.query; // Accede al parámetro de búsqueda a través de req.query
     try {
       const productos = await Producto.find({ nombre: { $regex: query, $options: 'i' } });
       res.json(productos);
@@ -65,7 +65,7 @@ exports.actualizarProducto = wrapAsync(async (req, res) => {
 exports.eliminarProducto = wrapAsync(async (req, res) => {
     const { id } = req.params
     try {
-        const productoEliminado = await Producto.eliminarUsuario(id)
+        const productoEliminado = await Producto.eliminarProducto(id)
         if (productoEliminado) {
             res.status(200).json(productoEliminado)
         } else {

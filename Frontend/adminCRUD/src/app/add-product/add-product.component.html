@@ -44,7 +44,7 @@
                             <label for="precio_pvp" class="p-t-b-10">Precio PVP<span class="requiredStar">*</span></label>
                         </div>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="precio_pvp" required maxlength="255" [(ngModel)]="addProductForm.precio_pvp" name="precio_pvp" #precio_pvp="ngModel" pattern="^[^\s]+$">
+                            <input type="text" class="form-control" id="precio_pvp" required maxlength="255" [(ngModel)]="addProductForm.precio_pvp" name="precio_pvp" #precio_pvp="ngModel">
                             <div *ngIf="precio_pvp.errors && isSubmitted" class="alert alert-danger validationError">
                                 <div [hidden]="!precio_pvp.errors?.['required']">
                                     Precio PVP es un campo obligatorio
@@ -58,14 +58,13 @@
                             <label class="p-t-b-10">Precio Oferta</label>
                         </div>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="precio_oferta" required maxlength="255" [(ngModel)]="addProductForm.precio_oferta" name="precio_oferta" #precio_oferta="ngModel" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$">
-                            <div *ngIf="precio_oferta.errors && isSubmitted" class="alert alert-danger validationError"></div>
+                            <input type="text" class="form-control" id="precio_oferta" maxlength="255" [(ngModel)]="addProductForm.precio_oferta" name="precio_oferta" #precio_oferta="ngModel">
                         </div>
                     </div>
                     
                     <div class="form-group p-10 row">
                         <div class="col-sm-3">
-                            <label for="categoria_nombre" class="p-t-b-10">Precio PVP<span class="requiredStar">*</span></label>
+                            <label for="categoria_nombre" class="p-t-b-10">Categoria<span class="requiredStar">*</span></label>
                         </div>
                         <div class="col-sm-9">
                             <input type="text" class="form-control" id="categoria_nombre" required maxlength="255" [(ngModel)]="addProductForm.categoria_nombre" name="categoria_nombre" #categoria_nombre="ngModel" pattern="^[^\s]+$">
@@ -75,7 +74,15 @@
                                 </div>
                             </div>
                         </div>
-                    </div>                                    
+                    </div>        
+                    <div class="form-group p-10 row">
+                        <div class="col-sm-3">
+                            <label for="imagen1" class="p-t-b-10">URL de la Imagen</label>
+                        </div>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="imagen1" [(ngModel)]="addProductForm.imagen1" name="imagen1">
+                        </div>
+                    </div>                            
                 </div>
                 <div class="table-footer">
                     <button class="btn btn-success" (click)="AddProduct(productForm.form.valid)">Guardar</button>

@@ -4,9 +4,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Alergenos</title>
+  <title>Alérgenos - Ineffabile Pizza</title>
   <link rel="stylesheet" href="/css/bootstrap.min.css">
   <link rel="stylesheet" href="/fontawesome/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.4.1/css/responsive.bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.1/css/buttons.bootstrap5.min.css">
   <!-- Agregar cualquier otro estilo necesario -->
   <style>
     .alergenos-icons i {
@@ -36,132 +39,129 @@
         <tbody>
             <!-- Iconos -->
             <!--
-              Pescado: <i class="fas fa-fish"></i>
-              Lácteos: <i class="fas fa-cheese"></i>
-              Gluten: <i class="fas fa-wheat-awn"></i>
-              Huevo: <i class="fas fa-egg"></i>
-              Mariscos: <i class="fas fa-shrimp"></i>
-              Soja: <i class="fas fa-tint"></i>
-              Sulfitos: <i class="fas fa-flask"></i>
-              Mostaza: <i class="fas fa-pepper-hot"></i>
-              Apio: <i class="fas fa-leaf"></i>
-              Sésamo: <i class="fas fa-seedling"></i>
+              Pescado: <i class="fas fa-fish" title="Pescado" ></i>
+              Lácteos: <i class="fas fa-cheese" title="Lácteos"></i>
+              Gluten: <i class="fas fa-wheat-awn" title="Gluten"></i>
+              Huevo: <i class="fas fa-egg" title="Huevo"></i>
+              Mariscos: <i class="fas fa-shrimp" title="Marisco"></i>
+              Soja: <i class="fas fa-tint" title="Soja"></i>
+              Sulfitos: <i class="fas fa-flask" title="Sulfitos"></i>
+              Mostaza: <i class="fas fa-pepper-hot" title="Mostaza"></i>
+              Apio: <i class="fas fa-leaf" title="Apio"></i>
+              Sésamo: <i class="fas fa-seedling" title="Sésamo"></i>
             -->
           <!-- Pizzas -->
           <tr>
             <td>Pizza Margarita</td>
             <td class="alergenos-icons">
-                <i class="fas fa-fish"></i>
-                <i class="fas fa-tint"></i>
-                <i class="fas fa-cheese"></i>
-                <i class="fas fa-wheat-awn"></i>
-                <i class="fas fa-egg"></i>
-                <i class="fas fa-shrimp"></i>
-                <i class="fas fa-flask"></i>
-                <i class="fas fa-pepper-hot"></i>
-                <i class="fas fa-leaf"></i>
-                <i class="fas fa-seedling"></i>
+              <i class="fas fa-cheese" title="Lácteos"></i>
+              <i class="fas fa-wheat-awn" title="Gluten"></i>
             </td>
             <td class="alergenos-icons">
-                <i class="fas fa-tint"></i>
+              <i class="fas fa-tint" title="Soja"></i>
+              <i class="fas fa-flask" title="Sulfitos"></i>
+              <i class="fas fa-pepper-hot" title="Mostaza"></i>
             </td>
           </tr>
           <tr>
             <td>Pizza 4 quesos</td>
             <td class="alergenos-icons">
-              <i class="fas fa-cheese"></i>
-              <i class="fas fa-wheat-awn"></i>
+              <i class="fas fa-cheese" title="Lácteos"></i>
+              <i class="fas fa-wheat-awn" title="Gluten"></i>
             </td>
             <td class="alergenos-icons">
-                <i class="fas fa-tint"></i>
+              <i class="fas fa-tint" title="Soja"></i>
+              <i class="fas fa-flask" title="Sulfitos"></i>
+              <i class="fas fa-pepper-hot" title="Mostaza"></i>
             </td>
           </tr>
           <tr>
             <td>Pizza Atún</td>
             <td class="alergenos-icons">
-              <i class="fas fa-fish"></i>
-              <i class="fas fa-cheese"></i>
-              <i class="fas fa-wheat-awn"></i>
+              <i class="fas fa-fish" title="Pescado" ></i>
+              <i class="fas fa-cheese" title="Lácteos"></i>
+              <i class="fas fa-wheat-awn" title="Gluten"></i>
             </td>
             <td class="alergenos-icons">
-                <i class="fas fa-tint"></i>
+              <i class="fas fa-tint" title="Soja"></i>
+              <i class="fas fa-flask" title="Sulfitos"></i>
+              <i class="fas fa-pepper-hot" title="Mostaza"></i>
             </td>
           </tr>
           <tr>
             <td>Pizza Hawaiana</td>
             <td class="alergenos-icons">
-              <i class="fas fa-fish"></i>
-              <i class="fas fa-cheese"></i>
-              <i class="fas fa-wheat-awn"></i>
+              <i class="fas fa-cheese" title="Lácteos"></i>
+              <i class="fas fa-wheat-awn" title="Gluten"></i>
             </td>
             <td class="alergenos-icons">
-                <i class="fas fa-tint"></i>
+              <i class="fas fa-fish" title="Pescado" ></i>
+              <i class="fas fa-tint" title="Soja"></i>
+              <i class="fas fa-flask" title="Sulfitos"></i>
+              <i class="fas fa-pepper-hot" title="Mostaza"></i>
             </td>
           </tr>
           <tr>
             <td>Pizza Vegetal</td>
             <td class="alergenos-icons">
-              <i class="fas fa-fish"></i>
-              <i class="fas fa-cheese"></i>
-              <i class="fas fa-wheat-awn"></i>
+              <i class="fas fa-wheat-awn" title="Gluten"></i>
             </td>
             <td class="alergenos-icons">
-                <i class="fas fa-tint"></i>
+              <i class="fas fa-flask" title="Sulfitos"></i>
             </td>
           </tr>
           <tr>
             <td>Pizza Romana</td>
             <td class="alergenos-icons">
-              <i class="fas fa-fish"></i>
-              <i class="fas fa-cheese"></i>
-              <i class="fas fa-wheat-awn"></i>
+              <i class="fas fa-wheat-awn" title="Gluten"></i>
+              <i class="fas fa-cheese" title="Lácteos"></i>
             </td>
             <td class="alergenos-icons">
-                <i class="fas fa-tint"></i>
+              <i class="fas fa-tint" title="Soja"></i>
+              <i class="fas fa-flask" title="Sulfitos"></i>
+              <i class="fas fa-pepper-hot" title="Mostaza"></i>
             </td>
           </tr>
           <tr>
             <td>Pizza 4 estaciones</td>
             <td class="alergenos-icons">
-              <i class="fas fa-fish"></i>
-              <i class="fas fa-cheese"></i>
-              <i class="fas fa-wheat-awn"></i>
+              <i class="fas fa-wheat-awn" title="Gluten"></i>
+              <i class="fas fa-cheese" title="Lácteos"></i>
             </td>
             <td class="alergenos-icons">
-                <i class="fas fa-tint"></i>
+              <i class="fas fa-tint" title="Soja"></i>
+              <i class="fas fa-flask" title="Sulfitos"></i>
+              <i class="fas fa-pepper-hot" title="Mostaza"></i>
             </td>
           </tr>
           <tr>
             <td>Pizza Vegana</td>
             <td class="alergenos-icons">
-              <i class="fas fa-fish"></i>
-              <i class="fas fa-cheese"></i>
-              <i class="fas fa-wheat-awn"></i>
             </td>
             <td class="alergenos-icons">
-                <i class="fas fa-tint"></i>
+              <i class="fas fa-wheat-awn" title="Gluten"></i>
             </td>
           </tr>
           <tr>
             <td>Pizza Napoli</td>
             <td class="alergenos-icons">
-              <i class="fas fa-fish"></i>
-              <i class="fas fa-cheese"></i>
-              <i class="fas fa-wheat-awn"></i>
+              <i class="fas fa-cheese" title="Lácteos"></i>
+              <i class="fas fa-wheat-awn" title="Gluten"></i>
             </td>
             <td class="alergenos-icons">
-                <i class="fas fa-tint"></i>
+              <i class="fas fa-flask" title="Sulfitos"></i>
+              <i class="fas fa-pepper-hot" title="Mostaza"></i>
             </td>
           </tr>
           <tr>
             <td>Pizza con setas</td>
             <td class="alergenos-icons">
-              <i class="fas fa-fish"></i>
-              <i class="fas fa-cheese"></i>
-              <i class="fas fa-wheat-awn"></i>
+              <i class="fas fa-cheese" title="Lácteos"></i>
+              <i class="fas fa-wheat-awn" title="Gluten"></i>
             </td>
             <td class="alergenos-icons">
-                <i class="fas fa-tint"></i>
+              <i class="fas fa-flask" title="Sulfitos"></i>
+              <i class="fas fa-pepper-hot" title="Mostaza"></i>
             </td>
           </tr>
           <!-- Agrega el resto de las pizzas con sus alergenos -->
@@ -170,65 +170,73 @@
           <tr>
             <td>Espaguetis a la carbonara</td>
             <td class="alergenos-icons">
-              <i class="fas fa-fish"></i>
-              <i class="fas fa-cheese"></i>
-              <i class="fas fa-wheat-awn"></i>
+              <i class="fas fa-cheese" title="Lácteos"></i>
+              <i class="fas fa-egg" title="Huevo"></i>
             </td>
             <td class="alergenos-icons">
-                <i class="fas fa-tint"></i>
+              <i class="fas fa-wheat-awn" title="Gluten"></i>
+              <i class="fas fa-flask" title="Sulfitos"></i>
+              <i class="fas fa-pepper-hot" title="Mostaza"></i>
             </td>
           </tr>
           <tr>
             <td>Tagliatelle con trufa</td>
             <td class="alergenos-icons">
-              <i class="fas fa-cheese"></i>
+              <i class="fas fa-wheat-awn" title="Gluten"></i>
             </td>
             <td class="alergenos-icons">
-                <i class="fas fa-tint"></i>
+              <i class="fas fa-wheat-awn" title="Gluten"></i>
+              <i class="fas fa-flask" title="Sulfitos"></i>
+              <i class="fas fa-pepper-hot" title="Mostaza"></i>
+              <i class="fas fa-seedling" title="Sésamo"></i>
             </td>
           </tr>
           <tr>
             <td>Macarrones a la boloñesa</td>
             <td class="alergenos-icons">
-              <i class="fas fa-fish"></i>
-              <i class="fas fa-cheese"></i>
-              <i class="fas fa-wheat-awn"></i>
+              <i class="fas fa-wheat-awn" title="Gluten"></i>
+              <i class="fas fa-cheese" title="Lácteos"></i>
+              <i class="fas fa-flask" title="Sulfitos"></i>
             </td>
             <td class="alergenos-icons">
-                <i class="fas fa-tint"></i>
+              <i class="fas fa-egg" title="Huevo"></i>
+              <i class="fas fa-pepper-hot" title="Mostaza"></i>
+              <i class="fas fa-leaf" title="Apio"></i>
             </td>
           </tr>
           <tr>
             <td>Ravioli de setas</td>
             <td class="alergenos-icons">
-              <i class="fas fa-fish"></i>
-              <i class="fas fa-cheese"></i>
-              <i class="fas fa-wheat-awn"></i>
+              <i class="fas fa-wheat-awn" title="Gluten"></i>
             </td>
             <td class="alergenos-icons">
-                <i class="fas fa-tint"></i>
+              <i class="fas fa-cheese" title="Lácteos"></i>
+              <i class="fas fa-flask" title="Sulfitos"></i>
+              <i class="fas fa-pepper-hot" title="Mostaza"></i>
+              <i class="fas fa-leaf" title="Apio"></i>
             </td>
           </tr>
           <tr>
             <td>Tortellini de carne</td>
             <td class="alergenos-icons">
-              <i class="fas fa-fish"></i>
-              <i class="fas fa-cheese"></i>
-              <i class="fas fa-wheat-awn"></i>
+              <i class="fas fa-wheat-awn" title="Gluten"></i>
+              <i class="fas fa-cheese" title="Lácteos"></i>
             </td>
             <td class="alergenos-icons">
-                <i class="fas fa-tint"></i>
+              <i class="fas fa-flask" title="Sulfitos"></i>
+              <i class="fas fa-pepper-hot" title="Mostaza"></i>
+              <i class="fas fa-leaf" title="Apio"></i>
             </td>
           </tr>
           <tr>
             <td>Gnocchi con aceite de oliva y hierbas</td>
             <td class="alergenos-icons">
-              <i class="fas fa-fish"></i>
-              <i class="fas fa-cheese"></i>
-              <i class="fas fa-wheat-awn"></i>
+              <i class="fas fa-wheat-awn" title="Gluten"></i>
             </td>
             <td class="alergenos-icons">
-                <i class="fas fa-tint"></i>
+              <i class="fas fa-flask" title="Sulfitos"></i>
+              <i class="fas fa-pepper-hot" title="Mostaza"></i>
+              <i class="fas fa-seedling" title="Sésamo"></i>
             </td>
           </tr>
           <!-- Agrega el resto de las pastas con sus alergenos -->
@@ -237,73 +245,85 @@
           <tr>
             <td>Nachos con queso</td>
             <td class="alergenos-icons">
-              <i class="fas fa-cheese"></i>
+              <i class="fas fa-cheese" title="Lácteos"></i>
+              <i class="fas fa-wheat-awn" title="Gluten"></i>
             </td>
             <td class="alergenos-icons">
-                <i class="fas fa-tint"></i>
+              <i class="fas fa-flask" title="Sulfitos"></i>
+              <i class="fas fa-pepper-hot" title="Mostaza"></i>
+              <i class="fas fa-seedling" title="Sésamo"></i>
             </td>
           </tr>
           <tr>
             <td>Bolas de queso</td>
             <td class="alergenos-icons">
-              <i class="fas fa-cheese"></i>
+              <i class="fas fa-cheese" title="Lácteos"></i>
+              <i class="fas fa-wheat-awn" title="Gluten"></i>
             </td>
             <td class="alergenos-icons">
-                <i class="fas fa-tint"></i>
+              <i class="fas fa-flask" title="Sulfitos"></i>
+              <i class="fas fa-pepper-hot" title="Mostaza"></i>
             </td>
           </tr>
           <tr>
             <td>Aros de cebolla</td>
             <td class="alergenos-icons">
-              <i class="fas fa-cheese"></i>
+              <i class="fas fa-wheat-awn" title="Gluten"></i>
             </td>
             <td class="alergenos-icons">
-                <i class="fas fa-tint"></i>
+              <i class="fas fa-flask" title="Sulfitos"></i>
+              <i class="fas fa-pepper-hot" title="Mostaza"></i>
+              <i class="fas fa-seedling" title="Sésamo"></i>
             </td>
           </tr>
           <tr>
             <td>Fritos de pescado</td>
             <td class="alergenos-icons">
-              <i class="fas fa-cheese"></i>
+              <i class="fas fa-shrimp" title="Marisco"></i>
+              <i class="fas fa-fish" title="Pescado" ></i>
             </td>
             <td class="alergenos-icons">
-                <i class="fas fa-tint"></i>
+              <i class="fas fa-wheat-awn" title="Gluten"></i>
+              <i class="fas fa-flask" title="Sulfitos"></i>
             </td>
           </tr>
           <tr>
             <td>Jalapeños fritos</td>
             <td class="alergenos-icons">
-              <i class="fas fa-cheese"></i>
+              <i class="fas fa-wheat-awn" title="Gluten"></i>
             </td>
             <td class="alergenos-icons">
-                <i class="fas fa-tint"></i>
+              <i class="fas fa-pepper-hot" title="Mostaza"></i>
+              <i class="fas fa-flask" title="Sulfitos"></i>
             </td>
           </tr>
           <tr>
             <td>Croquetas de jamón</td>
             <td class="alergenos-icons">
-              <i class="fas fa-cheese"></i>
+              <i class="fas fa-wheat-awn" title="Gluten"></i>
+              <i class="fas fa-cheese" title="Lácteos"></i>
             </td>
             <td class="alergenos-icons">
-                <i class="fas fa-tint"></i>
+              <i class="fas fa-pepper-hot" title="Mostaza"></i>
+              <i class="fas fa-flask" title="Sulfitos"></i>
             </td>
           </tr>
           <tr>
             <td>Alitas de pollo</td>
             <td class="alergenos-icons">
-              <i class="fas fa-cheese"></i>
             </td>
             <td class="alergenos-icons">
-                <i class="fas fa-tint"></i>
+              <i class="fas fa-pepper-hot" title="Mostaza"></i>
+              <i class="fas fa-flask" title="Sulfitos"></i>
             </td>
           </tr>
           <tr>
             <td>Patatas alioli</td>
             <td class="alergenos-icons">
-              <i class="fas fa-cheese"></i>
+              <i class="fas fa-flask" title="Sulfitos"></i>
             </td>
             <td class="alergenos-icons">
-                <i class="fas fa-tint"></i>
+              <i class="fas fa-wheat-awn" title="Gluten"></i>
             </td>
           </tr>
           <!-- Agrega el resto de los complementos con sus alergenos -->
@@ -319,13 +339,28 @@
   <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <script src="https://cdn.datatables.net/2.0.3/js/dataTables.js"></script>
-  <script src="https://cdn.datatables.net/2.0.3/js/dataTables.bootstrap4.js"></script>
-  <script src="/js/bootstrap.bundle.min.js"></script>  
+  <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>  <script src="https://cdn.datatables.net/buttons/2.0.3/js/dataTables.buttons.min.js"></script>
+  <script src="https://cdn.datatables.net/responsive/2.4.1/js/dataTables.responsive.min.js"></script>
+  <script src="https://cdn.datatables.net/responsive/2.4.1/js/responsive.bootstrap.min.js"></script>
+
+
+  <script src="https://cdn.datatables.net/buttons/2.4.1/js/dataTables.buttons.min.js"></script>
+  <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.bootstrap5.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+  <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.html5.min.js"></script>
+  <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.print.min.js"></script>
   <script>
-    $(document).ready(function() {
-      $('#alergenos-table').DataTable();
-    });
+    $(document).ready(function () {
+        $('#alergenos-table').DataTable({
+            dom: 'lBfrtip',
+            buttons: [
+                'pdf', 'csv', 'excel', 'print'
+            ]
+        })
+    })
   </script>
   <!-- Agregar cualquier otro script necesario -->
 </body>

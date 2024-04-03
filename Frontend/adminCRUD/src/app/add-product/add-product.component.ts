@@ -27,7 +27,7 @@ export class AddProductComponent implements OnInit {
       this.httpProvider.saveProduct(this.addProductForm).subscribe(async data => {
         if (data != null && data.body != null) {
           var resultData = data.body;
-          this.toastr.success(`Producto: ${resultData.nombre} registrado correctamente.`);
+          this.toastr.success(`Producto: "${resultData.nombre}" registrado correctamente.`);
           setTimeout(() => {
             this.router.navigate(['/Home']);
           }, 500);

@@ -27,7 +27,7 @@ export class ViewUserComponent implements OnInit {
         if (data != null && data.body != null) {
           var resultData = data.body;
           if (resultData) {
-            this.toastr.success(`Visualizando detalles de ${resultData.username}.`);
+            this.toastr.success(`Visualizando detalles de "${resultData.username}".`);
             this.userDetail = resultData;
           }
         }
