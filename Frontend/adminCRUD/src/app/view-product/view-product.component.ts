@@ -28,7 +28,7 @@ export class ViewProductComponent implements OnInit {
         if (data != null && data.body != null) {
           var resultData = data.body;
           if (resultData) {
-            this.toastr.success(`Visualizando detalles de ${resultData.nombre}.`);
+            this.toastr.success(`Visualizando detalles de "${resultData.nombre}".`);
             this.productDetail = resultData;
           }
         }

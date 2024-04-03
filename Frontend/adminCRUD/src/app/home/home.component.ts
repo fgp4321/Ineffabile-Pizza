@@ -64,7 +64,7 @@ export class HomeComponent implements OnInit {
     this.httpProvider.deleteUserByID(user._id).subscribe((data: any) => {
       if (data != null && data.body != null) {
         var resultData = data.body
-        this.toastr.success(`Usuario con nombre ${resultData.nombre} eliminado correctamente.`);
+        this.toastr.success(`Usuario con nombre "${resultData.nombre}" eliminado correctamente.`);
         //Para refrescar
         this.getAllUser();
       }
@@ -113,7 +113,7 @@ export class HomeComponent implements OnInit {
     this.httpProvider.deleteProductByID(product._id).subscribe((data: any) => {
       if (data != null && data.body != null) {
         var resultData = data.body
-        this.toastr.success(`Producto con nombre ${resultData.nombre} eliminado correctamente.`);
+        this.toastr.success(`Producto con nombre "${resultData.nombre}" eliminado correctamente.`);
         //Para refrescar
         this.getAllProduct();
       }
