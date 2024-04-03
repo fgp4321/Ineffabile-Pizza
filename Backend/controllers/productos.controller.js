@@ -12,7 +12,7 @@ exports.obtenerTodosProductos = wrapAsync(async (req, res) => {
 })
 
 exports.buscarProductosQuery = async (req, res) => {
-    const { query } = req.body;
+    const { query } = req.query; // Accede al parámetro de búsqueda a través de req.query
     try {
       const productos = await Producto.find({ nombre: { $regex: query, $options: 'i' } });
       res.json(productos);

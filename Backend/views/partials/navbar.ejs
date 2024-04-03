@@ -49,8 +49,8 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav mx-auto">
         <li class="nav-item">
-          <form class="form-inline my-2 my-lg-0 navbar-search" id="searchForm"> <!-- Agrega el ID al formulario -->
-            <input class="form-control mr-sm-2" type="search" placeholder="Buscar productos..." aria-label="Buscar" id="searchQuery"> <!-- Corrige el ID -->
+          <form class="form-inline my-2 my-lg-0 navbar-search" id="searchForm" action="/api/v2/productos/buscar" method="GET">
+            <input class="form-control mr-sm-2" type="search" placeholder="Buscar productos..." aria-label="Buscar" id="searchQuery" name="query"> <!-- Cambia el nombre del input -->
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="searchBtn">
                 <i class="fas fa-search"></i>
             </button>
