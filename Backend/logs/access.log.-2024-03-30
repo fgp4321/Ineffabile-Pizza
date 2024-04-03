@@ -1,6 +1,0 @@
-[2024-03-30T22:35:09.807] [DEBUG] access - http://localhost:9100
-[2024-03-30T22:37:27.251] [DEBUG] access - http://localhost:9100
-::1 - - [30/Mar/2024:21:37:28 +0000] "GET / HTTP/1.1" 304 - "http://localhost:9100/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"
-::1 - - [30/Mar/2024:21:37:31 +0000] "GET /valoraciones HTTP/1.1" 200 11351 "http://localhost:9100/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"
-::1 - - [30/Mar/2024:21:37:35 +0000] "GET /contacto HTTP/1.1" 200 14860 "http://localhost:9100/valoraciones" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"
-::1 - - [30/Mar/2024:21:38:01 +0000] "GET / HTTP/1.1" 304 - "http://localhost:9100/contacto" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"
