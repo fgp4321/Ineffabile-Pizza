@@ -65,7 +65,7 @@ exports.actualizarProducto = wrapAsync(async (req, res) => {
 exports.eliminarProducto = wrapAsync(async (req, res) => {
     const { id } = req.params
     try {
-        const productoEliminado = await Producto.eliminarUsuario(id)
+        const productoEliminado = await Producto.eliminarProducto(id)
         if (productoEliminado) {
             res.status(200).json(productoEliminado)
         } else {

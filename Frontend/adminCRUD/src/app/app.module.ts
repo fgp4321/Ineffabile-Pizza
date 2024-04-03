@@ -15,6 +15,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { AddProductComponent } from './add-product/add-product.component';
 import { EditProductComponent } from './edit-product/edit-product.component';
 import { ViewProductComponent } from './view-product/view-product.component';
+import { UserDeleteModalComponent } from './user-delete-modal/user-delete-modal.component';
+import { ProductDeleteModalComponent } from './product-delete-modal/product-delete-modal.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { ViewProductComponent } from './view-product/view-product.component';
     EditUserComponent,
     AddProductComponent,
     EditProductComponent,
-    ViewProductComponent
+    ViewProductComponent,
+    UserDeleteModalComponent,
+    ProductDeleteModalComponent
   ],
   imports: [
     BrowserModule,

@@ -4,34 +4,8 @@ import { NgbModal, NgbActiveModal } from "@ng-bootstrap/ng-bootstrap";
 import { ToastrService } from "ngx-toastr";
 import { HttpProviderService } from "../Service/http-provider.service";
 import { NgZone } from '@angular/core';
-
-@Component({
-  selector: 'ng-modal-confirm',
-  template: `
-  <div class="modal-header">
-    <h5 class="modal-title" id="modal-title">Delete Confirmation</h5>
-    <button type="button" class="btn close" aria-label="Close button" aria-describedby="modal-title" (click)="modal.dismiss('Cross click')">
-      <span aria-hidden="true">x</span>
-    </button>
-  </div>
-  <div class="modal-body">
-    <p>¿Está seguro de que desea eliminar el usuario?</p>
-  </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-outline-secondary" (click)="modal.dismiss('cancel click')">CANCELAR</button>
-    <button type="button" ngbAutofocus class="btn btn-success" (click)="modal.close('Ok click')">OK</button>
-  </div>
-  `
-})
-
-export class NgModalConfirm {
-  constructor(public modal: NgbActiveModal) {
-  }
-}
-
-const MODALS: { [name:string]: Type<any> } = {
-  deleteModal: NgModalConfirm
-}
+import { UserDeleteModalComponent } from '../user-delete-modal/user-delete-modal.component';
+import { ProductDeleteModalComponent } from '../product-delete-modal/product-delete-modal.component';
 
 @Component({
   selector: 'app-home',
@@ -76,13 +50,14 @@ export class HomeComponent implements OnInit {
   }
 
   deleteUserConfirmation(user: any) {
-    this.modalService.open(MODALS['deleteModal'],
-    {
-      ariaLabelledBy: 'modal-basic-title'
-    }).result.then((result)=>{
-      this.deleteUser(user)
-    },
-      (reason)=>{})
+    this.modalService
+      .open(UserDeleteModalComponent, { ariaLabelledBy: 'modal-basic-title' }) // Usar el componente modal de usuario
+      .result.then(
+        (result) => {
+          this.deleteUser(user);
+        },
+        (reason) => {}
+      );
   }
 
   deleteUser(user: any) {
@@ -124,13 +99,14 @@ export class HomeComponent implements OnInit {
   }
 
   deleteProductConfirmation(product: any) {
-    this.modalService.open(MODALS['deleteModal'],
-    {
-      ariaLabelledBy: 'modal-basic-title'
-    }).result.then((result)=>{
-      this.deleteProduct(product)
-    },
-      (reason)=>{})
+    this.modalService
+      .open(ProductDeleteModalComponent, { ariaLabelledBy: 'modal-basic-title' }) // Usar el componente modal de producto
+      .result.then(
+        (result) => {
+          this.deleteProduct(product);
+        },
+        (reason) => {}
+      );
   }
 
   deleteProduct(product: any) {
