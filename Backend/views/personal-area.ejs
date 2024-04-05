@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Área Personal - Ineffabile Pizza</title>
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/fontawesome/css/all.min.css">
+  <!-- Agregar cualquier otro estilo necesario -->
+</head>
+
+<body class="bg-light">
+
+  <!-- Incluir el navbar -->
+  <%- include('./partials/navbar.ejs') %>
+
+  <!-- Contenido del área personal -->
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card">
+          <img src="/images/profile.png" class="card-img-top rounded-circle" alt="Foto de Perfil">
+          <div class="card-body">
+            <h5 class="card-title"><%= usuario.nombre %> <%= usuario.apellido %></h5>
+            <p class="card-text">Nombre de Usuario: <%= usuario.username %></p>
+          </div>
+        </div>
+        <div class="card mt-3">
+          <div class="card-body">
+            <h5 class="card-title">¿Tienes alguna duda?</h5>
+            <p class="card-text">Contáctenos si necesitas ayuda.</p>
+            <a href="/contacto" class="btn btn-primary">Contactar</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <h2>Pedidos</h2>
+        <% if (pedidos.length === 0) { %>
+          <p>No hay pedidos disponibles.</p>
+        <% } else { %>
+          <% pedidos.forEach(function(pedido) { %>
+            <div class="card mb-3">
+              <div class="card-body">
+                <h5 class="card-title">Pedido #<%= pedido.id %></h5>
+                <ul>
+                  <% pedido.productos_nombre.forEach(function(producto, index) { %>
+                    <li><strong><%= producto %></strong> - Cantidad: <%= pedido.cantidad[index] %> - Precio Total: <%= pedido.precio_total[index] %> - Estado: <%= pedido.estadoPedido_status %></li>
+                  <% }); %>
+                </ul>
+              </div>
+            </div>
+          <% }); %>
+        <% } %>
+      </div>
+    </div>
+  </div>
+
+  <!-- Incluir el footer -->
+  <%- include('./partials/footer.ejs') %>
+
+  <script src="/fontawesome/js/all.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js"></script>
+  <script src="/js/bootstrap.bundle.min.js"></script>  
+  <!-- Agregar cualquier otro script necesario -->
+</body>
+</html>

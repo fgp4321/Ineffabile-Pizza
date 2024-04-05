@@ -1,0 +1,36 @@
+[2024-03-25T15:46:59.366] [ERROR] error - 500 /home/fran/Documentos/Gestor-Pizzeria/Backend/views/carrito.ejs:35
+    33|             <div class="producto-info">
+    34|               <h5 class="card-title"><%= item.name %></h5>
+ >> 35|               <p class="card-text">Precio: <%= item.normal-price %>/Ud</p>
+    36|             </div>
+    37|             <div class="producto-eliminar">
+    38|               <!-- Botón para eliminar el producto del carrito -->
+
+price is not defined
+[2024-03-25T15:46:59.995] [ERROR] error - 500 /home/fran/Documentos/Gestor-Pizzeria/Backend/views/carrito.ejs:35
+    33|             <div class="producto-info">
+    34|               <h5 class="card-title"><%= item.name %></h5>
+ >> 35|               <p class="card-text">Precio: <%= item.normal-price %>/Ud</p>
+    36|             </div>
+    37|             <div class="producto-eliminar">
+    38|               <!-- Botón para eliminar el producto del carrito -->
+
+price is not defined
+[2024-03-25T15:47:00.162] [ERROR] error - 500 /home/fran/Documentos/Gestor-Pizzeria/Backend/views/carrito.ejs:35
+    33|             <div class="producto-info">
+    34|               <h5 class="card-title"><%= item.name %></h5>
+ >> 35|               <p class="card-text">Precio: <%= item.normal-price %>/Ud</p>
+    36|             </div>
+    37|             <div class="producto-eliminar">
+    38|               <!-- Botón para eliminar el producto del carrito -->
+
+price is not defined
+[2024-03-25T15:47:00.318] [ERROR] error - 500 /home/fran/Documentos/Gestor-Pizzeria/Backend/views/carrito.ejs:35
+    33|             <div class="producto-info">
+    34|               <h5 class="card-title"><%= item.name %></h5>
+ >> 35|               <p class="card-text">Precio: <%= item.normal-price %>/Ud</p>
+    36|             </div>
+    37|             <div class="producto-eliminar">
+    38|               <!-- Botón para eliminar el producto del carrito -->
+
+price is not defined
