@@ -1,36 +1,23 @@
-[2024-03-25T15:46:59.366] [ERROR] error - 500 /home/fran/Documentos/Gestor-Pizzeria/Backend/views/carrito.ejs:35
-    33|             <div class="producto-info">
-    34|               <h5 class="card-title"><%= item.name %></h5>
- >> 35|               <p class="card-text">Precio: <%= item.normal-price %>/Ud</p>
-    36|             </div>
-    37|             <div class="producto-eliminar">
-    38|               <!-- Botón para eliminar el producto del carrito -->
+[2024-04-05T10:33:57.988] [ERROR] error - 500 Failed to lookup view "personal-area.ejs" in views directory "/home/fran/Documentos/Gestor-Pizzeria/Backend/views"
+[2024-04-05T10:34:24.698] [ERROR] error - 500 Failed to lookup view "personal-area.ejs" in views directory "/home/fran/Documentos/Gestor-Pizzeria/Backend/views"
+[2024-04-05T10:35:03.513] [ERROR] error - 500 Failed to lookup view "personal-area.ejs" in views directory "/home/fran/Documentos/Gestor-Pizzeria/Backend/views"
+[2024-04-05T10:38:21.367] [ERROR] error - 500 Failed to lookup view "personal-area.ejs" in views directory "/home/fran/Documentos/Gestor-Pizzeria/Backend/views"
+[2024-04-05T10:38:26.915] [ERROR] error - 500 Failed to lookup view "personal-area.ejs" in views directory "/home/fran/Documentos/Gestor-Pizzeria/Backend/views"
+[2024-04-05T10:50:39.892] [ERROR] error - 500 /home/fran/Documentos/Gestor-Pizzeria/Backend/views/personal-area.ejs:24
+    22|           <img src="/images/foto_perfil.jpg" class="card-img-top rounded-circle" alt="Foto de Perfil">
+    23|           <div class="card-body">
+ >> 24|             <h5 class="card-title"><%= usuario.nombre %> <%= usuario.apellido %></h5>
+    25|             <p class="card-text">Nombre de Usuario: <%= usuario.username %></p>
+    26|           </div>
+    27|         </div>
 
-price is not defined
-[2024-03-25T15:46:59.995] [ERROR] error - 500 /home/fran/Documentos/Gestor-Pizzeria/Backend/views/carrito.ejs:35
-    33|             <div class="producto-info">
-    34|               <h5 class="card-title"><%= item.name %></h5>
- >> 35|               <p class="card-text">Precio: <%= item.normal-price %>/Ud</p>
-    36|             </div>
-    37|             <div class="producto-eliminar">
-    38|               <!-- Botón para eliminar el producto del carrito -->
+usuario is not defined
+[2024-04-05T10:50:54.739] [ERROR] error - 500 /home/fran/Documentos/Gestor-Pizzeria/Backend/views/personal-area.ejs:24
+    22|           <img src="/images/foto_perfil.jpg" class="card-img-top rounded-circle" alt="Foto de Perfil">
+    23|           <div class="card-body">
+ >> 24|             <h5 class="card-title"><%= usuario.nombre %> <%= usuario.apellido %></h5>
+    25|             <p class="card-text">Nombre de Usuario: <%= usuario.username %></p>
+    26|           </div>
+    27|         </div>
 
-price is not defined
-[2024-03-25T15:47:00.162] [ERROR] error - 500 /home/fran/Documentos/Gestor-Pizzeria/Backend/views/carrito.ejs:35
-    33|             <div class="producto-info">
-    34|               <h5 class="card-title"><%= item.name %></h5>
- >> 35|               <p class="card-text">Precio: <%= item.normal-price %>/Ud</p>
-    36|             </div>
-    37|             <div class="producto-eliminar">
-    38|               <!-- Botón para eliminar el producto del carrito -->
-
-price is not defined
-[2024-03-25T15:47:00.318] [ERROR] error - 500 /home/fran/Documentos/Gestor-Pizzeria/Backend/views/carrito.ejs:35
-    33|             <div class="producto-info">
-    34|               <h5 class="card-title"><%= item.name %></h5>
- >> 35|               <p class="card-text">Precio: <%= item.normal-price %>/Ud</p>
-    36|             </div>
-    37|             <div class="producto-eliminar">
-    38|               <!-- Botón para eliminar el producto del carrito -->
-
-price is not defined
+usuario is not defined

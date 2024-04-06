@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 [2024-04-02T00:02:17.248] [DEBUG] access - http://localhost:9100
 =======
 <<<<<<< HEAD
@@ -548,3 +549,37 @@
 ::1 - - [03/Apr/2024:17:20:21 +0000] "GET /api/v2/productos/getAllProduct HTTP/1.1" 200 8510 "-" "node"
 ::1 - - [03/Apr/2024:17:20:21 +0000] "GET /productos/complementos HTTP/1.1" 304 - "http://localhost:9100/condiciones-generales" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"
 ::1 - - [03/Apr/2024:17:20:39 +0000] "GET /api/v2/productos/getProductDetailByID/66058daf137b2ed895ab7a6a HTTP/1.1" 200 306 "http://localhost:9100/productos/complementos" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"
+=======
+[2024-04-05T10:24:23.933] [DEBUG] access - http://localhost:9100
+[2024-04-05T10:33:47.503] [DEBUG] access - http://localhost:9100
+::1 - - [05/Apr/2024:08:34:24 +0000] "GET /usuarios/personal-area HTTP/1.1" - - "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [05/Apr/2024:08:34:47 +0000] "GET /usuarios/personal-area HTTP/1.1" - - "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [05/Apr/2024:08:34:47 +0000] "GET /usuarios/login-register HTTP/1.1" 200 11136 "http://localhost:9100/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+[2024-04-05T10:34:51.578] [DEBUG] access - http://localhost:9100
+::1 - - [05/Apr/2024:08:36:11 +0000] "GET /usuarios/personal-area HTTP/1.1" - - "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [05/Apr/2024:08:36:11 +0000] "GET / HTTP/1.1" 304 - "http://localhost:9100/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [05/Apr/2024:08:38:10 +0000] "GET / HTTP/1.1" 304 - "http://localhost:9100/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [05/Apr/2024:08:38:27 +0000] "GET /USUARIOS/personal-area HTTP/1.1" - - "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [05/Apr/2024:08:39:12 +0000] "GET /usuarios/personal-area HTTP/1.1" - - "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [05/Apr/2024:08:39:13 +0000] "GET / HTTP/1.1" 304 - "http://localhost:9100/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [05/Apr/2024:08:39:20 +0000] "GET /usuarios/personal-area HTTP/1.1" 200 9475 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [05/Apr/2024:08:39:20 +0000] "GET /usuarios/vendor/css/bootstrap.min.css HTTP/1.1" 404 176 "http://localhost:9100/usuarios/personal-area" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [05/Apr/2024:08:50:45 +0000] "GET /usuarios/personal-area HTTP/1.1" - - "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [05/Apr/2024:08:51:11 +0000] "GET /usuarios/personal-area HTTP/1.1" - - "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [05/Apr/2024:08:51:11 +0000] "GET /usuarios HTTP/1.1" 404 147 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [05/Apr/2024:08:51:15 +0000] "GET /usuarios/login-register HTTP/1.1" 304 - "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [05/Apr/2024:08:51:16 +0000] "GET / HTTP/1.1" 304 - "http://localhost:9100/usuarios/login-register" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [05/Apr/2024:08:51:18 +0000] "GET /usuarios/login-register HTTP/1.1" 304 - "http://localhost:9100/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [05/Apr/2024:08:54:35 +0000] "GET /usuarios/login-register HTTP/1.1" 200 10927 "http://localhost:9100/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [05/Apr/2024:08:57:14 +0000] "GET / HTTP/1.1" 304 - "http://localhost:9100/usuarios/login-register" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [05/Apr/2024:08:57:33 +0000] "GET /usuarios/login-register HTTP/1.1" 304 - "http://localhost:9100/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [05/Apr/2024:08:57:51 +0000] "GET /usuarios/login-register HTTP/1.1" 200 10909 "http://localhost:9100/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [05/Apr/2024:08:58:20 +0000] "GET /usuarios/login-register HTTP/1.1" 200 10914 "http://localhost:9100/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [05/Apr/2024:08:59:38 +0000] "GET /usuarios/login-register HTTP/1.1" 200 10914 "http://localhost:9100/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [05/Apr/2024:08:59:46 +0000] "GET /usuarios/login-register HTTP/1.1" 200 10916 "http://localhost:9100/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [05/Apr/2024:08:59:47 +0000] "GET /usuarios/login-register HTTP/1.1" 304 - "http://localhost:9100/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [05/Apr/2024:08:59:47 +0000] "GET /usuarios/login-register HTTP/1.1" 304 - "http://localhost:9100/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [05/Apr/2024:08:59:48 +0000] "GET /usuarios/login-register HTTP/1.1" 304 - "http://localhost:9100/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [05/Apr/2024:08:59:48 +0000] "GET /usuarios/login-register HTTP/1.1" 304 - "http://localhost:9100/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [05/Apr/2024:09:00:08 +0000] "GET /usuarios/login-register HTTP/1.1" 200 10927 "http://localhost:9100/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+>>>>>>> 270f75d703b168d23da25337dd877e7831e887f3

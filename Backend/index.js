@@ -336,6 +336,10 @@ app.get('/usuarios/login-register', (req, res) => {
     res.render('login-register.ejs');
 });
 
+app.get('/usuarios/personal-area', (req, res) => {
+    res.render('personal-area.ejs');
+});
+
 
 
 
