@@ -1,6 +1,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 [2024-04-02T00:02:17.248] [DEBUG] access - http://localhost:9100
 =======
 <<<<<<< HEAD
@@ -583,3 +584,6 @@
 ::1 - - [05/Apr/2024:08:59:48 +0000] "GET /usuarios/login-register HTTP/1.1" 304 - "http://localhost:9100/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 ::1 - - [05/Apr/2024:09:00:08 +0000] "GET /usuarios/login-register HTTP/1.1" 200 10927 "http://localhost:9100/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 >>>>>>> 270f75d703b168d23da25337dd877e7831e887f3
+=======
+[2024-04-11T08:57:27.893] [DEBUG] access - http://localhost:9100
+>>>>>>> 4b91b91bde9fd3d41631b36eb565a0e3b43e6447
