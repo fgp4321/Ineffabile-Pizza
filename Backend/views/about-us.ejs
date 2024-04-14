@@ -23,15 +23,40 @@
     img{
       border-radius: 10px;
     }
+
+    @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .fadeIn {
+    animation: fadeIn 1s ease forwards;
+  }
+
+  header {
+    text-align: center;
+    margin-top: 20px;
+  }
+
 </style>
 
 <body class="bg-light">
 
   <!-- Incluir el navbar -->
   <%- include('./partials/navbar.ejs') %>
-
+  <br>
+  <header class="fadeIn">
+    <h1><u>Sobre Nosotros</u></h1>
+  </header>
+  <br>
   <!-- Contenido de la página Sobre Nosotros -->
-  <div class="container">
+  <div class="container fadeIn">
     <div class="row mt-5">
       <div class="col-md-6">
         <img src="/images/about-us1.jpg" class="img-fluid" alt="Imagen 1">

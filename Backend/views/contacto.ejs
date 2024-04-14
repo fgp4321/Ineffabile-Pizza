@@ -47,6 +47,22 @@
       border: 1px solid #ddd; /* Agrega un borde para mejor visualización */
       margin-left: 50px; /* Ajusta el margen izquierdo del mapa */
     }
+
+    @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .fadeIn {
+    animation: fadeIn 1s ease forwards;
+  }
+
   </style>
 </head>
 
@@ -56,9 +72,13 @@
   <%- include('./partials/navbar.ejs') %>
 
   <!-- Contenido del formulario -->
-  <div class="container center-form">
+  <div class="container center-form fadeIn">
     <form class="custom-form">
-      <h2 class="text-center mb-4">Formulario de Contacto</h2>
+      <br>
+      <br>
+      <h1 class="text-center mb-4"><u>Formulario de Contacto</u></h2>
+        <br>
+        <br>
 
       <div class="form-group">
         <label for="nombre">Nombre:</label>
@@ -109,7 +129,8 @@
         <p>+34 692 158 742</p>
     </div>
   </div>
-
+<br>
+<br>
   <!-- Incluir el footer -->
   <%- include('./partials/footer.ejs') %>
 

@@ -7,7 +7,26 @@
   <title>Condiciones Generales de Venta - Ineffabile Pizza</title>
   <link rel="stylesheet" href="/css/bootstrap.min.css">
   <link rel="stylesheet" href="/fontawesome/css/all.min.css">
+  <link rel="stylesheet" href="/css/styles.css">
   <!-- Agregar cualquier otro estilo necesario -->
+
+  <style>
+    @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+  
+      .fadeIn {
+        animation: fadeIn 1s ease forwards;
+      }
+  
+    </style>
 </head>
 
 <body class="bg-light">
@@ -16,8 +35,10 @@
   <%- include('./partials/navbar.ejs') %>
 
   <!-- Contenido de condiciones generales -->
-  <div class="container">
-    <h2 class="text-center mt-5">Condiciones Generales de Venta</h2>
+  <div class="container fadeIn">
+    <br>
+    <h1 class="text-center mt-5"><u>Condiciones Generales de Venta</u></h2>
+      <br>
     <div class="mt-4">
       <h3>1. Objeto</h3>
       <p>El propósito de las presentes Condiciones Generales de Venta es, por una parte, informar a los posibles compradores de las condiciones y modalidades en las que INEFFABILE PIZZA, S.L.U. (en adelante, “INEFFABILE”) procede a la venta y entrega de los productos ofertados (en adelante, los “Productos”) y, por otra, definir los derechos y obligaciones de las partes en el marco de la venta de Productos por parte de INEFFABILE al comprador (en adelante, el “Comprador”), quien declara en todo caso ser mayor de dieciocho años y disponer de la capacidad legal necesaria para contratar.</p>

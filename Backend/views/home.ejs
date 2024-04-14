@@ -85,6 +85,21 @@
       background-color: #ff6a6a;
       border-color: #ff6a6a;
     }
+
+    @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .fadeIn {
+    animation: fadeIn 1s ease forwards;
+  }
   </style>
 </head>
 
@@ -102,7 +117,7 @@
   <div class="section visible">
     <div class="container">
       <div class="row">
-        <div class="col-lg-8 offset-lg-2">
+        <div class="col-lg-8 offset-lg-2 fadeIn">
           <h2>¡Bienvenido a Ineffabile Pizza!</h2>
           <p>Descubre el auténtico sabor italiano con nuestras pizzas artesanales, elaboradas con los mejores ingredientes frescos y horneadas a la perfección.</p>
           <img src="/images/logo4.png" alt="Pizza" style="width: 300px;"/>
@@ -193,8 +208,8 @@
   
     // Función para hacer scroll suave hacia arriba al hacer clic en el botón
     document.getElementById("scrollToTopBtn").addEventListener("click", function() {
-      scrollToTop();
-    });
+      scrollToTop()
+    })
   
     function scrollToTop() {
       const body = document.getElementsByTagName("body")[0];

@@ -7,7 +7,26 @@
   <title>Gastos de envío - Ineffabile Pizza</title>
   <link rel="stylesheet" href="/css/bootstrap.min.css">
   <link rel="stylesheet" href="/fontawesome/css/all.min.css">
+  <link rel="stylesheet" href="/css/styles.css">
   <!-- Agregar cualquier otro estilo necesario -->
+  <style>
+    
+    @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .fadeIn {
+    animation: fadeIn 1s ease forwards;
+  }
+
+  </style>
 </head>
 
 <body class="bg-light">
@@ -16,8 +35,9 @@
   <%- include('./partials/navbar.ejs') %>
 
   <!-- Contenido de gastos de envío -->
-  <div class="container">
-    <h2 class="text-center mt-5">Gastos de Envío</h2>
+  <div class="container fadeIn">
+    <h1 class="text-center mt-5"><u>Gastos de Envío</u></h1>
+    <br>
     <div class="mt-4">
       <p>Para los pedidos realizados en nuestra pizzería, los gastos de envío se calculan de la siguiente manera:</p>
       <ul>
@@ -29,7 +49,7 @@
       <p>Si tienes alguna pregunta o necesitas más información sobre nuestros gastos de envío, no dudes en ponerte en contacto con nosotros.</p>
     </div>
   </div>
-
+<br>
   <!-- Incluir el footer -->
   <%- include('./partials/footer.ejs') %>
 

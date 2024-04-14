@@ -16,6 +16,22 @@
       font-size: 20px;
       margin: 0 5px;
     }
+
+    @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .fadeIn {
+    animation: fadeIn 1s ease forwards;
+  }
+
   </style>
 </head>
 
@@ -25,8 +41,10 @@
   <%- include('./partials/navbar.ejs') %>
 
   <!-- Contenido de alergenos -->
-  <div class="container">
-    <h2 class="text-center mt-5">Tabla de Alérgenos</h2>
+  <div class="container fadeIn">
+    <br>
+    <h1 class="text-center mt-5"><u>Tabla de Alérgenos</u></h2>
+      <br>
     <div class="mt-4">
       <table id="alergenos-table" class="table table-striped">
         <thead>

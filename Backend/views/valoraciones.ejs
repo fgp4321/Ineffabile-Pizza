@@ -71,6 +71,22 @@
       font-style: italic;
       color: #6c757d;
     }
+
+    @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .fadeIn {
+    animation: fadeIn 1s ease forwards;
+  }
+
   </style>
 </head>
 
@@ -80,14 +96,14 @@
   <%- include('./partials/navbar.ejs') %>
 
   <!-- Contenido del formulario -->
-  <div class="container center-form">
+  <div class="container center-form fadeIn">
     <form class="custom-form" action="/valoraciones" method="post">
-      <h2 class="text-center mb-4">Valoraciones</h2>
+      <br>
+      <br>
+      <h1 class="text-center mb-4"><u>Valoraciones</u></h2>
 
       <div class="form-group">
         <label for="rating">Valoración:</label>
-        <br>
-        <br>
         <div class="rating">
           <input type="radio" id="star5" name="rating" value="5" required><label for="star5"></label>
           <input type="radio" id="star4" name="rating" value="4"><label for="star4"></label>
