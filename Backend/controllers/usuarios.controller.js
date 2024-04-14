@@ -5,22 +5,21 @@ const bcrypt = require("bcrypt")
 const jwt = require("jsonwebtoken")
 
 //AUTENTICACIÓN
-
+//-REGISTER
 exports.register = async function(req, res) {
     try {
         const { nombre, apellido, username, email, password, telefono } = req.body;
 
         // Verificar si el usuario ya existe en la base de datos
-        const existingUser = await User.findOne({ email });
+        const existingUser = await User.buscarPorEmail(email); // Utiliza el nuevo método buscarPorEmail
         if (existingUser) {
-            // Puedes utilizar SweetAlert2 para mostrar una alerta de error
-            console.error({"err":"Usuario ya existente"})
-            res.redirect("/usuarios/login-register")
+            res.redirect("/usuarios/login-register");
+            return; // Detener la ejecución del controlador si el usuario ya existe
         }
 
-        // Crear un nuevo usuario
+        // Crear un nuevo usuario utilizando la función del modelo
         const hashedPassword = await bcrypt.hash(password, 12);
-        const newUser = new User({
+        const nuevoUsuario = {
             nombre,
             apellido,
             username,
@@ -28,58 +27,63 @@ exports.register = async function(req, res) {
             password: hashedPassword,
             telefono,
             rol: 'USER'
-        });
+        };
 
-        await newUser.save();
+        await User.crearUsuario(nuevoUsuario);
 
-        // Puedes utilizar SweetAlert2 para mostrar una alerta de éxito
         res.redirect("/usuarios/login-register");
     } catch (error) {
-        console.error({"err":"Error al registrar el usuario"})
-        // Puedes utilizar SweetAlert2 para mostrar una alerta de error genérico
-        res.status(401).json({"err":"Error interno del servidor"})
+        res.status(500).json({"err":"Error interno del servidor"});
     }
 };
 
-//LOGIN
 
+//-LOGIN
 exports.login = async function(req, res) {
     const { email, password } = req.body;
 
     try {
-        // Buscar al usuario por su correo electrónico
-        const user = await User.findOne({ email });
+        // Buscar usuario por email
+        const userFound = await User.buscarPorEmail(email);
         
-        if (!user) {
-            return res.status(401).json({ message: 'Usuario no encontrado' });
+        if (!userFound) {
+            res.status(401).json({"err": "Usuario y/o contraseña incorrectos"});
+            return;
         }
 
         // Verificar la contraseña
-        const isPasswordValid = await bcrypt.compare(password, user.password);
-        if (!isPasswordValid) {
-            return res.status(401).json({ message: 'Credenciales inválidas' });
+        const validado = await bcrypt.compare(password, userFound.password);
+
+        if (validado) {
+            // Crear token JWT
+            const token = jwt.sign(
+                { check: true },
+                process.env.JWT_PASS,
+                { expiresIn: 1440 }
+            );
+            req.session.jwtToken = token;
+            req.session.userLogued = userFound;
+
+            // Redireccionar a la página de área personal
+            res.redirect("/usuarios/personal-area");
+        } else {
+            res.status(401).json({"err": "Usuario y/o contraseña incorrectos"});
         }
-
-        // Crear token JWT
-        const token = jwt.sign(
-            { userId: user._id },
-            process.env.JWT_SECRET, // Cambia por tu propia clave secreta
-            { expiresIn: '1h' }
-        );
-
-        // Renderizar la vista home.ejs
-        res.render('home');
-
-
     } catch (error) {
-        res.status(500).json({ message: error.message });
+        res.status(500).json({"err": "Error interno del servidor"});
     }
 };
 
+
 exports.logout = (req, res) => {
-    // Implementa la lógica de cierre de sesión según sea necesario
-    // Aquí podrías limpiar la sesión o invalidar el token JWT
-    res.status(200).json({ message: 'Cierre de sesión exitoso' });
+    jwt.sign(req.session.jwtToken, "", { expiresIn: 1 }, (logout, err) => {
+        if (err) {
+            console.error({"err":"Error al destruir la sesión"});
+        } else {
+            req.session.destroy();
+            res.redirect("/");
+        }
+    });
 };
 
 

@@ -337,7 +337,18 @@ app.get('/usuarios/login-register', (req, res) => {
 });
 
 app.get('/usuarios/personal-area', (req, res) => {
-    res.render('personal-area.ejs');
+    try {
+        // Verificar si el usuario está autenticado
+        if (!req.session.userLogued) {
+            res.redirect('/usuarios/login-register');
+            return;
+        }
+
+        // Renderizar la vista personal-area y pasar la variable userLogued
+        res.render('userLogued.ejs', { userLogued: req.session.userLogued });
+    } catch (error) {
+        res.status(500).json({ "err": "Error interno del servidor" });
+    }
 });
 
 

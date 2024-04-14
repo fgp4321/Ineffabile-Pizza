@@ -17,6 +17,9 @@ router.post('/register', UserController.register);
 //Autenticar
 router.post("/login",UserController.login)
 
+// Logout
+router.post("/logout", UserController.logout);
+
 /*
 //Cargar la vista de registro
 router.get("/register", UserController.showRegister)

@@ -311,6 +311,7 @@
           <tr>
             <td>Alitas de pollo</td>
             <td class="alergenos-icons">
+              <i class="fas fa-wheat-awn" title="Gluten"></i>
             </td>
             <td class="alergenos-icons">
               <i class="fas fa-pepper-hot" title="Mostaza"></i>
@@ -354,7 +355,6 @@
   <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.print.min.js"></script>
 
 
-  <script src="cdn.datatables.net/plug-ins/2.0.3/i18n/es-ES.json"></script>
   <script>
     $(document).ready(function () {
         $('#alergenos-table').DataTable({
@@ -362,9 +362,6 @@
             buttons: [
               'pdf', 'csv', 'excel', 'print'
             ],
-            language: {
-              url: '//cdn.datatables.net/plug-ins/2.0.3/i18n/es-ES.json',
-            },
         })
     })
   </script>

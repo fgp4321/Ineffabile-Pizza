@@ -48,7 +48,6 @@ User.crearUsuario = async (nuevoUsuario) => {
     }
 };
 
-//Auxiliar para Login
 User.buscarPorId = async function (usuarioId) {
     try {
         const usuario = await User.findById(usuarioId)
@@ -59,6 +58,20 @@ User.buscarPorId = async function (usuarioId) {
         }
     } catch (error) {
         throw error
+    }
+};
+
+//Auxiliar para Login
+User.buscarPorEmail = async function (email) {
+    try {
+        const usuario = await User.findOne({ email });
+        if (usuario) {
+            return usuario;
+        } else {
+            return null;
+        }
+    } catch (error) {
+        throw error;
     }
 };
 
