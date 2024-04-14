@@ -21,3 +21,39 @@ usuario is not defined
     27|         </div>
 
 usuario is not defined
+[2024-04-14T17:43:43.279] [ERROR] error - 500 C:\Users\alexa\OneDrive\Escritorio\mecagoenlosmuertosdecristo\Gestor_Pizzeria\Backend\views\personal-area.ejs:24
+    22|           <img src="/images/profile.png" class="card-img-top rounded-circle" alt="Foto de Perfil">
+    23|           <div class="card-body">
+ >> 24|             <h5 class="card-title"><%= usuario.nombre %> <%= usuario.apellido %></h5>
+    25|             <p class="card-text">Nombre de Usuario: <%= usuario.username %></p>
+    26|           </div>
+    27|         </div>
+
+usuario is not defined
+[2024-04-14T17:43:44.597] [ERROR] error - 500 C:\Users\alexa\OneDrive\Escritorio\mecagoenlosmuertosdecristo\Gestor_Pizzeria\Backend\views\personal-area.ejs:24
+    22|           <img src="/images/profile.png" class="card-img-top rounded-circle" alt="Foto de Perfil">
+    23|           <div class="card-body">
+ >> 24|             <h5 class="card-title"><%= usuario.nombre %> <%= usuario.apellido %></h5>
+    25|             <p class="card-text">Nombre de Usuario: <%= usuario.username %></p>
+    26|           </div>
+    27|         </div>
+
+usuario is not defined
+[2024-04-14T17:45:09.902] [ERROR] error - 500 C:\Users\alexa\OneDrive\Escritorio\mecagoenlosmuertosdecristo\Gestor_Pizzeria\Backend\views\personal-area.ejs:38
+    36|       <!--<div class="col-md-8">
+    37|         <h2>Pedidos</h2>
+ >> 38|         <% if (pedidos.length === 0) { %>
+    39|           <p>No hay pedidos disponibles.</p>
+    40|         <% } else { %>
+    41|           <% pedidos.forEach(function(pedido) { %>
+
+pedidos is not defined
+[2024-04-14T17:45:11.382] [ERROR] error - 500 C:\Users\alexa\OneDrive\Escritorio\mecagoenlosmuertosdecristo\Gestor_Pizzeria\Backend\views\personal-area.ejs:38
+    36|       <!--<div class="col-md-8">
+    37|         <h2>Pedidos</h2>
+ >> 38|         <% if (pedidos.length === 0) { %>
+    39|           <p>No hay pedidos disponibles.</p>
+    40|         <% } else { %>
+    41|           <% pedidos.forEach(function(pedido) { %>
+
+pedidos is not defined

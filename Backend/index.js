@@ -345,7 +345,7 @@ app.get('/usuarios/personal-area', (req, res) => {
         }
 
         // Renderizar la vista personal-area y pasar la variable userLogued
-        res.render('userLogued.ejs', { userLogued: req.session.userLogued });
+        res.render('personal-area.ejs', { userLogued: req.session.userLogued });
     } catch (error) {
         res.status(500).json({ "err": "Error interno del servidor" });
     }

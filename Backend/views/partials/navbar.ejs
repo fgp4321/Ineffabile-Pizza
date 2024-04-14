@@ -1,6 +1,12 @@
 <!-- views/partials/navbar.ejs -->
 <style>
 
+  .navbar {
+    background: linear-gradient(to right, #ff925f, #feb47b, #fcd8ba);
+    background-size: 200% 100%;
+    animation: gradientAnimation 5s ease infinite alternate-reverse;
+  }
+
   .separator {
     border-right: 1px solid #000000;
     padding-right: 5px;
@@ -33,6 +39,15 @@
     margin-right: 20px;
   }
 
+  
+  @keyframes gradientAnimation {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: 100% 0;
+    }
+  }
 
 </style>
 
@@ -51,9 +66,11 @@
         <li class="nav-item">
           <form class="form-inline my-2 my-lg-0 navbar-search" id="searchForm" action="/api/v2/productos/buscar" method="GET">
             <input class="form-control mr-sm-2" type="search" placeholder="Buscar productos..." aria-label="Buscar" id="searchQuery" name="query"> <!-- Cambia el nombre del input -->
+
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="searchBtn">
                 <i class="fas fa-search"></i>
             </button>
+
           </form>
         </li>
         <li class="nav-item dropdown">
@@ -78,7 +95,7 @@
 
       <ul class="navbar-nav ml-auto">
         <li class="nav-item separator">
-          <a class="nav-link" href="/usuarios/login-register">
+          <a class="nav-link" href="/usuarios/personal-area">
             <i class="fas fa-user fa-2x" style="color: #000000;"></i>
           </a>
         </li>
@@ -117,4 +134,17 @@
       console.error('Error al buscar productos:', error);
     }
   });
+
+  document.addEventListener('DOMContentLoaded', function () {
+    var searchInput = document.getElementById('searchQuery')
+    var searchButton = document.getElementById('searchBtn')
+
+    searchInput.addEventListener('input', function () {
+        if (searchInput.value.trim() !== '') {
+            searchButton.style.display = 'none'
+        } else {
+            searchButton.style.display = 'block'
+        }
+    })
+})
 </script>

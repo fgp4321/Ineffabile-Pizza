@@ -6,7 +6,51 @@
   <title>Área Personal - Ineffabile Pizza</title>
   <link rel="stylesheet" href="/css/bootstrap.min.css">
   <link rel="stylesheet" href="/fontawesome/css/all.min.css">
-  <!-- Agregar cualquier otro estilo necesario -->
+  <style>
+    /* Estilos personalizados */
+    body {
+      background-color: #f8f9fa;
+    }
+
+    .card {
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-img-top {
+      width: 150px;
+      height: 150px;
+      margin: 0 auto;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .card-title {
+      font-size: 1.5rem;
+    }
+
+    .card-text {
+      font-size: 1.1rem;
+      color: #6c757d;
+    }
+
+    .btn-primary {
+      background-color: #dc3545;
+      border-color: #dc3545;
+      font-size: 1.2rem;
+    }
+
+    .btn-primary:hover {
+      background-color: #c82333;
+      border-color: #bd2130;
+    }
+
+    .welcome-title {
+      font-size: 2rem;
+      color: #dc3545;
+      margin-bottom: 20px;
+    }
+  </style>
 </head>
 
 <body class="bg-light">
@@ -16,41 +60,25 @@
 
   <!-- Contenido del área personal -->
   <div class="container mt-5">
-    <div class="row">
-      <div class="col-md-4">
-        <div class="card">
-          <img src="/images/profile.png" class="card-img-top rounded-circle" alt="Foto de Perfil">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card text-center">
+          <br>
+          <h2 class="welcome-title">¡Bienvenido, <%= userLogued.nombre %>!</h2>
+          <img src="/images/profile.png" class="card-img-top mt-4" alt="Foto de Perfil">
           <div class="card-body">
-            <h5 class="card-title"><%= usuario.nombre %> <%= usuario.apellido %></h5>
-            <p class="card-text">Nombre de Usuario: <%= usuario.username %></p>
+            <h5 class="card-title"><%= userLogued.nombre %> <%= userLogued.apellido %></h5>
+            <p class="card-text">Nombre de Usuario: <%= userLogued.username %></p>
+            <a href="/vermispedidos" class="btn btn-primary">Ver mis pedidos</a>
           </div>
         </div>
-        <div class="card mt-3">
+        <div class="card mt-4">
           <div class="card-body">
             <h5 class="card-title">¿Tienes alguna duda?</h5>
-            <p class="card-text">Contáctenos si necesitas ayuda.</p>
+            <p class="card-text">¡Contáctanos si necesitas ayuda!</p>
             <a href="/contacto" class="btn btn-primary">Contactar</a>
           </div>
         </div>
-      </div>
-      <div class="col-md-8">
-        <h2>Pedidos</h2>
-        <% if (pedidos.length === 0) { %>
-          <p>No hay pedidos disponibles.</p>
-        <% } else { %>
-          <% pedidos.forEach(function(pedido) { %>
-            <div class="card mb-3">
-              <div class="card-body">
-                <h5 class="card-title">Pedido #<%= pedido.id %></h5>
-                <ul>
-                  <% pedido.productos_nombre.forEach(function(producto, index) { %>
-                    <li><strong><%= producto %></strong> - Cantidad: <%= pedido.cantidad[index] %> - Precio Total: <%= pedido.precio_total[index] %> - Estado: <%= pedido.estadoPedido_status %></li>
-                  <% }); %>
-                </ul>
-              </div>
-            </div>
-          <% }); %>
-        <% } %>
       </div>
     </div>
   </div>
