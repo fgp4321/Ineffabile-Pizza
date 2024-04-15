@@ -9,12 +9,10 @@ if(app.get("env") == "development"){
             access: {
                 type:"dateFile",
                 filename:"./logs/access.log",
-                pattern:"-yyyy-MM-dd"
             },
             error: {
                 type:"dateFile",
                 filename:"./logs/error.log",
-                pattern:"-yyyy-MM-dd"
             }
         },
         categories:{
