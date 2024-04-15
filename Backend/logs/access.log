@@ -565,4 +565,3 @@
 ::1 - - [14/Apr/2024:17:29:34 +0000] "GET /about-us HTTP/1.1" 200 13844 "http://localhost:9100/condiciones-generales" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"
 ::1 - - [14/Apr/2024:17:29:55 +0000] "GET /about-us HTTP/1.1" 200 13854 "http://localhost:9100/condiciones-generales" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"
 >>>>>>> a3d64963426b1b452397c1fb5b5a12e43ec8bcc8
-[2024-04-15T10:19:53.565] [DEBUG] access - http://localhost:9100
