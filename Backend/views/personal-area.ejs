@@ -70,7 +70,7 @@
             <h5 class="card-title"><%= userLogued.nombre %> <%= userLogued.apellido %></h5>
             <p class="card-text">Nombre de Usuario: <%= userLogued.username %></p>
             <a href="/vermispedidos" class="btn btn-primary">Ver mis pedidos</a>
-            <form action="/cerrarsesion" method="POST" style="display: inline;">
+            <form action="/api/v2/usuarios/logout" method="POST" style="display: inline;">
               <button type="submit" class="btn btn-primary"><i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión</button>
             </form>
           </div>
