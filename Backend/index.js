@@ -351,7 +351,9 @@ app.get('/usuarios/personal-area', (req, res) => {
     }
 });
 
-
+app.get('/checkout', (req, res) => {
+    res.render('checkout.ejs');
+});
 
 
 
