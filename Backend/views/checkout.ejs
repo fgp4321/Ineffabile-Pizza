@@ -27,7 +27,7 @@
           <!-- Se mostrarán errores aquí -->
           <div id="card-errors" role="alert"></div>
         
-          <button id="pay-button" type="submit" class="btn btn-primary">Pagar <i class="fa-solid fa-lock"></i></button>
+          <button id="pay-button" type="submit" class="btn btn-primary">Pagar <%= totalPrice.toFixed(2) %> € <i class="fa-solid fa-lock"></i></button>
           <button id="loading-button" class="btn btn-primary d-none btn-cooldown" type="button" disabled>
             <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
             <span class="visually-hidden">Loading...</span>

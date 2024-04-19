@@ -352,7 +352,21 @@ app.get('/usuarios/personal-area', (req, res) => {
 });
 
 app.get('/checkout', (req, res) => {
-    res.render('checkout.ejs');
+    // Obtén el carrito de la sesión
+    const cart = req.session.cart || [];
+    
+    // Calcula el precio total
+    let totalPrice = 0;
+    cart.forEach(item => {
+        totalPrice += parseFloat(item.price) * item.quantity;
+    });
+
+    // Renderiza la vista de checkout y pasa el precio total como una variable
+    res.render('checkout.ejs', { totalPrice: totalPrice });
+});
+
+app.get('/formas-de-pago', (req, res) => {
+    res.render("formas-de-pago.ejs")
 });
 
 

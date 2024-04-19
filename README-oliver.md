@@ -59,7 +59,7 @@ Newsletter (Footer)
 
 
 # ---------- TODO Pages ----------
-Política de privacidad, aviso legal, tabla de alérgenos (pdf), gastos de envío, como comprar, redes sociales y pasarela de pago ficticio.
+Política de privacidad, aviso legal, redes sociales
 
 # ---------- TODO Funcionalidad ----------
-Login, logout, area personal
+Búsqueda de artículos, gestión de pedidos
