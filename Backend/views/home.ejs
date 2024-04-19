@@ -8,10 +8,11 @@
   <link rel="stylesheet" href="/fontawesome/css/all.min.css">
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="/css/home.css">
+  <link rel="stylesheet" href="/css/cookie-popup.css">
 </head>
 
 <body>
-
+  <%- include('./cookie-popup.ejs') %>
   <!-- Incluir el navbar -->
   <%- include('./partials/navbar.ejs') %>
 
@@ -123,5 +124,6 @@
       body.scrollIntoView({ behavior: "smooth" });
     }
   </script>
+  <script src="/js/cookie-popup.js"></script>
 </body>
 </html>
