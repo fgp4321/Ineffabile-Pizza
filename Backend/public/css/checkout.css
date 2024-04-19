@@ -38,3 +38,7 @@
   #payment-form button[type="submit"] {
     width: 100%;
   }
+
+  .btn-cooldown {
+    width: 100%;
+  }
