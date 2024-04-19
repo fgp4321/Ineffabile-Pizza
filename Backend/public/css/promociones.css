@@ -1,0 +1,79 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8f9fa;
+  }
+
+  .container {
+    padding: 20px;
+  }
+
+  h2 {
+    color: #007bff;
+    margin-bottom: 30px;
+  }
+
+  .product {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .product img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+  }
+
+  .product-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .price {
+    font-size: 16px;
+    color: #28a745; /* Verde para el precio en oferta */
+    margin-bottom: 5px;
+  }
+
+  .original-price {
+    text-decoration: line-through;
+    color: #ccc; /* Color para el precio original tachado */
+    margin-right: 10px;
+  }
+
+  .discount-price {
+    color: #dc3545; /* Rojo para el precio de descuento */
+  }
+
+  .btn-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+
+  .btn-details,
+  .btn-add-to-cart {
+    flex: 1;
+    padding: 3px;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    margin-right: 5px;
+    transition: background-color 0.3s ease-in-out;
+  }
+
+  .btn-add-to-cart:hover {
+    background-color: #0056b3;
+  }
+
+  .btn-details:hover {
+    background-color: #0056b3;
+  }
