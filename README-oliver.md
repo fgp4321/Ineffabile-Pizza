@@ -78,7 +78,14 @@ Cómo comprar -> http://localhost:9100/como-comprar
 
 
 # ---------- TODO Pages ----------
+<<<<<<< HEAD
 Política de privacidad, aviso legal, redes sociales y pasarela de pago ficticio, pasar por caja.
 
 # ---------- TODO Funcionalidad ----------
 Logout, inicio de sesion con google, github y linkedin, pago ficticio, búsqueda, gestion de pedidos.
+=======
+Política de privacidad, aviso legal, redes sociales
+
+# ---------- TODO Funcionalidad ----------
+Búsqueda de artículos, gestión de pedidos
+>>>>>>> ca48438e5ccd706bd1b0391e90e9af090159f14b

@@ -1,0 +1,44 @@
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .fadeIn {
+    animation: fadeIn 1s ease forwards;
+  }
+
+  /* Estilos para el formulario de pago */
+  #payment-form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  #card-element {
+    margin-bottom: 20px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    padding: 10px;
+  }
+
+  #card-errors {
+    color: red;
+    margin-bottom: 20px;
+  }
+
+  #payment-form button[type="submit"] {
+    width: 100%;
+  }
+
+  .btn-cooldown {
+    width: 100%;
+  }

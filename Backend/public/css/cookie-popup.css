@@ -1,0 +1,36 @@
+.cookie-popup {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #f9f9f9;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+}
+
+.cookie-content {
+    text-align: center;
+}
+
+.cookie-buttons button {
+    margin: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#accept-cookies {
+    background-color: #ff6600;
+    color: #fff;
+}
+
+#reject-cookies {
+    background-color: #ff0000;
+    color: #fff;
+}

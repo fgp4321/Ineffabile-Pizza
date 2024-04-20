@@ -1,0 +1,48 @@
+.center-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 10vh; /* Ajusta la altura mínima para centrar el formulario */
+  }
+
+  .custom-form {
+    max-width: 800px; /* Ajusta el ancho máximo del formulario */
+    width: 100%;
+  }
+
+  .img-fluid {
+    width: 100px;
+    height: 100px;
+  }
+
+  .img-fluid-map {
+    width: 100px;
+    height: 100px;
+    margin-left: 70px
+  }
+  
+  .form-group {
+    margin-bottom: 20px; /* Ajusta el espacio entre campos del formulario */
+  }
+
+  #map {
+    height: 300px; /* Ajusta la altura del mapa según tus necesidades */
+    width: 100%;   /* Ajusta el ancho del mapa al 100% del contenedor */
+    border: 1px solid #ddd; /* Agrega un borde para mejor visualización */
+    margin-left: 50px; /* Ajusta el margen izquierdo del mapa */
+  }
+
+  @keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fadeIn {
+  animation: fadeIn 1s ease forwards;
+}

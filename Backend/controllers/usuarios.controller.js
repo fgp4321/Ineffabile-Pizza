@@ -113,30 +113,47 @@ exports.buscarPorId = wrapAsync(async (req, res) => {
 });
 
 exports.crearUsuario = wrapAsync(async (req, res) => {
-    const nuevoUsuario = req.body
+    const nuevoUsuario = req.body;
+    const password = nuevoUsuario.password; // Suponiendo que el campo de la contraseña se llama 'password'
+
     try {
-        const usuarioCreado = await User.create(nuevoUsuario)
-        res.status(200).json(usuarioCreado)
+        // Encriptar la contraseña
+        const hashedPassword = await bcrypt.hash(password, 12);
+
+        // Actualizar el objeto nuevoUsuario con la contraseña encriptada
+        nuevoUsuario.password = hashedPassword;
+
+        // Crear el usuario con la contraseña encriptada
+        const usuarioCreado = await User.create(nuevoUsuario);
+        res.status(200).json(usuarioCreado);
     } catch (error) {
-        res.status(500).json({ error: "Error al crear al usuario" })
+        res.status(500).json({ error: "Error al crear al usuario" });
     }
 });
 
 
 exports.actualizarUsuario = wrapAsync(async (req, res) => {
-    const { id } = req.params
-    const datosActualizados = req.body
+    const { id } = req.params;
+    const datosActualizados = req.body;
+    let usuarioActualizado;
+
     try {
-        const usuarioActualizado = await User.actualizarUsuario(id, datosActualizados)
+        if (datosActualizados.password) {
+            const hashedPassword = await bcrypt.hash(datosActualizados.password, 12);
+            datosActualizados.password = hashedPassword;
+        }
+
+        usuarioActualizado = await User.actualizarUsuario(id, datosActualizados);
+
         if (usuarioActualizado) {
-            res.status(200).json(usuarioActualizado)
+            res.status(200).json(usuarioActualizado);
         } else {
-            res.status(404).json({ msg: "Usuario no encontrado" })
+            res.status(404).json({ msg: "Usuario no encontrado" });
         }
     } catch (error) {
-        res.status(500).json({ error: "Error al actualizar usuario" })
+        res.status(500).json({ error: "Error al actualizar usuario" });
     }
-})
+});
 
 exports.eliminarUsuario = wrapAsync(async (req, res) => {
     const { id } = req.params

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Métodos de Pago - Ineffabile Pizza</title>
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/fontawesome/css/all.min.css">
+  <link rel="stylesheet" href="/css/formas-de-pago.css">
+  
+</head>
+
+<body class="bg-light">
+
+  <!-- Navbar mejorado -->
+  <%- include('./partials/navbar.ejs') %>
+
+  <!-- Contenido de métodos de pago -->
+  <div class="container py-5 fadeIn">
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        <div class="text-center mb-5">
+          <h2 class="fw-bold">Métodos de Pago</h2>
+          <p class="lead">Ofrecemos diversas formas de pago para tu comodidad</p>
+        </div>
+        <div class="mb-5">
+          <h3 class="fw-bold mb-3">Transferencia Bancaria <i class="fa-solid fa-money-bill-transfer"></i> </h3>
+          <p>Aceptamos transferencias bancarias como método de pago. Puedes realizar una transferencia desde tu banco a nuestra cuenta utilizando los datos que te proporcionaremos al confirmar tu pedido.</p>
+          <img src="/images/transferencia-bancaria.png" alt="Transferencia Bancaria" class="img-fluid img-separation" width="350px">
+          <img src="/images/transferencia-bancaria2.png" alt="Transferencia Bancaria" class="img-fluid" width="250px">
+        </div>
+    </br>
+        <div class="mb-5">
+          <h3 class="fw-bold mb-3">Tarjeta de Crédito o Débito <i class="fa-brands fa-cc-visa"></i>  <i class="fa-brands fa-cc-mastercard"></i> <i class="fa-brands fa-cc-stripe"></i></h3>
+          <p>Aceptamos pagos con tarjeta de crédito o débito. Asegúrate de tener una de las siguientes tarjetas para realizar tu compra: Maestro, Mastercard o Visa. Utilizamos Stripe como pasarela de pago segura.</p>
+          <img src="/images/metodos-pago.png" alt="Tarjetas de Crédito" class="img-fluid">
+        </div>
+        <p class="text-center">Si tienes alguna pregunta o necesitas asistencia con los métodos de pago, no dudes en ponerte en contacto con nuestro equipo de atención al cliente.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer mejorado -->
+  <%- include('./partials/footer.ejs') %>
+
+  <script src="/fontawesome/js/all.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js"></script>
+  <script src="/js/bootstrap.bundle.min.js"></script>
+  <!-- Agregar cualquier otro script necesario -->
+</body>
+</html>

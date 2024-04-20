@@ -1,7 +1,7 @@
-# GESTOR-PIZZERIA
+# Ineffabile Pizza
 
 ## Descripción
-Este repositorio contiene el código fuente de GESTOR-PIZZERIA, una aplicación web desarrollada con Angular en el frontend y Node.js & Express en el backend.
+Este repositorio contiene el código fuente de Ineffabile Pizza, una aplicación web desarrollada con Angular en el frontend y Node.js & Express en el backend.
 
 ## Requisitos
 Asegúrate de tener instaladas las siguientes herramientas antes de comenzar:
