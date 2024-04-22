@@ -1,0 +1,5 @@
+http.cors.enabled: true
+http.cors.allow-origin: "http://localhost:5500"
+http.cors.allow-headers: "X-Requested-With, Content-Type, Content-Length, Authorization"
+http.cors.allow-credentials: true
+

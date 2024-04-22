@@ -1,0 +1,33 @@
+version: '3.7'
+services:
+  elasticsearch:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: elasticsearch
+    restart: always
+    environment:
+      node.name: "es01"
+      cluster.name: es-docker-cluster
+      cluster.initial_master_nodes: "es01"
+      bootstrap.memory_lock: "true"
+      ES_JAVA_OPTS: "-Xms512m -Xmx512m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - ./data01:/usr/share/elasticsearch/data
+    ports:
+      - 9200:9200
+    networks:
+      elasticsearch_network:
+        aliases:
+          - elasticsearch_host
+
+volumes:
+  data01: {}
+networks:
+  elasticsearch_network:
+    name: elasticsearch_net
+    driver: bridge
