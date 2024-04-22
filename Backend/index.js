@@ -25,6 +25,10 @@ const productoRoutes = require("./routes/producto.routes")
 //rutas pedidos
 const version = "v2"
 
+//Elasticsearch
+const { Client } = require('@elastic/elasticsearch');
+const client = new Client({ node: 'http://localhost:9200' });
+
 app.use(methodOverride('_method'));
 
 //LOGS
@@ -370,7 +374,27 @@ app.get('/formas-de-pago', (req, res) => {
 });
 
 
-
+app.get('/resultados', async (req, res) => {
+    const { query } = req.query;
+    try {
+        const { body } = await client.search({
+            index: 'productos',
+            body: {
+                query: {
+                    multi_match: {
+                        query: query,
+                        fields: ['nombre', 'categoria_nombre']
+                    }
+                }
+            }
+        });
+        // Asegúrate de incluir 'query' en el objeto que se envía a la vista
+        res.render('resultados.ejs', { productos: body.hits.hits, query: query });
+    } catch (error) {
+        console.error('Error al buscar en Elasticsearch:', error);
+        res.status(500).send("Error al realizar la búsqueda");
+    }
+});
 
 
 

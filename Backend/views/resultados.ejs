@@ -1,54 +1,58 @@
-<!-- views/resultados.ejs -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Resultados de Búsqueda</title>
+  <title>Resultados de Búsqueda - Ineffabile Pizza</title>
   <link rel="stylesheet" href="/css/bootstrap.min.css">
   <link rel="stylesheet" href="/fontawesome/css/all.min.css">
+  <link rel="stylesheet" href="/css/custom-style.css"> <!-- Asegúrate de tener un CSS personalizado si es necesario -->
 </head>
-<body class="bg-light">
-  <!-- Incluir el navbar -->
-  <% include('./partials/navbar.ejs') %>
 
-  <div class="container mt-5">
-    <h2 class="text-center">Resultados de Búsqueda para "<%= query %>"</h2>
-    <div class="row mt-4">
-      <% if (productos.length > 0) { %>
-        <% productos.forEach(producto => { %>
-          <div class="col-md-3">
-            <div class="product">
-              <img src="/images/<%= producto.imagen1 %>" alt="<%= producto.nombre %>">
-              <div class="product-title"><%= producto.nombre %></div>
-              <div class="price">
-                <% if (producto.precio_oferta) { %>
-                  <span class="normal-price"><%= producto.precio_oferta %>€</span>
-                  <span class="discount-price"><%= producto.precio_pvp %>€</span>
-                <% } else { %>
-                  <span class="normal-price"><%= producto.precio_pvp %>€</span>
-                <% } %>
-              </div>
-              <div class="btn-container">
-                <a href="#" class="btn btn-details" data-toggle="modal" data-target="#productoDetailsModal" data-id="<%= producto._id %>"><i class="far fa-eye"></i></a>
-                <a href="#" class="btn btn-add-to-cart"><i class="fas fa-shopping-cart"></i></a>
-              </div>
-            </div>
-          </div>
-        <% }) %>
-      <% } else { %>
-        <div class="col-md-12 text-center">
-          <p>No se encontraron productos.</p>
+<body class="bg-light">
+
+  <!-- Navbar mejorado -->
+  <%- include('./partials/navbar.ejs') %>
+
+  <!-- Contenido de resultados de búsqueda -->
+  <div class="container py-5 fadeIn">
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        <div class="text-center mb-5">
+          <h2 class="fw-bold">Resultados de Búsqueda</h2>
+          <p class="lead">Resultados para: "<%= query %>"</p>
         </div>
-      <% } %>
+        <% if (productos.length > 0) { %>
+            <ul class="list-unstyled">
+                <% productos.forEach(function(producto) { %>
+                    <li class="mb-4 p-3 shadow rounded">
+                        <div class="media">
+                            <img src="/images/<%= producto._source.categoria_nombre.toLowerCase() %>/<%= producto._source.imagen1 %>" class="mr-3" alt="<%= producto._source.nombre %>" style="width: 100px;">
+                            <div class="media-body">
+                                <h3 class="h5 fw-bold"><%= producto._source.nombre %></h3>
+                                <p><%= producto._source.descripcion %></p>
+                                <!-- Botón que redirige a la categoría específica del producto -->
+                                <a href="/productos/<%= producto._source.categoria_nombre.toLowerCase() %>" class="btn btn-primary">Ver más en <%= producto._source.categoria_nombre %></a>
+                            </div>
+                        </div>
+                    </li>
+                <% }) %>
+                </ul>
+        <% } else { %>
+            <div class="alert alert-warning" role="alert">
+                No se encontraron productos para tu búsqueda.
+            </div>
+        <% } %>
+      </div>
     </div>
   </div>
 
-  <!-- Incluir el footer -->
-  <% include('./partials/footer.ejs') %>
+  <!-- Footer mejorado -->
+  <%- include('./partials/footer.ejs') %>
 
   <script src="/fontawesome/js/all.min.js"></script>
-  <script src="/js/bootstrap.bundle.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js"></script>
+  <script src="/js/bootstrap.bundle.min.js"></script>
+  <!-- Agregar cualquier otro script necesario -->
 </body>
 </html>
