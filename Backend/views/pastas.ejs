@@ -49,15 +49,13 @@
   </div>
 </div>
 
-<!-- Modal -->
-<div class="modal fade" id="pastaDetailsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+<!-- Nuevo Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="pastaModalTitle">Detalles de la Pasta</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+        <h5 class="modal-title" id="exampleModalLabel">Detalles de la Pasta</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <div class="row">
@@ -78,8 +76,8 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary" id="add-to-cart-modal">Agregar al carrito</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary">Guardar cambios</button>
       </div>
     </div>
   </div>
@@ -106,7 +104,7 @@
           .then(data => {
             console.log('Detalles de la pasta:', data); // Imprimir los detalles de la pasta en la consola
             // Mostrar los detalles de la pasta en el modal
-            $('#pastaModalTitle').text('Detalles de ' + data.nombre);
+            $('.modal-title').text('Detalles de ' + data.nombre);
             $('#modal-img1').attr('src', '/images/pastas/' + data.imagen1);
             $('#modal-img2').attr('src', '/images/pastas/' + data.imagen2);
             $('#modal-img3').attr('src', '/images/pastas/' + data.imagen3);
@@ -114,7 +112,7 @@
             $('.modal-pasta-description').text(data.descripcion);
             $('.modal-pasta-price').text('Precio: ' + data.precio_pvp + '€');
             // Abrir el modal
-            $('#pastaDetailsModal').modal('show');
+            $('#exampleModal').modal('show');
           })
           .catch(error => {
             console.error('Error al obtener los detalles de la pasta:', error); // Manejo de errores
