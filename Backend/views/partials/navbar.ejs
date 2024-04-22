@@ -66,11 +66,9 @@
         <li class="nav-item">
           <form class="form-inline my-2 my-lg-0 navbar-search" id="searchForm" action="/api/v2/productos/buscar" method="GET">
             <input class="form-control mr-sm-2" type="search" placeholder="Buscar productos..." aria-label="Buscar" id="searchQuery" name="query"> <!-- Cambia el nombre del input -->
-
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="searchBtn">
                 <i class="fas fa-search"></i>
             </button>
-
           </form>
         </li>
         <li class="nav-item dropdown">
@@ -116,23 +114,10 @@
 </nav>
 
 <script>
-  document.getElementById('searchForm').addEventListener('submit', async function(event) {
+  document.getElementById('searchForm').addEventListener('submit', function(event) {
     event.preventDefault();
     const query = document.getElementById('searchQuery').value;
-    try {
-      const response = await fetch('/api/v2/productos/buscar', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ query })
-      });
-      const productos = await response.json();
-      // Manejar los productos devueltos, por ejemplo, mostrarlos en una lista en la página
-      console.log(productos);
-    } catch (error) {
-      console.error('Error al buscar productos:', error);
-    }
+    window.location.href = `/resultados?query=${encodeURIComponent(query)}`;
   });
 
   document.addEventListener('DOMContentLoaded', function () {
