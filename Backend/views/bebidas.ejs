@@ -55,30 +55,39 @@
   <div class="modal-dialog modal-dialog-centered modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Detalles de la Bebida</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Detalles de la bebida</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <div class="row">
-          <div class="col-md-6">
-            <img src="" alt="" id="modal-img1" class="img-fluid mb-3">
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="" class="d-block w-100" alt="" id="modal-img1">
+            </div>
+            <div class="carousel-item">
+              <img src="" class="d-block w-100" alt="" id="modal-img2">
+            </div>
+            <div class="carousel-item">
+              <img src="" class="d-block w-100" alt="" id="modal-img3">
+            </div>
           </div>
-          <div class="col-md-6">
-            <img src="" alt="" id="modal-img2" class="img-fluid mb-3">
-          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
         </div>
-        <img src="" alt="" id="modal-img3" class="img-fluid mb-3">
-        <h4 class="modal-bebida-title"></h4>
+        <h4 class="modal-bebida-title mt-3" id="modalTitle"></h4>
         <p class="modal-bebida-description"></p>
         <p class="modal-bebida-price"></p>
-        <div class="form-group">
-          <label for="quantity">Cantidad:</label>
-          <input type="number" class="form-control" id="quantity" value="1">
-        </div>
       </div>
       <div class="modal-footer">
+        <!-- Botón de ayuda con popover -->
+        <button type="button" class="btn btn-secondary ms-auto" data-bs-toggle="popover" title="Información acerca de alérgenos" data-bs-content="Este alimento puede contener trazas de otros. Para más información, visite nuestra página de alérgenos (<a href='/alergenos'>página de alérgenos</a>)." data-bs-html="true">Ayuda</button>
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary">Guardar cambios</button>
       </div>
     </div>
   </div>
@@ -169,6 +178,15 @@
     });
   });
 });
+</script>
+<script>
+  $(document).ready(function() {
+    // Inicializar los popovers
+    var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
+    var popoverList = popoverTriggerList.map(function(popoverTriggerEl) {
+      return new bootstrap.Popover(popoverTriggerEl);
+    });
+  });
 </script>
 </body>
 </html>
