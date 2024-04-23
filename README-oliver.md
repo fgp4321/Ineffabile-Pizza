@@ -19,12 +19,17 @@
 
 ## Páginas realizadas y visibles con CSR (Angular13):
 
-- Home (Listado de usuarios) ->  http://localhost:4200/Home
+- Home (Listado) ->  http://localhost:4200/Home
+
 - ViewUser (Detalles de usuario) ->  http://localhost:4200/ViewUser/{user_id}
 - AddUser (Añadir usuario) ->  http://localhost:4200/AddUser
 - EditUser (Editar usuario) ->  http://localhost:4200/EditUser/{user_id}
 - (Eliminar usuario) No tiene ruta específica. Icono de papelera roja
 
+- ViewProduct (Detalles de producto) ->  http://localhost:4200/ViewProduct/{product_id}
+- AddProduct (Añadir producto) ->  http://localhost:4200/AddProduct
+- EditProduct (Editar producto) ->  http://localhost:4200/EditProduct/{product_id}
+- (Eliminar producto) No tiene ruta específica. Icono de papelera roja
 
 ## Páginas realizadas y visibles con SSR (EJS Views):
 Partials: navbar y footer. (Estarán en casi todas las páginas)
@@ -37,11 +42,20 @@ Home -> http://localhost:9100/
 Productos -> http://localhost:9100/productos (* Sujeto a cambios)
 - Te preguntará que que desea consumir y se podrá consultar la carta en PDF
 
-Pizzas -> http://localhost:9100/productos/pizzas (* Sujeto a cambios)
+Pizzas -> http://localhost:9100/productos/pizzas
 - Así es como se verían los productos. El icono del ojo mostraría una ventana
 Pop-Up con todos los detalles del producto. El icono del carrito lo añadiria al pedido.
 
+Pastas -> http://localhost:9100/productos/pastas 
+
+Complementos -> http://localhost:9100/productos/complementos 
+
+Bebidas -> http://localhost:9100/productos/bebidas
+
 Login y registro -> http://localhost:9100/usuarios/login-register
+- El usuario accederá a su zona privada a través de este login o se creará una cuenta a través del register. La idea es agregar OAuth2 y Login con GitHub
+
+Área personal -> http://localhost:9100/usuarios/personal-area
 - El usuario accederá a su zona privada a través de este login o se creará una cuenta a través del register. La idea es agregar OAuth2 y Login con GitHub
 
 Contacto -> http://localhost:9100/contacto
@@ -56,10 +70,22 @@ Condiciones Generales -> http://localhost:9100/condiciones-generales
 Newsletter (Footer)
 - Simulacro de mensaje de newsletter al introducir correo electrónico. (* Probar que "funciona")
 
+Gastos de envío -> http://localhost:9100/envio
+
+Cómo comprar -> http://localhost:9100/como-comprar
+
+
 
 
 # ---------- TODO Pages ----------
+<<<<<<< HEAD
+Política de privacidad, aviso legal, redes sociales y pasarela de pago ficticio, pasar por caja.
+
+# ---------- TODO Funcionalidad ----------
+Logout, inicio de sesion con google, github y linkedin, pago ficticio, búsqueda, gestion de pedidos.
+=======
 Política de privacidad, aviso legal, redes sociales
 
 # ---------- TODO Funcionalidad ----------
 Búsqueda de artículos, gestión de pedidos
+>>>>>>> ca48438e5ccd706bd1b0391e90e9af090159f14b
