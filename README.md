@@ -25,7 +25,8 @@ Para crear el índice, se copiará todo el contenido de mapping.txt en el JSON d
 curl --request PUT \
   --url http://localhost:9200/productos \
   --header 'User-Agent: insomnia/8.6.1' \
-  --cookie connect.sid=s%253A3Jq5y6d3pTUfpt15QeS7AbOjQKNFQSuI.NRDvdU0bVBTncYwOSiWGwimryapHY0OmjsI01FAXmnA
+  --cookie connect.sid=s%253A3Jq5y6d3pTUfpt15QeS7AbOjQKNFQSuI
+  NRDvdU0bVBTncYwOSiWGwimryapHY0OmjsI01FAXmnA
 ```
 
 - En caso de haber creado el índice sin el mapeo, podemos eliminar el índice con:
