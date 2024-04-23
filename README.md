@@ -21,17 +21,21 @@ Este comando levantará elasticsearch y estará disponible para realizar búsque
 
 - Creación de índice: 
 Para crear el índice, se copiará todo el contenido de mapping.txt en el JSON del body y como URL se indicará "http://localhost:9200/productos" en método PUT. Insomnia permite copiar cURLs para agilizar el proceso: 
+```bash
 curl --request PUT \
   --url http://localhost:9200/productos \
   --header 'User-Agent: insomnia/8.6.1' \
   --cookie connect.sid=s%253A3Jq5y6d3pTUfpt15QeS7AbOjQKNFQSuI.NRDvdU0bVBTncYwOSiWGwimryapHY0OmjsI01FAXmnA
+```
 
 - En caso de haber creado el índice sin el mapeo, podemos eliminar el índice con:
+```bash
 curl --request DELETE \
   --url http://localhost:9200/productos \
   --header 'User-Agent: insomnia/8.6.1' \
   --cookie connect.sid=s%253A3Jq5y6d3pTUfpt15QeS7AbOjQKNFQSuI
   NRDvdU0bVBTncYwOSiWGwimryapHY0OmjsI01FAXmnA
+```
 
 - Ejecución de script: 
 Una vez creado el índice, ejecutaremos el script situado en Elasticsearch/ para crear todos los documentos.
