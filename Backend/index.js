@@ -368,8 +368,12 @@ app.get('/checkout', async (req, res) => {
         totalPrice += parseFloat(item.price) * item.quantity;
     });
 
-    // Renderiza la vista de checkout
-    res.render('checkout.ejs', { totalPrice: totalPrice });
+    // Incluir usuario y datos del carrito en la renderización
+    res.render('checkout.ejs', {
+        totalPrice: totalPrice,
+        user: req.session.userLogued, // Asumiendo que esta es la estructura
+        cart: cart
+    });
 });
 
 
@@ -396,6 +400,9 @@ app.get('/resultados', async (req, res) => {
 });
 
 
+app.get('/pedidos/mis-pedidos', (req, res) => {
+    res.render('mis-pedidos.ejs');
+});
 
 
 
