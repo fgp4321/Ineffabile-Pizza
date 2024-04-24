@@ -21,6 +21,7 @@ const app = express()
 const port = process.env.PORT || 9100
 const usuarioRoutes = require("./routes/usuario.routes")
 const productoRoutes = require("./routes/producto.routes")
+const pedidoRoutes = require("./routes/pedido.routes")
 //rutas categorias
 //rutas pedidos
 const version = "v2"
@@ -78,6 +79,7 @@ app.use(addMorganToLogger)
 //Rutas
 app.use(`/api/${version}/usuarios`,usuarioRoutes)
 app.use(`/api/${version}/productos`,productoRoutes)
+app.use(`/pedidos`,pedidoRoutes)
 //rutas categorias
 //rutas pedidos
 
@@ -317,9 +319,8 @@ app.post('/add-to-cart', (req, res) => {
 
     // Convierte el objeto agrupado en un array para pasarlo a la vista
     const cartItems = Object.values(groupedCart);
-    
     // Renderiza la vista del carrito y pasa los productos del carrito
-    res.render('carrito.ejs', { cart: cartItems });
+    res.render('carrito.ejs', { cart: cartItems, user: req.session.userLogued });
 });
 
 
@@ -355,22 +356,20 @@ app.get('/usuarios/personal-area', (req, res) => {
     }
 });
 
-app.get('/checkout', (req, res) => {
-    // Obtén el carrito de la sesión
+app.get('/checkout', async (req, res) => {
+    if (!req.session.userLogued) {
+        res.redirect('/usuarios/login-register');
+        return;
+    }
+
     const cart = req.session.cart || [];
-    
-    // Calcula el precio total
     let totalPrice = 0;
     cart.forEach(item => {
         totalPrice += parseFloat(item.price) * item.quantity;
     });
 
-    // Renderiza la vista de checkout y pasa el precio total como una variable
+    // Renderiza la vista de checkout
     res.render('checkout.ejs', { totalPrice: totalPrice });
-});
-
-app.get('/formas-de-pago', (req, res) => {
-    res.render("formas-de-pago.ejs")
 });
 
 

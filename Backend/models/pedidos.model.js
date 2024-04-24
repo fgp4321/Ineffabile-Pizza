@@ -15,13 +15,14 @@ const pedidosSchema = new mongoose.Schema({
     },
     cantidad: {
         type: Number,
-        required: true,
     },
     total: {
         type: String,
+        required: true,
     },
     estadoPedido_status: {
         type: String,
+        required: true,
     }
 })
 

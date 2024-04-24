@@ -2,6 +2,19 @@ const Pedido = require("../models/pedidos.model")
 const wrapAsync = require("../utils/wrapAsync")
 const AppError = require("../utils/AppError")
 
+exports.obtenerPedidosPorUsuario = wrapAsync(async (req, res) => {
+    if (!req.session.userLogued) {
+        return res.redirect('/usuarios/login-register');
+    }
+    try {
+        const pedidos = await Pedido.find({ usuario_nombre: req.session.userLogued.username });
+        res.render('mis-pedidos.ejs', { pedidos });
+    } catch (error) {
+        console.error("Error al obtener pedidos por usuario:", error);
+        res.status(500).json({ error: "Error interno al obtener pedidos" });
+    }
+});
+
 exports.obtenerTodosPedidos = wrapAsync(async (req, res) => {
     try {
         const pedidos = await Pedido.findPedidos()

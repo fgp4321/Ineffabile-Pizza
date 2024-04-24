@@ -1,19 +1,26 @@
-<div class="col-md-8">
-    <h2>Pedidos</h2>
-    <% if (pedidos.length === 0) { %>
-      <p>No hay pedidos disponibles.</p>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Mis Pedidos</title>
+</head>
+<body>
+    <h1>Mis Pedidos</h1>
+    <% if (pedidos.length > 0) { %>
+        <% pedidos.forEach(pedido => { %>
+            <div>
+                <h3>Pedido realizado el <%= pedido.fecha.toDateString() %></h3>
+                <p>Total: <%= pedido.total %></p>
+                <p>Estado: <%= pedido.estadoPedido_status %></p>
+                <ul>
+                    <% pedido.productos_nombre.forEach(producto => { %>
+                        <li><%= producto %></li>
+                    <% }) %>
+                </ul>
+            </div>
+        <% }) %>
     <% } else { %>
-      <% pedidos.forEach(function(pedido) { %>
-        <div class="card mb-3">
-          <div class="card-body">
-            <h5 class="card-title">Pedido #<%= pedido.id %></h5>
-            <ul>
-              <% pedido.productos_nombre.forEach(function(producto, index) { %>
-                <li><strong><%= producto %></strong> - Cantidad: <%= pedido.cantidad[index] %> - Precio Total: <%= pedido.precio_total[index] %> - Estado: <%= pedido.estadoPedido_status %></li>
-              <% }); %>
-            </ul>
-          </div>
-        </div>
-      <% }); %>
+        <p>No tienes pedidos.</p>
     <% } %>
-  </div>
+</body>
+</html>
