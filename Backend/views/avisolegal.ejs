@@ -1,0 +1,52 @@
+<!-- views/about-us.ejs -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aviso Legal - Ineffabile Pizza</title>
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/fontawesome/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Flamenco&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/avisolegal.css">
+</head>
+<body class="bg-light">
+
+      <!-- Incluir el navbar -->
+  <%- include('./partials/navbar.ejs') %>
+  <br>
+  <header class="fadeIn">
+    <br>
+    <h1><u>Aviso Legal</u></h1>
+    <br>
+  </header>
+  <br>
+
+  <!-- Aviso Legal -->
+  <div class="row mt-5">
+    <div class="col-md-12">
+      <h2>Aviso Legal</h2>
+      <p>Bienvenido a Ineffabile Pizzeria. Por favor, lee atentamente los términos y condiciones de uso antes de utilizar nuestro sitio web.</p>
+      <ol>
+        <li><strong>Información legal:</strong> Ineffabile Pizzeria es una marca registrada propiedad de [Nombre de la Empresa].</li>
+        <li><strong>Propiedad intelectual:</strong> Todos los derechos de propiedad intelectual del contenido de este sitio web son propiedad exclusiva de Ineffabile Pizzeria.</li>
+        <li><strong>Uso del sitio web:</strong> El uso de este sitio web implica la aceptación plena y sin reservas de los términos y condiciones aquí expuestos.</li>
+        <li><strong>Protección de datos personales:</strong> Los datos personales recopilados a través de este sitio web serán tratados de acuerdo con nuestra política de privacidad.</li>
+        <li><strong>Exclusión de responsabilidad:</strong> Ineffabile Pizzeria no se hace responsable de los daños y perjuicios derivados del uso de este sitio web.</li>
+        <li><strong>Modificaciones:</strong> Nos reservamos el derecho de realizar cambios en el contenido de este sitio web, incluyendo en los términos y condiciones de uso, en cualquier momento y sin previo aviso.</li>
+        <li><strong>Legislación aplicable y jurisdicción:</strong> Estos términos y condiciones se rigen por la legislación [indicar legislación aplicable].</li>
+      </ol>
+      <p>Te agradecemos por utilizar los servicios de Ineffabile Pizzeria. Si tienes alguna pregunta o inquietud sobre este aviso legal, no dudes en contactarnos.</p>
+      <p>Fecha de última actualización: [Fecha de última actualización del aviso legal]</p>
+    </div>
+  </div>
+  <!-- Fin de Aviso Legal -->
+
+  <!-- Incluir el footer -->
+  <%- include('./partials/footer.ejs') %>
+
+  <script src="/fontawesome/js/all.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js"></script>
+  <script src="/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

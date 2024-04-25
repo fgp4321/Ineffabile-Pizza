@@ -181,6 +181,14 @@ app.get('/alergenos', (req, res) => {
     res.render('alergenos.ejs');
 });
 
+app.get('/avisolegal', (req, res) => {
+    res.render('avisolegal.ejs');
+});
+
+app.get('/politica-privacidad', (req, res) => {
+    res.render('politica-privacidad.ejs');
+});
+
 app.get('/productos', (req, res) => {
     res.render('productos.ejs');
 });
