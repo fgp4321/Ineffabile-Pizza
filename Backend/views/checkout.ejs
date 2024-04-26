@@ -13,7 +13,7 @@
   <!-- Contenido del formulario de pago -->
   <div class="container py-5">
     <div class="row">
-      <div class="col-lg-8 mx-auto">
+      <div class="col-lg-6 mx-auto">
         <div class="text-center mb-5">
           <h2 class="fw-bold">Pago Seguro</h2>
           <p class="lead">Introduce los detalles de tu tarjeta para completar la compra</p>
@@ -71,11 +71,14 @@
     var loadingButton = document.getElementById('loading-button');
     
     form.addEventListener('submit', function(event) {
-      event.preventDefault();
+    event.preventDefault();
+    payButton.classList.add('d-none'); // Ocultar botón de pagar
+    loadingButton.classList.remove('d-none'); // Mostrar botón de carga
 
-      // Simulación de creación de pedido sin Stripe
+    setTimeout(() => { // Simulación de proceso de carga y pago
       createOrder();
-    });
+    }, 2000); // Retardo de 2 segundos antes de ejecutar createOrder()
+  });
 
     function createOrder() {
       const pedidoData = {
@@ -88,29 +91,38 @@
       };
 
       fetch('/pedidos/saveOrder', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(pedidoData)
-      })
-      .then(response => response.json())
-      .then(data => {
-        Swal.fire({
-          title: '¡Pago realizado!',
-          text: 'Tu pago ha sido simulado y el pedido ha sido creado.',
-          icon: 'success',
-          confirmButtonColor: '#3085d6',
-          confirmButtonText: 'Ver mis pedidos'
-        }).then((result) => {
-          if (result.isConfirmed) {
-            window.location.href = '/pedidos/mis-pedidos';
-          }
-        });
-      })
-      .catch(error => {
-        console.error('Error al crear el pedido:', error);
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(pedidoData)
+    })
+    .then(response => response.json())
+    .then(data => {
+      Swal.fire({
+        title: '¡Pago realizado!',
+        text: 'Tu pago ha sido simulado y el pedido ha sido creado.',
+        icon: 'success',
+        confirmButtonColor: '#3085d6',
+        confirmButtonText: 'Ver mis pedidos'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          window.location.href = '/pedidos/mis-pedidos';
+        }
       });
+      payButton.classList.remove('d-none'); // Volver a mostrar el botón de pago
+      loadingButton.classList.add('d-none'); // Ocultar el botón de carga
+    })
+    .catch(error => {
+      console.error('Error al crear el pedido:', error);
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'No se pudo procesar tu pago.',
+      });
+      payButton.classList.remove('d-none'); // Volver a mostrar el botón de pago
+      loadingButton.classList.add('d-none'); // Ocultar el botón de carga
+    });
     }
   </script>
 </body>
