@@ -31,7 +31,7 @@
           <% if (userLogued.rol === "ADMIN") { %>
             <a href="/todos-los-pedidos" class="btn btn-primary">Ver todos los pedidos</a>
           <% } else { %>
-            <a href="/mis-pedidos" class="btn btn-primary">Ver mis pedidos</a>
+            <a href="/pedidos/mis-pedidos" class="btn btn-primary">Ver mis pedidos</a>
           <% } %>
           <form action="/api/v2/usuarios/logout" method="POST" style="display: inline;">
             <button type="submit" class="btn btn-primary"><i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión</button>
