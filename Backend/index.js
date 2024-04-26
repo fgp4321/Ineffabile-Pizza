@@ -399,6 +399,9 @@ app.get('/resultados', async (req, res) => {
     }
 });
 
+app.get('/formas-de-pago', (req, res) => {
+    res.render('formas-de-pago.ejs');
+});
 
 app.get('/pedidos/mis-pedidos', (req, res) => {
     res.render('mis-pedidos.ejs');

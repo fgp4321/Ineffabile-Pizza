@@ -132,52 +132,59 @@
   </script>
   <script>
     $(document).ready(function() {
-  $('.btn-add-to-cart').click(function(event) {
-    event.preventDefault();
-    var pizzaId = $(this).closest('.product').find('.btn-details').data('id');
-    var pizzaName = $(this).closest('.product').find('.product-title').text();
-    var pizzaPrice = $(this).closest('.product').find('.price .normal-price').text();
-    var quantity = 1; // Puedes permitir que el usuario elija la cantidad si lo deseas
-
-    // Utilizar fetch para realizar la solicitud
-    fetch('/add-to-cart', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        id: pizzaId,
-        name: pizzaName,
-        price: pizzaPrice,
-        quantity: quantity
-      })
-    })
-    .then(response => {
-      if (response.ok) {
-        // Mostrar alerta de éxito con SweetAlert2
-        Swal.fire({
-          icon: 'success',
-          title: '¡Producto agregado al carrito!',
-          showConfirmButton: false,
-          timer: 1500
+      // Definición del Toast
+      const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer)
+          toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+      });
+    
+      // El resto de tu código que usa Toast aquí
+      $('.btn-add-to-cart').click(function(event) {
+        event.preventDefault();
+        var pizzaId = $(this).closest('.product').find('.btn-details').data('id');
+        var pizzaName = $(this).closest('.product').find('.product-title').text();
+        var pizzaPrice = $(this).closest('.product').find('.price .normal-price').text();
+        var quantity = 1; // Puedes permitir que el usuario elija la cantidad si lo deseas
+    
+        fetch('/add-to-cart', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            id: pizzaId,
+            name: pizzaName,
+            price: pizzaPrice,
+            quantity: quantity
+          })
+        })
+        .then(response => {
+          if (response.ok) {
+            Toast.fire({
+              icon: 'success',
+              title: '¡Producto agregado al carrito!'
+            });
+          } else {
+            throw new Error('Error al agregar producto al carrito');
+          }
+        })
+        .catch(error => {
+          console.error('Error al agregar producto al carrito:', error);
+          Toast.fire({
+            icon: 'error',
+            title: 'Error al agregar producto al carrito'
+          });
         });
-      } else {
-        // Mostrar alerta de error con SweetAlert2
-        throw new Error('Error al agregar producto al carrito');
-      }
-    })
-    .catch(error => {
-      console.error('Error al agregar producto al carrito:', error);
-      // Mostrar alerta de error con SweetAlert2
-      Swal.fire({
-        icon: 'error',
-        title: 'Error',
-        text: 'Error al agregar producto al carrito',
       });
     });
-  });
-});
-</script>
+    </script>
 <script>
   $(document).ready(function() {
     // Inicializar los popovers
