@@ -11,7 +11,7 @@ const ejecutar = async () => {
         });
 
     const productos = [
-        // Pizzas
+        // 10 Pizzas
         {
             nombre: "Pizza Margarita",
             precio_pvp: "6.20",
@@ -102,7 +102,7 @@ const ejecutar = async () => {
             imagen2: "pizza-setas2.jpg",
             imagen3: "pizza-setas3.jpg"
         },
-        // Pastas
+        //6 Pastas
         {
             nombre: "Espaguetis a la carbonara",
             precio_pvp: "8.50",
@@ -157,7 +157,7 @@ const ejecutar = async () => {
             imagen2: "gnocchi2.jpg",
             imagen3: "gnocchi3.jpg"
         },
-        // Complementos
+        //8 Complementos
         {
             nombre: "Nachos con queso",
             precio_pvp: "5.50",
@@ -230,7 +230,7 @@ const ejecutar = async () => {
             imagen2: "patatas-alioli2.jpg",
             imagen3: "patatas-alioli3.jpg"
         },
-        // Bebidas
+        //6 Bebidas
         {
             nombre: "Agua mineral",
             precio_pvp: "1.5",
