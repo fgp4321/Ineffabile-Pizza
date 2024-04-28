@@ -1,10 +1,23 @@
 <!-- views/partials/navbar.ejs -->
 <style>
-
   .navbar {
+    position: fixed; /* Hace el navbar fijo */
+    top: 0; /* Se queda en la parte superior */
+    width: 100%; /* Ocupa todo el ancho de la página */
+    height: 120px; /* Altura reducida del navbar */
     background: linear-gradient(to right, #ff925f, #feb47b, #fcd8ba);
     background-size: 200% 100%;
     animation: gradientAnimation 5s ease infinite alternate-reverse;
+    z-index: 1000; /* Asegura que el navbar se mantenga por encima de otros elementos */
+  }
+
+  .navbar-brand img {
+    height: 100px; /* Altura ajustada del logo */
+    width: auto; /* Mantiene la proporción del logo */
+  }
+
+  .navbar-search input {
+    width: 300px; /* Ancho reducido del input de búsqueda */
   }
 
   .separator {
@@ -18,28 +31,17 @@
     margin-left: 20px; /* Agrega espacio a la izquierda */
   }
 
-  /* Ancho personalizado para la barra de búsqueda en el navbar */
-  .navbar-search input {
-    width: 450px;
-    border: 1px solid #000000; /* Agrega un borde al input */
-    border-radius: 20px;
-    padding: 5px 10px; /* Ajusta el relleno para un mejor aspecto */
-  }
-
-  /* Estilo para el botón de búsqueda en el navbar */
   .navbar-search button {
     background-color: transparent;
     border: none;
     margin-left: -40px; /* Ajusta el margen para superponer el icono de búsqueda en el input */
-    border-radius: 20px;
   }
 
-  #navbarDropdown{
+  #navbarDropdown {
     margin-left: 60px;
     margin-right: 20px;
   }
 
-  
   @keyframes gradientAnimation {
     0% {
       background-position: 0 0;
@@ -51,11 +53,13 @@
 
 </style>
 
+<div style="height: 120px;"></div> <!-- Div vacío para compensar la altura del navbar fijo -->
+
 <nav class="navbar navbar-expand-lg navbar-light">
   <div class="container">
     <h1 class="navbar-title"></h1>
     <a class="navbar-brand" href="/">
-      <img src="/images/logo3.png" alt="Logo" width="180" height="180">
+      <img src="/images/logo3_modified.png" alt="Logo" width="200" height="200">
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -65,7 +69,7 @@
       <ul class="navbar-nav mx-auto">
         <li class="nav-item">
           <form class="form-inline my-2 my-lg-0 navbar-search" id="searchForm" action="/api/v2/productos/buscar" method="GET">
-            <input class="form-control mr-sm-2" type="search" placeholder="Buscar productos..." aria-label="Buscar" id="searchQuery" name="query"> <!-- Cambia el nombre del input -->
+            <input class="form-control mr-sm-2" type="search" placeholder="Buscar productos..." aria-label="Buscar" id="searchQuery" name="query">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="searchBtn">
                 <i class="fas fa-search"></i>
             </button>
@@ -97,14 +101,9 @@
             <i class="fas fa-user fa-2x" style="color: #000000;"></i>
           </a>
         </li>
-        <li class="nav-item separator">
+        <li class="nav-item">
           <a class="nav-link" href="/carrito">
             <i class="fas fa-shopping-cart fa-2x" style="color: #000000;"></i>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="https://wa.me/1234567890" target="_blank">
-            <i class="fab fa-whatsapp fa-2x" style="color: green;"></i>
           </a>
         </li>
       </ul>
@@ -131,5 +130,5 @@
             searchButton.style.display = 'block'
         }
     })
-})
+  })
 </script>
