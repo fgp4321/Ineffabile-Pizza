@@ -6,36 +6,47 @@ const jwt = require("jsonwebtoken")
 
 //AUTENTICACIÓN
 //-REGISTER
-exports.register = async function(req, res) {
-    try {
-        const { nombre, apellido, username, email, password, telefono } = req.body;
+exports.register = wrapAsync(async function(req, res) {
+    const { nombre, apellido, username, email, password, telefono } = req.body;
 
-        // Verificar si el usuario ya existe en la base de datos
-        const existingUser = await User.buscarPorEmail(email); // Utiliza el nuevo método buscarPorEmail
-        if (existingUser) {
-            res.redirect("/usuarios/login-register");
-            return; // Detener la ejecución del controlador si el usuario ya existe
-        }
-
-        // Crear un nuevo usuario utilizando la función del modelo
-        const hashedPassword = await bcrypt.hash(password, 12);
-        const nuevoUsuario = {
-            nombre,
-            apellido,
-            username,
-            email,
-            password: hashedPassword,
-            telefono,
-            rol: 'USER'
-        };
-
-        await User.crearUsuario(nuevoUsuario);
-
-        res.redirect("/usuarios/personal-area");
-    } catch (error) {
-        res.status(500).json({"err":"Error interno del servidor"});
+    // Verificar si el usuario ya existe en la base de datos
+    const existingUser = await User.buscarPorEmail(email);
+    if (existingUser) {
+        res.redirect("/usuarios/login-register");
+        return; // Detener la ejecución del controlador si el usuario ya existe
     }
-};
+
+    // Crear un nuevo usuario utilizando la función del modelo
+    const hashedPassword = await bcrypt.hash(password, 12);
+    const nuevoUsuario = {
+        nombre,
+        apellido,
+        username,
+        email,
+        password: hashedPassword,
+        telefono,
+        rol: 'USER'
+    };
+
+    const userCreated = await User.crearUsuario(nuevoUsuario);
+
+    if (!userCreated) {
+        throw new AppError("Error al crear usuario", 500);
+    }
+
+    // Iniciar sesión automáticamente tras el registro
+    // Crear token JWT
+    const token = jwt.sign(
+        { userId: userCreated._id, check: true },
+        process.env.JWT_PASS,
+        { expiresIn: '1d' } // o el periodo que consideres adecuado
+    );
+    req.session.jwtToken = token;
+    req.session.userLogued = userCreated;
+
+    // Redireccionar a la página de área personal
+    res.redirect("/usuarios/personal-area");
+});
 
 
 //-LOGIN
