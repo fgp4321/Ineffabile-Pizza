@@ -31,7 +31,7 @@ exports.register = async function(req, res) {
 
         await User.crearUsuario(nuevoUsuario);
 
-        res.redirect("/usuarios/login-register");
+        res.redirect("/usuarios/personal-area");
     } catch (error) {
         res.status(500).json({"err":"Error interno del servidor"});
     }

@@ -16,13 +16,16 @@ exports.obtenerPedidosPorUsuario = wrapAsync(async (req, res) => {
 });
 
 exports.obtenerTodosPedidos = wrapAsync(async (req, res) => {
-    try {
-        const pedidos = await Pedido.findPedidos()
-        res.status(200).json(pedidos)
-    } catch (error) {
-        res.status(500).json({ error: "Error al obtener los pedidos" })
+    if (!req.session.userLogued || req.session.userLogued.rol !== "EMPLOYEE") {
+        return res.status(401).send("Acceso no autorizado");
     }
-})
+    try {
+        const pedidos = await Pedido.findPedidos();
+        res.render('pedidos.ejs', { pedidos });
+    } catch (error) {
+        res.status(500).json({ error: "Error al obtener los pedidos" });
+    }
+});
 
 exports.buscarPorId = wrapAsync(async (req, res) => {
     const { id } = req.params;

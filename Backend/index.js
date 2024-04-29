@@ -407,6 +407,10 @@ app.get('/pedidos/mis-pedidos', (req, res) => {
     res.render('mis-pedidos.ejs');
 });
 
+app.get('/pedidos', (req, res) => {
+    res.render('pedidos.ejs');
+});
+
 
 
 
