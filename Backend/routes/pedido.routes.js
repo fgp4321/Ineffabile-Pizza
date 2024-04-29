@@ -14,6 +14,8 @@ router.get("/mis-pedidos", PedidoController.obtenerPedidosPorUsuario);
 
 //Empleado
 router.get("/", PedidoController.obtenerTodosPedidos);
+router.put("/desactivar/:id", PedidoController.desactivarPedido);
+
 
 
 module.exports = router

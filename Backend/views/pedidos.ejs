@@ -18,6 +18,9 @@
                     <div class="card-header">
                         Pedido realizado el <%= pedido.fecha.toDateString() %>
                     </div>
+                    <div class="card-header">
+                        Cliente: <%= pedido.usuario_nombre %>
+                    </div>
                     <div class="card-body">
                         <h5 class="card-title">Total: <%= pedido.total %> €</h5>
                         <p class="card-text">Estado: <%= pedido.estadoPedido_status %></p>
@@ -27,9 +30,13 @@
                                 <li><%= producto %></li>
                             <% }) %>
                         </ul>
-                        <!-- Botones para editar y desactivar pedidos -->
+                        <!-- Botones para editar y formulario para desactivar pedidos -->
                         <a href="/pedidos/editar/<%= pedido._id %>" class="btn btn-primary">Editar</a>
-                        <a href="/pedidos/desactivar/<%= pedido._id %>" class="btn btn-danger">Desactivar</a>
+                        <!-- Formulario para desactivar usando POST como PUT -->
+                        <form action="/pedidos/desactivar/<%= pedido._id %>" method="POST" style="display: inline;">
+                            <input type="hidden" name="_method" value="PUT">
+                            <button type="submit" class="btn btn-danger">Desactivar</button>
+                        </form>
                     </div>
                 </div>
             <% }) %>

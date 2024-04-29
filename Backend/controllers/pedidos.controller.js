@@ -81,3 +81,18 @@ exports.eliminarPedido = wrapAsync(async (req, res) => {
         res.status(500).json({ error: "Error al eliminar el pedido" })
     }
 })
+
+exports.desactivarPedido = wrapAsync(async (req, res) => {
+    console.log("Desactivando pedido", req.params.id);
+    const { id } = req.params;
+    try {
+        const pedidoDesactivado = await Pedido.desactivarPedido(id);
+        if (pedidoDesactivado) {
+            res.status(200).json({ msg: "Pedido desactivado correctamente" });
+        } else {
+            res.status(404).json({ msg: "Pedido no encontrado" });
+        }
+    } catch (error) {
+        res.status(500).json({ error: "Error al desactivar el pedido" });
+    }
+});
