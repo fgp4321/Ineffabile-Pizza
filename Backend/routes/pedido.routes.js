@@ -14,7 +14,7 @@ router.get("/mis-pedidos", PedidoController.obtenerPedidosPorUsuario);
 
 //Empleado
 router.get("/", PedidoController.obtenerTodosPedidos);
-router.put("/desactivar/:id", PedidoController.desactivarPedido);
+router.post("/desactivar/:id", PedidoController.desactivarPedido);
 
 
 
