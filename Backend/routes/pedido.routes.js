@@ -16,6 +16,8 @@ router.get("/mis-pedidos", PedidoController.obtenerPedidosPorUsuario);
 router.get("/", PedidoController.obtenerTodosPedidos);
 router.post("/desactivar/:id", PedidoController.desactivarPedido);
 
+router.post("/cambiar-estado/:id", PedidoController.actualizarEstadoPedido);
+
 
 
 module.exports = router

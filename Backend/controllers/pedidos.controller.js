@@ -17,11 +17,12 @@ exports.obtenerPedidosPorUsuario = wrapAsync(async (req, res) => {
 
 exports.obtenerTodosPedidos = wrapAsync(async (req, res) => {
     if (!req.session.userLogued || req.session.userLogued.rol !== "EMPLOYEE") {
-        return res.status(401).send("Acceso no autorizado");
+        return res.redirect('/usuarios/login-register');
     }
+    const sortOrder = req.query.sort || 'desc'; // Recibe el parámetro de ordenamiento, por defecto 'desc'
     try {
-        const pedidos = await Pedido.findPedidos();
-        res.render('pedidos.ejs', { pedidos });
+        const pedidos = await Pedido.find().sort({ fecha: sortOrder === 'desc' ? -1 : 1 });
+        res.render('pedidos.ejs', { pedidos: pedidos, currentSort: sortOrder });
     } catch (error) {
         res.status(500).json({ error: "Error al obtener los pedidos" });
     }
@@ -94,5 +95,21 @@ exports.desactivarPedido = wrapAsync(async (req, res) => {
     } catch (error) {
         console.error("Error al desactivar el pedido:", error);
         res.status(500).json({ error: "Error al desactivar el pedido" });
+    }
+});
+
+exports.actualizarEstadoPedido = wrapAsync(async (req, res) => {
+    const { id } = req.params;
+    const { estadoPedido_status } = req.body; // Asegúrate de recibir solo el estado del pedido para la actualización
+    try {
+        const pedidoActualizado = await Pedido.actualizarPedido(id, { estadoPedido_status });
+        if (pedidoActualizado) {
+            res.redirect("/pedidos")
+        } else {
+            res.status(404).json({ msg: "Pedido no encontrado" });
+        }
+    } catch (error) {
+        console.error("Error al actualizar el pedido:", error);
+        res.status(500).json({ error: "Error al actualizar el pedido" });
     }
 });

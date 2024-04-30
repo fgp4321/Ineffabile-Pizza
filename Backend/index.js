@@ -22,8 +22,7 @@ const port = process.env.PORT || 9100
 const usuarioRoutes = require("./routes/usuario.routes")
 const productoRoutes = require("./routes/producto.routes")
 const pedidoRoutes = require("./routes/pedido.routes")
-//rutas categorias
-//rutas pedidos
+
 const version = "v2"
 
 //Elasticsearch
@@ -80,8 +79,6 @@ app.use(addMorganToLogger)
 app.use(`/api/${version}/usuarios`,usuarioRoutes)
 app.use(`/api/${version}/productos`,productoRoutes)
 app.use(`/pedidos`,pedidoRoutes)
-//rutas categorias
-//rutas pedidos
 
 //RUTA HOME.EJS
 app.get('/', (req, res) => {
@@ -110,7 +107,6 @@ app.post('/subscribe', bodyParser.urlencoded({ extended: true }), (req, res) => 
 app.get('/newsletter/success', (req, res) => {
     res.render('newsletter-success.ejs');
 });
-
 
 
 

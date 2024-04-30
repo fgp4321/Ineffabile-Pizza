@@ -34,9 +34,6 @@
                         <td>
                             <div class="password-container">
                                 <input [type]="showPassword ? 'text' : 'password'" value="{{ userDetail.password }}" readonly>
-                                <button (click)="togglePasswordVisibility()" class="toggle-password">
-                                    <i class="fa" [ngClass]="{'fa-eye': !showPassword, 'fa-eye-slash': showPassword}"></i>
-                                </button>
                             </div>
                         </td>
                     </tr>

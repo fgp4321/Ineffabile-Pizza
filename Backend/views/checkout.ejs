@@ -87,7 +87,7 @@
         fecha: new Date(),
         cantidad: <%= cart.reduce((acc, item) => acc + item.quantity, 0) %>,
         total: '<%= totalPrice.toFixed(2) %>',
-        estadoPedido_status: 'pendiente'
+        estadoPedido_status: 'Pendiente'
       };
 
       fetch('/pedidos/saveOrder', {
