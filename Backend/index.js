@@ -17,6 +17,10 @@ const cookieParser = require("cookie-parser")
 const session = require("express-session")
 const methodOverride = require('method-override');
 
+//Google OAuth2
+const passport = require('passport');
+const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+
 const app = express()
 const port = process.env.PORT || 9100
 const usuarioRoutes = require("./routes/usuario.routes")
@@ -37,7 +41,7 @@ const addMorganToLogger = morgan("combined", {
 })
 
 //Rutas permitidas para CORS
-const whiteList = ["http://localhost:4200"]
+const whiteList = ["http://localhost:4200","http://localhost:9100"]
 
 const corsOptions = {
     origin: (origin,callback) => {
@@ -60,6 +64,43 @@ app.use(session({
 
 app.use(express.urlencoded({extended:true}))
 app.use(express.json())
+
+// Configurar Passport.js
+app.use(passport.initialize());
+app.use(passport.session());
+
+// Configurar la estrategia de autenticación de Google
+passport.use(new GoogleStrategy({
+    clientID: process.env.OAUTH2_CLIENT_ID,
+    clientSecret: process.env.OAUTH2_SECRET_ID,
+    callbackURL: process.env.OAUTH2_CALLBACK_URL
+  },
+  function(accessToken, refreshToken, profile, done) {
+    const user = {
+      nombre: profile.name.givenName,
+      apellido: profile.name.familyName,
+      username: profile.emails[0].value.split('@')[0], // Usamos parte del email como username
+      email: profile.emails[0].value,
+      googleId: profile.id,
+      //rol: 'USER' // Asumiendo un rol por defecto; ajusta según tu lógica de negocio
+    };
+    //console.log('Adapted Google Profile:', user);
+    return done(null, user);
+  }
+));
+
+// Serialización del usuario
+passport.serializeUser(function(user, done) {
+    //console.log('Serializing user:', user);
+    done(null, user);
+});
+  
+  // Deserialización del usuario
+  passport.deserializeUser(function(obj, done) {
+    done(null, obj);
+});
+
+
 
 const faviconPath = path.join(__dirname, 'public/favicon', 'favicon3.ico');
 app.use(favicon(faviconPath));
@@ -84,6 +125,12 @@ app.use(`/pedidos`,pedidoRoutes)
 app.get('/', (req, res) => {
     res.render('home.ejs')
 })
+
+/*console.log(process.env.OAUTH2_CLIENT_ID);
+console.log(process.env.OAUTH2_SECRET_ID);
+console.log(process.env.OAUTH2_CALLBACK_URL);*/
+
+
 
 
 //NEWSLETTER
