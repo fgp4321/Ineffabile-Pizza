@@ -81,8 +81,9 @@ passport.use(new GoogleStrategy({
       apellido: profile.name.familyName,
       username: profile.emails[0].value.split('@')[0], // Usamos parte del email como username
       email: profile.emails[0].value,
+      imageUrl: profile.photos[0].value,
       googleId: profile.id,
-      //rol: 'USER' // Asumiendo un rol por defecto; ajusta según tu lógica de negocio
+      rol: 'USER' // Asumiendo un rol por defecto; ajusta según tu lógica de negocio
     };
     //console.log('Adapted Google Profile:', user);
     return done(null, user);

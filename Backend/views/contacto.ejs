@@ -138,19 +138,18 @@
     });
     
     document.addEventListener('DOMContentLoaded', function () {
-      var map = L.map('map').setView([38.63944449527361, -0.8644422700067568], 13); // Nuevas coordenadas y nivel de zoom
+      var map = L.map('map').setView([38.644063, -0.873476], 13); // Nuevas coordenadas y nivel de zoom
 
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
           attribution: '© OpenStreetMap contributors'
       }).addTo(map);
 
-      var marker = L.marker([38.63944449527361, -0.8644422700067568]).addTo(map);
+      var marker = L.marker([38.644063, -0.873476]).addTo(map);
 
       // Contenido personalizado del popup
       var popupContent = `
         <div>
-          <h4>INEFFABILE</h4>
-          <img src="/images/logo3.png" alt="Local Image" style="width: 100%; max-width: 200px;">
+          <img src="/images/logo3_modified.png" alt="Local Image" style="width: 100%; max-width: 200px;">
           <p>Teléfono: +34 692 158 742</p>
         </div>
       `;
