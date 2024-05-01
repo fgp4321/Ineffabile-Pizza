@@ -3,6 +3,10 @@ body {
     background-color: #f8f9fa;
   }
 
+  h2 {
+    color: black;
+  }
+
   .center-form {
     display: flex;
     justify-content: center;

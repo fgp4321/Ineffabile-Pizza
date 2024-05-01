@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="/css/bootstrap.min.css">
   <link rel="stylesheet" href="/fontawesome/css/all.min.css">
   <link rel="stylesheet" href="/css/como-comprar.css">
+  <link rel="stylesheet" href="/css/whatsupto.css">
 </head>
 
 <body class="bg-light">
@@ -39,12 +40,46 @@
     </div>
   </div>
 
+  <a href="https://wa.me/+34637053805?text=Contactar%20con%20Ineffabile%20Pizza%20vía%20WhatsApp" class="whatsapp" target="_blank"> 
+    <i class="fab fa-whatsapp whatsapp-icon"></i>
+  </a>
+              
+  <!-- Botón para volver arriba -->
+  <button id="scrollToTopBtn" title="Volver arriba"><i class="fas fa-arrow-up"></i></button>
+    
+
   <!-- Footer mejorado -->
   <%- include('./partials/footer.ejs') %>
 
   <script src="/fontawesome/js/all.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js"></script>
   <script src="/js/bootstrap.bundle.min.js"></script>
+  <script>
+    window.onscroll = function() {scrollFunction()};
+    
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("scrollToTopBtn").style.display = "block";
+      } else {
+        document.getElementById("scrollToTopBtn").style.display = "none";
+      }
+      var sections = document.querySelectorAll('.section');
+        sections.forEach(function(section) {
+          if (isSectionInViewport(section)) {
+            section.classList.add('visible');
+          }
+        });
+      }
+  
+      document.getElementById("scrollToTopBtn").addEventListener("click", function() {
+        scrollToTop()
+      })
+  
+      function scrollToTop() {
+        const body = document.getElementsByTagName("body")[0];
+        body.scrollIntoView({ behavior: "smooth" });
+      }
+    </script>
   <!-- Agregar cualquier otro script necesario -->
 </body>
 </html>

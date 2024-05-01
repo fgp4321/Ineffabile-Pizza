@@ -6,7 +6,8 @@
   <title>Promociones - Ineffabile Pizza</title>
   <link rel="stylesheet" href="/css/bootstrap.min.css">
   <link rel="stylesheet" href="/fontawesome/css/all.min.css">
-  <link rel="stylesheet" href="/css/promociones.css">
+  <link rel="stylesheet" href="/css/pizzas.css">
+  <link rel="stylesheet" href="/css/whatsupto.css">
 </head>
 <body>
 
@@ -15,8 +16,10 @@
 
   <!-- Contenido de la página -->
   <div class="container">
-    <h2 class="text-center mb-4">Nuestras Promociones</h2>
-
+    <br>
+    <br>
+    <h1 class="text-center mb-4"><u>Nuestras Promociones</u></h1>
+<br><br>
     <!-- Carrusel de promociones -->
     <div id="carouselPromociones" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
@@ -58,11 +61,45 @@
     </div>
   </div>
 
+  <a href="https://wa.me/+34637053805?text=Contactar%20con%20Ineffabile%20Pizza%20vía%20WhatsApp" class="whatsapp" target="_blank"> 
+    <i class="fab fa-whatsapp whatsapp-icon"></i>
+  </a>
+              
+  <!-- Botón para volver arriba -->
+  <button id="scrollToTopBtn" title="Volver arriba"><i class="fas fa-arrow-up"></i></button>
+    
+
   <!-- Incluir el footer -->
   <%- include('./partials/footer.ejs') %>
 
   <script src="/fontawesome/js/all.min.js"></script>
   <script src="/js/bootstrap.bundle.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js"></script>
+  <script>
+    window.onscroll = function() {scrollFunction()};
+    
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("scrollToTopBtn").style.display = "block";
+      } else {
+        document.getElementById("scrollToTopBtn").style.display = "none";
+      }
+      var sections = document.querySelectorAll('.section');
+        sections.forEach(function(section) {
+          if (isSectionInViewport(section)) {
+            section.classList.add('visible');
+          }
+        });
+      }
+  
+      document.getElementById("scrollToTopBtn").addEventListener("click", function() {
+        scrollToTop()
+      })
+  
+      function scrollToTop() {
+        const body = document.getElementsByTagName("body")[0];
+        body.scrollIntoView({ behavior: "smooth" });
+      }
+    </script>
 </body>
 </html>

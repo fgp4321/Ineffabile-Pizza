@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11">
   <link rel="stylesheet" href="/leaflet/leaflet.css"/>
   <link rel="stylesheet" href="/css/contacto.css">
+  <link rel="stylesheet" href="/css/whatsupto.css">
 </head>
 
 <body class="bg-light">
@@ -78,6 +79,16 @@
   </div>
 <br>
 <br>
+
+
+<a href="https://wa.me/+34637053805?text=Contactar%20con%20Ineffabile%20Pizza%20vía%20WhatsApp" class="whatsapp" target="_blank"> 
+  <i class="fab fa-whatsapp whatsapp-icon"></i>
+</a>
+            
+<!-- Botón para volver arriba -->
+<button id="scrollToTopBtn" title="Volver arriba"><i class="fas fa-arrow-up"></i></button>
+  
+
   <!-- Incluir el footer -->
   <%- include('./partials/footer.ejs') %>
 
@@ -157,5 +168,31 @@
       marker.bindPopup(popupContent).openPopup();
     });
 </script>
+<script>
+  window.onscroll = function() {scrollFunction()};
+  
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      document.getElementById("scrollToTopBtn").style.display = "block";
+    } else {
+      document.getElementById("scrollToTopBtn").style.display = "none";
+    }
+    var sections = document.querySelectorAll('.section');
+      sections.forEach(function(section) {
+        if (isSectionInViewport(section)) {
+          section.classList.add('visible');
+        }
+      });
+    }
+
+    document.getElementById("scrollToTopBtn").addEventListener("click", function() {
+      scrollToTop()
+    })
+
+    function scrollToTop() {
+      const body = document.getElementsByTagName("body")[0];
+      body.scrollIntoView({ behavior: "smooth" });
+    }
+  </script>
 </body>
 </html>
