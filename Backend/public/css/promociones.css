@@ -3,6 +3,28 @@ body {
     background-color: #f8f9fa;
   }
 
+  .btn-lg {
+    font-size: 1.2rem; /* Reducir el tamaño de fuente */
+    padding: 10px 20px; /* Reducir el padding */
+    border-radius: 10px;
+    margin: 10px; /* Mantener el margen */
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .btn-lg:hover {
+    transform: scale(1.1);
+  }
+
+  .btn-primary {
+    background-color: #ff3333;
+    border-color: #ff3333;
+  }
+
+  .btn-primary:hover {
+    background-color: #ff6a6a;
+    border-color: #ff6a6a;
+  }
+
   .container {
     padding: 20px;
   }
