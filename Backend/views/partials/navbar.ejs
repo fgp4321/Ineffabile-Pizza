@@ -52,7 +52,8 @@
         <li class="nav-item">
           <a class="nav-link" href="/carrito">
             <i class="fas fa-shopping-cart fa-2x" style="color: #000000;"></i>
-          </a>
+            <span id="cartItemCount" class="badge bg-danger position-absolute top-55 start-80 translate-middle">0</span>
+          </a>          
         </li>
       </ul>
     </div>
@@ -61,6 +62,24 @@
 </nav>
 
 <script>
+// Función para obtener la cantidad de productos en el carrito desde el servidor y actualizar el contador
+  async function updateCartItemCount() {
+    try {
+      const response = await fetch('/obtener-cantidad-carrito');
+      if (response.ok) {
+        const { itemCount } = await response.json();
+        const cartItemCountElement = document.getElementById('cartItemCount');
+        if (cartItemCountElement) {
+          cartItemCountElement.textContent = itemCount;
+          cartItemCountElement.style.display = itemCount > 0 ? 'inline-block' : 'none';
+        }
+      }
+    } catch (error) {
+      console.error('Error al obtener la cantidad de productos en el carrito:', error);
+    }
+  }
+
+
   document.getElementById('searchForm').addEventListener('submit', function(event) {
     event.preventDefault();
     const query = document.getElementById('searchQuery').value;
@@ -68,8 +87,10 @@
   });
 
   document.addEventListener('DOMContentLoaded', function () {
+    updateCartItemCount();
     var searchInput = document.getElementById('searchQuery')
     var searchButton = document.getElementById('searchBtn')
+
 
     searchInput.addEventListener('input', function () {
         if (searchInput.value.trim() !== '') {

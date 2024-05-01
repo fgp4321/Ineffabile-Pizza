@@ -167,6 +167,7 @@
         })
         .then(response => {
           if (response.ok) {
+            updateCartItemCount();
             Toast.fire({
               icon: 'success',
               title: '¡Producto agregado al carrito!'

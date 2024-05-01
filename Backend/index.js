@@ -316,6 +316,13 @@ app.get('/promociones', async (req, res) => {
     }
 });
 
+app.get('/obtener-cantidad-carrito', (req, res) => {
+    const cart = req.session.cart || [];
+    const itemCount = cart.reduce((total, product) => total + product.quantity, 0);
+    res.json({ itemCount });
+  });
+  
+
 // Ruta para agregar productos al carrito
 app.post('/add-to-cart', (req, res) => {
     const { id, name, price, quantity } = req.body;

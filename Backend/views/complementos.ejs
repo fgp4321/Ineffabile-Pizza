@@ -153,6 +153,7 @@
     })
     .then(response => {
       if (response.ok) {
+        updateCartItemCount();
         // Mostrar alerta de éxito con SweetAlert2
         Swal.fire({
           icon: 'success',
