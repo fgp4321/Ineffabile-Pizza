@@ -142,6 +142,17 @@
   </script>
   <script>
     $(document).ready(function() {
+      const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 1800,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer)
+          toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+      });
   $('.btn-add-to-cart').click(function(event) {
     event.preventDefault();
     var complementoId = $(this).closest('.product').find('.btn-details').data('id');
@@ -166,12 +177,10 @@
       if (response.ok) {
         updateCartItemCount();
         // Mostrar alerta de éxito con SweetAlert2
-        Swal.fire({
-          icon: 'success',
-          title: '¡Producto agregado al carrito!',
-          showConfirmButton: false,
-          timer: 1500
-        });
+        Toast.fire({
+              icon: 'success',
+              title: '¡Producto agregado al carrito!'
+            });
       } else {
         // Mostrar alerta de error con SweetAlert2
         throw new Error('Error al agregar producto al carrito');
@@ -180,11 +189,10 @@
     .catch(error => {
       console.error('Error al agregar producto al carrito:', error);
       // Mostrar alerta de error con SweetAlert2
-      Swal.fire({
-        icon: 'error',
-        title: 'Error',
-        text: 'Error al agregar producto al carrito',
-      });
+      Toast.fire({
+            icon: 'error',
+            title: 'Error al agregar producto al carrito'
+          });
     });
   });
 });
