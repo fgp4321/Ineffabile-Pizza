@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="/css/bootstrap.min.css">
   <link rel="stylesheet" href="/fontawesome/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11">
+  <link rel="stylesheet" href="/css/carrito.css">
   <link rel="stylesheet" href="/css/whatsupto.css">
 </head>
 
@@ -32,12 +33,8 @@
               <p class="card-text">Precio: <%= item.price %>/Ud</p>
             </div>
             <div class="producto-cantidad">
-              <!-- Dropdown para seleccionar la cantidad -->
-              <select class="form-select cantidad-selector" data-id="<%= item.id %>">
-                <% for (let i = 1; i <= 10; i++) { %>
-                  <option value="<%= i %>" <%= item.quantity === i ? 'selected' : '' %>><%= i %></option>
-                <% } %>
-              </select>
+              <!-- Input de solo lectura para mostrar la cantidad -->
+              <input type="text" class="form-control text-center cantidad-input" value="<%= item.quantity %>" readonly>
             </div>
             <div class="producto-eliminar">
               <!-- Botón para eliminar el producto del carrito -->

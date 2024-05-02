@@ -16,10 +16,13 @@ const errorHandler = require("./middlewares/errorHandler.mw")
 const cookieParser = require("cookie-parser")
 const session = require("express-session")
 const methodOverride = require('method-override');
+const passport = require('passport');
 
 //Google OAuth2
-const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+
+//Github OAuth2
+const GitHubStrategy = require('passport-github').Strategy;
 
 const app = express()
 const port = process.env.PORT || 9100
@@ -102,6 +105,21 @@ passport.serializeUser(function(user, done) {
 });
 
 
+passport.use(new GitHubStrategy({
+    clientID: process.env.GITHUB_CLIENT_ID,
+    clientSecret: process.env.GITHUB_SECRET_ID,
+    callbackURL: process.env.GITHUB_CALLBACK_URL
+  },
+  function(accessToken, refreshToken, profile, cb) {
+    // Aquí, puedes optar por buscar o crear un usuario en tu base de datos
+    User.findOrCreate({ githubId: profile.id }, function (err, user) {
+      return cb(err, user);
+    });
+  }
+));
+
+
+
 
 const faviconPath = path.join(__dirname, 'public/favicon', 'favicon3.ico');
 app.use(favicon(faviconPath));
@@ -126,10 +144,6 @@ app.use(`/pedidos`,pedidoRoutes)
 app.get('/', (req, res) => {
     res.render('home.ejs')
 })
-
-/*console.log(process.env.OAUTH2_CLIENT_ID);
-console.log(process.env.OAUTH2_SECRET_ID);
-console.log(process.env.OAUTH2_CALLBACK_URL);*/
 
 
 
@@ -299,18 +313,18 @@ app.get('/productos/bebidas', async (req, res) => {
 
 app.get('/promociones', async (req, res) => {
     try {
-        // Hacer una solicitud al endpoint de productos para obtener todas las promociones
         const response = await fetch('http://localhost:9100/api/v2/productos/getAllProduct');
         const productos = await response.json();
-        // Filtrar las promociones
-        const pizzas = productos.filter(producto => producto.categoria_nombre === 'Pizzas');
-        const pastas = productos.filter(producto => producto.categoria_nombre === 'Pastas');
-        const complementos = productos.filter(producto => producto.categoria_nombre === 'Complementos');
-        const bebidas = productos.filter(producto => producto.categoria_nombre === 'Bebidas');
-        // Renderizar la vista de promociones y pasar los datos de las promociones
-        res.render('promociones.ejs', { pizzas, pastas, complementos, bebidas });
+        
+        // Filtrar solo los productos que están en promoción
+        const promociones = productos.filter(producto => 
+            producto.precio_oferta !== null && 
+            producto.precio_oferta !== 0 &&
+            producto.precio_oferta < producto.precio_pvp && // Asegurar que el precio de oferta sea menor
+            producto.categoria_nombre);
+
+        res.render('promociones.ejs', { promociones });
     } catch (error) {
-        // Manejo de errores
         console.error('Error al obtener las promociones:', error);
         res.render('error.ejs', { message: 'Error al obtener las promociones' });
     }

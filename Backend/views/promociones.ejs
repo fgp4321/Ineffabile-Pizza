@@ -6,85 +6,90 @@
   <title>Promociones - Ineffabile Pizza</title>
   <link rel="stylesheet" href="/css/bootstrap.min.css">
   <link rel="stylesheet" href="/fontawesome/css/all.min.css">
-  <link rel="stylesheet" href="/css/pizzas.css">
   <link rel="stylesheet" href="/css/whatsupto.css">
+  <link rel="stylesheet" href="/css/promociones.css">
 </head>
-<body>
 
+<body>
   <!-- Incluir el navbar -->
   <%- include('./partials/navbar.ejs') %>
 
   <!-- Contenido de la página -->
-  <div class="container">
-    <br>
-    <br>
+  <div class="container fadeIn">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Promociones</li>
+      </ol>
+    </nav>
+
     <h1 class="text-center mb-4"><u>Nuestras Promociones</u></h1>
-    <div class="container center-form">  
-      <div class="row">
-        <!-- Botones de opciones -->
-        <div class="col-md text-center">
-          <a href="/productos/pizzas" class="btn btn-primary btn-lg">Pizzas</a>
-        </div>
-        <div class="col-md text-center">
-          <a href="/productos/pastas" class="btn btn-primary btn-lg">Pastas</a>
-        </div>
-        <div class="col-md text-center">
-          <a href="/productos/complementos" class="btn btn-primary btn-lg">Complementos</a>
-        </div>
-        <div class="col-md text-center">
-          <a href="/productos/bebidas" class="btn btn-primary btn-lg">Bebidas</a>
-        </div>
-      </div>
-    </div>
-<br><br>
-    <!-- Carrusel de promociones -->
-    <div id="carouselPromociones" class="carousel slide" data-ride="carousel">
-      <div class="carousel-inner">
-
-        <!-- Pizzas en promoción -->
-        <div class="carousel-item active">
-          <div class="row">
-            <% pizzas.forEach(function(pizza, index) { %>
-              <div class="col-md-4">
-                <div class="card">
-                  <img src="/images/pizzas/<%= pizza.imagen1 %>" class="card-img-top" alt="<%= pizza.nombre %>">
-                  <div class="card-body">
-                    <h5 class="card-title"><%= pizza.nombre %></h5>
-                    <p class="card-text">
-                      <span class="original-price"><%= pizza.precio_pvp %>€</span>
-                      <span class="discount-price"><%= pizza.precio_oferta %>€</span>
-                    </p>
-                    <div class="btn-container">
-                      <a href="#" class="btn btn-details" data-toggle="modal" data-target="#pizzaDetailsModal"><i class="far fa-eye"></i></a>
-                      <a href="#" class="btn btn-add-to-cart"><i class="fas fa-shopping-cart"></i></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            <% }); %>
+    
+    <!-- Carrusel para las ofertas destacadas -->
+<div class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10 offset-lg-1"> <!-- Ajustado para más ancho -->
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
           </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <a href="#">
+                <img src="/images/promocion1.png" class="d-block w-100" alt="Promoción 1">
+              </a>
+            </div>
+            <div class="carousel-item">
+              <a href="#">
+                <img src="/images/promocion2.png" class="d-block w-100" alt="Promoción 2">
+              </a>
+            </div>
+            <div class="carousel-item">
+              <a href="#">
+                <img src="/images/promocion3.jpg" class="d-block w-100" alt="Promoción 3">
+              </a>
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
         </div>
-
       </div>
-      <!-- Flechas de navegación -->
-      <a class="carousel-control-prev" href="#carouselPromociones" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Anterior</span>
-      </a>
-      <a class="carousel-control-next" href="#carouselPromociones" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Siguiente</span>
-      </a>
     </div>
   </div>
+</div>
 
-  <a href="https://wa.me/+34637053805?text=Contactar%20con%20Ineffabile%20Pizza%20vía%20WhatsApp" class="whatsapp" target="_blank"> 
-    <i class="fab fa-whatsapp whatsapp-icon"></i>
-  </a>
-              
-  <!-- Botón para volver arriba -->
-  <button id="scrollToTopBtn" title="Volver arriba"><i class="fas fa-arrow-up"></i></button>
-    
+    <!-- Listado de ofertas y promociones -->
+    <div class="row mt-5">
+      <% promociones.forEach(function(promocion) { %>
+      <div class="col-md-4">
+        <div class="product">
+          <img src="/images/<%= promocion.categoria_nombre.toLowerCase() %>/<%= promocion.imagen1 %>" alt="<%= promocion.nombre %>" class="img-fluid">
+          <h5 class="product-title mt-3"><%= promocion.nombre %></h5>
+          <p class="price">
+            <span class="original-price"><%= promocion.precio_pvp %>€</span>
+            <span class="discount-price badge bg-danger"><%= promocion.precio_oferta %>€</span>
+          </p>
+          <button class="btn btn-primary btn-lg btn-block btn-add-to-cart" data-id="<%= promocion._id %>">Aprovecha ahora</button>
+        </div>
+      </div>
+      <% }); %>
+    </div>
+
+    <a href="https://wa.me/+34637053805?text=Contactar%20con%20Ineffabile%20Pizza%20vía%20WhatsApp" class="whatsapp" target="_blank"> 
+      <i class="fab fa-whatsapp whatsapp-icon"></i>
+    </a>
+                
+    <!-- Botón para volver arriba -->
+    <button id="scrollToTopBtn" title="Volver arriba"><i class="fas fa-arrow-up"></i></button>
 
   <!-- Incluir el footer -->
   <%- include('./partials/footer.ejs') %>
@@ -93,30 +98,77 @@
   <script src="/js/bootstrap.bundle.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js"></script>
   <script>
+    $(document).ready(function() {
+      const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 1800,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer)
+          toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+      });
+  
+      $('.btn-add-to-cart').click(function(event) {
+        event.preventDefault();
+        var productId = $(this).data('id'); // Obtener el ID del producto
+        var productName = $(this).closest('.product').find('.product-title').text();
+        var productPrice = $(this).closest('.product').find('.discount-price').text(); // Obtener el precio de oferta
+  
+        fetch('/add-to-cart', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            id: productId,
+            name: productName,
+            price: productPrice,
+            quantity: 1
+          })
+        })
+        .then(response => {
+          if (response.ok) {
+            updateCartItemCount(); // Asegúrate de que esta función exista y actualice el contador del carrito
+            Toast.fire({
+              icon: 'success',
+              title: '¡Producto agregado al carrito!'
+            });
+          } else {
+            throw new Error('Error al agregar producto al carrito');
+          }
+        })
+        .catch(error => {
+          console.error('Error al agregar producto al carrito:', error);
+          Toast.fire({
+            icon: 'error',
+            title: 'Error al agregar producto al carrito'
+          });
+        });
+      });
+    });
+  </script>
+  <script>
     window.onscroll = function() {scrollFunction()};
-    
+
     function scrollFunction() {
       if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
         document.getElementById("scrollToTopBtn").style.display = "block";
       } else {
         document.getElementById("scrollToTopBtn").style.display = "none";
       }
-      var sections = document.querySelectorAll('.section');
-        sections.forEach(function(section) {
-          if (isSectionInViewport(section)) {
-            section.classList.add('visible');
-          }
-        });
-      }
-  
-      document.getElementById("scrollToTopBtn").addEventListener("click", function() {
-        scrollToTop()
-      })
-  
-      function scrollToTop() {
-        const body = document.getElementsByTagName("body")[0];
-        body.scrollIntoView({ behavior: "smooth" });
-      }
-    </script>
+    }
+
+    document.getElementById("scrollToTopBtn").addEventListener("click", function() {
+      scrollToTop()
+    })
+
+    function scrollToTop() {
+      const body = document.getElementsByTagName("body")[0];
+      body.scrollIntoView({ behavior: "smooth" });
+    }
+  </script>
 </body>
 </html>
