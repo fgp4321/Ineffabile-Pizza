@@ -16,10 +16,13 @@ const errorHandler = require("./middlewares/errorHandler.mw")
 const cookieParser = require("cookie-parser")
 const session = require("express-session")
 const methodOverride = require('method-override');
+const passport = require('passport');
 
 //Google OAuth2
-const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+
+//Github OAuth2
+const GitHubStrategy = require('passport-github').Strategy;
 
 const app = express()
 const port = process.env.PORT || 9100
@@ -102,6 +105,21 @@ passport.serializeUser(function(user, done) {
 });
 
 
+passport.use(new GitHubStrategy({
+    clientID: process.env.GITHUB_CLIENT_ID,
+    clientSecret: process.env.GITHUB_SECRET_ID,
+    callbackURL: process.env.GITHUB_CALLBACK_URL
+  },
+  function(accessToken, refreshToken, profile, cb) {
+    // Aquí, puedes optar por buscar o crear un usuario en tu base de datos
+    User.findOrCreate({ githubId: profile.id }, function (err, user) {
+      return cb(err, user);
+    });
+  }
+));
+
+
+
 
 const faviconPath = path.join(__dirname, 'public/favicon', 'favicon3.ico');
 app.use(favicon(faviconPath));
@@ -126,10 +144,6 @@ app.use(`/pedidos`,pedidoRoutes)
 app.get('/', (req, res) => {
     res.render('home.ejs')
 })
-
-/*console.log(process.env.OAUTH2_CLIENT_ID);
-console.log(process.env.OAUTH2_SECRET_ID);
-console.log(process.env.OAUTH2_CALLBACK_URL);*/
 
 
 
