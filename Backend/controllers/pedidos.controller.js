@@ -21,7 +21,7 @@ exports.obtenerTodosPedidos = wrapAsync(async (req, res) => {
     }
     const sortOrder = req.query.sort || 'desc'; // Recibe el parámetro de ordenamiento, por defecto 'desc'
     try {
-        const pedidos = await Pedido.find().sort({ fecha: sortOrder === 'desc' ? -1 : 1 });
+        const pedidos = await Pedido.find({ isActive: true }).sort({ fecha: sortOrder === 'desc' ? -1 : 1 });
         res.render('pedidos.ejs', { pedidos: pedidos, currentSort: sortOrder });
     } catch (error) {
         res.status(500).json({ error: "Error al obtener los pedidos" });

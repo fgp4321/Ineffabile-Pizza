@@ -17,7 +17,12 @@
             <% pedidos.forEach(pedido => { %>
                 <div class="card mb-3">
                     <div class="card-header">
-                        Pedido realizado el <%= pedido.fecha.toDateString() %>
+                        Pedido realizado el <%= new Date(pedido.fecha).toLocaleString('es-ES', { day: 'numeric', month: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false }) %>
+                        <% if (pedido.isActive) { %>
+                            <span class="badge bg-success">Activo</span>
+                        <% } else { %>
+                            <span class="badge bg-warning text-dark">Desactivado</span>
+                        <% } %>
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">Total: <%= pedido.total %> €</h5>
@@ -28,6 +33,9 @@
                                 <li><%= producto %></li>
                             <% }) %>
                         </ul>
+                        <% if (!pedido.isActive) { %>
+                            <p class="text-muted">Este pedido ha sido desactivado o finalizado.</p>
+                        <% } %>
                     </div>
                 </div>
             <% }) %>
