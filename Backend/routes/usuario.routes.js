@@ -45,7 +45,7 @@ router.get('/auth/google/callback',
 
 
 
-/*---------- GOOGLE ----------*/
+/*---------- GITHUB ----------*/
 // Ruta para iniciar sesión con GitHub
 router.get('/auth/github',
   passport.authenticate('github'));
