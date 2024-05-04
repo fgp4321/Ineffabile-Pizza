@@ -13,26 +13,26 @@ const ejecutar = async()=>{
     const pedidos = [
         {
             usuario_nombre: "Mario",
-            productos_nombre: ["Pizza 4 quesos", "Patatas fritas"],
+            productos_nombre: ["Pizza 4 quesos", "Pizza Vegetal", "Patatas alioli"],
             fecha: new Date(),
             cantidad: 2,
-            total: "50",
+            total: "24.20",
             estadoPedido_status: "Efectuado"
         },
         {
             usuario_nombre: "Alex",
-            productos_nombre: ["Macarrones Carbonara", "Pizza de jamon york y quesos", "Alitas de pollo"],
+            productos_nombre: ["Macarrones a la boloñesa", "Pizza atún", "Alitas de pollo"],
             fecha: new Date(),
             cantidad: 3,
-            total: "75",
+            total: "27.50",
             estadoPedido_status: "Preparado"
         },
         {
             usuario_nombre: "Fran",
-            productos_nombre: ["Espagueti boloñesa"],
+            productos_nombre: ["Espaguetis a la carbonara"],
             fecha: new Date(),
             cantidad: 1,
-            total: "30",
+            total: "8.50",
             estadoPedido_status: "Listo"
         }
     ]
