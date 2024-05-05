@@ -6,6 +6,7 @@
   <title>Pizzas - Ineffabile Pizza</title>
   <link rel="stylesheet" href="/css/bootstrap.min.css">
   <link rel="stylesheet" href="/fontawesome/css/all.min.css">
+  <link rel="stylesheet" href="/css/whatsupto.css">
   <link rel="stylesheet" href="/css/pizzas.css">
 </head>
 
@@ -27,6 +28,20 @@
   <br>
   <br>
   <h1 class="text-center mb-4"><u>Nuestras Pizzas</u></h2>
+    <div class="container center-form">  
+      <div class="row">
+        <!-- Botones de opciones -->
+        <div class="col-md text-center">
+          <a href="/productos/pastas" class="btn btn-primary btn-lg">Pastas</a>
+        </div>
+        <div class="col-md text-center">
+          <a href="/productos/complementos" class="btn btn-primary btn-lg">Complementos</a>
+        </div>
+        <div class="col-md text-center">
+          <a href="/productos/bebidas" class="btn btn-primary btn-lg">Bebidas</a>
+        </div>
+      </div>
+    </div>
     <br>
     <br>
   <div class="row">
@@ -93,6 +108,14 @@
   </div>
 </div>
 
+  <a href="https://wa.me/+34637053805?text=Contactar%20con%20Ineffabile%20Pizza%20vía%20WhatsApp" class="whatsapp" target="_blank"> 
+    <i class="fab fa-whatsapp whatsapp-icon"></i>
+  </a>
+              
+  <!-- Botón para volver arriba -->
+  <button id="scrollToTopBtn" title="Volver arriba"><i class="fas fa-arrow-up"></i></button>
+    
+
   <!-- Incluir el footer -->
   <%- include('./partials/footer.ejs') %>
 
@@ -132,52 +155,60 @@
   </script>
   <script>
     $(document).ready(function() {
-  $('.btn-add-to-cart').click(function(event) {
-    event.preventDefault();
-    var pizzaId = $(this).closest('.product').find('.btn-details').data('id');
-    var pizzaName = $(this).closest('.product').find('.product-title').text();
-    var pizzaPrice = $(this).closest('.product').find('.price .normal-price').text();
-    var quantity = 1; // Puedes permitir que el usuario elija la cantidad si lo deseas
-
-    // Utilizar fetch para realizar la solicitud
-    fetch('/add-to-cart', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        id: pizzaId,
-        name: pizzaName,
-        price: pizzaPrice,
-        quantity: quantity
-      })
-    })
-    .then(response => {
-      if (response.ok) {
-        // Mostrar alerta de éxito con SweetAlert2
-        Swal.fire({
-          icon: 'success',
-          title: '¡Producto agregado al carrito!',
-          showConfirmButton: false,
-          timer: 1500
+      // Definición del Toast
+      const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 1800,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer)
+          toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+      });
+    
+      // El resto de tu código que usa Toast aquí
+      $('.btn-add-to-cart').click(function(event) {
+        event.preventDefault();
+        var pizzaId = $(this).closest('.product').find('.btn-details').data('id');
+        var pizzaName = $(this).closest('.product').find('.product-title').text();
+        var pizzaPrice = $(this).closest('.product').find('.price .normal-price').text();
+        var quantity = 1; // Puedes permitir que el usuario elija la cantidad si lo deseas
+    
+        fetch('/add-to-cart', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            id: pizzaId,
+            name: pizzaName,
+            price: pizzaPrice,
+            quantity: quantity
+          })
+        })
+        .then(response => {
+          if (response.ok) {
+            updateCartItemCount();
+            Toast.fire({
+              icon: 'success',
+              title: '¡Producto agregado al carrito!'
+            });
+          } else {
+            throw new Error('Error al agregar producto al carrito');
+          }
+        })
+        .catch(error => {
+          console.error('Error al agregar producto al carrito:', error);
+          Toast.fire({
+            icon: 'error',
+            title: 'Error al agregar producto al carrito'
+          });
         });
-      } else {
-        // Mostrar alerta de error con SweetAlert2
-        throw new Error('Error al agregar producto al carrito');
-      }
-    })
-    .catch(error => {
-      console.error('Error al agregar producto al carrito:', error);
-      // Mostrar alerta de error con SweetAlert2
-      Swal.fire({
-        icon: 'error',
-        title: 'Error',
-        text: 'Error al agregar producto al carrito',
       });
     });
-  });
-});
-</script>
+    </script>
 <script>
   $(document).ready(function() {
     // Inicializar los popovers
@@ -187,5 +218,31 @@
     });
   });
 </script>
+<script>
+  window.onscroll = function() {scrollFunction()};
+  
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      document.getElementById("scrollToTopBtn").style.display = "block";
+    } else {
+      document.getElementById("scrollToTopBtn").style.display = "none";
+    }
+    var sections = document.querySelectorAll('.section');
+      sections.forEach(function(section) {
+        if (isSectionInViewport(section)) {
+          section.classList.add('visible');
+        }
+      });
+    }
+
+    document.getElementById("scrollToTopBtn").addEventListener("click", function() {
+      scrollToTop()
+    })
+
+    function scrollToTop() {
+      const body = document.getElementsByTagName("body")[0];
+      body.scrollIntoView({ behavior: "smooth" });
+    }
+  </script>
 </body>
 </html>

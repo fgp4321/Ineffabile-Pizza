@@ -1,0 +1,33 @@
+.whatsapp {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 60px;
+    right: 6px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 25px; /* Menos redondeado que 50px */
+    text-align: center;
+    font-size: 34px;
+    z-index: 100;
+    box-shadow: 2px 2px 3px #999; /* Opcional: sombra para resaltar el botón */
+  }
+  
+  .whatsapp-icon {
+    margin-top: 13px;
+  }
+
+  #scrollToTopBtn {       
+    display: none;       
+    position: fixed;       
+    bottom: 20px;       
+    right: 20px;       
+    z-index: 99;       
+    font-size: 18px;       
+    border: none;       
+    outline: none;       
+    background-color: #ff3333;       
+    color: white;       
+    cursor: pointer;       
+    border-radius: 50%;     
+  }

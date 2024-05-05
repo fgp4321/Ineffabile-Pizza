@@ -23,6 +23,11 @@ const pedidosSchema = new mongoose.Schema({
     estadoPedido_status: {
         type: String,
         required: true,
+    },
+    isActive: {
+        type: Boolean,
+        required: true,
+        default: true
     }
 })
 
@@ -30,8 +35,8 @@ const Pedido = mongoose.model("Pedido", pedidosSchema)
 
 Pedido.findPedidos = async function(){
     try {
-        const pedidos = await Pedido.find()
-        return pedidos
+        const pedidos = await Pedido.find({ isActive: true });
+        return pedidos;
     } catch (error) {
         throw error;
     }
@@ -82,6 +87,15 @@ Pedido.eliminarPedido = async function (pedidoId) {
         }
     } catch (error) {
         throw error
+    }
+}
+
+Pedido.desactivarPedido = async function(pedidoId) {
+    try {
+        const pedidoActualizado = await Pedido.findByIdAndUpdate(pedidoId, { isActive: false }, { new: true });
+        return pedidoActualizado;
+    } catch (error) {
+        throw error;
     }
 }
 

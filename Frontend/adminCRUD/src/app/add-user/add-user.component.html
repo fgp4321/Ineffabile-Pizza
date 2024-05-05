@@ -125,6 +125,10 @@
                                 <input class="form-check-input" type="radio" id="user" [(ngModel)]="addUserForm.rol" name="rol" value="USER">
                                 <label class="form-check-label" for="user">User</label>
                             </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" id="employee" [(ngModel)]="addUserForm.rol" name="rol" value="EMPLOYEE">
+                                <label class="form-check-label" for="employee">Empleado</label>
+                            </div>
                             <div *ngIf="!addUserForm.rol && isSubmitted" class="alert alert-danger validationError">
                                 Rol es un campo obligatorio
                             </div>

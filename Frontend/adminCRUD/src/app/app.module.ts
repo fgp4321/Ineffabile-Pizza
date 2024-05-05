@@ -29,7 +29,7 @@ import { ProductDeleteModalComponent } from './product-delete-modal/product-dele
     EditProductComponent,
     ViewProductComponent,
     UserDeleteModalComponent,
-    ProductDeleteModalComponent
+    ProductDeleteModalComponent,
   ],
   imports: [
     BrowserModule,

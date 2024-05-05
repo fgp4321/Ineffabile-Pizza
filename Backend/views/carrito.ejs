@@ -7,6 +7,8 @@
   <link rel="stylesheet" href="/css/bootstrap.min.css">
   <link rel="stylesheet" href="/fontawesome/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11">
+  <link rel="stylesheet" href="/css/carrito.css">
+  <link rel="stylesheet" href="/css/whatsupto.css">
 </head>
 
 <body class="bg-light">
@@ -31,12 +33,8 @@
               <p class="card-text">Precio: <%= item.price %>/Ud</p>
             </div>
             <div class="producto-cantidad">
-              <!-- Dropdown para seleccionar la cantidad -->
-              <select class="form-select cantidad-selector" data-id="<%= item.id %>">
-                <% for (let i = 1; i <= 10; i++) { %>
-                  <option value="<%= i %>" <%= item.quantity === i ? 'selected' : '' %>><%= i %></option>
-                <% } %>
-              </select>
+              <!-- Input de solo lectura para mostrar la cantidad -->
+              <input type="text" class="form-control text-center cantidad-input" value="<%= item.quantity %>" readonly>
             </div>
             <div class="producto-eliminar">
               <!-- Botón para eliminar el producto del carrito -->
@@ -61,6 +59,14 @@
     <p>No hay productos en tu carrito.</p>
   <% } %>
 </div>
+
+<a href="https://wa.me/+34637053805?text=Contactar%20con%20Ineffabile%20Pizza%20vía%20WhatsApp" class="whatsapp" target="_blank"> 
+  <i class="fab fa-whatsapp whatsapp-icon"></i>
+</a>
+            
+<!-- Botón para volver arriba -->
+<button id="scrollToTopBtn" title="Volver arriba"><i class="fas fa-arrow-up"></i></button>
+  
 
 <!-- Incluir el footer -->
 <%- include('./partials/footer.ejs') %>
@@ -114,5 +120,31 @@
     });
   });
 </script>
+<script>
+  window.onscroll = function() {scrollFunction()};
+  
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      document.getElementById("scrollToTopBtn").style.display = "block";
+    } else {
+      document.getElementById("scrollToTopBtn").style.display = "none";
+    }
+    var sections = document.querySelectorAll('.section');
+      sections.forEach(function(section) {
+        if (isSectionInViewport(section)) {
+          section.classList.add('visible');
+        }
+      });
+    }
+
+    document.getElementById("scrollToTopBtn").addEventListener("click", function() {
+      scrollToTop()
+    })
+
+    function scrollToTop() {
+      const body = document.getElementsByTagName("body")[0];
+      body.scrollIntoView({ behavior: "smooth" });
+    }
+  </script>
 </body>
 </html>

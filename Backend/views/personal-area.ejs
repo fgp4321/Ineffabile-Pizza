@@ -7,49 +7,55 @@
   <link rel="stylesheet" href="/css/bootstrap.min.css">
   <link rel="stylesheet" href="/fontawesome/css/all.min.css">
   <link rel="stylesheet" href="/css/personal-area.css">
+  <link rel="stylesheet" href="/css/whatsupto.css">
 </head>
 
 <body class="bg-light">
-
   <!-- Incluir el navbar -->
   <%- include('./partials/navbar.ejs') %>
 
   <!-- Contenido del área personal -->
-<div class="container mt-5">
-  <div class="row justify-content-center">
-    <div class="col-md-6">
-      <div class="card text-center">
-        <br>
-        <h2 class="welcome-title">¡Bienvenido, <%= userLogued.nombre %>!</h2>
-        <% if (userLogued.rol === "ADMIN") { %>
-          <a href="http://localhost:4200/Home"><i class="fa-solid fa-user-secret fa-3x"></i></a>
-        <% } %>
-        <img src="/images/perfil.jpg" class="card-img-top mt-4" alt="Foto de Perfil">
-        <div class="card-body">
-          <h5 class="card-title"><%= userLogued.nombre %> <%= userLogued.apellido %></h5>
-          <p class="card-text">Nombre de Usuario: <%= userLogued.username %></p>
-          <% if (userLogued.rol === "ADMIN") { %>
-            <a href="/todos-los-pedidos" class="btn btn-primary">Ver todos los pedidos</a>
-          <% } else { %>
-            <a href="/mis-pedidos" class="btn btn-primary">Ver mis pedidos</a>
-          <% } %>
-          <form action="/api/v2/usuarios/logout" method="POST" style="display: inline;">
-            <button type="submit" class="btn btn-primary"><i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión</button>
-          </form>
-        </div>
-      </div>
-      <% if (userLogued.rol !== "ADMIN") { %>
-        <div class="card mt-4">
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card text-center">
+          <br>
+          <h2 class="welcome-title">¡Bienvenido, <%= userLogued.nombre %>!</h2>
+          <img src="<%= userLogued.imageUrl || '/images/perfil.jpg' %>" class="card-img-top mt-4" alt="Foto de Perfil">
           <div class="card-body">
-            <h5 class="card-title">¿Tienes alguna duda?</h5>
-            <p class="card-text">¡Contáctanos si necesitas ayuda!</p>
-            <a href="/contacto" class="btn btn-primary">Contactar</a>
+            <h5 class="card-title"><%= userLogued.nombre %> <%= userLogued.apellido %></h5>
+            <p class="card-text">Nombre de Usuario: <%= userLogued.username %></p>
+
+            <% if (userLogued.rol === "ADMIN") { %>
+              <a href="http://localhost:4200/Home" class="btn btn-primary">Mantenimiento <i class="fa-solid fa-user-secret"></i></a>
+            <% } else if (userLogued.rol === "EMPLOYEE") { %>
+              <a href="/pedidos" class="btn btn-primary">Gestionar pedidos</a>
+            <% } else { %>
+              <a href="/pedidos/mis-pedidos" class="btn btn-primary">Ver mis pedidos</a>
+            <% } %>
+
+            <form action="/api/v2/usuarios/logout" method="POST" style="display: inline;">
+              <button type="submit" class="btn btn-primary"><i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión</button>
+            </form>
           </div>
         </div>
-      <% } %>
+
+        <% if (userLogued.rol === "USER") { %>
+          <div class="card mt-4">
+            <div class="card-body">
+              <h5 class="card-title">¿Tienes alguna duda?</h5>
+              <p class="card-text">¡Contáctanos si necesitas ayuda!</p>
+              <a href="/contacto" class="btn btn-primary">Contactar</a>
+            </div>
+          </div>
+        <% } %>
+      </div>
     </div>
   </div>
-</div>
+
+  <a href="https://wa.me/+34637053805?text=Contactar%20con%20Ineffabile%20Pizza%20vía%20WhatsApp" class="whatsapp" target="_blank"> 
+    <i class="fab fa-whatsapp whatsapp-icon"></i>
+  </a>
 
   <!-- Incluir el footer -->
   <%- include('./partials/footer.ejs') %>

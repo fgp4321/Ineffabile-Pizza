@@ -1,0 +1,7 @@
+.cantidad-input {
+    width: 50px; /* Ajusta el ancho del input */
+    padding: 5px; /* Ajusta el padding para que no sea demasiado grande */
+    border: 1px solid #ccc; /* Puedes ajustar el color y el grosor del borde */
+    border-radius: 5px; /* Mantiene los bordes redondeados */
+    text-align: center; /* Asegura que el texto esté centrado */
+}

@@ -1,8 +1,10 @@
 const UserController = require("../controllers/usuarios.controller");
 const express = require("express");
+const passport = require('passport');
 const rutasProtegidasJWT = require("../middlewares/jwt.mw");
 const router = express.Router();
 
+/* Administracion */
 router.get("/getAllUser", UserController.buscarTodosUsuarios);
 router.get("/getUserDetailByID/:id", UserController.buscarPorId);
 router.post("/saveUser", UserController.crearUsuario);
@@ -10,6 +12,9 @@ router.put("/editUser/:id", UserController.actualizarUsuario);
 router.delete("/deleteUserByID/:id", UserController.eliminarUsuario);
 
 
+
+
+/*---------- Tradicional ----------*/
 //Crear/Registrar usuario
 router.post('/register', UserController.register);
 
@@ -20,32 +25,38 @@ router.post("/login",UserController.login)
 // Logout
 router.post("/logout", UserController.logout);
 
-/*
-//Cargar la vista de registro
-router.get("/register", UserController.showRegister)
-
-//Crear/Registrar usuario
-router.post("/register", UserController.register)
-
-//Cargar la vista de login
-router.get("/login", UserController.showLogin)
-
-//Autenticar
 
 
-router.get("/guess-list",UserController.showListGuess)
 
-router.get("/jwt",rutasProtegidasJWT, UserController.showList)
-router.get("/logout",UserController.logout)
+/*---------- GOOGLE ----------*/
+// Ruta para iniciar sesión con Google
+router.get('/auth/google',
+  passport.authenticate('google', { scope: ['profile', 'email'] }));
+
+// Ruta de callback para manejar la respuesta de Google
+router.get('/auth/google/callback',
+  passport.authenticate('google', { failureRedirect: '/login' }),
+  function(req, res) {
+    //console.log('User logged from Google:', req.user); // Muestra información del usuario
+    req.session.userLogued = req.user;  // Asegúrate de que esto se está asignando correctamente
+    res.redirect('/usuarios/personal-area');
+});
 
 
-router.get("/edit-users/:id",UserController.showEdit)
-router.patch("/edit-users/:id",UserController.actualizarUser)
-router.delete("/:id",UserController.eliminarUser)
 
-router.get('*', (req, res) => {
-    res.render("pageNotFound.ejs")
-})
-*/
+
+/*---------- GITHUB ----------*/
+// Ruta para iniciar sesión con GitHub
+router.get('/auth/github',
+  passport.authenticate('github'));
+
+// Ruta de callback para manejar la respuesta de GitHub
+router.get('/auth/github/callback',
+  passport.authenticate('github', { failureRedirect: '/login' }),
+  function(req, res) {
+    // Inicio de sesión exitoso, redirige a la zona personal.
+    req.session.userLogued = req.user;
+    res.redirect('/usuarios/personal-area');
+});
 
 module.exports = router

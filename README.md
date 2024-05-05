@@ -12,22 +12,16 @@ Asegúrate de tener instaladas las siguientes herramientas antes de comenzar:
 - Nodemon (Opcional para compilación).
 
 ## Elasticsearch
+*Es preferible seguir la guía "Guia-Docker-Elasticsearch.pdf" situada en Elasticsearch/ para realizar todos los pasos.
 
 1. Para empezar a crear documentos e índices en elasticsearch se tendrán que seguir los siguientes pasos:
 
 - Levantar servicio: 
 Antes de crear el índice, levantaremos el servicio de elasticsearch con Docker. Para ello nos situaremos en el directorio elasticsearch-site/ y ejecutaremos: docker-compose up
-Este comando levantará elasticsearch y estará disponible para realizar búsquedas. Si hay algún problema de memoria, mirar "Memoria Docker y Elasticsearch.pdf, Página 5"
+Este comando levantará elasticsearch y estará disponible para realizar búsquedas. Si hay algún problema puede seguir la guía "Guia-Docker-Elasticsearch.pdf"
 
 - Creación de índice: 
-Para crear el índice, se copiará todo el contenido de mapping.txt en el JSON del body y como URL se indicará "http://localhost:9200/productos" en método PUT. Insomnia permite copiar cURLs para agilizar el proceso: 
-```bash
-curl --request PUT \
-  --url http://localhost:9200/productos \
-  --header 'User-Agent: insomnia/8.6.1' \
-  --cookie connect.sid=s%253A3Jq5y6d3pTUfpt15QeS7AbOjQKNFQSuI
-  NRDvdU0bVBTncYwOSiWGwimryapHY0OmjsI01FAXmnA
-```
+Para crear el índice, se copiará todo el contenido de mapping.txt en el JSON del body y como URL se indicará "http://localhost:9200/productos" en método PUT. Insomnia permite copiar cURLs para agilizar el proceso
 
 - En caso de haber creado el índice sin el mapeo, podemos eliminar el índice con:
 ```bash

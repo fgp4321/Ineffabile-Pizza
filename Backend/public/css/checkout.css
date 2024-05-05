@@ -15,24 +15,27 @@
 
   /* Estilos para el formulario de pago */
   #payment-form {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
-
+  
   #card-element {
-    margin-bottom: 20px;
-    border: 1px solid #ced4da;
-    border-radius: 5px;
     padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f7f7f7;
   }
 
   #card-errors {
-    color: red;
-    margin-bottom: 20px;
+    color: #f72c2c;
+    margin-top: 10px;
+  }
+
+  #pay-button {
+    width: 100%;
+    margin-top: 20px;
   }
 
   #payment-form button[type="submit"] {

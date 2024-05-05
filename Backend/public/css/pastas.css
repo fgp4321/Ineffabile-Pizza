@@ -21,6 +21,28 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
 
+  .btn-lg {
+    font-size: 1.2rem; /* Reducir el tamaño de fuente */
+    padding: 10px 20px; /* Reducir el padding */
+    border-radius: 10px;
+    margin: 10px; /* Mantener el margen */
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .btn-lg:hover {
+    transform: scale(1.1);
+  }
+
+  .btn-primary {
+    background-color: #ff3333;
+    border-color: #ff3333;
+  }
+
+  .btn-primary:hover {
+    background-color: #ff6a6a;
+    border-color: #ff6a6a;
+  }
+
   .product img {
     max-width: 100%;
     height: auto;
@@ -33,11 +55,12 @@ body {
     font-weight: bold;
     margin-bottom: 10px;
   }
-
+  
   .price {
-    font-size: 16px;
-    color: #28a745; /* Verde para el precio en oferta */
-    margin-bottom: 5px;
+    font-size: 1.2rem;  /* Tamaño de la fuente grande y legible */
+    font-family: 'Roboto', sans-serif;  /* Fuente minimalista */
+    color: #333;  /* Color oscuro para mejor legibilidad */
+    padding: 10px 0;  /* Espaciado antes y después del precio */
   }
 
   .original-price {

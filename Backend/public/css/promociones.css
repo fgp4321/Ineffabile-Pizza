@@ -1,79 +1,70 @@
 body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #f8f9fa;
-  }
+  font-family: 'Roboto', sans-serif;
+  background-color: #f8f9fa;
+}
 
-  .container {
-    padding: 20px;
-  }
+.container {
+  padding: 20px;
+}
 
-  h2 {
-    color: #007bff;
-    margin-bottom: 30px;
-  }
+h1 {
+  color: #000000;
+  margin-bottom: 30px;
+}
 
-  .product {
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 20px;
-    margin-bottom: 20px;
-    background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
+.carousel-inner img {
+  height: 300px; /* Altura ajustada para enfocar la atención en las imágenes del carrusel */
+  object-fit: cover;
+}
 
-  .product img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-    margin-bottom: 15px;
-  }
+.product {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
 
-  .product-title {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
+.product img {
+  width: 100%; /* Asegura que la imagen ocupa todo el ancho del contenedor */
+  height: 200px;
+  object-fit: cover;
+}
 
-  .price {
-    font-size: 16px;
-    color: #28a745; /* Verde para el precio en oferta */
-    margin-bottom: 5px;
-  }
+.product-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
 
-  .original-price {
-    text-decoration: line-through;
-    color: #ccc; /* Color para el precio original tachado */
-    margin-right: 10px;
-  }
+.price {
+  font-size: 16px;
+  color: #28a745;
+  margin-bottom: 5px;
+}
 
-  .discount-price {
-    color: #dc3545; /* Rojo para el precio de descuento */
-  }
+.discount-price {
+  background-color: #dc3545; /* Rojo oscuro, típico de las alertas de "descuento" */
+  color: white; /* Texto en blanco para contraste */
+  padding: 5px 10px; /* Padding para dar forma a la etiqueta */
+  border-radius: 5px; /* Bordes redondeados para suavizar la etiqueta */
+  font-weight: bold; /* Hacer el texto un poco más grueso */
+}
 
-  .btn-container {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
-  }
+.original-price {
+  text-decoration: line-through;
+  color: #ccc; /* Gris para mostrar que es un precio no aplicable */
+  margin-right: 10px;
+}
 
-  .btn-details,
-  .btn-add-to-cart {
-    flex: 1;
-    padding: 3px;
-    border: 1px solid #007bff;
-    border-radius: 5px;
-    background-color: #007bff;
-    color: #fff;
-    text-align: center;
-    text-decoration: none;
-    margin-right: 5px;
-    transition: background-color 0.3s ease-in-out;
-  }
+.btn-primary {
+  background-color: #ff3333;
+  border-color: #ff3333;
+}
 
-  .btn-add-to-cart:hover {
-    background-color: #0056b3;
-  }
-
-  .btn-details:hover {
-    background-color: #0056b3;
-  }
+.btn-primary:hover {
+  background-color: #ff6a6a;
+  border-color: #ff6a6a;
+}

@@ -16,14 +16,20 @@ const errorHandler = require("./middlewares/errorHandler.mw")
 const cookieParser = require("cookie-parser")
 const session = require("express-session")
 const methodOverride = require('method-override');
+const passport = require('passport');
+
+//Google OAuth2
+const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+
+//Github OAuth2
+const GitHubStrategy = require('passport-github').Strategy;
 
 const app = express()
 const port = process.env.PORT || 9100
 const usuarioRoutes = require("./routes/usuario.routes")
 const productoRoutes = require("./routes/producto.routes")
 const pedidoRoutes = require("./routes/pedido.routes")
-//rutas categorias
-//rutas pedidos
+
 const version = "v2"
 
 //Elasticsearch
@@ -38,7 +44,7 @@ const addMorganToLogger = morgan("combined", {
 })
 
 //Rutas permitidas para CORS
-const whiteList = ["http://localhost:4200"]
+const whiteList = ["http://localhost:4200","http://localhost:9100"]
 
 const corsOptions = {
     origin: (origin,callback) => {
@@ -62,6 +68,59 @@ app.use(session({
 app.use(express.urlencoded({extended:true}))
 app.use(express.json())
 
+// Configurar Passport.js
+app.use(passport.initialize());
+app.use(passport.session());
+
+// Configurar la estrategia de autenticación de Google
+passport.use(new GoogleStrategy({
+    clientID: process.env.OAUTH2_CLIENT_ID,
+    clientSecret: process.env.OAUTH2_SECRET_ID,
+    callbackURL: process.env.OAUTH2_CALLBACK_URL
+  },
+  function(accessToken, refreshToken, profile, done) {
+    const user = {
+      nombre: profile.name.givenName,
+      apellido: profile.name.familyName,
+      username: profile.emails[0].value.split('@')[0], // Usamos parte del email como username
+      email: profile.emails[0].value,
+      imageUrl: profile.photos[0].value,
+      googleId: profile.id,
+      rol: 'USER' // Asumiendo un rol por defecto; ajusta según tu lógica de negocio
+    };
+    //console.log('Adapted Google Profile:', user);
+    return done(null, user);
+  }
+));
+
+// Serialización del usuario
+passport.serializeUser(function(user, done) {
+    //console.log('Serializing user:', user);
+    done(null, user);
+});
+  
+  // Deserialización del usuario
+  passport.deserializeUser(function(obj, done) {
+    done(null, obj);
+});
+
+
+passport.use(new GitHubStrategy({
+    clientID: process.env.GITHUB_CLIENT_ID,
+    clientSecret: process.env.GITHUB_SECRET_ID,
+    callbackURL: process.env.GITHUB_CALLBACK_URL
+  },
+  function(accessToken, refreshToken, profile, cb) {
+    // Aquí, puedes optar por buscar o crear un usuario en tu base de datos
+    User.findOrCreate({ githubId: profile.id }, function (err, user) {
+      return cb(err, user);
+    });
+  }
+));
+
+
+
+
 const faviconPath = path.join(__dirname, 'public/favicon', 'favicon3.ico');
 app.use(favicon(faviconPath));
 
@@ -80,13 +139,13 @@ app.use(addMorganToLogger)
 app.use(`/api/${version}/usuarios`,usuarioRoutes)
 app.use(`/api/${version}/productos`,productoRoutes)
 app.use(`/pedidos`,pedidoRoutes)
-//rutas categorias
-//rutas pedidos
 
 //RUTA HOME.EJS
 app.get('/', (req, res) => {
     res.render('home.ejs')
 })
+
+
 
 
 //NEWSLETTER
@@ -110,7 +169,6 @@ app.post('/subscribe', bodyParser.urlencoded({ extended: true }), (req, res) => 
 app.get('/newsletter/success', (req, res) => {
     res.render('newsletter-success.ejs');
 });
-
 
 
 
@@ -263,22 +321,29 @@ app.get('/productos/bebidas', async (req, res) => {
 
 app.get('/promociones', async (req, res) => {
     try {
-        // Hacer una solicitud al endpoint de productos para obtener todas las promociones
         const response = await fetch('http://localhost:9100/api/v2/productos/getAllProduct');
         const productos = await response.json();
-        // Filtrar las promociones
-        const pizzas = productos.filter(producto => producto.categoria_nombre === 'Pizzas');
-        const pastas = productos.filter(producto => producto.categoria_nombre === 'Pastas');
-        const complementos = productos.filter(producto => producto.categoria_nombre === 'Complementos');
-        const bebidas = productos.filter(producto => producto.categoria_nombre === 'Bebidas');
-        // Renderizar la vista de promociones y pasar los datos de las promociones
-        res.render('promociones.ejs', { pizzas, pastas, complementos, bebidas });
+        
+        // Filtrar solo los productos que están en promoción
+        const promociones = productos.filter(producto => 
+            producto.precio_oferta !== null && 
+            producto.precio_oferta !== 0 &&
+            producto.precio_oferta < producto.precio_pvp && // Asegurar que el precio de oferta sea menor
+            producto.categoria_nombre);
+
+        res.render('promociones.ejs', { promociones });
     } catch (error) {
-        // Manejo de errores
         console.error('Error al obtener las promociones:', error);
         res.render('error.ejs', { message: 'Error al obtener las promociones' });
     }
 });
+
+app.get('/obtener-cantidad-carrito', (req, res) => {
+    const cart = req.session.cart || [];
+    const itemCount = cart.reduce((total, product) => total + product.quantity, 0);
+    res.json({ itemCount });
+  });
+  
 
 // Ruta para agregar productos al carrito
 app.post('/add-to-cart', (req, res) => {
@@ -407,9 +472,16 @@ app.get('/resultados', async (req, res) => {
     }
 });
 
+app.get('/formas-de-pago', (req, res) => {
+    res.render('formas-de-pago.ejs');
+});
 
 app.get('/pedidos/mis-pedidos', (req, res) => {
     res.render('mis-pedidos.ejs');
+});
+
+app.get('/pedidos', (req, res) => {
+    res.render('pedidos.ejs');
 });
 
 

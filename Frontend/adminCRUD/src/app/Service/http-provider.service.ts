@@ -4,8 +4,10 @@ import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { WebApiService } from './web-api.service';
 
+//URL Backend
 var apiUrl = "http://localhost:9100";
 
+//API Usuarios
 var userHttpLink = {
   getAllUser: apiUrl + "/api/v2/usuarios/getAllUser",
   deleteUserByID: apiUrl + "/api/v2/usuarios/deleteUserByID",
@@ -14,12 +16,22 @@ var userHttpLink = {
   editUser: apiUrl + "/api/v2/usuarios/editUser",
 }
 
+//API Productos
 var productHttpLink = {
   getAllProduct: apiUrl + "/api/v2/productos/getAllProduct",
   deleteProductByID: apiUrl + "/api/v2/productos/deleteProductByID",
   getProductDetailByID: apiUrl + "/api/v2/productos/getProductDetailByID",
   saveProduct: apiUrl + "/api/v2/productos/saveProduct",
   editProduct: apiUrl + "/api/v2/productos/editProduct",
+}
+
+//API Pedidos
+var orderHttpLink = {
+  getAllOrder: apiUrl + "/pedidos/getAllOrder",
+  deleteOrderByID: apiUrl + "/pedidos/deleteOrderByID",
+  getOrderDetailByID: apiUrl + "/pedidos/getOrderDetailByID",
+  saveOrder: apiUrl + "/pedidos/saveOrder",
+  editOrder: apiUrl + "/pedidos/editOrder",
 }
 
 @Injectable({
@@ -75,6 +87,9 @@ export class HttpProviderService {
   }
 
 
+  //-----------------------------------------------------------------------
+
+
 
   //PRODUCTOS
   public getAllProduct(): Observable<any> {
@@ -121,4 +136,7 @@ export class HttpProviderService {
       })
     );
   }
+
+
+//-----------------------------------------------------------------------
 }
