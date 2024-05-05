@@ -24,7 +24,7 @@ const ejecutar = async () => {
         {
             nombre: "Pizza 4 quesos",
             precio_pvp: "8.50",
-            precio_pvp: "5.99",
+            precio_oferta: "5.99",
             descripcion: "Clásica pizza de 4 quesos, donde se mezclan a la perfección los clásicos: mozzarella, parmesano, gorgonzola y queso de cabra.",
             categoria_nombre: "Pizzas",
             imagen1: "pizza-4quesos1.jpg",
@@ -52,7 +52,7 @@ const ejecutar = async () => {
         {
             nombre: "Pizza Vegetal",
             precio_pvp: "6.20",
-            precio_pvp: "4.99",
+            precio_oferta: "4.99",
             descripcion: "Pizza vegetariana con una selección de verduras frescas y queso mozzarella.",
             categoria_nombre: "Pizzas",
             imagen1: "pizza-vegetal1.jpg",
@@ -71,7 +71,7 @@ const ejecutar = async () => {
         {
             nombre: "Pizza 4 estaciones",
             precio_pvp: "7.50",
-            precio_pvp: "4.99",
+            precio_oferta: "4.99",
             descripcion: "Pizza dividida en cuatro secciones, cada una con ingredientes representativos de una estación del año.",
             categoria_nombre: "Pizzas",
             imagen1: "pizza-4estaciones1.jpg",
@@ -81,7 +81,7 @@ const ejecutar = async () => {
         {
             nombre: "Pizza Vegana",
             precio_pvp: "6.50",
-            precio_pvp: "4.99",
+            precio_oferta: "4.99",
             descripcion: "Pizza totalmente vegetal, sin ingredientes de origen animal.",
             categoria_nombre: "Pizzas",
             imagen1: "pizza-vegana1.jpg",
@@ -110,7 +110,7 @@ const ejecutar = async () => {
         {
             nombre: "Espaguetis a la carbonara",
             precio_pvp: "8.50",
-            precio_pvp: "6.99",
+            precio_oferta: "6.99",
             descripcion: "Espaguetis servidos con una cremosa salsa carbonara y panceta crujiente.",
             categoria_nombre: "Pastas",
             imagen1: "espaguetis-carbonara1.jpg",
@@ -120,7 +120,7 @@ const ejecutar = async () => {
         {
             nombre: "Tagliatelle con trufa",
             precio_pvp: "9.50",
-            precio_pvp: "6.99",
+            precio_oferta: "6.99",
             descripcion: "Tagliatelle con salsa de trufa negra y queso parmesano rallado.",
             categoria_nombre: "Pastas",
             imagen1: "tagliatelle-trufa1.jpg",
@@ -130,7 +130,7 @@ const ejecutar = async () => {
         {
             nombre: "Macarrones a la boloñesa",
             precio_pvp: "10.50",
-            precio_pvp: "8.50",
+            precio_oferta: "8.50",
             descripcion: "Macarrones con una abundante salsa boloñesa casera.",
             categoria_nombre: "Pastas",
             imagen1: "macarrones-boloñesa1.jpg",
@@ -158,7 +158,7 @@ const ejecutar = async () => {
         {
             nombre: "Gnocchi con aceite de oliva y hierbas",
             precio_pvp: "10.50",
-            precio_pvp: "7.99",
+            precio_oferta: "7.99",
             descripcion: "Gnocchi servidos con una mezcla de aceite de oliva, ajo y hierbas frescas.",
             categoria_nombre: "Pastas",
             imagen1: "gnocchi1.jpg",
@@ -187,7 +187,7 @@ const ejecutar = async () => {
         {
             nombre: "Aros de cebolla",
             precio_pvp: "6.50",
-            precio_pvp: "4.99",
+            precio_oferta: "4.99",
             descripcion: "Aros de cebolla crujientes y dorados, acompañados de salsa BBQ.",
             categoria_nombre: "Complementos",
             imagen1: "aros-cebolla1.jpg",
@@ -206,7 +206,7 @@ const ejecutar = async () => {
         {
             nombre: "Jalapeños fritos",
             precio_pvp: "8.50",
-            precio_pvp: "6.99",
+            precio_oferta: "6.99",
             descripcion: "Jalapeños frescos rellenos de queso crema, empanizados y fritos hasta dorar.",
             categoria_nombre: "Complementos",
             imagen1: "jalapeños-fritos1.jpg",
@@ -225,7 +225,7 @@ const ejecutar = async () => {
         {
             nombre: "Alitas de pollo",
             precio_pvp: "8.50",
-            precio_pvp: "6.99",
+            precio_oferta: "6.99",
             descripcion: "Alitas de pollo marinadas y horneadas a la perfección, acompañadas de salsa barbacoa.",
             categoria_nombre: "Complementos",
             imagen1: "alitas-pollo1.jpg",
@@ -273,7 +273,7 @@ const ejecutar = async () => {
         {
             nombre: "Cerveza",
             precio_pvp: "2.5",
-            precio_pvp: "1.49",
+            precio_oferta: "1.49",
             descripcion: "Cerveza fría en botella de cristal.",
             categoria_nombre: "Bebidas",
             imagen1: "cerveza.jpg",
