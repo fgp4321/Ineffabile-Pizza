@@ -1,81 +1,14 @@
-/* Aplica la fuente Flamenco al contenido principal */
-body {
-    font-family: Arial, sans-serif;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
   }
-  
-  /* Estilo para el encabezado */
-  header {
-    text-align: center;
-    margin-top: 20px;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  /* Estilo para los títulos de sección */
-  h1, h2 {
-    color: #ff3333;
-  }
-  
-  /* Estilo para el contenido de la política de privacidad */
-  .container {
-    margin-top: 20px;
-    padding: 0 15px;
-  }
-  
-  p {
-    line-height: 1.6;
-  }
-  
-  /* Estilo para los enlaces */
-  a {
-    color: #ff3333;
-  }
-  
-  a:hover {
-    text-decoration: underline;
-  }
-  
-  /* Estilo para las imágenes */
-  img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-  }
-  
-  /* Animación de fade-in */
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(50px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  .fadeIn {
-    animation: fadeIn 1s ease forwards;
-  }
-  
-  /* Estilo para el footer */
-  .footer {
-    background-color: #343a40;
-    color: #fff;
-    padding: 20px 0;
-    text-align: center;
-  }
-  
-  .social-icon {
-    color: #fff;
-    font-size: 1.5em;
-    margin: 0 5px;
-  }
-  
-  .footer-text {
-    margin-top: 10px;
-  }
-  
-  /* Estilo para el cuadro de derechos de autor */
-  .footer-text p {
-    padding: 10px 0;
-  }
-  
+}
+
+.fadeIn {
+  animation: fadeIn 1s ease forwards;
+}

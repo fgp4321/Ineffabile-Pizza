@@ -7,24 +7,21 @@
   <title>Política de Privacidad - Ineffabile Pizza</title>
   <link rel="stylesheet" href="/css/bootstrap.min.css">
   <link rel="stylesheet" href="/fontawesome/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Flamenco&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/privacidad.css">
+  <link rel="stylesheet" href="/css/whatsupto.css">
+
 </head>
 <body class="bg-light">
 
   <!-- Incluir el navbar -->
   <%- include('./partials/navbar.ejs') %>
-  <br>
-  <header class="fadeIn">
-    <br>
-    <h1><u>Política de Privacidad</u></h1>
-    <br>
-  </header>
-  <br>
+
   <!-- Contenido de la página de Política de Privacidad -->
   <div class="container fadeIn">
     <div class="row mt-5">
       <div class="col-md-12">
+      <h1 class="text-center mt-5">Política de privacidad</h1>
+      <br>
         <p>En Ineffabile Pizzeria, respetamos y valoramos tu privacidad. Esta Política de Privacidad describe cómo recopilamos, utilizamos y protegemos la información personal que nos proporcionas cuando utilizas nuestro sitio web y nuestros servicios.</p>
         <h2>Información que recopilamos</h2>
         <p>Recopilamos información personal cuando realizas una compra en nuestro sitio web, te suscribes a nuestro boletín informativo, completas un formulario de contacto o participas en una encuesta o promoción. Esta información puede incluir tu nombre, dirección de correo electrónico, dirección postal, número de teléfono y detalles de pago.</p>
@@ -44,11 +41,45 @@
   <br>
   <br>
 
+  <a href="https://wa.me/+34637053805?text=Contactar%20con%20Ineffabile%20Pizza%20vía%20WhatsApp" class="whatsapp" target="_blank"> 
+    <i class="fab fa-whatsapp whatsapp-icon"></i>
+  </a>
+              
+  <!-- Botón para volver arriba -->
+  <button id="scrollToTopBtn" title="Volver arriba"><i class="fas fa-arrow-up"></i></button>
+
   <!-- Incluir el footer -->
   <%- include('./partials/footer.ejs') %>
 
   <script src="/fontawesome/js/all.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js"></script>
   <script src="/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    window.onscroll = function() {scrollFunction()};
+    
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("scrollToTopBtn").style.display = "block";
+      } else {
+        document.getElementById("scrollToTopBtn").style.display = "none";
+      }
+      var sections = document.querySelectorAll('.section');
+        sections.forEach(function(section) {
+          if (isSectionInViewport(section)) {
+            section.classList.add('visible');
+          }
+        });
+      }
+  
+      document.getElementById("scrollToTopBtn").addEventListener("click", function() {
+        scrollToTop()
+      })
+  
+      function scrollToTop() {
+        const body = document.getElementsByTagName("body")[0];
+        body.scrollIntoView({ behavior: "smooth" });
+      }
+    </script>
 </body>
 </html>
