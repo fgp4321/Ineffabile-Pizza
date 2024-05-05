@@ -15,7 +15,7 @@ const ejecutar = async()=>{
             usuario_nombre: "Mario",
             productos_nombre: ["Pizza 4 quesos", "Pizza Vegetal", "Patatas alioli"],
             fecha: new Date(),
-            cantidad: 2,
+            cantidad: 3,
             total: "24.20",
             estadoPedido_status: "Efectuado"
         },
