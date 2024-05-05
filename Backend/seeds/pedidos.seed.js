@@ -17,7 +17,8 @@ const ejecutar = async()=>{
             fecha: new Date(),
             cantidad: 3,
             total: "24.20",
-            estadoPedido_status: "Efectuado"
+            estadoPedido_status: "Efectuado",
+            isActive: false
         },
         {
             usuario_nombre: "Alex",
@@ -25,7 +26,8 @@ const ejecutar = async()=>{
             fecha: new Date(),
             cantidad: 3,
             total: "27.50",
-            estadoPedido_status: "Preparado"
+            estadoPedido_status: "Preparado",
+            isActive: false
         },
         {
             usuario_nombre: "Fran",
@@ -33,7 +35,8 @@ const ejecutar = async()=>{
             fecha: new Date(),
             cantidad: 1,
             total: "8.50",
-            estadoPedido_status: "Listo"
+            estadoPedido_status: "Listo",
+            isActive: false
         }
     ]
 
