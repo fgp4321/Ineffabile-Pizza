@@ -102,6 +102,13 @@ body {
     color: #f8f9fa;
   }
 
+  .img-carousel {
+    max-width: 65%; /* Ajusta este valor según lo que necesites */
+    height: auto;
+    display: block;
+    margin: 0 auto; /* Centra la imagen horizontalmente */
+  }
+
   @keyframes fadeIn {
   from {
     opacity: 0;
