@@ -37,7 +37,6 @@ Una vez creado el índice, ejecutaremos el script situado en Elasticsearch/ para
 
 Para comprobar que todo ha ido correctamente, visitaremos http://localhost:9200/productos/_search o haremos una petición GET a esta URL y se deberían de ver todos los productos indexados en JSON.
 
-# ------------------
 
 ## Configuración del Frontend
 
@@ -49,7 +48,6 @@ Para comprobar que todo ha ido correctamente, visitaremos http://localhost:9200/
 
 Esto iniciará el servidor de desarrollo frontend y podrás acceder a la aplicación desde http://localhost:4200/ en tu navegador.
 
-# ------------------
 
 ## Configuración del Backend
 1. Abre una terminal en Backend/ e instala las dependencias.
@@ -70,6 +68,5 @@ Con nodemon (recomendado para desarrollo):
 Con Node.js:
 - node index.js
 
-# ------------------
 
 Esto iniciará el servidor de desarrollo backend y podrás acceder a la aplicación desde http://localhost:9100/ en tu navegador.

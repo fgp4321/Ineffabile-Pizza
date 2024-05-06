@@ -111,10 +111,16 @@ passport.use(new GitHubStrategy({
     callbackURL: process.env.GITHUB_CALLBACK_URL
   },
   function(accessToken, refreshToken, profile, cb) {
-    // Aquí, puedes optar por buscar o crear un usuario en tu base de datos
-    User.findOrCreate({ githubId: profile.id }, function (err, user) {
-      return cb(err, user);
-    });
+    const user = {
+      nombre: profile.displayName || profile.username,
+      username: profile.username,
+      email: profile.emails && profile.emails[0].value, // Asumiendo que el email está disponible
+      imageUrl: profile.photos && profile.photos[0].value,
+      githubId: profile.id,
+      rol: 'USER' // Asumiendo un rol por defecto; ajusta según tu lógica de negocio
+    };
+    //console.log('Adapted GitHub Profile:', user);
+    return cb(null, user);
   }
 ));
 
