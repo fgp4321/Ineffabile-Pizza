@@ -16,6 +16,10 @@
     text-align: center;
 }
 
+.cookie-options div {
+    margin: 10px;
+}
+
 .cookie-buttons .cookie-button {
     margin: 10px;
     padding: 10px 20px;
@@ -27,13 +31,13 @@
 }
 
 .cookie-buttons .cookie-button.accept {
-    background-color: #2dce1f;
-    color: #fff;
+    background-color: #4CAF50; /* Green */
+    color: white;
 }
 
 .cookie-buttons .cookie-button.reject {
-    background-color: #ff0000;
-    color: #fff;
+    background-color: #f44336; /* Red */
+    color: white;
 }
 
 .cookie-buttons .cookie-button:hover {

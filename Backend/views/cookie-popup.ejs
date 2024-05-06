@@ -1,10 +1,21 @@
 <div id="cookie-popup" class="cookie-popup">
     <div class="cookie-content">
-        <h2>Política de cookies</h2>
-        <p>Ineffabile Pizza utiliza cookies para mejorar la experiencia del usuario. ¿Aceptas nuestras cookies?</p>
+        <h2>Política de Cookies</h2>
+        <p>En Ineffabile Pizza usamos cookies para mejorar tu experiencia, analizar el tráfico y mostrar anuncios personalizados. Configura tus preferencias de cookies aquí:</p>
+        <div class="cookie-options">
+            <div>
+                <label><input type="checkbox" name="functional" checked disabled> Cookies funcionales (necesarias)</label>
+            </div>
+            <div>
+                <label><input type="checkbox" name="analytics"> Cookies analíticas</label>
+            </div>
+            <div>
+                <label><input type="checkbox" name="advertising"> Cookies de publicidad</label>
+            </div>
+        </div>
         <div class="cookie-buttons">
-            <button id="accept-cookies" class="cookie-button accept">Aceptar</button>
-            <button id="reject-cookies" class="cookie-button reject">Rechazar</button>
+            <button id="accept-cookies" class="cookie-button accept">Aceptar seleccionadas</button>
+            <button id="reject-cookies" class="cookie-button reject">Rechazar todas</button>
         </div>
     </div>
 </div>
