@@ -17,7 +17,7 @@ const ejecutar = async () => {
             precio_pvp: "6.20",
             descripcion: "La clásica pizza Margarita con tomate, mozzarella y albahaca fresca.",
             categoria_nombre: "Pizzas",
-            imagen1: "pizza-margarita1.jpg",
+            imagen1: "pizza-margarita1.png",
             imagen2: "pizza-margarita2.jpg",
             imagen3: "pizza-margarita3.jpg"
         },
@@ -27,7 +27,7 @@ const ejecutar = async () => {
             precio_oferta: "5.99",
             descripcion: "Clásica pizza de 4 quesos, donde se mezclan a la perfección los clásicos: mozzarella, parmesano, gorgonzola y queso de cabra.",
             categoria_nombre: "Pizzas",
-            imagen1: "pizza-4quesos1.jpg",
+            imagen1: "pizza-4quesos1.png",
             imagen2: "pizza-4quesos2.jpg",
             imagen3: "pizza-4quesos3.jpg"
         },
@@ -36,7 +36,7 @@ const ejecutar = async () => {
             precio_pvp: "8.50",
             descripcion: "Pizza con atún fresco, cebolla, aceitunas negras y salsa de tomate.",
             categoria_nombre: "Pizzas",
-            imagen1: "pizza-atun1.jpg",
+            imagen1: "pizza-atun1.png",
             imagen2: "pizza-atun2.jpg",
             imagen3: "pizza-atun3.jpg"
         },
@@ -45,7 +45,7 @@ const ejecutar = async () => {
             precio_pvp: "9.50",
             descripcion: "Pizza con jamón, piña y salsa de tomate.",
             categoria_nombre: "Pizzas",
-            imagen1: "pizza-hawaiana1.jpg",
+            imagen1: "pizza-hawaiana1.png",
             imagen2: "pizza-hawaiana2.jpg",
             imagen3: "pizza-hawaiana3.jpg"
         },
@@ -55,7 +55,7 @@ const ejecutar = async () => {
             precio_oferta: "4.99",
             descripcion: "Pizza vegetariana con una selección de verduras frescas y queso mozzarella.",
             categoria_nombre: "Pizzas",
-            imagen1: "pizza-vegetal1.jpg",
+            imagen1: "pizza-vegetal1.png",
             imagen2: "pizza-vegetal2.jpg",
             imagen3: "pizza-vegetal3.jpg"
         },
@@ -64,7 +64,7 @@ const ejecutar = async () => {
             precio_pvp: "6.20",
             descripcion: "Pizza estilo Romana con tomate, anchoas y aceitunas negras.",
             categoria_nombre: "Pizzas",
-            imagen1: "pizza-romana1.jpg",
+            imagen1: "pizza-romana1.png",
             imagen2: "pizza-romana2.jpg",
             imagen3: "pizza-romana3.jpg"
         },
@@ -74,7 +74,7 @@ const ejecutar = async () => {
             precio_oferta: "4.99",
             descripcion: "Pizza dividida en cuatro secciones, cada una con ingredientes representativos de una estación del año.",
             categoria_nombre: "Pizzas",
-            imagen1: "pizza-4estaciones1.jpg",
+            imagen1: "pizza-4estaciones1.png",
             imagen2: "pizza-4estaciones2.jpg",
             imagen3: "pizza-4estaciones3.jpg"
         },
@@ -84,7 +84,7 @@ const ejecutar = async () => {
             precio_oferta: "4.99",
             descripcion: "Pizza totalmente vegetal, sin ingredientes de origen animal.",
             categoria_nombre: "Pizzas",
-            imagen1: "pizza-vegana1.jpg",
+            imagen1: "pizza-vegana1.png",
             imagen2: "pizza-vegana2.jpg",
             imagen3: "pizza-vegana3.jpg"
         },
@@ -93,7 +93,7 @@ const ejecutar = async () => {
             precio_pvp: "7.50",
             descripcion: "Pizza estilo Napolitana con tomate, mozzarella, anchoas, aceitunas negras y alcaparras.",
             categoria_nombre: "Pizzas",
-            imagen1: "pizza-napoli1.jpg",
+            imagen1: "pizza-napoli1.png",
             imagen2: "pizza-napoli2.jpg",
             imagen3: "pizza-napoli3.jpg"
         },
@@ -102,7 +102,7 @@ const ejecutar = async () => {
             precio_pvp: "8.50",
             descripcion: "Pizza con una variedad de setas frescas y queso mozzarella.",
             categoria_nombre: "Pizzas",
-            imagen1: "pizza-setas1.jpg",
+            imagen1: "pizza-setas1.png",
             imagen2: "pizza-setas2.jpg",
             imagen3: "pizza-setas3.jpg"
         },
@@ -113,7 +113,7 @@ const ejecutar = async () => {
             precio_oferta: "6.99",
             descripcion: "Espaguetis servidos con una cremosa salsa carbonara y panceta crujiente.",
             categoria_nombre: "Pastas",
-            imagen1: "espaguetis-carbonara1.jpg",
+            imagen1: "espaguetis-carbonara1.png",
             imagen2: "espaguetis-carbonara2.jpg",
             imagen3: "espaguetis-carbonara3.jpg"
         },
@@ -123,7 +123,7 @@ const ejecutar = async () => {
             precio_oferta: "6.99",
             descripcion: "Tagliatelle con salsa de trufa negra y queso parmesano rallado.",
             categoria_nombre: "Pastas",
-            imagen1: "tagliatelle-trufa1.jpg",
+            imagen1: "tagliatelle-trufa1.png",
             imagen2: "tagliatelle-trufa2.jpg",
             imagen3: "tagliatelle-trufa3.jpg"
         },
@@ -133,7 +133,7 @@ const ejecutar = async () => {
             precio_oferta: "8.50",
             descripcion: "Macarrones con una abundante salsa boloñesa casera.",
             categoria_nombre: "Pastas",
-            imagen1: "macarrones-boloñesa1.jpg",
+            imagen1: "macarrones-boloñesa1.png",
             imagen2: "macarrones-boloñesa2.jpg",
             imagen3: "macarrones-boloñesa3.jpg"
         },
@@ -142,7 +142,7 @@ const ejecutar = async () => {
             precio_pvp: "10.50",
             descripcion: "Ravioli rellenos de una deliciosa mezcla de setas silvestres.",
             categoria_nombre: "Pastas",
-            imagen1: "ravioli-setas1.jpg",
+            imagen1: "ravioli-setas1.png",
             imagen2: "ravioli-setas2.jpg",
             imagen3: "ravioli-setas3.jpg"
         },
@@ -151,7 +151,7 @@ const ejecutar = async () => {
             precio_pvp: "7.50",
             descripcion: "Tortellini rellenos de carne de ternera y cerdo, servidos con salsa de tomate.",
             categoria_nombre: "Pastas",
-            imagen1: "tortellini-carne1.jpg",
+            imagen1: "tortellini-carne1.png",
             imagen2: "tortellini-carne2.jpg",
             imagen3: "tortellini-carne3.jpg"
         },
@@ -161,7 +161,7 @@ const ejecutar = async () => {
             precio_oferta: "7.99",
             descripcion: "Gnocchi servidos con una mezcla de aceite de oliva, ajo y hierbas frescas.",
             categoria_nombre: "Pastas",
-            imagen1: "gnocchi1.jpg",
+            imagen1: "gnocchi1.png",
             imagen2: "gnocchi2.jpg",
             imagen3: "gnocchi3.jpg"
         },

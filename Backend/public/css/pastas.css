@@ -44,10 +44,9 @@ body {
   }
 
   .product img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-    margin-bottom: 15px;
+    width: 300;   /* Ajusta el ancho al contenedor */
+    height: 200px; /* Ajusta la altura específica para la imagen */
+    object-fit: cover;
   }
 
   .product-title {
@@ -57,10 +56,9 @@ body {
   }
   
   .price {
-    font-size: 1.2rem;  /* Tamaño de la fuente grande y legible */
-    font-family: 'Roboto', sans-serif;  /* Fuente minimalista */
-    color: #333;  /* Color oscuro para mejor legibilidad */
-    padding: 10px 0;  /* Espaciado antes y después del precio */
+    font-size: 16px;
+    color: #28a745; /* Verde para el precio en oferta */
+    margin-bottom: 5px;
   }
 
   .original-price {
