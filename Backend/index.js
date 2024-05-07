@@ -154,6 +154,10 @@ app.get('/', (req, res) => {
 
 
 
+
+
+
+
 //NEWSLETTER
 // Ruta para manejar la suscripción al newsletter desde el formulario del footer
 app.post('/subscribe', bodyParser.urlencoded({ extended: true }), (req, res) => {
@@ -179,18 +183,19 @@ app.get('/newsletter/success', (req, res) => {
 
 
 app.get('/contacto', (req, res) => {
-    res.render('contacto.ejs', { error: req.query.error });
+    res.render('contacto.ejs');
 });
 
 // Ruta para manejar el envío del formulario de contacto
 app.post('/contacto', bodyParser.urlencoded({ extended: true }), (req, res) => {
     const { nombre, email, mensaje } = req.body;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     // Valida los campos del formulario
     if (!nombre || !email || !mensaje) {
         // Si algún campo está vacío, redirige a la página de contacto con un mensaje de error
         res.redirect('/contacto?error=empty-fields');
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    } else if (!emailRegex.test(email)) {
         // Si el formato del correo electrónico es incorrecto, redirige a la página de contacto con un mensaje de error
         res.redirect('/contacto?error=invalid-email');
     } else {
