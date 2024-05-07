@@ -66,11 +66,15 @@ exports.login = async function(req, res) {
         const validado = await bcrypt.compare(password, userFound.password);
 
         if (validado) {
-            // Crear token JWT
+            // Crear token JWT con más información sobre el usuario
             const token = jwt.sign(
-                { check: true },
+                { 
+                    id: userFound.id,  // Asegura la identificación del usuario
+                    role: userFound.rol,  // Asegura el rol del usuario
+                    check: true
+                },
                 process.env.JWT_PASS,
-                { expiresIn: 1440 }
+                { expiresIn: '24h' }  // Expresa en formato entendible y típico
             );
             req.session.jwtToken = token;
             req.session.userLogued = userFound;

@@ -1,22 +1,23 @@
 const PedidoController = require("../controllers/pedidos.controller");
 const express = require("express");
+const rutasProtegidasJWT = require("../middlewares/jwt.mw");
 const router = express.Router();
 
 //ADMIN-CRUD
-router.get("/getAllOrder", PedidoController.obtenerTodosPedidos);
-router.get("/getOrderDetailByID/:id", PedidoController.buscarPorId);
-router.post("/saveOrder", PedidoController.crearPedido);
-router.put("/editOrder/:id", PedidoController.actualizarPedido);
-router.delete("/deleteOrderByID/:id", PedidoController.eliminarPedido);
+router.get("/getAllOrder", rutasProtegidasJWT(['ADMIN', 'EMPLOYEE']),PedidoController.obtenerTodosPedidos);
+router.get("/getOrderDetailByID/:id", rutasProtegidasJWT(['ADMIN', 'EMPLOYEE']),PedidoController.buscarPorId);
+router.post("/saveOrder", rutasProtegidasJWT(['ADMIN', 'EMPLOYEE']),PedidoController.crearPedido);
+router.put("/editOrder/:id", rutasProtegidasJWT(['ADMIN', 'EMPLOYEE']),PedidoController.actualizarPedido);
+router.delete("/deleteOrderByID/:id", rutasProtegidasJWT(['ADMIN', 'EMPLOYEE']),PedidoController.eliminarPedido);
 
 //PEDIDOS por USUARIO
 router.get("/mis-pedidos", PedidoController.obtenerPedidosPorUsuario);
 
 //Empleado
-router.get("/", PedidoController.obtenerTodosPedidos);
-router.post("/desactivar/:id", PedidoController.desactivarPedido);
+router.get("/", rutasProtegidasJWT(['ADMIN', 'EMPLOYEE']),PedidoController.obtenerTodosPedidos);
+router.post("/desactivar/:id", rutasProtegidasJWT(['ADMIN', 'EMPLOYEE']),PedidoController.desactivarPedido);
 
-router.post("/cambiar-estado/:id", PedidoController.actualizarEstadoPedido);
+router.post("/cambiar-estado/:id", rutasProtegidasJWT(['ADMIN', 'EMPLOYEE']),PedidoController.actualizarEstadoPedido);
 
 
 

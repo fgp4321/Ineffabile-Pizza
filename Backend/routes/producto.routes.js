@@ -1,14 +1,15 @@
 const ProductoController = require("../controllers/productos.controller");
 const express = require("express");
 const router = express.Router();
+const rutasProtegidasJWT = require("../middlewares/jwt.mw");
 const { Client } = require('@elastic/elasticsearch');
 const client = new Client({ node: 'http://localhost:9200' });
 
 router.get("/getAllProduct", ProductoController.obtenerTodosProductos);
-router.get("/getProductDetailByID/:id", ProductoController.buscarPorId);
-router.post("/saveProduct", ProductoController.crearProducto);
-router.put("/editProduct/:id", ProductoController.actualizarProducto);
-router.delete("/deleteProductByID/:id", ProductoController.eliminarProducto);
+router.get("/getProductDetailByID/:id", rutasProtegidasJWT(['ADMIN']),ProductoController.buscarPorId);
+router.post("/saveProduct", rutasProtegidasJWT(['ADMIN']),ProductoController.crearProducto);
+router.put("/editProduct/:id", rutasProtegidasJWT(['ADMIN']), ProductoController.actualizarProducto);
+router.delete("/deleteProductByID/:id", rutasProtegidasJWT(['ADMIN']),ProductoController.eliminarProducto);
 
 // Nueva ruta para manejar las búsquedas
 /*

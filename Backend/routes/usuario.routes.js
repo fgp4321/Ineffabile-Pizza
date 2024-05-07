@@ -5,11 +5,11 @@ const rutasProtegidasJWT = require("../middlewares/jwt.mw");
 const router = express.Router();
 
 /* Administracion */
-router.get("/getAllUser", UserController.buscarTodosUsuarios);
-router.get("/getUserDetailByID/:id", UserController.buscarPorId);
-router.post("/saveUser", UserController.crearUsuario);
-router.put("/editUser/:id", UserController.actualizarUsuario);
-router.delete("/deleteUserByID/:id", UserController.eliminarUsuario);
+router.get("/getAllUser", rutasProtegidasJWT(['ADMIN']), UserController.buscarTodosUsuarios);
+router.get("/getUserDetailByID/:id", rutasProtegidasJWT(['ADMIN']),UserController.buscarPorId);
+router.post("/saveUser", rutasProtegidasJWT(['ADMIN']),UserController.crearUsuario);
+router.put("/editUser/:id", rutasProtegidasJWT(['ADMIN']),UserController.actualizarUsuario);
+router.delete("/deleteUserByID/:id", rutasProtegidasJWT(['ADMIN']),UserController.eliminarUsuario);
 
 
 
