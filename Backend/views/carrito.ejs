@@ -56,7 +56,9 @@
       <button type="button" class="btn btn-warning" onclick="window.location.href='/checkout'">Proceder con el pago</button>
     </div>
   <% } else { %>
-    <p>No hay productos en tu carrito.</p>
+    <div class="alert alert-warning" role="alert">
+      No hay productos en tu carrito.
+    </div>
   <% } %>
 </div>
 

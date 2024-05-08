@@ -1,50 +1,50 @@
 .navbar {
-    position: fixed; /* Hace el navbar fijo */
-    top: 0; /* Se queda en la parte superior */
-    width: 100%; /* Ocupa todo el ancho de la página */
-    height: 120px; /* Altura reducida del navbar */
-    background: linear-gradient(to right, #ff925f, #feb47b, #fcd8ba);
-    background-size: 200% 100%;
-    animation: gradientAnimation 5s ease infinite alternate-reverse;
-    z-index: 1000; /* Asegura que el navbar se mantenga por encima de otros elementos */
-  }
+  position: fixed; /* Hace el navbar fijo */
+  top: 0; /* Se queda en la parte superior */
+  width: 100%; /* Ocupa todo el ancho de la página */
+  height: 120px; /* Altura reducida del navbar */
+  background: linear-gradient(to right, #ff925f, #feb47b, #fcd8ba);
+  background-size: 200% 100%;
+  animation: gradientAnimation 5s ease infinite alternate-reverse;
+  z-index: 1000; /* Asegura que el navbar se mantenga por encima de otros elementos */
+}
 
-  .navbar-brand img {
-    height: 100px; /* Altura ajustada del logo */
-    width: auto; /* Mantiene la proporción del logo */
-  }
+.navbar-brand img {
+  height: 100px; /* Altura ajustada del logo */
+  width: auto; /* Mantiene la proporción del logo */
+}
 
-  .navbar-search input {
-    width: 300px; /* Ancho reducido del input de búsqueda */
-  }
+.navbar-search input {
+  width: 300px; /* Ancho reducido del input de búsqueda */
+}
 
-  .separator {
-    border-right: 1px solid #000000;
-    padding-right: 5px;
-  }
+.separator {
+  border-right: 1px solid #000000;
+  padding-right: 5px;
+}
 
-  .navbar-search {
-    display: flex;
-    align-items: center;
-    margin-left: 20px; /* Agrega espacio a la izquierda */
-  }
+.navbar-search {
+  display: flex;
+  align-items: center;
+  margin-left: 20px; /* Agrega espacio a la izquierda */
+}
 
-  .navbar-search button {
-    background-color: transparent;
-    border: none;
-    margin-left: -40px; /* Ajusta el margen para superponer el icono de búsqueda en el input */
-  }
+.navbar-search button {
+  background-color: transparent;
+  border: none;
+  margin-left: -40px; /* Ajusta el margen para superponer el icono de búsqueda en el input */
+}
 
-  #navbarDropdown {
-    margin-left: 60px;
-    margin-right: 20px;
-  }
+#navbarDropdown {
+  margin-left: 60px;
+  margin-right: 20px;
+}
 
-  @keyframes gradientAnimation {
-    0% {
-      background-position: 0 0;
-    }
-    100% {
-      background-position: 100% 0;
-    }
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0 0;
   }
+  100% {
+    background-position: 100% 0;
+  }
+}

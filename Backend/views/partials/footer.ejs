@@ -1,20 +1,16 @@
 <!-- views/partials/footer.ejs -->
-<style>
-  a{
-    color: #ff3333;
-  }
-</style>
-<footer class="footer mt-5">
+<link rel="stylesheet" href="/css/footer.css">
+<footer class="footer mt-5 fadeIn">
     <div class="container">
       <div class="row">
         <!-- 1º Columna: Productos -->
         <div class="col-md-2">
           <h5>Productos</h5>
           <ul class="list-unstyled">
-            <li><a href="/productos/pizzas">Pizzas</a></li>
-            <li><a href="/productos/pastas">Pastas</a></li>
-            <li><a href="/productos/complementos">Complementos</a></li>
-            <li><a href="/productos/bebidas">Bebidas</a></li>
+            <li><b><a href="/productos/pizzas">Pizzas</a></b></li>
+            <li><b><a href="/productos/pastas">Pastas</a></b></li>
+            <li><b><a href="/productos/complementos">Complementos</a></b></li>
+            <li><b><a href="/productos/bebidas">Bebidas</a></b></li>
             <!-- Agrega más categorías según sea necesario -->
           </ul>
         </div>
@@ -52,16 +48,18 @@
   
         <!-- 5º Columna: Subscríbete a nuestro newsletter -->
         <div class="col-md-3">
-            <h5>Subscríbete a nuestro newsletter</h5>
-            <form id="newsletterForm" action="/subscribe" method="post">
+          <h5>Newsletter</h5>
+          <form id="newsletterForm" action="/subscribe" method="post">
               <div class="input-group">
-                <input type="email" class="form-control" placeholder="Correo electrónico" name="email" required>
-                <div class="input-group-append">
-                  <button type="submit" class="btn btn-outline-danger"><i class="fas fa-paper-plane"></i></button>
-                </div>
+                  <input type="email" class="form-control" placeholder="Correo electrónico" name="email" required>
+                  <div class="input-group-append">
+                      <button type="submit" class="btn btn-outline-danger">
+                          <i class="fas fa-paper-plane"></i>
+                      </button>
+                  </div>
               </div>
-            </form>
-          </div>
+          </form>
+      </div>
   
       <!-- Iconos de redes sociales -->
       <div class="row mt-3">
@@ -78,7 +76,7 @@
     <div class="row mt-3">
       <div class="col text-center">
         <div class="footer-text text-center">
-          <p style="background-color: #343a40; color: #fff; padding: 10px 0;">© 2024 INEFFABILE PIZZA, Inc. Todos los derechos reservados</p>
+          <p>© 2024 INEFFABILE PIZZA, Inc. Todos los derechos reservados</p>
         </div>
       </div>
     </div>
