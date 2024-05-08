@@ -1,13 +1,13 @@
 /* Estilos base para el footer */
 .footer {
-    position: relative; /* Asegura que el footer se mantenga en la parte inferior */
+    position: static; /* El footer sigue el flujo natural del documento */
     width: 100%; /* Ocupa todo el ancho de la página */
     padding: 40px 0; /* Espaciado vertical ajustado */
     background: linear-gradient(to right, #ff925f, #feb47b, #fcd8ba);
     background-size: 200% 100%;
     animation: gradientAnimation 5s ease infinite alternate-reverse;
-    color: #000000; /* Color de texto blanco para contraste */
-    z-index: 1000; /* Asegura que el footer se mantenga por encima de otros elementos */
+    color: #000000; /* Color de texto */
+    z-index: 10; /* Reducido para no superponerse sobre elementos flotantes */
   }
   
   .footer a {
