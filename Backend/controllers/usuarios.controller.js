@@ -1,5 +1,6 @@
 const User = require("../models/usuarios.model")
 const wrapAsync = require("../utils/wrapAsync")
+const path = require('path');
 const AppError = require("../utils/AppError")
 const bcrypt = require("bcrypt")
 const jwt = require("jsonwebtoken")
@@ -39,7 +40,7 @@ exports.register = wrapAsync(async function(req, res) {
     const token = jwt.sign(
         { userId: userCreated._id, check: true },
         process.env.JWT_PASS,
-        { expiresIn: '1d' } // o el periodo que consideres adecuado
+        { expiresIn: '1d' }
     );
     req.session.jwtToken = token;
     req.session.userLogued = userCreated;

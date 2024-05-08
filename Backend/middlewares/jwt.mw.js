@@ -1,5 +1,6 @@
 // jwt.mw.js
 const jwt = require("jsonwebtoken");
+const path = require('path');
 
 function extractToken(req) {
     if (req.headers.authorization && req.headers.authorization.split(' ')[0] === "Bearer") {
@@ -17,11 +18,10 @@ function rutasProtegidasJWT(rolesPermitidos = []) {
         const token = extractToken(req);
         if (token) {
             jwt.verify(token, process.env.JWT_PASS, (err, decoded) => {
-                //console.log("Decoded JWT:", decoded);
                 if (err) {
-                    res.status(401).json({ msg: "Token inválido" });
+                    res.status(401).sendFile(path.join(__dirname, '..', 'public', 'html', '401.html'));
                 } else if (!rolesPermitidos.includes(decoded.role)) {
-                    res.status(403).json({ msg: "Acceso denegado: no tiene permisos suficientes" });
+                    res.status(401).sendFile(path.join(__dirname, '..', 'public', 'html', '401.html'));
                 } else {
                     req.user = decoded;
                     next();
@@ -30,6 +30,7 @@ function rutasProtegidasJWT(rolesPermitidos = []) {
         } else {
             res.redirect("/usuarios/login-register");
         }
+        
     };
 }
 

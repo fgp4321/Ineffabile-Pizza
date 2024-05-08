@@ -11,7 +11,7 @@
   }
   
   .footer a {
-    color: #ee2020; /* Mantenemos el rojo para los enlaces */
+    color: #000000; /* Mantenemos el rojo para los enlaces */
     transition: color 0.3s ease; /* Suavidad al cambiar de color */
   }
   
@@ -51,14 +51,33 @@
     border-color: #ff3333; /* Borde del mismo color */
   }
   
-  /* Iconos de redes sociales con margen y color adecuados */
-  .footer .social-icon {
-    color: #000000; /* Iconos blancos */
+  /* Iconos de redes sociales con sus colores específicos */
+.social-icon .fa-instagram {
+    color: #C13584; /* Instagram: gradiente rosa-morado */
+  }
+  
+  .social-icon .fa-x-twitter {
+    color: #000000; /* Twitter: azul claro */
+  }
+  
+  .social-icon .fa-youtube {
+    color: #FF0000; /* YouTube: rojo */
+  }
+  
+  .social-icon .fa-facebook-f {
+    color: #1877F2; /* Facebook: azul */
+  }
+  
+  .social-icon .fa-linkedin-in {
+    color: #0077B5; /* LinkedIn: azul oscuro */
+  }
+  
+  .social-icon {
     margin: 0 10px; /* Espaciado horizontal */
   }
   
-  .footer .social-icon:hover {
-    color: #ff3333; /* Cambio a rojo al pasar el ratón */
+  .social-icon:hover {
+    opacity: 0.8; /* Efecto de transparencia al pasar el ratón */
   }
   
   /* Estilo para el texto de derechos de autor */
