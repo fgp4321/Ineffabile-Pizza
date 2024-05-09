@@ -26,13 +26,13 @@ var productHttpLink = {
 }
 
 //API Pedidos
-var orderHttpLink = {
-  getAllOrder: apiUrl + "/pedidos/getAllOrder",
-  deleteOrderByID: apiUrl + "/pedidos/deleteOrderByID",
-  getOrderDetailByID: apiUrl + "/pedidos/getOrderDetailByID",
-  saveOrder: apiUrl + "/pedidos/saveOrder",
-  editOrder: apiUrl + "/pedidos/editOrder",
-}
+// var orderHttpLink = {
+//   getAllOrder: apiUrl + "/pedidos/getAllOrder",
+//   deleteOrderByID: apiUrl + "/pedidos/deleteOrderByID",
+//   getOrderDetailByID: apiUrl + "/pedidos/getOrderDetailByID",
+//   saveOrder: apiUrl + "/pedidos/saveOrder",
+//   editOrder: apiUrl + "/pedidos/editOrder",
+// }
 
 @Injectable({
   providedIn: 'root',
