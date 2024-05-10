@@ -17,6 +17,18 @@ const cookieParser = require("cookie-parser")
 const session = require("express-session")
 const methodOverride = require('method-override');
 const passport = require('passport');
+const nodemailer = require('nodemailer');
+
+// Configura el transportador de correo
+let transporter = nodemailer.createTransport({
+    host: 'sandbox.smtp.mailtrap.io',
+    port: 2525,
+    secure: false, // true for 465, false for other ports
+    auth: {
+        user: '449c743180a194', // esto es literal, usas 'apikey' como usuario
+        pass: '4b244a205637fe'
+    }
+});
 
 //Google OAuth2
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
@@ -183,29 +195,33 @@ app.get('/newsletter/success', (req, res) => {
 });
 
 
-
 app.get('/contacto', (req, res) => {
     res.render('contacto.ejs');
 });
 
 // Ruta para manejar el envío del formulario de contacto
-app.post('/contacto', bodyParser.urlencoded({ extended: true }), (req, res) => {
+app.post('/contacto', (req, res) => {
     const { nombre, email, mensaje } = req.body;
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    console.log('Recibido:', nombre, email, mensaje);  
 
-    // Valida los campos del formulario
-    if (!nombre || !email || !mensaje) {
-        // Si algún campo está vacío, redirige a la página de contacto con un mensaje de error
-        res.redirect('/contacto?error=empty-fields');
-    } else if (!emailRegex.test(email)) {
-        // Si el formato del correo electrónico es incorrecto, redirige a la página de contacto con un mensaje de error
-        res.redirect('/contacto?error=invalid-email');
-    } else {
-        // Puedes agregar aquí el código para guardar el mensaje en la base de datos o enviar notificaciones, etc.
-
-        // Redirige a la página de éxito
-        res.redirect('/contacto/success');
-    }
+    // Configura las opciones del correo electrónico
+    transporter.sendMail({
+        from: 'sender@example.com', // Esta es la dirección de correo desde la que se envían los mensajes
+        to: 'receiver@example.com', // Puedes poner aquí también tu dirección de Mailtrap para probar
+        subject: `Nuevo mensaje de contacto de ${nombre}`, // Asunto del correo con el nombre del usuario
+        text: `Has recibido un nuevo mensaje de contacto de tu sitio web:
+        Nombre: ${nombre}
+        Email: ${email}
+        Mensaje: ${mensaje}`
+    }, (err, info) => {
+        if (err) {
+            console.error('Error al enviar el correo: ', err);
+            res.status(500).send('Error al enviar el mensaje');
+        } else {
+            console.log('Correo enviado: ', info);
+            res.redirect('/contacto/success'); // Asegúrate de tener esta ruta configurada para mostrar un mensaje de éxito.
+        }
+    });
 });
 
 // Ruta para la página de éxito después de enviar el formulario de contacto
