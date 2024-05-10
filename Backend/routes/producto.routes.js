@@ -6,7 +6,7 @@ const { Client } = require('@elastic/elasticsearch');
 const client = new Client({ node: 'http://localhost:9200' });
 
 router.get("/getAllProduct", ProductoController.obtenerTodosProductos);
-router.get("/getProductDetailByID/:id", rutasProtegidasJWT(['ADMIN']),ProductoController.buscarPorId);
+router.get("/getProductDetailByID/:id", ProductoController.buscarPorId);
 router.post("/saveProduct", rutasProtegidasJWT(['ADMIN']),ProductoController.crearProducto);
 router.put("/editProduct/:id", rutasProtegidasJWT(['ADMIN']), ProductoController.actualizarProducto);
 router.delete("/deleteProductByID/:id", rutasProtegidasJWT(['ADMIN']),ProductoController.eliminarProducto);

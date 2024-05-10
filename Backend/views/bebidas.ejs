@@ -81,12 +81,6 @@
             <div class="carousel-item active">
               <img src="" class="d-block w-100 img-carousel" alt="" id="modal-img1">
             </div>
-            <div class="carousel-item">
-              <img src="" class="d-block w-100 img-carousel" alt="" id="modal-img2">
-            </div>
-            <div class="carousel-item">
-              <img src="" class="d-block w-100 img-carousel" alt="" id="modal-img3">
-            </div>
           </div>
           <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -97,13 +91,12 @@
             <span class="visually-hidden">Next</span>
           </button>
         </div>
-        <h4 class="modal-pizza-title mt-3" id="modalTitle"></h4>
-        <p class="modal-pizza-description"></p>
-        <p class="modal-pizza-price"></p>
+        <h4 class="modal-bebida-title mt-3" id="modalTitle"></h4>
+        <p class="modal-bebida-description"></p>
+        <p class="modal-bebida-price"></p>
       </div>
       <div class="modal-footer">
         <!-- Botón de ayuda con popover -->
-        <button type="button" class="btn btn-secondary ms-auto" data-bs-toggle="popover" title="Información acerca de alérgenos" data-bs-content="Este alimento puede contener trazas de otros. Para más información, visite nuestra página de alérgenos (<a href='/alergenos'>página de alérgenos</a>)." data-bs-html="true">Ayuda</button>
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
       </div>
     </div>
@@ -145,8 +138,7 @@
             $('#modal-img3').attr('src', '/images/bebidas/' + data.imagen3);
             $('.modal-bebida-title').text(data.nombre);
             $('.modal-bebida-description').text(data.descripcion);
-            $('.modal-bebida-price').text('Precio: ' + data.precio_pvp + '€');
-            // Abrir el modal
+            $('.modal-bebida-price').html(`<span class="badge bg-success">${data.precio_pvp}€</span>`); // Modificado para usar badge            // Abrir el modal
             $('#exampleModal').modal('show');
           })
           .catch(error => {
@@ -213,15 +205,6 @@
     });
   });
 });
-</script>
-<script>
-  $(document).ready(function() {
-    // Inicializar los popovers
-    var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
-    var popoverList = popoverTriggerList.map(function(popoverTriggerEl) {
-      return new bootstrap.Popover(popoverTriggerEl);
-    });
-  });
 </script>
 <script>
   window.onscroll = function() {scrollFunction()};

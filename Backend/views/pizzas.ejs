@@ -142,7 +142,7 @@
             $('#modal-img3').attr('src', '/images/pizzas/' + data.imagen3);
             $('.modal-pizza-title').text(data.nombre);
             $('.modal-pizza-description').text(data.descripcion);
-            $('.modal-pizza-price').text('Precio: ' + data.precio_pvp + '€');
+            $('.modal-pizza-price').html(`<span class="badge bg-success">${data.precio_pvp}€</span>`); // Modificado para usar badge
             // Abrir el modal
             $('#exampleModal').modal('show');
           })

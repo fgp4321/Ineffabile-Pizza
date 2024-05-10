@@ -171,7 +171,7 @@ const ejecutar = async () => {
             precio_pvp: "5.50",
             descripcion: "Nachos crujientes cubiertos con queso fundido, jalapeños y salsa.",
             categoria_nombre: "Complementos",
-            imagen1: "nachos-con-queso1.jpg",
+            imagen1: "nachos-con-queso1.png",
             imagen2: "nachos-con-queso2.jpg",
             imagen3: "nachos-con-queso3.jpg"
         },
@@ -180,7 +180,7 @@ const ejecutar = async () => {
             precio_pvp: "5.50",
             descripcion: "Bolas de queso mozzarella empanizadas y fritas, servidas con salsa marinara.",
             categoria_nombre: "Complementos",
-            imagen1: "bolas-queso1.jpg",
+            imagen1: "bolas-queso1.png",
             imagen2: "bolas-queso2.jpg",
             imagen3: "bolas-queso3.jpg"
         },
@@ -190,7 +190,7 @@ const ejecutar = async () => {
             precio_oferta: "4.99",
             descripcion: "Aros de cebolla crujientes y dorados, acompañados de salsa BBQ.",
             categoria_nombre: "Complementos",
-            imagen1: "aros-cebolla1.jpg",
+            imagen1: "aros-cebolla1.png",
             imagen2: "aros-cebolla2.jpg",
             imagen3: "aros-cebolla3.jpg"
         },
@@ -199,7 +199,7 @@ const ejecutar = async () => {
             precio_pvp: "8.50",
             descripcion: "Variedad de pescado rebozado y frito, acompañado de salsa tártara.",
             categoria_nombre: "Complementos",
-            imagen1: "fritos-pescado1.jpg",
+            imagen1: "fritos-pescado1.png",
             imagen2: "fritos-pescado2.jpg",
             imagen3: "fritos-pescado3.jpg"
         },
@@ -209,7 +209,7 @@ const ejecutar = async () => {
             precio_oferta: "6.99",
             descripcion: "Jalapeños frescos rellenos de queso crema, empanizados y fritos hasta dorar.",
             categoria_nombre: "Complementos",
-            imagen1: "jalapeños-fritos1.jpg",
+            imagen1: "jalapeños-fritos1.png",
             imagen2: "jalapeños-fritos2.jpg",
             imagen3: "jalapeños-fritos3.jpg"
         },
@@ -218,7 +218,7 @@ const ejecutar = async () => {
             precio_pvp: "9.50",
             descripcion: "Croquetas caseras de jamón serrano, cremosas por dentro y crujientes por fuera.",
             categoria_nombre: "Complementos",
-            imagen1: "croquetas-jamon1.jpg",
+            imagen1: "croquetas-jamon1.png",
             imagen2: "croquetas-jamon2.jpg",
             imagen3: "croquetas-jamon3.jpg"
         },
@@ -228,7 +228,7 @@ const ejecutar = async () => {
             precio_oferta: "6.99",
             descripcion: "Alitas de pollo marinadas y horneadas a la perfección, acompañadas de salsa barbacoa.",
             categoria_nombre: "Complementos",
-            imagen1: "alitas-pollo1.jpg",
+            imagen1: "alitas-pollo1.png",
             imagen2: "alitas-pollo2.jpg",
             imagen3: "alitas-pollo3.jpg"
         },
@@ -237,7 +237,7 @@ const ejecutar = async () => {
             precio_pvp: "9.50",
             descripcion: "Patatas fritas caseras servidas con salsa alioli.",
             categoria_nombre: "Complementos",
-            imagen1: "patatas-alioli1.jpg",
+            imagen1: "patatas-alioli1.png",
             imagen2: "patatas-alioli2.jpg",
             imagen3: "patatas-alioli3.jpg"
         },
@@ -247,28 +247,28 @@ const ejecutar = async () => {
             precio_pvp: "1.5",
             descripcion: "Agua mineral natural embotellada.",
             categoria_nombre: "Bebidas",
-            imagen1: "agua.jpg",
+            imagen1: "agua.png",
         },
         {
             nombre: "Agua con gas",
             precio_pvp: "1.5",
             descripcion: "Agua con gas natural en botella.",
             categoria_nombre: "Bebidas",
-            imagen1: "agua-con-gas.jpg",
+            imagen1: "agua-con-gas.png",
         },
         {
             nombre: "Refresco de naranja",
             precio_pvp: "2",
             descripcion: "Refresco de naranja con gas en lata.",
             categoria_nombre: "Bebidas",
-            imagen1: "fanta-naranja.jpg",
+            imagen1: "fanta-naranja.png",
         },
         {
             nombre: "Refresco de limón",
             precio_pvp: "2",
             descripcion: "Refresco de limón con gas en lata.",
             categoria_nombre: "Bebidas",
-            imagen1: "fanta-limon.jpg",
+            imagen1: "fanta-limon.png",
         },
         {
             nombre: "Cerveza",
@@ -276,14 +276,14 @@ const ejecutar = async () => {
             precio_oferta: "1.49",
             descripcion: "Cerveza fría en botella de cristal.",
             categoria_nombre: "Bebidas",
-            imagen1: "cerveza.jpg",
+            imagen1: "cerveza.png",
         },
         {
             nombre: "Té al limón",
             precio_pvp: "2.5",
             descripcion: "Té caliente con limón y azúcar.",
             categoria_nombre: "Bebidas",
-            imagen1: "nestea.jpg",
+            imagen1: "nestea.png",
         }
     ];
 

@@ -94,9 +94,9 @@
             <span class="visually-hidden">Next</span>
           </button>
         </div>
-        <h4 class="modal-pizza-title mt-3" id="modalTitle"></h4>
-        <p class="modal-pizza-description"></p>
-        <p class="modal-pizza-price"></p>
+        <h4 class="modal-pasta-title mt-3" id="modalTitle"></h4>
+        <p class="modal-pasta-description"></p>
+        <p class="modal-pasta-price"></p>
       </div>
       <div class="modal-footer">
         <!-- Botón de ayuda con popover -->
@@ -142,8 +142,7 @@
             $('#modal-img3').attr('src', '/images/pastas/' + data.imagen3);
             $('.modal-pasta-title').text(data.nombre);
             $('.modal-pasta-description').text(data.descripcion);
-            $('.modal-pasta-price').text('Precio: ' + data.precio_pvp + '€');
-            // Abrir el modal
+            $('.modal-pasta-price').html(`<span class="badge bg-success">${data.precio_pvp}€</span>`); // Modificado para usar badge            // Abrir el modal
             $('#exampleModal').modal('show');
           })
           .catch(error => {

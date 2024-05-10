@@ -50,6 +50,15 @@ body {
     margin-bottom: 15px;
   }*/
 
+  .breadcrumb {
+    background-color: transparent; /* Elimina cualquier fondo predeterminado */
+  }
+  
+  .breadcrumb-item a {
+    color: #ff3333; /* Establece el color de los enlaces a rojo */
+  }
+
+
   .product img {
     width: 300;   /* Ajusta el ancho al contenedor */
     height: 200px; /* Ajusta la altura específica para la imagen */
@@ -113,6 +122,30 @@ body {
     height: auto;
     display: block;
     margin: 0 auto; /* Centra la imagen horizontalmente */
+  }
+
+  .modal-pizza-title {
+    font-size: 24px;
+    color: #333; /* Color oscuro para el título */
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  .modal-pizza-description {
+    font-size: 16px;
+    color: #555; /* Color gris oscuro para la descripción */
+    margin-bottom: 20px;
+  }
+  
+  .modal-pizza-price {
+    font-size: 20px; /* Tamaño grande para el precio */
+    font-weight: bold;
+    color: #000000; /* Manteniendo el verde del badge */
+  }
+  
+  .badge {
+    font-size: 1em; /* Tamaño adecuado para el badge dentro del modal */
+    padding: 0.5em 0.75em; /* Padding cómodo para el badge */
   }
 
   @keyframes fadeIn {

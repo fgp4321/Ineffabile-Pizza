@@ -51,10 +51,12 @@ h1 {
   padding: 5px 10px; /* Padding para dar forma a la etiqueta */
   border-radius: 5px; /* Bordes redondeados para suavizar la etiqueta */
   font-weight: bold; /* Hacer el texto un poco más grueso */
+  font-size: 20px;
 }
 
 .original-price {
   text-decoration: line-through;
+  font-weight: bold;
   color: #ccc; /* Gris para mostrar que es un precio no aplicable */
   margin-right: 10px;
 }

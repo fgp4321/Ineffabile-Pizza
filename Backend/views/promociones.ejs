@@ -26,46 +26,46 @@
     <h1 class="text-center mb-4"><u>Nuestras Promociones</u></h1>
     
     <!-- Carrusel para las ofertas destacadas -->
-<div class="section">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-10 offset-lg-1"> <!-- Ajustado para más ancho -->
-        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-          <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    <div class="section">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-10 offset-lg-1"> <!-- Ajustado para más ancho -->
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+              </div>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <a href="#">
+                    <img src="/images/promocion1.png" class="d-block w-100" alt="Promoción 1">
+                  </a>
+                </div>
+                <div class="carousel-item">
+                  <a href="#">
+                    <img src="/images/promocion2.png" class="d-block w-100" alt="Promoción 2">
+                  </a>
+                </div>
+                <div class="carousel-item">
+                  <a href="#">
+                    <img src="/images/promocion3.jpg" class="d-block w-100" alt="Promoción 3">
+                  </a>
+                </div>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
           </div>
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <a href="#">
-                <img src="/images/promocion1.png" class="d-block w-100" alt="Promoción 1">
-              </a>
-            </div>
-            <div class="carousel-item">
-              <a href="#">
-                <img src="/images/promocion2.png" class="d-block w-100" alt="Promoción 2">
-              </a>
-            </div>
-            <div class="carousel-item">
-              <a href="#">
-                <img src="/images/promocion3.jpg" class="d-block w-100" alt="Promoción 3">
-              </a>
-            </div>
-          </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
         </div>
       </div>
     </div>
-  </div>
-</div>
 
     <!-- Listado de ofertas y promociones -->
     <div class="row mt-5">
@@ -83,6 +83,7 @@
       </div>
       <% }); %>
     </div>
+  </div>
 
     <a href="https://wa.me/+34637053805?text=Contactar%20con%20Ineffabile%20Pizza%20vía%20WhatsApp" class="whatsapp" target="_blank"> 
       <i class="fab fa-whatsapp whatsapp-icon"></i>
@@ -90,6 +91,8 @@
                 
     <!-- Botón para volver arriba -->
     <button id="scrollToTopBtn" title="Volver arriba"><i class="fas fa-arrow-up"></i></button>
+
+ 
 
   <!-- Incluir el footer -->
   <%- include('./partials/footer.ejs') %>

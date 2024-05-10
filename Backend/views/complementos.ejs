@@ -95,9 +95,9 @@
             <span class="visually-hidden">Next</span>
           </button>
         </div>
-        <h4 class="modal-pizza-title mt-3" id="modalTitle"></h4>
-        <p class="modal-pizza-description"></p>
-        <p class="modal-pizza-price"></p>
+        <h4 class="modal-complemento-title mt-3" id="modalTitle"></h4>
+        <p class="modal-complemento-description"></p>
+        <p class="modal-complemento-price"></p>
       </div>
       <div class="modal-footer">
         <!-- Botón de ayuda con popover -->
@@ -143,8 +143,7 @@
             $('#modal-img3').attr('src', '/images/complementos/' + data.imagen3);
             $('.modal-complemento-title').text(data.nombre);
             $('.modal-complemento-description').text(data.descripcion);
-            $('.modal-complemento-price').text('Precio: ' + data.precio_pvp + '€');
-            // Abrir el modal
+            $('.modal-complemento-price').html(`<span class="badge bg-success">${data.precio_pvp}€</span>`); // Modificado para usar badge            // Abrir el modal
             $('#exampleModal').modal('show');
           })
           .catch(error => {
