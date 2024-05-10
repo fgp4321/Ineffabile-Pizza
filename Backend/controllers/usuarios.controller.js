@@ -50,7 +50,6 @@ exports.register = wrapAsync(async function(req, res) {
 });
 
 
-//-LOGIN
 exports.login = async function(req, res) {
     const { email, password } = req.body;
 
@@ -80,8 +79,14 @@ exports.login = async function(req, res) {
             req.session.jwtToken = token;
             req.session.userLogued = userFound;
 
-            // Redireccionar a la página de área personal
-            res.redirect("/usuarios/personal-area");
+            // Redireccionar dependiendo del rol del usuario
+            if (userFound.rol === 'ADMIN') {
+                // Si el usuario es ADMIN, redireccionar a localhost:4200
+                res.redirect("http://localhost:4200");
+            } else {
+                // Redireccionar a la página de área personal si no es ADMIN
+                res.redirect("/usuarios/personal-area");
+            }
         } else {
             res.status(401).json({"err": "Usuario y/o contraseña incorrectos"});
         }
