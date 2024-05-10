@@ -40,18 +40,24 @@ export class ViewProductComponent implements OnInit {
   }
 
   getImagePath(product: any): string {
+    // Comprobar si la imagen ya es una URL válida
+    if (product.imagen1.startsWith('http://') || product.imagen1.startsWith('https://')) {
+        return product.imagen1;
+    }
+
+    // Si no es una URL, construir la ruta basada en la categoría
     let basePath = '/assets/';
-    switch (product.categoria_nombre) {  // Asumiendo que 'categoria_nombre' es cómo se recibe la categoría
-      case 'Bebidas':
-        return basePath + 'bebidas/' + product.imagen1;
-      case 'Complementos':
-        return basePath + 'complementos/' + product.imagen1;
-      case 'Pastas':
-        return basePath + 'pastas/' + product.imagen1;
-      case 'Pizzas':
-        return basePath + 'pizzas/' + product.imagen1;
-      default:
-        return basePath + 'otros/' + product.imagen1;  // Para cualquier categoría no especificada
+    switch (product.categoria_nombre) {
+        case 'Bebidas':
+            return basePath + 'bebidas/' + product.imagen1;
+        case 'Complementos':
+            return basePath + 'complementos/' + product.imagen1;
+        case 'Pastas':
+            return basePath + 'pastas/' + product.imagen1;
+        case 'Pizzas':
+            return basePath + 'pizzas/' + product.imagen1;
+        default:
+            return basePath + 'otros/' + product.imagen1;  // Para categorías no especificadas
     }
   }
 }

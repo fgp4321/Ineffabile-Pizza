@@ -24,8 +24,10 @@ const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 //Github OAuth2
 const GitHubStrategy = require('passport-github').Strategy;
 
+
 const app = express()
 const port = process.env.PORT || 9100
+
 const usuarioRoutes = require("./routes/usuario.routes")
 const productoRoutes = require("./routes/producto.routes")
 const pedidoRoutes = require("./routes/pedido.routes")
@@ -275,7 +277,7 @@ app.get('/productos/pizzas', async (req, res) => {
     } catch (error) {
         // Manejo de errores
         console.error('Error al obtener las pizzas:', error);
-        res.render('error.ejs', { message: 'Error al obtener las pizzas' });
+        res.status(500).sendFile(path.join(__dirname, 'public', 'html', '500.html'));
     }
 });
 
@@ -292,7 +294,7 @@ app.get('/productos/pastas', async (req, res) => {
     } catch (error) {
         // Manejo de errores
         console.error('Error al obtener las pastas:', error);
-        res.render('error.ejs', { message: 'Error al obtener las pastas' });
+        res.status(500).sendFile(path.join(__dirname, 'public', 'html', '500.html'));
     }
 });
 
@@ -309,7 +311,7 @@ app.get('/productos/complementos', async (req, res) => {
     } catch (error) {
         // Manejo de errores
         console.error('Error al obtener los complementos:', error);
-        res.render('error.ejs', { message: 'Error al obtener los complementos' });
+        res.status(500).sendFile(path.join(__dirname, 'public', 'html', '500.html'));
     }
 });
 
@@ -326,7 +328,7 @@ app.get('/productos/bebidas', async (req, res) => {
     } catch (error) {
         // Manejo de errores
         console.error('Error al obtener las bebidas:', error);
-        res.render('error.ejs', { message: 'Error al obtener las bebidas' });
+        res.status(500).sendFile(path.join(__dirname, 'public', 'html', '500.html'));
     }
 });
 
@@ -345,7 +347,7 @@ app.get('/promociones', async (req, res) => {
         res.render('promociones.ejs', { promociones });
     } catch (error) {
         console.error('Error al obtener las promociones:', error);
-        res.render('error.ejs', { message: 'Error al obtener las promociones' });
+        res.status(500).sendFile(path.join(__dirname, 'public', 'html', '500.html'));
     }
 });
 
@@ -413,7 +415,7 @@ app.get('/carta', (req, res) => {
     if (fs.existsSync(pdfPath)) {
       res.sendFile(pdfPath);
     } else {
-      res.status(404).send('PDF no encontrado');
+        res.status(404).sendFile(path.join(__dirname, 'public', 'html', '404.html'));
     }
 })
 
@@ -436,7 +438,8 @@ app.get('/usuarios/personal-area', (req, res) => {
         // Renderizar la vista personal-area y pasar la variable userLogued
         res.render('personal-area.ejs', { userLogued: req.session.userLogued });
     } catch (error) {
-        res.status(500).json({ "err": "Error interno del servidor" });
+        //res.status(500).json({ "err": "Error interno del servidor" });
+        res.status(500).sendFile(path.join(__dirname, 'public', 'html', '500.html'));
     }
 });
 
@@ -496,8 +499,15 @@ app.get('/pedidos', (req, res) => {
 });
 
 
-
-
+/*
+//Función para obtener URL de la imagen de producto.
+function getImageUrl(image) {
+    if (image.startsWith('http://') || image.startsWith('https://')) {
+      return image; // Es una URL completa
+    } else {
+      return `/images/pizzas/${image}`; // Es un nombre de archivo local, ajusta la ruta según tu estructura de carpetas
+    }
+  }*/
 
 
 

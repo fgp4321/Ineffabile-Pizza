@@ -74,7 +74,7 @@ exports.login = async function(req, res) {
                     check: true
                 },
                 process.env.JWT_PASS,
-                { expiresIn: '24h' }  // Expresa en formato entendible y típico
+                { expiresIn: '24h' }
             );
             req.session.jwtToken = token;
             req.session.userLogued = userFound;

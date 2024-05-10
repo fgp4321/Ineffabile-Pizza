@@ -7,9 +7,9 @@ const client = new Client({ node: 'http://localhost:9200' });
 
 router.get("/getAllProduct", ProductoController.obtenerTodosProductos);
 router.get("/getProductDetailByID/:id", ProductoController.buscarPorId);
-router.post("/saveProduct", rutasProtegidasJWT(['ADMIN']),ProductoController.crearProducto);
-router.put("/editProduct/:id", rutasProtegidasJWT(['ADMIN']), ProductoController.actualizarProducto);
-router.delete("/deleteProductByID/:id", rutasProtegidasJWT(['ADMIN']),ProductoController.eliminarProducto);
+router.post("/saveProduct", ProductoController.crearProducto);
+router.put("/editProduct/:id", ProductoController.actualizarProducto);
+router.delete("/deleteProductByID/:id", ProductoController.eliminarProducto);
 
 // Nueva ruta para manejar las búsquedas
 /*
