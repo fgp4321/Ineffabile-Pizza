@@ -13,9 +13,8 @@ export class ViewProductComponent implements OnInit {
 
   productId: any
   productDetail: any = []
-  showPassword: boolean = false;
 
-  constructor(private toastr: ToastrService,public webApiService: WebApiService, private route: ActivatedRoute, private httpProvider: HttpProviderService) { }
+  constructor(private toastr: ToastrService, public webApiService: WebApiService, private route: ActivatedRoute, private httpProvider: HttpProviderService) { }
 
   ngOnInit(): void {
     this.productId = this.route.snapshot.params['productId']
@@ -30,6 +29,7 @@ export class ViewProductComponent implements OnInit {
           if (resultData) {
             this.toastr.success(`Visualizando detalles de "${resultData.nombre}".`);
             this.productDetail = resultData;
+            this.productDetail.imagenRuta = this.getImagePath(resultData); // Añadir ruta de imagen modificada
           }
         }
       },
@@ -39,4 +39,19 @@ export class ViewProductComponent implements OnInit {
     );
   }
 
+  getImagePath(product: any): string {
+    let basePath = '/assets/';
+    switch (product.categoria_nombre) {  // Asumiendo que 'categoria_nombre' es cómo se recibe la categoría
+      case 'Bebidas':
+        return basePath + 'bebidas/' + product.imagen1;
+      case 'Complementos':
+        return basePath + 'complementos/' + product.imagen1;
+      case 'Pastas':
+        return basePath + 'pastas/' + product.imagen1;
+      case 'Pizzas':
+        return basePath + 'pizzas/' + product.imagen1;
+      default:
+        return basePath + 'otros/' + product.imagen1;  // Para cualquier categoría no especificada
+    }
+  }
 }
