@@ -107,6 +107,12 @@ body {
     transition: background-color 0.3s ease-in-out;
   }
 
+  .center-form {
+    max-width: 960px; /* Ajusta según necesites */
+    margin: auto; /* Centra el contenedor */
+  }
+  
+
   .btn-add-to-cart:hover {
     background-color: #ff6a6a;
     color: #f8f9fa;
@@ -147,6 +153,21 @@ body {
     font-size: 1em; /* Tamaño adecuado para el badge dentro del modal */
     padding: 0.5em 0.75em; /* Padding cómodo para el badge */
   }
+
+  .product img {
+    width: 100%;   /* Asegura que la imagen ocupe todo el ancho del contenedor */
+    height: auto;  /* Mantiene la proporción de la imagen */
+    object-fit: cover; /* Cubre el área disponible sin perder la proporción */
+  }
+  
+
+  @media (max-width: 768px) { /* Para dispositivos de hasta 768px como tablets */
+    .product {
+      padding: 15px; /* Reduce el padding en dispositivos más pequeños */
+      margin-bottom: 15px; /* Reduce el margen entre productos */
+    }
+  }
+  
 
   @keyframes fadeIn {
   from {
