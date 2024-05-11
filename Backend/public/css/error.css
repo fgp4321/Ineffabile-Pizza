@@ -65,3 +65,18 @@ main {
 .button:hover {
     text-decoration: underline;
 }
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.error-logo {
+    width: 8rem;
+    height: auto;
+    animation: rotate 20s linear infinite;
+}

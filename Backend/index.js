@@ -166,12 +166,6 @@ app.get('/', (req, res) => {
 })
 
 
-
-
-
-
-
-
 //NEWSLETTER
 // Ruta para manejar la suscripción al newsletter desde el formulario del footer
 app.post('/subscribe', bodyParser.urlencoded({ extended: true }), (req, res) => {
@@ -514,6 +508,9 @@ app.get('/pedidos', (req, res) => {
     res.render('pedidos.ejs');
 });
 
+app.get('*', (req, res) => {
+    res.render('error.ejs');
+})
 
 /*
 //Función para obtener URL de la imagen de producto.
