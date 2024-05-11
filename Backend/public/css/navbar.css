@@ -40,6 +40,65 @@
   margin-right: 20px;
 }
 
+/* Asegúrate de que los enlaces en el menú desplegable se alineen verticalmente */
+.navbar-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra los elementos horizontalmente en dispositivos móviles */
+}
+
+/* Ajustes para dispositivos móviles */
+@media (max-width: 768px) {
+  .navbar-nav {
+    width: 100%; /* Ocupa todo el ancho disponible */
+  }
+
+  .nav-item {
+    width: 100%; /* Asegura que cada elemento del nav ocupe el ancho completo */
+    text-align: center; /* Centra el texto de cada enlace */
+  }
+
+  .dropdown-menu {
+    text-align: left; /* Alinea el texto a la izquierda en los submenús */
+    width: 100%; /* Hace que el menú desplegable ocupe todo el ancho */
+  }
+}
+
+.navbar-toggler {
+  margin-right: 15px; /* Añade un margen para evitar que se pegue a otros elementos */
+}
+
+
+@media (max-width: 768px) {
+  .navbar {
+    height: auto;
+  }
+  .navbar-brand {
+    display: block; /* Asegura que el logo se muestre */
+    text-align: center; /* Centra el logo horizontalmente */
+  }
+  .navbar-brand img {
+    height: 65px; /* Reduce aún más el tamaño del logo */
+    width: auto; /* Mantiene la proporción del logo */
+    display: inline-block; /* Asegura que el logo no ocupe todo el ancho disponible */
+  }
+}
+
+.navbar-search input {
+  width: 100%; /* Ocupa todo el espacio disponible en pantallas pequeñas */
+}
+@media (min-width: 768px) {
+  .navbar-search input {
+    width: 300px; /* Ancho fijo en pantallas grandes */
+  }
+}
+
+.navbar-toggler {
+  border-color: rgba(255,255,255,0.5); /* Asegúrate de que sea visible contra el fondo */
+}
+
+
+
 @keyframes gradientAnimation {
   0% {
     background-position: 0 0;
