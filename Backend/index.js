@@ -5,7 +5,7 @@ const mongoConn = require("./config/mongoDB.config")
 require("dotenv").config()
 const cors = require("cors")
 const fs = require("fs")
-const https = require("https")
+const rutasProtegidasJWT = require("./middlewares/jwt.mw");
 const express = require("express")
 const bodyParser = require('body-parser');
 const favicon = require('serve-favicon');
@@ -348,7 +348,7 @@ app.get('/productos/bebidas', async (req, res) => {
     }
 });
 
-app.get('/promociones', async (req, res) => {
+app.get('/promociones', rutasProtegidasJWT(['ADMIN', 'EMPLOYEE', 'USER']), async (req, res) => {
     try {
         const response = await fetch('http://localhost:9100/api/v2/productos/getAllProduct');
         const productos = await response.json();
