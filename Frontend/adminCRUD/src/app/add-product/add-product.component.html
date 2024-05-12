@@ -67,14 +67,22 @@
                             <label for="categoria_nombre" class="p-t-b-10">Categoria<span class="requiredStar">*</span></label>
                         </div>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="categoria_nombre" required maxlength="255" [(ngModel)]="addProductForm.categoria_nombre" name="categoria_nombre" #categoria_nombre="ngModel" pattern="^[^\s]+$">
+                            <!-- Cambio de input de texto a un menú desplegable -->
+                            <select class="form-control" id="categoria_nombre" required [(ngModel)]="addProductForm.categoria_nombre" name="categoria_nombre" #categoria_nombre="ngModel">
+                                <option value="" disabled selected>Seleccione una categoría</option>
+                                <option value="Pizzas">Pizzas</option>
+                                <option value="Pastas">Pastas</option>
+                                <option value="Complementos">Complementos</option>
+                                <option value="Bebidas">Bebidas</option>
+                            </select>
                             <div *ngIf="categoria_nombre.errors && isSubmitted" class="alert alert-danger validationError">
                                 <div [hidden]="!categoria_nombre.errors?.['required']">
                                     Categoria es un campo obligatorio
                                 </div>
                             </div>
                         </div>
-                    </div>        
+                    </div>
+                    
                     <div class="form-group p-10 row">
                         <div class="col-sm-3">
                             <label for="imagen1" class="p-t-b-10">URL de la Imagen</label>
