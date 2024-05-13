@@ -7,7 +7,7 @@ const path = require('path');
 //ADMIN-CRUD
 router.get("/getAllOrder", rutasProtegidasJWT(['ADMIN', 'EMPLOYEE']),PedidoController.obtenerTodosPedidos);
 router.get("/getOrderDetailByID/:id", rutasProtegidasJWT(['ADMIN', 'EMPLOYEE']),PedidoController.buscarPorId);
-router.post("/saveOrder", rutasProtegidasJWT(['ADMIN', 'EMPLOYEE']),PedidoController.crearPedido);
+router.post("/saveOrder", PedidoController.crearPedido);
 router.put("/editOrder/:id", rutasProtegidasJWT(['ADMIN', 'EMPLOYEE']),PedidoController.actualizarPedido);
 router.delete("/deleteOrderByID/:id", rutasProtegidasJWT(['ADMIN', 'EMPLOYEE']),PedidoController.eliminarPedido);
 

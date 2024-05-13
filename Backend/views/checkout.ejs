@@ -9,6 +9,8 @@
   <link rel="stylesheet" href="/fontawesome/css/all.min.css">
 </head>
 <body class="bg-light">
+   <!-- Incluir el navbar -->
+   <%- include('./partials/navbar.ejs') %>
 
   <!-- Contenido del formulario de pago -->
   <div class="container py-5">
@@ -16,9 +18,30 @@
       <div class="col-lg-6 mx-auto">
         <div class="text-center mb-5">
           <h2 class="fw-bold">Pago Seguro</h2>
-          <p class="lead">Introduce los detalles de tu tarjeta para completar la compra</p>
+          <p class="lead">Introduce los detalles de tu pedido y tarjeta para completar la compra</p>
         </div>
         <form id="payment-form">
+          <!-- Campos de localidad -->
+          <div class="mb-3">
+            <label for="provincia" class="form-label">Provincia</label>
+            <input type="text" class="form-control" id="provincia" name="provincia" value="Alicante" readonly>
+          </div>
+          <div class="mb-3">
+            <label for="municipio" class="form-label">Municipio</label>
+            <select class="form-select" id="municipio" name="municipio">
+              <option value="" disabled selected>Seleccione un municipio</option>
+              <!-- Asumiendo que tienes una lista de municipios en una variable 'municipios' -->
+              <% municipios.forEach(function(municipio) { %>
+                <option value="<%= municipio %>"><%= municipio %></option>
+              <% }); %>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label for="direccion" class="form-label">Dirección</label>
+            <input type="text" class="form-control" id="direccion" name="direccion" placeholder="Calle, Número, Piso, etc.">
+          </div>
+
           <div id="card-element">
             <!-- Elemento de UI de tarjeta -->
           </div>
@@ -35,6 +58,9 @@
       </div>
     </div>
   </div>
+
+  <!-- Incluir el footer -->
+  <%- include('./partials/footer.ejs') %>
 
   <script src="https://js.stripe.com/v3/"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
@@ -101,7 +127,7 @@
     .then(data => {
       Swal.fire({
         title: '¡Pago realizado!',
-        text: 'Tu pago ha sido simulado y el pedido ha sido creado.',
+        text: 'Transferencia completada. Puede ver sus pedidos presionando sobre el botón "Ver mis pedidos" en este mensaje o en su perfil.',
         icon: 'success',
         confirmButtonColor: '#3085d6',
         confirmButtonText: 'Ver mis pedidos'

@@ -19,6 +19,9 @@ const methodOverride = require('method-override');
 const passport = require('passport');
 const nodemailer = require('nodemailer');
 
+//Listado de municipios para la vista de checkout
+const municipios = [ "Agost", "Agres", "Aigües", "Alacant/Alicante", "Albatera", "Alcalalí", "Alcocer de Planes", "Alcoleja", "Alcoy/Alcoi", "Alfàs del Pi (l')", "Alfondeguilla", "Algorfa", "Algueña", "Alicante/Alacant", "Almoradí", "Almudaina", "Alqueria d'Asnar (l')", "Altea", "Aspe", "Balones", "Banyeres de Mariola", "Benasau", "Beneixama", "Benejúzar", "Benferri", "Beniarbeig", "Beniardá", "Beniarrés", "Benidoleig", "Benidorm", "Benifallim", "Benifato", "Benigembla", "Benijófar", "Benilloba", "Benillup", "Benimantell", "Benimarfull", "Benimassot", "Benimeli", "Benissa", "Benitachell/Poble Nou de Benitatxell (el)", "Biar", "Bigastro", "Bolulla", "Busot", "Callosa d'en Sarrià", "Callosa de Segura", "Calpe/Calp", "Campello (el)", "Campo de Mirra/Camp de Mirra (el)", "Cañada", "Castalla", "Castell de Castells", "Catral", "Cocentaina", "Confrides", "Cox", "Crevillent", "Daya Nueva", "Daya Vieja", "Dénia", "Dolores", "Elche/Elx", "Elda", "Facheca", "Famorca", "Finestrat", "Fondó de les Neus (el)/Hondón de las Nieves", "Formentera del Segura", "Gata de Gorgos", "Gorga", "Granja de Rocamora", "Guardamar del Segura", "Hondón de los Frailes", "Ibi", "Jacarilla", "Jávea/Xàbia", "Jijona/Xixona", "Llíber", "Lorcha/Orxa (l')", "Millena", "Monforte del Cid", "Monóvar/Monòver", "Montesinos (Los)", "Murla", "Muro de Alcoy", "Mutxamel", "Novelda", "Nucia (la)", "Ondara", "Onil", "Orba", "Orihuela", "Orxeta", "Parcent", "Pedreguer", "Pego", "Penàguila", "Petrer", "Pilar de la Horadada", "Pinós (el)/Pinoso", "Planes", "Poblets (els)", "Polop", "Quatretondeta", "Rafal", "Ràfol d'Almúnia (el)", "Redován", "Relleu", "Rojales", "Romana (la)", "Sagra", "Salinas", "San Fulgencio", "San Isidro", "San Miguel de Salinas", "San Vicente del Raspeig/Sant Vicent del Raspeig", "Sanet y Negrals", "Sant Joan d'Alacant", "Santa Pola", "Sax", "Sella", "Senija", "Tàrbena", "Teulada", "Tibi", "Tollos", "Tormos", "Torremanzanas/Torre de les Maçanes (la)", "Torrevieja", "Vall d'Alcalà (la)", "Vall d'Ebo (la)", "Vall de Gallinera", "Vall de Laguar (la)", "Verger (el)", "Villajoyosa/Vila Joiosa (la)", "Villena" ];
+
 // Configura el transportador de correo
 let transporter = nodemailer.createTransport({
     host: 'sandbox.smtp.mailtrap.io',
@@ -469,7 +472,8 @@ app.get('/checkout', async (req, res) => {
     res.render('checkout.ejs', {
         totalPrice: totalPrice,
         user: req.session.userLogued, // Asumiendo que esta es la estructura
-        cart: cart
+        cart: cart,
+        municipios: municipios
     });
 });
 
