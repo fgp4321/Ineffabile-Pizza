@@ -243,20 +243,14 @@ app.post('/valoraciones', (req, res) => {
 
     // Configura las opciones del correo electrónico
     transporter.sendMail({
-        from: 'no-reply@ineffabilepizza.com', // El correo del remitente
-        to: email,  // El correo del usuario que envió la valoración
-        subject: `Gracias por tu valoración!`,
-        text: `Hola,
-
-    Gracias por tomar el tiempo para valorar nuestro servicio. Tu opinión es muy importante para nosotros y ayuda a mejorar nuestro servicio.
-
-    Tu valoración recibida:
+        from: email, // El correo del remitente
+        to: 'no-reply@ineffabilepizza.com',  // El correo que recibe la valoración
+        subject: `Valoracion de ${email}`,
+        text: 
+        `
     Estrellas: ${rating}
     Comentarios: ${message}
-    
-    Esperamos verte de nuevo pronto.
-    Saludos,
-    Equipo de Ineffabile Pizza`
+    `
     }, (err, info) => {
         if (err) {
             console.error('Error al enviar el correo: ', err);
