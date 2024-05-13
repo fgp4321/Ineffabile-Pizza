@@ -76,7 +76,7 @@ exports.login = async function(req, res) {
             const token = jwt.sign(
                 { 
                     id: userFound.id,  // Asegura la identificación del usuario
-                    role: userFound.role,  // Asegura el rol del usuario
+                    role: userFound.rol,  // Asegura el rol del usuario
                     check: true
                 },
                 process.env.JWT_PASS,
@@ -86,7 +86,7 @@ exports.login = async function(req, res) {
             req.session.userLogued = userFound;
 
             // Redireccionar dependiendo del rol del usuario
-            if (userFound.role === 'ADMIN') {
+            if (userFound.rol === 'ADMIN') {
                 // Si el usuario es ADMIN, redireccionar a localhost:4200
                 res.redirect("http://localhost:4200");
             } else {
