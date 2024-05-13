@@ -24,14 +24,15 @@ const municipios = [ "Agost", "Agres", "Aigües", "Alacant/Alicante", "Albatera"
 
 // Configura el transportador de correo
 let transporter = nodemailer.createTransport({
-    host: 'sandbox.smtp.mailtrap.io',
+    host: 'smtp.mailtrap.io',  // Asegúrate que es el host correcto
     port: 2525,
     secure: false, // true for 465, false for other ports
     auth: {
-        user: '449c743180a194', // esto es literal, usas 'apikey' como usuario
+        user: '449c743180a194', // Usa las credenciales de tu cuenta Mailtrap
         pass: '4b244a205637fe'
     }
 });
+
 
 //Google OAuth2
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
@@ -203,13 +204,18 @@ app.post('/contacto', (req, res) => {
 
     // Configura las opciones del correo electrónico
     transporter.sendMail({
-        from: 'sender@example.com', // Esta es la dirección de correo desde la que se envían los mensajes
-        to: 'receiver@example.com', // Puedes poner aquí también tu dirección de Mailtrap para probar
-        subject: `Nuevo mensaje de contacto de ${nombre}`, // Asunto del correo con el nombre del usuario
-        text: `Has recibido un nuevo mensaje de contacto de tu sitio web:
-        Nombre: ${nombre}
-        Email: ${email}
-        Mensaje: ${mensaje}`
+        from: 'no-reply@ineffabilepizza.com', // El correo del remitente sigue siendo el mismo
+        to: email, // Ahora el destinatario será el correo que el usuario ingresó en el formulario
+        subject: `Respuesta a tu mensaje, ${nombre}`, // Personalizas el asunto para responder
+        text: `Hola ${nombre},
+    
+    Gracias por contactarnos. Hemos recibido tu mensaje y te responderemos lo antes posible.
+    
+    Mensaje recibido:
+    ${mensaje}
+    
+    Saludos,
+    Equipo de Ineffabile Pizza`
     }, (err, info) => {
         if (err) {
             console.error('Error al enviar el correo: ', err);
@@ -231,15 +237,36 @@ app.get('/valoraciones', (req, res) => {
 });
 
 // Ruta para manejar el envío del formulario de valoraciones
-app.post('/valoraciones', bodyParser.urlencoded({ extended: true }), (req, res) => {
-    const { stars, message } = req.body;
+app.post('/valoraciones', (req, res) => {
+    const { rating, message, email } = req.body;  // Asegúrate de obtener el email desde el formulario
+    console.log('Recibida valoración:', rating, message, email);  
 
-    // Puedes agregar aquí el código para almacenar la valoración en la base de datos o realizar otras acciones
+    // Configura las opciones del correo electrónico
+    transporter.sendMail({
+        from: 'no-reply@ineffabilepizza.com', // El correo del remitente
+        to: email,  // El correo del usuario que envió la valoración
+        subject: `Gracias por tu valoración!`,
+        text: `Hola,
 
-    // Redirige a la página de éxito
-    res.redirect('/valoraciones/success');
+    Gracias por tomar el tiempo para valorar nuestro servicio. Tu opinión es muy importante para nosotros y ayuda a mejorar nuestro servicio.
+
+    Tu valoración recibida:
+    Estrellas: ${rating}
+    Comentarios: ${message}
+    
+    Esperamos verte de nuevo pronto.
+    Saludos,
+    Equipo de Ineffabile Pizza`
+    }, (err, info) => {
+        if (err) {
+            console.error('Error al enviar el correo: ', err);
+            res.status(500).send('Error al enviar el mensaje');
+        } else {
+            console.log('Correo enviado: ', info);
+            res.redirect('/valoraciones/success'); // Redirige a la página de éxito
+        }
+    });
 });
-
 // Ruta para la página de éxito después de enviar la valoración
 app.get('/valoraciones/success', (req, res) => {
     res.render('valoraciones-success.ejs');

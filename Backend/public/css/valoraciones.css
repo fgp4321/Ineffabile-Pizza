@@ -34,6 +34,7 @@
   }
 
   .rating label:before {
+    transition: color 0.2s ease-in-out;
     content: "\2605";
     font-size: 2.5em;
     color: #ccc;
@@ -48,9 +49,10 @@
     color: #ffcc00;
   }
 
-  .rating label:hover:before {
-    color: #ccc;
-  }
+  .rating label:hover:before,
+.rating label:hover ~ label:before {
+    color: #ffcc00;
+}
 
   .message-info {
     font-style: italic;

@@ -18,79 +18,65 @@
   <!-- Incluir el navbar -->
   <%- include('./partials/navbar.ejs') %>
 
-  <!-- Contenido del formulario -->
-  <div class="container center-form fadeIn">
-    <form class="custom-form">
-      <br>
-      <br>
-      <br>
-      <h1 class="text-center mb-4"><u>Formulario de Contacto</u></h2>
-        <br>
-        <br>
+<div class="container center-form fadeIn">
+  <form class="custom-form" action="/contacto" method="post">
+    <br><br><br>
+    <h1 class="text-center mb-4"><u>Formulario de Contacto</u></h1>
+    <br><br>
 
-      <div class="form-group">
-        <label for="nombre">Nombre:</label>
-        <input type="text" class="form-control" id="nombre" placeholder="Tu nombre">
-      </div>
+    <div class="form-group">
+      <label for="nombre">Nombre:</label>
+      <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Tu nombre" required>
+    </div>
 
-      <div class="form-group">
-        <label for="email">Correo Electrónico:</label>
-        <input type="email" class="form-control" id="email" placeholder="tucorreo@example.com" required>
-        <small id="emailHelp" class="form-text text-muted">Introduce una dirección de correo válida.</small>
-      </div>
+    <div class="form-group">
+      <label for="email">Correo Electrónico:</label>
+      <input type="email" class="form-control" id="email" name="email" placeholder="tucorreo@example.com" required>
+      <small id="emailHelp" class="form-text text-muted">Introduce una dirección de correo válida.</small>
+    </div>
 
-      <div class="form-group">
-        <label for="mensaje">Mensaje:</label>
-        <textarea class="form-control" id="mensaje" rows="6" placeholder="Tu mensaje" required></textarea>
-      </div>
+    <div class="form-group">
+      <label for="mensaje">Mensaje:</label>
+      <textarea class="form-control" id="mensaje" name="mensaje" rows="6" placeholder="Tu mensaje" required></textarea>
+    </div>
 
-      <div class="form-group">
-        <label for="archivo">(Opcional):</label>
-        <input type="file" class="form-control-file" id="archivo" name="archivo">
-      </div>
+    <div class="form-group">
+      <label for="archivo">(Opcional):</label>
+      <input type="file" class="form-control-file" id="archivo" name="archivo">
+    </div>
 
-      <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
-    </form>
+    <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
+  </form>
+</div>
+<br><br>
+
+<div class="row mt-5">
+  <div class="col-md-4 text-center">
+    <img src="/images/maps2.png" alt="Ubicación" class="img-fluid-map">
+    <div id="map"></div>
   </div>
-  <br>
-  <br>
 
-  <!-- Dos columnas con Google Maps y información de contacto -->
-  <div class="row mt-5">
-    <!-- Columna 1: Ubicación -->
-    <div class="col-md-4 text-center">
-      <img src="/images/maps2.png" alt="Ubicación" class="img-fluid-map">
-        <div id="map"></div>
-    </div>
-
-    <!-- Columna 2: Horario -->
-    <div class="col-md-4 text-center">
-      <img src="/images/calendario.png" alt="Horario" class="img-fluid">
-      <p class="mt-3">Horario:</p>
-      <p>de Lunes a Domingo | 12:00 a 00:00</p>
-    </div>
-
-    <!-- Columna 3: Teléfono -->
-    <div class="col-md-4 text-center">
-        <img src="/images/telefono.png" alt="Teléfono" width="90px" height="90px">
-        <p class="mt-3">Teléfono:</p>
-        <p>+34 637 053 805</p>
-    </div>
+  <div class="col-md-4 text-center">
+    <img src="/images/calendario.png" alt="Horario" class="img-fluid">
+    <p class="mt-3">Horario:</p>
+    <p>de Lunes a Domingo | 12:00 a 00:00</p>
   </div>
-<br>
-<br>
 
+  <div class="col-md-4 text-center">
+    <img src="/images/telefono.png" alt="Teléfono" width="90px" height="90px">
+    <p class="mt-3">Teléfono:</p>
+    <p>+34 637 053 805</p>
+  </div>
+</div>
+<br><br>
 
-<a href="https://wa.me/+34637053805?text=Contactar%20con%20Ineffabile%20Pizza%20vía%20WhatsApp" class="whatsapp" target="_blank"> 
+<a href="https://wa.me/+34637053805?text=Contactar%20con%20Ineffabile%20Pizza%20vía%20WhatsApp" class="whatsapp" target="_blank">
   <i class="fab fa-whatsapp whatsapp-icon"></i>
 </a>
-            
-<!-- Botón para volver arriba -->
-<button id="scrollToTopBtn" title="Volver arriba"><i class="fas fa-arrow-up"></i></button>
-  
 
-  <!-- Incluir el footer -->
-  <%- include('./partials/footer.ejs') %>
+<button id="scrollToTopBtn" title="Volver arriba"><i class="fas fa-arrow-up"></i></button>
+
+<%- include('./partials/footer.ejs') %>
 
   <script src="/fontawesome/js/all.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js"></script>
@@ -98,7 +84,7 @@
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="/leaflet/leaflet.js"></script>
   <script>
-    document.addEventListener('DOMContentLoaded', function () {
+    /*document.addEventListener('DOMContentLoaded', function () {
         // Selecciona el formulario y agrega un evento de envío
         var form = document.querySelector('.custom-form');
         form.addEventListener('submit', function (event) {
@@ -146,7 +132,7 @@
                 // form.submit();
             }
         });
-    });
+    });*/
     
     document.addEventListener('DOMContentLoaded', function () {
       var map = L.map('map').setView([38.644063, -0.873476], 13); // Nuevas coordenadas y nivel de zoom
