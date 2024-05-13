@@ -7,14 +7,14 @@
   <div class="container">
     <h1 class="navbar-title"></h1>
     <a class="navbar-brand" href="/">
-      <img src="/images/logo3_modified.png" alt="Logo" width="200" height="200">
+      <img src="/images/logo3_withoutSlogan.png" alt="Logo" width="200" height="200">
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav mx-auto">
+      <ul class="navbar-nav mx-auto" id="uele">
         <li class="nav-item">
           <form class="form-inline my-2 my-lg-0 navbar-search" id="searchForm" action="/api/v2/productos/buscar" method="GET">
             <input class="form-control mr-sm-2" type="search" placeholder="Buscar productos..." aria-label="Buscar" id="searchQuery" name="query">
@@ -33,16 +33,24 @@
             <a class="dropdown-item" href="/productos/pastas">Pastas</a>
             <a class="dropdown-item" href="/productos/complementos">Complementos</a>
             <a class="dropdown-item" href="/productos/bebidas">Bebidas</a>
-            <a class="dropdown-item" href="/carta"><i class="fa-solid fa-sheet-plastic"></i> Carta</a>
           </div>
         </li>
         <!-- Nuevo elemento para el enlace "Acerca de" -->
+        
+        <li class="nav-item">
+          <a class="nav-link" href="/carta" target="_blank">
+            <i class="fa-solid fa-sheet-plastic" style="color: #000000;"></i> <b>Carta</b>
+          </a>
+        </li>
+
         <li class="nav-item">
           <a class="nav-link" href="/about-us">
             <i class="fas fa-info-circle" style="color: #000000;"></i> <b>Sobre Nosotros</b>
           </a>
         </li>
+
       </ul>
+
 
       <ul class="navbar-nav ml-auto">
         <li class="nav-item separator">

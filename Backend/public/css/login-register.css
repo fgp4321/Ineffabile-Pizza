@@ -13,6 +13,10 @@
       background-image: url(../images/background-login2.png);
       background-size: cover;
   }
+
+  .white {
+    color: white;
+  }
   
   .container-form {
     display: flex;
@@ -41,12 +45,12 @@
   
   .info-childs h2 {
     font-size: 2.5rem;
-    color: #333;
+    color: #ffffff;
   }
   
   .info-childs p {
     margin: 15px 0 ;
-    color: #555;
+    color: #dad8d8;
   }
   
   .info-childs input {

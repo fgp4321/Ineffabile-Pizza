@@ -1,6 +1,7 @@
 /* Estilos base para el footer */
 .footer {
     position: static; /* El footer sigue el flujo natural del documento */
+    bottom: fixed;
     width: 100%; /* Ocupa todo el ancho de la página */
     padding: 40px 0; /* Espaciado vertical ajustado */
     background: linear-gradient(to right, #ff925f, #feb47b, #fcd8ba);

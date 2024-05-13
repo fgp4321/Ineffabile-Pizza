@@ -18,6 +18,12 @@
   width: 300px; /* Ancho reducido del input de búsqueda */
 }
 
+#uele > .nav-item{
+  margin: auto;
+  margin-left: 30px;
+  margin-right: 10px;
+}
+
 .separator {
   border-right: 1px solid #000000;
   padding-right: 5px;
@@ -68,6 +74,27 @@
   margin-right: 15px; /* Añade un margen para evitar que se pegue a otros elementos */
 }
 
+/* Ajustes específicos para dispositivos con relación de aspecto alrededor de 912 x 1368 */
+@media (max-width: 990px) {
+  .navbar {
+    height: auto; /* Ajusta la altura del navbar */
+    padding: 10px 0; /* Agrega algo de padding para no saturar los elementos */
+  }
+
+  .navbar-brand img {
+    height: 110px; /* Ajusta la altura del logo */
+  }
+
+  .navbar-toggler {
+    margin-right: 10px; /* Ajusta el margen del botón del menú */
+  }
+
+  .navbar-search input {
+    width: 100%; /* Asegura que el campo de búsqueda use todo el ancho disponible */
+  }
+}
+
+
 
 @media (max-width: 768px) {
   .navbar {
@@ -78,8 +105,10 @@
     text-align: center; /* Centra el logo horizontalmente */
   }
   .navbar-brand img {
-    height: 65px; /* Reduce aún más el tamaño del logo */
+    content: url('../images/logo3_onlypizza.png');
+    height: 95px; /* Reduce aún más el tamaño del logo */
     width: auto; /* Mantiene la proporción del logo */
+    margin-left: 70px;
     display: inline-block; /* Asegura que el logo no ocupe todo el ancho disponible */
   }
 }
