@@ -51,12 +51,18 @@ exports.register = wrapAsync(async function(req, res) {
 
 
 exports.login = async function(req, res) {
-    const { email, password } = req.body;
+    const { login, password } = req.body; // 'login' puede ser email o username
 
     try {
-        // Buscar usuario por email
-        const userFound = await User.buscarPorEmail(email);
+        // Primero intentar buscar por email
+        let userFound = await User.buscarPorEmail(login);
         
+        // Si no se encuentra por email, intentar por username
+        if (!userFound) {
+            userFound = await User.buscarPorUsername(login);
+        }
+
+        // Si aún así no se encuentra, devolver error
         if (!userFound) {
             res.status(401).json({"err": "Usuario y/o contraseña incorrectos"});
             return;
@@ -70,7 +76,7 @@ exports.login = async function(req, res) {
             const token = jwt.sign(
                 { 
                     id: userFound.id,  // Asegura la identificación del usuario
-                    role: userFound.rol,  // Asegura el rol del usuario
+                    role: userFound.role,  // Asegura el rol del usuario
                     check: true
                 },
                 process.env.JWT_PASS,
@@ -80,7 +86,7 @@ exports.login = async function(req, res) {
             req.session.userLogued = userFound;
 
             // Redireccionar dependiendo del rol del usuario
-            if (userFound.rol === 'ADMIN') {
+            if (userFound.role === 'ADMIN') {
                 // Si el usuario es ADMIN, redireccionar a localhost:4200
                 res.redirect("http://localhost:4200");
             } else {
@@ -94,6 +100,7 @@ exports.login = async function(req, res) {
         res.status(500).json({"err": "Error interno del servidor"});
     }
 };
+
 
 
 exports.logout = (req, res) => {

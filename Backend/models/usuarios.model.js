@@ -75,6 +75,20 @@ User.buscarPorEmail = async function (email) {
     }
 };
 
+//Auxiliar para Login
+User.buscarPorUsername = async function (username) {
+    try {
+        const usuario = await User.findOne({ username });
+        if (usuario) {
+            return usuario;
+        } else {
+            return null;
+        }
+    } catch (error) {
+        throw error;
+    }
+};
+
 User.findUsers = async function(){
     try {
         const usuarios = await User.find()
