@@ -172,19 +172,31 @@ app.get('/', (req, res) => {
 
 //NEWSLETTER
 // Ruta para manejar la suscripción al newsletter desde el formulario del footer
-app.post('/subscribe', bodyParser.urlencoded({ extended: true }), (req, res) => {
+app.post('/subscribe', (req, res) => {
     const { email } = req.body;
-  
-    // Validar el formato del correo electrónico (puedes usar una librería como validator.js)
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-      // Mostrar una alerta con SweetAlert2 indicando que el correo electrónico es inválido
-      res.send('<script>alert("Por favor, introduce un correo electrónico válido."); window.location="/";</script>');
-    }
-  
-    // Mostrar una alerta con SweetAlert2 indicando la suscripción exitosa y redirigir a /newsletter/success
-    res.send('<script>alert("Te has suscrito satisfactoriamente al newsletter."); window.location="/newsletter/success";</script>')
-    res.redirect('/newsletter/success');
+    console.log('Recibido:', email);  
+
+    // Configura las opciones del correo electrónico
+    transporter.sendMail({
+        from: 'no-reply@ineffabilepizza.com', // El correo del remitente sigue siendo el mismo
+        to: email, // Ahora el destinatario será el correo que el usuario ingresó en el formulario
+        subject: `Subscripción al newsletter`, // Personalizas el asunto para responder
+        text: `Hola ${email},
+    
+    Gracias por subscribirte a nuestro boletín de noticias y promociones. Hemos recibido tu solicitud y a partir de ahora podrás obtener ofertas exclusivas por ser parte de nuestra comunidad!.
+
+    
+    Saludos,
+    Equipo de Ineffabile Pizza`
+    }, (err, info) => {
+        if (err) {
+            console.error('Error al enviar el correo: ', err);
+            res.status(500).send('Error al enviar el mensaje');
+        } else {
+            console.log('Correo enviado: ', info);
+            res.redirect('/contacto/success'); // Asegúrate de tener esta ruta configurada para mostrar un mensaje de éxito.
+        }
+    });
 });
   
   // Ruta para la página /newsletter
@@ -206,7 +218,7 @@ app.post('/contacto', (req, res) => {
     transporter.sendMail({
         from: 'no-reply@ineffabilepizza.com', // El correo del remitente sigue siendo el mismo
         to: email, // Ahora el destinatario será el correo que el usuario ingresó en el formulario
-        subject: `Respuesta a tu mensaje, ${nombre}`, // Personalizas el asunto para responder
+        subject: `Gracias por tu mensaje!, ${nombre}`, // Personalizas el asunto para responder
         text: `Hola ${nombre},
     
     Gracias por contactarnos. Hemos recibido tu mensaje y te responderemos lo antes posible.
@@ -245,7 +257,7 @@ app.post('/valoraciones', (req, res) => {
     transporter.sendMail({
         from: email, // El correo del remitente
         to: 'no-reply@ineffabilepizza.com',  // El correo que recibe la valoración
-        subject: `Valoracion de ${email}`,
+        subject: `Nueva valoracion de ${email}`,
         text: 
         `
     Estrellas: ${rating}
