@@ -127,35 +127,25 @@
     $(document).ready(function() {
       $('.btn-details').click(function(event) {
         event.preventDefault();
-        var pizzaId = $(this).data('id'); // Obtener el _id de la pizza
-        console.log('ID de la pizza:', pizzaId); // Imprimir el _id de la pizza en la consola
-  
-        // Realizar una solicitud para obtener los detalles de la pizza por su _id
+        var pizzaId = $(this).data('id');
         fetch('http://localhost:9100/api/v2/productos/getProductDetailByID/' + pizzaId)
           .then(response => response.json())
           .then(data => {
-            console.log('Detalles de la pizza:', data); // Imprimir los detalles de la pizza en la consola
-            // Mostrar los detalles de la pizza en el modal
             $('.modal-title').text('Detalles de ' + data.nombre);
             $('#modal-img1').attr('src', '/images/pizzas/' + data.imagen1);
             $('#modal-img2').attr('src', '/images/pizzas/' + data.imagen2);
             $('#modal-img3').attr('src', '/images/pizzas/' + data.imagen3);
             $('.modal-pizza-title').text(data.nombre);
             $('.modal-pizza-description').text(data.descripcion);
-            $('.modal-pizza-price').html(`<span class="badge bg-success">${data.precio_pvp}€</span>`); // Modificado para usar badge
-            // Abrir el modal
-            $('#exampleModal').modal('show');
+            $('.modal-pizza-price').html(`<span class="badge bg-success">${data.precio_pvp}€</span>`);
+            $('#pizzaDetailsModal').modal('show');
           })
           .catch(error => {
-            console.error('Error al obtener los detalles de la pizza:', error); // Manejo de errores
+            console.error('Error al obtener los detalles de la pizza:', error);
             alert('Error al obtener los detalles de la pizza');
           });
       });
-    });
-  </script>
-  <script>
-    $(document).ready(function() {
-      // Definición del Toast
+    
       const Toast = Swal.mixin({
         toast: true,
         position: 'top-end',
@@ -168,43 +158,57 @@
         }
       });
     
-      // El resto de tu código que usa Toast aquí
       $('.btn-add-to-cart').click(function(event) {
         event.preventDefault();
         var pizzaId = $(this).closest('.product').find('.btn-details').data('id');
         var pizzaName = $(this).closest('.product').find('.product-title').text();
-        var pizzaPrice = $(this).closest('.product').find('.price .normal-price').text();
-        var quantity = 1; // Puedes permitir que el usuario elija la cantidad si lo deseas
+        var pizzaPrice = parseFloat($(this).closest('.product').find('.price .normal-price').text().replace('€', ''));
     
-        fetch('/add-to-cart', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
+        Swal.fire({
+          title: '¿Cuántas unidades quieres agregar?',
+          input: 'number',
+          inputAttributes: {
+            min: 1,
+            step: 1
           },
-          body: JSON.stringify({
-            id: pizzaId,
-            name: pizzaName,
-            price: pizzaPrice,
-            quantity: quantity
-          })
-        })
-        .then(response => {
-          if (response.ok) {
-            updateCartItemCount();
-            Toast.fire({
-              icon: 'success',
-              title: '¡Producto agregado al carrito!'
+          inputValue: 1,
+          showCancelButton: true,
+          confirmButtonText: 'Agregar',
+          cancelButtonText: 'Cancelar'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            var quantity = parseInt(result.value);
+            fetch('/add-to-cart', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({
+                id: pizzaId,
+                name: pizzaName,
+                price: pizzaPrice,
+                quantity: quantity
+              })
+            })
+            .then(response => {
+              if (response.ok) {
+                updateCartItemCount();
+                Toast.fire({
+                  icon: 'success',
+                  title: '¡Producto/s agregado/s al carrito!'
+                });
+              } else {
+                throw new Error('Error al agregar producto al carrito');
+              }
+            })
+            .catch(error => {
+              console.error('Error al agregar producto al carrito:', error);
+              Toast.fire({
+                icon: 'error',
+                title: 'Error al agregar producto al carrito'
+              });
             });
-          } else {
-            throw new Error('Error al agregar producto al carrito');
           }
-        })
-        .catch(error => {
-          console.error('Error al agregar producto al carrito:', error);
-          Toast.fire({
-            icon: 'error',
-            title: 'Error al agregar producto al carrito'
-          });
         });
       });
     });

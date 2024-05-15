@@ -1,7 +1,109 @@
-.cantidad-input {
-    width: 50px; /* Ajusta el ancho del input */
-    padding: 5px; /* Ajusta el padding para que no sea demasiado grande */
-    border: 1px solid #ccc; /* Puedes ajustar el color y el grosor del borde */
-    border-radius: 5px; /* Mantiene los bordes redondeados */
-    text-align: center; /* Asegura que el texto esté centrado */
-}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+  }
+  
+  
+  .card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-body {
+    padding: 1.5rem;
+  }
+  
+  .producto-info {
+    display: flex;
+    align-items: center;
+  }
+  
+  .producto-imagen {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 15px;
+  }
+  
+  .card-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .card-text {
+    font-size: 1rem;
+    color: #6c757d;
+  }
+  
+  .producto-cantidad {
+    display: flex;
+    align-items: center;
+  }
+  
+  .producto-cantidad button {
+    width: 35px;
+    height: 35px;
+    font-size: 1.25rem;
+    border: none;
+    border-radius: 50%;
+    background-color: #007bff;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .producto-cantidad input {
+    width: 50px;
+    margin: 0 10px;
+    text-align: center;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+  }
+  
+  .producto-eliminar button {
+    background-color: #dc3545;
+    border: none;
+    padding: 0.5rem 1rem;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .producto-eliminar button:hover {
+    background-color: #c82333;
+  }
+  
+  .total-price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: right;
+  }
+  
+  .center-button {
+    text-align: center;
+  }
+  
+  .btn-success {
+    background-color: #28a745;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1.25rem;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #fff;
+  }
+  
+  .btn-success:hover {
+    background-color: #218838;
+  }
+  
+  .alert-warning {
+    text-align: center;
+    font-size: 1.25rem;
+  }
+  
+  

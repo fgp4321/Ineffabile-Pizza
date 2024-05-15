@@ -9,7 +9,6 @@
   <link rel="stylesheet" href="/css/complementos.css">
   <link rel="stylesheet" href="/css/whatsupto.css">
 </head>
-  
 
 <body>
 
@@ -27,7 +26,7 @@
   </nav>
   <br>
   <br>
-  <h1 class="text-center mb-4"><u>Nuestros Complementos</u></h2>
+  <h1 class="text-center mb-4"><u>Nuestros Complementos</u></h1>
     <div class="container center-form">  
       <div class="row">
         <!-- Botones de opciones -->
@@ -47,7 +46,7 @@
   <div class="row">
     <div class="row">
       <% complementos.forEach(function(complemento, index) { %>
-      <div class="col-md-3">
+      <div class="col-sm-6 col-md-4 col-lg-3">
         <div class="product">
           <img src="/images/complementos/<%= complemento.imagen1 %>" alt="<%= complemento.nombre %>">
           <div class="product-title"><%= complemento.nombre %></div>
@@ -55,8 +54,8 @@
             <span class="normal-price"><%= complemento.precio_pvp %>€</span>
           </div>
           <div class="btn-container">
-            <a href="#" class="btn btn-details" data-toggle="modal" data-target="#complementoDetailsModal" data-id="<%= complemento._id %>"><i class="far fa-eye"></i></a>
-            <a href="#" class="btn btn-add-to-cart"><i class="fas fa-shopping-cart"></i></a>
+            <button class="btn btn-details" data-bs-toggle="modal" data-bs-target="#exampleModal" data-id="<%= complemento._id %>"><i class="far fa-eye"></i></button>
+            <button class="btn btn-add-to-cart"><i class="fas fa-shopping-cart"></i></button>
           </div>
         </div>
       </div>
@@ -65,12 +64,12 @@
   </div>
 </div>
 
-<!-- Nuevo Modal -->
+<!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Detalles de la Pizza</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Detalles del Complemento</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -100,7 +99,6 @@
         <p class="modal-complemento-price"></p>
       </div>
       <div class="modal-footer">
-        <!-- Botón de ayuda con popover -->
         <button type="button" class="btn btn-secondary ms-auto" data-bs-toggle="popover" title="Información acerca de alérgenos" data-bs-content="Este alimento puede contener trazas de otros. Para más información, visite nuestra página de alérgenos (<a href='/alergenos'>página de alérgenos</a>)." data-bs-html="true">Ayuda</button>
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
       </div>
@@ -114,98 +112,100 @@
             
 <!-- Botón para volver arriba -->
 <button id="scrollToTopBtn" title="Volver arriba"><i class="fas fa-arrow-up"></i></button>
-  
 
-  <!-- Incluir el footer -->
-  <%- include('./partials/footer.ejs') %>
+<!-- Incluir el footer -->
+<%- include('./partials/footer.ejs') %>
 
-  <script src="/fontawesome/js/all.min.js"></script>
-  <script src="/js/bootstrap.bundle.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js"></script>
-  <!-- Elimina una de las siguientes líneas dependiendo de tus necesidades -->
-  <!-- script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script -->
-  <script>
-    $(document).ready(function() {
-      $('.btn-details').click(function(event) {
-        event.preventDefault();
-        var complementoId = $(this).data('id'); // Obtener el _id del complemento
-        console.log('ID del complemento:', complementoId); // Imprimir el _id del complemento en la consola
-  
-        // Realizar una solicitud para obtener los detalles del complemento por su _id
-        fetch('http://localhost:9100/api/v2/productos/getProductDetailByID/' + complementoId)
-          .then(response => response.json())
-          .then(data => {
-            console.log('Detalles del complemento:', data); // Imprimir los detalles del complemento en la consola
-            // Mostrar los detalles del complemento en el modal
-            $('.modal-title').text('Detalles de ' + data.nombre);
-            $('#modal-img1').attr('src', '/images/complementos/' + data.imagen1);
-            $('#modal-img2').attr('src', '/images/complementos/' + data.imagen2);
-            $('#modal-img3').attr('src', '/images/complementos/' + data.imagen3);
-            $('.modal-complemento-title').text(data.nombre);
-            $('.modal-complemento-description').text(data.descripcion);
-            $('.modal-complemento-price').html(`<span class="badge bg-success">${data.precio_pvp}€</span>`); // Modificado para usar badge            // Abrir el modal
-            $('#exampleModal').modal('show');
-          })
-          .catch(error => {
-            console.error('Error al obtener los detalles del complemento:', error); // Manejo de errores
-            alert('Error al obtener los detalles del complemento');
-          });
+<script src="/fontawesome/js/all.min.js"></script>
+<script src="/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.4.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+$(document).ready(function() {
+  $('.btn-details').click(function(event) {
+    event.preventDefault();
+    var complementoId = $(this).data('id');
+    fetch('http://localhost:9100/api/v2/productos/getProductDetailByID/' + complementoId)
+      .then(response => response.json())
+      .then(data => {
+        $('.modal-title').text('Detalles de ' + data.nombre);
+        $('#modal-img1').attr('src', '/images/complementos/' + data.imagen1);
+        $('#modal-img2').attr('src', '/images/complementos/' + data.imagen2);
+        $('#modal-img3').attr('src', '/images/complementos/' + data.imagen3);
+        $('.modal-complemento-title').text(data.nombre);
+        $('.modal-complemento-description').text(data.descripcion);
+        $('.modal-complemento-price').html(`<span class="badge bg-success">${data.precio_pvp}€</span>`);
+        $('#exampleModal').modal('show');
+      })
+      .catch(error => {
+        console.error('Error al obtener los detalles del complemento:', error);
+        alert('Error al obtener los detalles del complemento');
       });
-    });
-  </script>
-  <script>
-    $(document).ready(function() {
-      const Toast = Swal.mixin({
-        toast: true,
-        position: 'top-end',
-        showConfirmButton: false,
-        timer: 1800,
-        timerProgressBar: true,
-        didOpen: (toast) => {
-          toast.addEventListener('mouseenter', Swal.stopTimer)
-          toast.addEventListener('mouseleave', Swal.resumeTimer)
-        }
-      });
+  });
+
+  const Toast = Swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 1800,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener('mouseenter', Swal.stopTimer)
+      toast.addEventListener('mouseleave', Swal.resumeTimer)
+    }
+  });
+
   $('.btn-add-to-cart').click(function(event) {
     event.preventDefault();
     var complementoId = $(this).closest('.product').find('.btn-details').data('id');
     var complementoName = $(this).closest('.product').find('.product-title').text();
-    var complementoPrice = $(this).closest('.product').find('.price .normal-price').text();
-    var quantity = 1; // Puedes permitir que el usuario elija la cantidad si lo deseas
+    var complementoPrice = parseFloat($(this).closest('.product').find('.price .normal-price').text().replace('€', ''));
 
-    // Utilizar fetch para realizar la solicitud
-    fetch('/add-to-cart', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
+    Swal.fire({
+      title: '¿Cuántas unidades quieres agregar?',
+      input: 'number',
+      inputAttributes: {
+        min: 1,
+        step: 1
       },
-      body: JSON.stringify({
-        id: complementoId,
-        name: complementoName,
-        price: complementoPrice,
-        quantity: quantity
-      })
-    })
-    .then(response => {
-      if (response.ok) {
-        updateCartItemCount();
-        // Mostrar alerta de éxito con SweetAlert2
-        Toast.fire({
+      inputValue: 1,
+      showCancelButton: true,
+      confirmButtonText: 'Agregar',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        var quantity = parseInt(result.value);
+        fetch('/add-to-cart', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            id: complementoId,
+            name: complementoName,
+            price: complementoPrice,
+            quantity: quantity
+          })
+        })
+        .then(response => {
+          if (response.ok) {
+            updateCartItemCount();
+            Toast.fire({
               icon: 'success',
-              title: '¡Producto agregado al carrito!'
+              title: '¡Producto/s agregado/s al carrito!'
             });
-      } else {
-        // Mostrar alerta de error con SweetAlert2
-        throw new Error('Error al agregar producto al carrito');
-      }
-    })
-    .catch(error => {
-      console.error('Error al agregar producto al carrito:', error);
-      // Mostrar alerta de error con SweetAlert2
-      Toast.fire({
+          } else {
+            throw new Error('Error al agregar producto al carrito');
+          }
+        })
+        .catch(error => {
+          console.error('Error al agregar producto al carrito:', error);
+          Toast.fire({
             icon: 'error',
             title: 'Error al agregar producto al carrito'
           });
+        });
+      }
     });
   });
 });
@@ -220,30 +220,30 @@
   });
 </script>
 <script>
-  window.onscroll = function() {scrollFunction()};
+window.onscroll = function() {scrollFunction()};
   
-  function scrollFunction() {
-    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-      document.getElementById("scrollToTopBtn").style.display = "block";
-    } else {
-      document.getElementById("scrollToTopBtn").style.display = "none";
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("scrollToTopBtn").style.display = "block";
+  } else {
+    document.getElementById("scrollToTopBtn").style.display = "none";
+  }
+  var sections = document.querySelectorAll('.section');
+  sections.forEach(function(section) {
+    if (isSectionInViewport(section)) {
+      section.classList.add('visible');
     }
-    var sections = document.querySelectorAll('.section');
-      sections.forEach(function(section) {
-        if (isSectionInViewport(section)) {
-          section.classList.add('visible');
-        }
-      });
-    }
+  });
+}
 
-    document.getElementById("scrollToTopBtn").addEventListener("click", function() {
-      scrollToTop()
-    })
+document.getElementById("scrollToTopBtn").addEventListener("click", function() {
+  scrollToTop()
+})
 
-    function scrollToTop() {
-      const body = document.getElementsByTagName("body")[0];
-      body.scrollIntoView({ behavior: "smooth" });
-    }
-  </script>
+function scrollToTop() {
+  const body = document.getElementsByTagName("body")[0];
+  body.scrollIntoView({ behavior: "smooth" });
+}
+</script>
 </body>
 </html>

@@ -407,24 +407,37 @@ app.get('/obtener-cantidad-carrito', (req, res) => {
 // Ruta para agregar productos al carrito
 app.post('/add-to-cart', (req, res) => {
     const { id, name, price, quantity } = req.body;
-    
+
     // Obtén el carrito de la sesión
     let cart = req.session.cart || [];
-    
-    // Agrega el nuevo producto al carrito
-    cart.push({
-      id: id,
-      name: name,
-      price: price,
-      quantity: quantity
-    });
-  
+
+    // Verificar si el producto ya existe en el carrito
+    let productExists = false;
+    for (let item of cart) {
+        if (item.id === id) {
+            item.quantity += quantity;
+            productExists = true;
+            break;
+        }
+    }
+
+    // Si el producto no existe, agregarlo al carrito
+    if (!productExists) {
+        cart.push({
+            id: id,
+            name: name,
+            price: price,
+            quantity: quantity
+        });
+    }
+
     // Guarda el carrito en la sesión
     req.session.cart = cart;
-    
+
     // Devuelve una respuesta exitosa
     res.status(200).send('Producto agregado al carrito');
-  });
+});
+
 
   app.post('/eliminar-producto', (req, res) => {
     const productId = req.body.id;
@@ -434,25 +447,60 @@ app.post('/add-to-cart', (req, res) => {
     // Retorna una respuesta adecuada, como un código de estado 200 para indicar éxito
     res.sendStatus(200);
   });
+
+  // Ruta para incrementar la cantidad de un producto en el carrito
+  app.post('/incrementar-cantidad', (req, res) => {
+    const productId = req.body.id;
+
+    // Incrementa la cantidad del producto en el carrito
+    let cart = req.session.cart || [];
+    for (let item of cart) {
+        if (item.id === productId) {
+            item.quantity += 1;
+            break;
+        }
+    }
+
+    req.session.cart = cart; // Asegúrate de guardar el carrito actualizado en la sesión
+    res.sendStatus(200);
+});
+
+
+
+
+// Ruta para decrementar la cantidad de un producto en el carrito
+app.post('/decrementar-cantidad', (req, res) => {
+    const productId = req.body.id;
+
+    // Decrementa la cantidad del producto en el carrito
+    let cart = req.session.cart || [];
+    for (let i = 0; i < cart.length; i++) {
+        if (cart[i].id === productId) {
+            if (cart[i].quantity > 1) {
+                cart[i].quantity -= 1;
+            } else {
+                // Si la cantidad es 1, elimina el producto del carrito
+                cart.splice(i, 1);
+            }
+            break;
+        }
+    }
+
+    req.session.cart = cart; // Asegúrate de guardar el carrito actualizado en la sesión
+    res.sendStatus(200);
+});
+
+
+
+
   
   // Ruta para mostrar el carrito
   app.get('/carrito', (req, res) => {
     // Obtén el carrito de la sesión
     const cart = req.session.cart || [];
-    
-    // Agrupa los productos del carrito por su ID y calcula la cantidad total de cada producto
-    const groupedCart = cart.reduce((acc, product) => {
-        if (!acc[product.id]) {
-            acc[product.id] = { ...product, quantity: 0 };
-        }
-        acc[product.id].quantity += 1;
-        return acc;
-    }, {});
 
-    // Convierte el objeto agrupado en un array para pasarlo a la vista
-    const cartItems = Object.values(groupedCart);
     // Renderiza la vista del carrito y pasa los productos del carrito
-    res.render('carrito.ejs', { cart: cartItems, user: req.session.userLogued });
+    res.render('carrito.ejs', { cart: cart, user: req.session.userLogued });
 });
 
 

@@ -28,16 +28,19 @@
       <div class="card mb-3">
         <div class="card-body">
           <div class="d-flex justify-content-between align-items-center mb-3">
-            <div class="producto-info">
-              <h5 class="card-title"><%= item.name %></h5>
-              <p class="card-text">Precio: <%= item.price %>/Ud</p>
+            <div class="producto-info d-flex align-items-center" data-id="<%= item.id %>">
+              <img src="/images/productos/<%= item.imagen1 %>" alt="<%= item.name %>" class="img-fluid producto-imagen me-3">
+              <div>
+                <h5 class="card-title"><%= item.name %></h5>
+                <p class="card-text">Precio: <%= item.price %> €/Ud</p>
+              </div>
             </div>
-            <div class="producto-cantidad">
-              <!-- Input de solo lectura para mostrar la cantidad -->
-              <input type="text" class="form-control text-center cantidad-input" value="<%= item.quantity %>" readonly>
+            <div class="producto-cantidad d-flex align-items-center">
+              <button class="btn btn-primary btn-decrement" data-id="<%= item.id %>">-</button>
+              <input type="text" class="form-control text-center cantidad-input mx-2" data-id="<%= item.id %>" value="<%= item.quantity %>" readonly>
+              <button class="btn btn-primary btn-increment" data-id="<%= item.id %>">+</button>
             </div>
             <div class="producto-eliminar">
-              <!-- Botón para eliminar el producto del carrito -->
               <button class="btn btn-danger eliminar-producto" data-id="<%= item.id %>">
                 <i class="fas fa-trash-alt"></i>
               </button>
@@ -49,16 +52,18 @@
     <!-- Mostrar el precio total -->
     <div class="card mb-3">
       <div class="card-body">
-        <h5 class="card-title">Total: <%= totalPrice.toFixed(2) %>€</h5>
+        <h5 class="card-title total-price">Total: <%= totalPrice.toFixed(2) %> €</h5>
       </div>
     </div>
-    <div class="center-button"> <!-- Div para centrar el botón -->
-      <button type="button" class="btn btn-warning" onclick="window.location.href='/checkout'">Proceder con el pago</button>
+    <div class="center-button">
+      <button type="button" class="btn btn-success" onclick="window.location.href='/checkout'">Proceder con el pago</button>
     </div>
   <% } else { %>
     <div class="alert alert-warning" role="alert">
       No hay productos en tu carrito.
     </div>
+    <br><br><br><br><br>
+
   <% } %>
 </div>
 
@@ -68,7 +73,6 @@
             
 <!-- Botón para volver arriba -->
 <button id="scrollToTopBtn" title="Volver arriba"><i class="fas fa-arrow-up"></i></button>
-  
 
 <!-- Incluir el footer -->
 <%- include('./partials/footer.ejs') %>
@@ -78,12 +82,97 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    // Evento para eliminar un producto del carrito
+    function updateQuantityAndTotal() {
+      let totalPrice = 0;
+      document.querySelectorAll('.cantidad-input').forEach(input => {
+        const itemId = input.dataset.id;
+        const itemPriceElement = document.querySelector(`.producto-info[data-id='${itemId}'] .card-text`);
+        const itemPrice = parseFloat(itemPriceElement.innerText.replace('Precio: ', '').replace(' €/Ud', '').trim());
+        totalPrice += itemPrice * parseInt(input.value);
+      });
+
+      const totalPriceElement = document.querySelector('.card-title.total-price');
+      if (totalPriceElement) {
+        totalPriceElement.innerText = `Total: ${totalPrice.toFixed(2)} €`;
+      }
+
+      updateCartItemCount();
+    }
+
+    async function updateCartItemCount() {
+      try {
+        const response = await fetch('/obtener-cantidad-carrito');
+        if (response.ok) {
+          const { itemCount } = await response.json();
+          const cartItemCountElement = document.getElementById('cartItemCount');
+          if (cartItemCountElement) {
+            cartItemCountElement.textContent = itemCount;
+            cartItemCountElement.style.display = itemCount > 0 ? 'inline-block' : 'none';
+          }
+        }
+      } catch (error) {
+        console.error('Error al obtener la cantidad de productos en el carrito:', error);
+      }
+    }
+
+    document.querySelectorAll('.btn-increment').forEach(button => {
+      button.addEventListener('click', function() {
+        const productId = this.dataset.id;
+        fetch('/incrementar-cantidad', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ id: productId })
+        })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Error al incrementar la cantidad del producto');
+          }
+          const quantityInput = document.querySelector(`input[data-id='${productId}']`);
+          const newQuantity = parseInt(quantityInput.value) + 1;
+          quantityInput.value = newQuantity;
+          updateQuantityAndTotal();
+        })
+        .catch(error => {
+          console.error('Error al incrementar la cantidad del producto:', error.message);
+        });
+      });
+    });
+
+    document.querySelectorAll('.btn-decrement').forEach(button => {
+      button.addEventListener('click', function() {
+        const productId = this.dataset.id;
+        fetch('/decrementar-cantidad', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ id: productId })
+        })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Error al decrementar la cantidad del producto');
+          }
+          const quantityInput = document.querySelector(`input[data-id='${productId}']`);
+          const newQuantity = parseInt(quantityInput.value) - 1;
+          if (newQuantity > 0) {
+            quantityInput.value = newQuantity;
+          } else {
+            button.closest('.card').remove();
+          }
+          updateQuantityAndTotal();
+        })
+        .catch(error => {
+          console.error('Error al decrementar la cantidad del producto:', error.message);
+        });
+      });
+    });
+
     document.querySelectorAll('.eliminar-producto').forEach(button => {
       button.addEventListener('click', function() {
         const productId = this.dataset.id;
 
-        // Realiza una solicitud fetch para eliminar el producto del carrito
         fetch('/eliminar-producto', {
           method: 'POST',
           headers: {
@@ -95,22 +184,19 @@
           if (!response.ok) {
             throw new Error('Error al eliminar el producto del carrito');
           }
-          // Si la eliminación fue exitosa, muestra una alerta con SweetAlert2
           Swal.fire({
             icon: 'success',
             title: 'Producto eliminado',
             text: 'El producto ha sido eliminado del carrito',
             showConfirmButton: false,
-            timer: 1500 // Cerrar la alerta después de 1.5 segundos
+            timer: 1500
           });
-          // Recarga la página para actualizar el carrito
           setTimeout(() => {
             window.location.reload();
           }, 1500);
         })
         .catch(error => {
           console.error('Error al eliminar producto del carrito:', error.message);
-          // Muestra una alerta de error con SweetAlert2
           Swal.fire({
             icon: 'error',
             title: 'Error',
@@ -120,8 +206,11 @@
         });
       });
     });
+
+    updateCartItemCount();
   });
 </script>
+
 <script>
   window.onscroll = function() {scrollFunction()};
   
