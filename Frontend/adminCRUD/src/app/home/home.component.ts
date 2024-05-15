@@ -17,6 +17,9 @@ export class HomeComponent implements OnInit {
   closeResult = ''
   userList: any = []
   productList: any = []
+  paginatedProductList: any = []
+  currentPage: number = 1
+  pageSize: number = 5
 
   constructor(private router: Router, private modalService: NgbModal, private toastr: ToastrService, private httpProvider: HttpProviderService, private ngZone: NgZone) { }
 
@@ -25,8 +28,8 @@ export class HomeComponent implements OnInit {
     this.getAllProduct()
   }
 
-  async getAllUser(){
-    this.httpProvider.getAllUser().subscribe((data: any)=>{
+  async getAllUser() {
+    this.httpProvider.getAllUser().subscribe((data: any) => {
       if (data != null && data.body != null) {
         var resultData = data.body
         if (resultData) {
@@ -34,7 +37,7 @@ export class HomeComponent implements OnInit {
         }
       }
     },
-    (error: any)=>{
+    (error: any) => {
       if (error) {
         if (error.status == 404) {
           if (error.error && error.error.message) {
@@ -56,7 +59,7 @@ export class HomeComponent implements OnInit {
         (result) => {
           this.deleteUser(user);
         },
-        (reason) => {}
+        (reason) => { }
       );
   }
 
@@ -69,25 +72,25 @@ export class HomeComponent implements OnInit {
         this.getAllUser();
       }
     },
-    (error: any) => {})
+    (error: any) => { })
   }
 
-
-
-  async getAllProduct(){
-    this.httpProvider.getAllProduct().subscribe((data: any)=>{
+  async getAllProduct() {
+    this.httpProvider.getAllProduct().subscribe((data: any) => {
       if (data != null && data.body != null) {
         var resultData = data.body
         if (resultData) {
           this.productList = resultData
+          this.updatePaginatedProductList()
         }
       }
     },
-    (error: any)=>{
+    (error: any) => {
       if (error) {
         if (error.status == 404) {
           if (error.error && error.error.message) {
             this.productList = []
+            this.updatePaginatedProductList()
           }
         }
       }
@@ -105,7 +108,7 @@ export class HomeComponent implements OnInit {
         (result) => {
           this.deleteProduct(product);
         },
-        (reason) => {}
+        (reason) => { }
       );
   }
 
@@ -118,10 +121,32 @@ export class HomeComponent implements OnInit {
         this.getAllProduct();
       }
     },
-    (error: any) => {})
+    (error: any) => { })
   }
 
   isPrecioOfertaAvailable(product: any): boolean {
     return product.precio_oferta !== null && product.precio_oferta !== undefined;
+  }
+
+  get totalPages(): number {
+    return Math.ceil(this.productList.length / this.pageSize);
+  }
+
+  get pages(): number[] {
+    return Array(this.totalPages).fill(0).map((x, i) => i + 1);
+  }
+
+  changePage(page: number): void {
+    if (page < 1 || page > this.totalPages) {
+      return;
+    }
+    this.currentPage = page;
+    this.updatePaginatedProductList();
+  }
+
+  updatePaginatedProductList(): void {
+    const startIndex = (this.currentPage - 1) * this.pageSize;
+    const endIndex = startIndex + this.pageSize;
+    this.paginatedProductList = this.productList.slice(startIndex, endIndex);
   }
 }

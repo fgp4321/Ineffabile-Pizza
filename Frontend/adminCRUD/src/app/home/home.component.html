@@ -80,11 +80,11 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let product of productList" class="center-align">
+                    <tr *ngFor="let product of paginatedProductList" class="center-align">
                         <td>{{ product.nombre }}</td>
-                        <td style="max-width: 220px;">{{ product.descripcion }}</td> <!-- Estilo para hacer más pequeño el campo de descripción -->
+                        <td style="max-width: 220px;">{{ product.descripcion }}</td>
                         <td>{{ product.precio_pvp }}€</td>
-                        <td>{{ isPrecioOfertaAvailable(product) ? product.precio_oferta+"" : 'No disponible' }}</td> <!-- Mostrar "No disponible" cuando precio_oferta es nulo -->
+                        <td>{{ isPrecioOfertaAvailable(product) ? product.precio_oferta : 'No disponible' }}</td>
                         <td>{{ product.categoria_nombre }}</td>
                         <td>
                             <a href="#" [routerLink]="['/ViewProduct/', product._id]" class="btn">
@@ -98,12 +98,27 @@
                             </button>
                         </td>
                     </tr>
-                    <tr *ngIf="productList.length == 0">
+                    <tr *ngIf="paginatedProductList.length == 0">
                         <td colspan="6">Producto(s) no encontrados</td>
                     </tr>
                 </tbody>
             </table>
-            
+            <!-- Paginación -->
+            <ul class="pagination">
+                <li class="page-item" [class.disabled]="currentPage === 1">
+                    <a class="page-link" (click)="changePage(currentPage - 1)" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li *ngFor="let page of pages" class="page-item" [class.active]="currentPage === page">
+                    <a class="page-link" (click)="changePage(page)">{{ page }}</a>
+                </li>
+                <li class="page-item" [class.disabled]="currentPage === totalPages">
+                    <a class="page-link" (click)="changePage(currentPage + 1)" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
         </div>
     </div>
 </div>

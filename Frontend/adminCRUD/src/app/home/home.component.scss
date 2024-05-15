@@ -1,7 +1,7 @@
 .container-xl {
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important;
     padding: 0px;
-    margin-top:6%;
+    margin-top: 6%;
     opacity: 0; /* Inicialmente oculto */
     animation: fadeIn 1.15s ease-in-out forwards; /* Animación de entrada */
     
@@ -62,9 +62,45 @@
             }
         }
     }
+
+    .pagination {
+        display: flex;
+        justify-content: center;
+        padding: 20px 0;
+
+        .page-item {
+            margin: 0 5px;
+
+            .page-link {
+                color: #64437d;
+                border: 1px solid #64437d;
+                border-radius: 5px;
+                padding: 10px 15px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+
+                &:hover {
+                    background-color: #eeae25;
+                    color: #fff;
+                }
+            }
+
+            &.active .page-link {
+                background-color: #eeae25;
+                border-color: #64437d;
+                color: #fff;
+            }
+
+            &.disabled .page-link {
+                color: #ccc;
+                cursor: not-allowed;
+            }
+        }
+    }
 }
+
 @keyframes fadeIn {
     to {
       opacity: 1; /* Opacidad completa al final de la animación */
     }
-  }
+}
