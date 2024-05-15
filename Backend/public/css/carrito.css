@@ -82,6 +82,13 @@ body {
     font-weight: bold;
     text-align: right;
   }
+
+  .shipping-info {
+    font-size: 1rem;
+    color: #6c757d;
+    text-align: right;
+    margin-bottom: 0.5rem;
+  }
   
   .center-button {
     text-align: center;

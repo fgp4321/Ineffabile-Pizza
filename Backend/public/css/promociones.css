@@ -12,6 +12,10 @@ h1 {
   margin-bottom: 30px;
 }
 
+.breadcrumb-item a {
+  color: #ff3333; /* Establece el color de los enlaces a rojo */
+}
+
 .carousel-inner img {
   height: 300px; /* Altura ajustada para enfocar la atención en las imágenes del carrusel */
   object-fit: cover;

@@ -12,264 +12,280 @@
 </head>
 
 <body class="bg-light">
-
   <!-- Incluir el navbar -->
   <%- include('./partials/navbar.ejs') %>
 
-<!-- Contenido del carrito -->
-<br>
-<br>
-<div class="container">
-  <h2 class="text-center mb-4">Tu Carrito de Compras</h2>
-  <% if (cart.length > 0) { %>
-    <% let totalPrice = 0; %>
-    <% cart.forEach(function(item) { %>
-      <% totalPrice += parseFloat(item.price) * item.quantity; %>
-      <div class="card mb-3">
-        <div class="card-body">
-          <div class="d-flex justify-content-between align-items-center mb-3 flex-column flex-md-row">
-            <div class="producto-info d-flex align-items-center" data-id="<%= item.id %>">
-              <img src="/images/<%= item.category %>/<%= item.image %>" alt="<%= item.name %>" class="img-fluid producto-imagen me-3">
-              <div>
-                <h5 class="card-title"><%= item.name %></h5>
-                <p class="card-text">Precio: <%= item.price %> €/Ud</p>
+  <!-- Contenido del carrito -->
+  <br>
+  <br>
+  <div class="container">
+    <h2 class="text-center mb-4">Tu Carrito de Compras</h2>
+    <% if (cart.length > 0) { %>
+      <% let totalPrice = 0; %>
+      <% cart.forEach(function(item) { %>
+        <% totalPrice += parseFloat(item.price) * item.quantity; %>
+        <div class="card mb-3">
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center mb-3 flex-column flex-md-row">
+              <div class="producto-info d-flex align-items-center" data-id="<%= item.id %>">
+                <img src="/images/<%= item.category %>/<%= item.image %>" alt="<%= item.name %>" class="img-fluid producto-imagen me-3">
+                <div>
+                  <h5 class="card-title"><%= item.name %></h5>
+                  <p class="card-text">Precio: <%= item.price %> €/Ud</p>
+                </div>
               </div>
-            </div>
-            <div class="producto-cantidad d-flex align-items-center mt-3 mt-md-0">
-              <button class="btn btn-primary btn-decrement" data-id="<%= item.id %>">-</button>
-              <input type="number" class="form-control text-center cantidad-input mx-2" data-id="<%= item.id %>" value="<%= item.quantity %>">
-              <button class="btn btn-primary btn-increment" data-id="<%= item.id %>">+</button>
-            </div>
-            <div class="producto-eliminar mt-3 mt-md-0">
-              <button class="btn btn-danger eliminar-producto" data-id="<%= item.id %>" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-content="Esta acción eliminará todos los productos del carrito.">
-                <i class="fas fa-trash-alt"></i>
-              </button>
+              <div class="producto-cantidad d-flex align-items-center mt-3 mt-md-0">
+                <button class="btn btn-primary btn-decrement" data-id="<%= item.id %>">-</button>
+                <input type="number" class="form-control text-center cantidad-input mx-2" data-id="<%= item.id %>" value="<%= item.quantity %>">
+                <button class="btn btn-primary btn-increment" data-id="<%= item.id %>">+</button>
+              </div>
+              <div class="producto-eliminar mt-3 mt-md-0">
+                <button class="btn btn-danger eliminar-producto" data-id="<%= item.id %>" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-content="Esta acción eliminará todos los productos del carrito.">
+                  <i class="fas fa-trash-alt"></i>
+                </button>
+              </div>
             </div>
           </div>
         </div>
+      <% }); %>
+      <!-- Mostrar los gastos de envío si el total es menor a 29.90 € -->
+      <div class="card mb-3">
+        <div class="card-body">
+          <% if (totalPrice < 29.90) { %>
+            <p class="shipping-info">Gastos de envío: 3.99 €</p>
+            <% totalPrice += 3.99; %>
+          <% } %>
+          <!-- Mostrar el precio total -->
+          <h5 class="card-title total-price">Total: <%= totalPrice.toFixed(2) %> €</h5>
+        </div>
       </div>
-    <% }); %>
-    <!-- Mostrar el precio total -->
-    <div class="card mb-3">
-      <div class="card-body">
-        <h5 class="card-title total-price">Total: <%= totalPrice.toFixed(2) %> €</h5>
+      <div class="center-button">
+        <button type="button" class="btn btn-success" onclick="window.location.href='/checkout'">Proceder con el pago</button>
       </div>
-    </div>
-    <div class="center-button">
-      <button type="button" class="btn btn-success" onclick="window.location.href='/checkout'">Proceder con el pago</button>
-    </div>
-  <% } else { %>
-    <div class="alert alert-warning" role="alert">
-      No hay productos en tu carrito.
-    </div>
-    <br><br><br><br><br>
+    <% } else { %>
+      <div class="alert alert-warning" role="alert">
+        No hay productos en tu carrito.
+      </div>
+      <br><br><br><br><br>
+    <% } %>
+  </div>
 
-  <% } %>
-</div>
+  <a href="https://wa.me/+34637053805?text=Contactar%20con%20Ineffabile%20Pizza%20vía%20WhatsApp" class="whatsapp" target="_blank"> 
+    <i class="fab fa-whatsapp whatsapp-icon"></i>
+  </a>
+              
+  <!-- Botón para volver arriba -->
+  <button id="scrollToTopBtn" title="Volver arriba"><i class="fas fa-arrow-up"></i></button>
 
-<a href="https://wa.me/+34637053805?text=Contactar%20con%20Ineffabile%20Pizza%20vía%20WhatsApp" class="whatsapp" target="_blank"> 
-  <i class="fab fa-whatsapp whatsapp-icon"></i>
-</a>
-            
-<!-- Botón para volver arriba -->
-<button id="scrollToTopBtn" title="Volver arriba"><i class="fas fa-arrow-up"></i></button>
+  <!-- Incluir el footer -->
+  <%- include('./partials/footer.ejs') %>
 
-<!-- Incluir el footer -->
-<%- include('./partials/footer.ejs') %>
+  <script src="/fontawesome/js/all.min.js"></script>
+  <script src="/js/bootstrap.bundle.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      function updateQuantityAndTotal() {
+        let totalPrice = 0;
+        document.querySelectorAll('.cantidad-input').forEach(input => {
+          const itemId = input.dataset.id;
+          const itemPriceElement = document.querySelector(`.producto-info[data-id='${itemId}'] .card-text`);
+          const itemPrice = parseFloat(itemPriceElement.innerText.replace('Precio: ', '').replace(' €/Ud', '').trim());
+          totalPrice += itemPrice * parseInt(input.value);
+        });
 
-<script src="/fontawesome/js/all.min.js"></script>
-<script src="/js/bootstrap.bundle.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.6.4.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    function updateQuantityAndTotal() {
-      let totalPrice = 0;
-      document.querySelectorAll('.cantidad-input').forEach(input => {
-        const itemId = input.dataset.id;
-        const itemPriceElement = document.querySelector(`.producto-info[data-id='${itemId}'] .card-text`);
-        const itemPrice = parseFloat(itemPriceElement.innerText.replace('Precio: ', '').replace(' €/Ud', '').trim());
-        totalPrice += itemPrice * parseInt(input.value);
+        const totalPriceElement = document.querySelector('.card-title.total-price');
+        const shippingInfoElement = document.querySelector('.shipping-info');
+
+        if (totalPriceElement) {
+          if (totalPrice < 29.90) {
+            if (!shippingInfoElement) {
+              const shippingInfo = document.createElement('p');
+              shippingInfo.classList.add('shipping-info');
+              shippingInfo.innerText = 'Gastos de envío: 3.99 €';
+              totalPriceElement.parentNode.insertBefore(shippingInfo, totalPriceElement);
+            }
+            totalPrice += 3.99;
+          } else if (shippingInfoElement) {
+            shippingInfoElement.remove();
+          }
+          totalPriceElement.innerText = `Total: ${totalPrice.toFixed(2)} €`;
+        }
+
+        updateCartItemCount();
+      }
+
+      async function updateCartItemCount() {
+        try {
+          const response = await fetch('/obtener-cantidad-carrito');
+          if (response.ok) {
+            const { itemCount } = await response.json();
+            const cartItemCountElement = document.getElementById('cartItemCount');
+            if (cartItemCountElement) {
+              cartItemCountElement.textContent = itemCount;
+              cartItemCountElement.style.display = itemCount > 0 ? 'inline-block' : 'none';
+            }
+          }
+        } catch (error) {
+          console.error('Error al obtener la cantidad de productos en el carrito:', error);
+        }
+      }
+
+      document.querySelectorAll('.btn-increment').forEach(button => {
+        button.addEventListener('click', function() {
+          const productId = this.dataset.id;
+          fetch('/incrementar-cantidad', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ id: productId })
+          })
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Error al incrementar la cantidad del producto');
+            }
+            const quantityInput = document.querySelector(`input[data-id='${productId}']`);
+            const newQuantity = parseInt(quantityInput.value) + 1;
+            quantityInput.value = newQuantity;
+            updateQuantityAndTotal();
+          })
+          .catch(error => {
+            console.error('Error al incrementar la cantidad del producto:', error.message);
+          });
+        });
       });
 
-      const totalPriceElement = document.querySelector('.card-title.total-price');
-      if (totalPriceElement) {
-        totalPriceElement.innerText = `Total: ${totalPrice.toFixed(2)} €`;
-      }
+      document.querySelectorAll('.btn-decrement').forEach(button => {
+        button.addEventListener('click', function() {
+          const productId = this.dataset.id;
+          fetch('/decrementar-cantidad', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ id: productId })
+          })
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Error al decrementar la cantidad del producto');
+            }
+            const quantityInput = document.querySelector(`input[data-id='${productId}']`);
+            const newQuantity = parseInt(quantityInput.value) - 1;
+            if (newQuantity > 0) {
+              quantityInput.value = newQuantity;
+            } else {
+              button.closest('.card').remove();
+            }
+            updateQuantityAndTotal();
+          })
+          .catch(error => {
+            console.error('Error al decrementar la cantidad del producto:', error.message);
+          });
+        });
+      });
+
+      document.querySelectorAll('.cantidad-input').forEach(input => {
+        input.addEventListener('change', function() {
+          const productId = this.dataset.id;
+          let newQuantity = parseInt(this.value);
+          if (isNaN(newQuantity) || newQuantity < 1) {
+            newQuantity = 1;
+          }
+          fetch('/update-cantidad', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ id: productId, quantity: newQuantity })
+          })
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Error al actualizar la cantidad del producto');
+            }
+            this.value = newQuantity;
+            updateQuantityAndTotal();
+          })
+          .catch(error => {
+            console.error('Error al actualizar la cantidad del producto:', error.message);
+          });
+        });
+      });
+
+      document.querySelectorAll('.eliminar-producto').forEach(button => {
+        button.addEventListener('click', function() {
+          const productId = this.dataset.id;
+
+          fetch('/eliminar-producto', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ id: productId })
+          })
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Error al eliminar el producto del carrito');
+            }
+            Swal.fire({
+              icon: 'success',
+              title: 'Producto eliminado',
+              text: 'El producto ha sido eliminado del carrito',
+              showConfirmButton: false,
+              timer: 1500
+            });
+            setTimeout(() => {
+              window.location.reload();
+            }, 1500);
+          })
+          .catch(error => {
+            console.error('Error al eliminar producto del carrito:', error.message);
+            Swal.fire({
+              icon: 'error',
+              title: 'Error',
+              text: 'Error al eliminar el producto del carrito',
+              confirmButtonText: 'Cerrar'
+            });
+          });
+        });
+      });
+
+      // Inicializar popovers
+      var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
+      var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+        return new bootstrap.Popover(popoverTriggerEl);
+      });
 
       updateCartItemCount();
-    }
+    });
+  </script>
 
-    async function updateCartItemCount() {
-      try {
-        const response = await fetch('/obtener-cantidad-carrito');
-        if (response.ok) {
-          const { itemCount } = await response.json();
-          const cartItemCountElement = document.getElementById('cartItemCount');
-          if (cartItemCountElement) {
-            cartItemCountElement.textContent = itemCount;
-            cartItemCountElement.style.display = itemCount > 0 ? 'inline-block' : 'none';
-          }
-        }
-      } catch (error) {
-        console.error('Error al obtener la cantidad de productos en el carrito:', error);
+  <script>
+    window.onscroll = function() {scrollFunction()};
+    
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("scrollToTopBtn").style.display = "block";
+      } else {
+        document.getElementById("scrollToTopBtn").style.display = "none";
       }
-    }
-
-    document.querySelectorAll('.btn-increment').forEach(button => {
-      button.addEventListener('click', function() {
-        const productId = this.dataset.id;
-        fetch('/incrementar-cantidad', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({ id: productId })
-        })
-        .then(response => {
-          if (!response.ok) {
-            throw new Error('Error al incrementar la cantidad del producto');
+      var sections = document.querySelectorAll('.section');
+        sections.forEach(function(section) {
+          if (isSectionInViewport(section)) {
+            section.classList.add('visible');
           }
-          const quantityInput = document.querySelector(`input[data-id='${productId}']`);
-          const newQuantity = parseInt(quantityInput.value) + 1;
-          quantityInput.value = newQuantity;
-          updateQuantityAndTotal();
-        })
-        .catch(error => {
-          console.error('Error al incrementar la cantidad del producto:', error.message);
         });
-      });
-    });
+      }
 
-    document.querySelectorAll('.btn-decrement').forEach(button => {
-      button.addEventListener('click', function() {
-        const productId = this.dataset.id;
-        fetch('/decrementar-cantidad', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({ id: productId })
-        })
-        .then(response => {
-          if (!response.ok) {
-            throw new Error('Error al decrementar la cantidad del producto');
-          }
-          const quantityInput = document.querySelector(`input[data-id='${productId}']`);
-          const newQuantity = parseInt(quantityInput.value) - 1;
-          if (newQuantity > 0) {
-            quantityInput.value = newQuantity;
-          } else {
-            button.closest('.card').remove();
-          }
-          updateQuantityAndTotal();
-        })
-        .catch(error => {
-          console.error('Error al decrementar la cantidad del producto:', error.message);
-        });
-      });
-    });
+      document.getElementById("scrollToTopBtn").addEventListener("click", function() {
+        scrollToTop()
+      })
 
-    document.querySelectorAll('.cantidad-input').forEach(input => {
-      input.addEventListener('change', function() {
-        const productId = this.dataset.id;
-        let newQuantity = parseInt(this.value);
-        if (isNaN(newQuantity) || newQuantity < 1) {
-          newQuantity = 1;
-        }
-        fetch('/update-cantidad', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({ id: productId, quantity: newQuantity })
-        })
-        .then(response => {
-          if (!response.ok) {
-            throw new Error('Error al actualizar la cantidad del producto');
-          }
-          this.value = newQuantity;
-          updateQuantityAndTotal();
-        })
-        .catch(error => {
-          console.error('Error al actualizar la cantidad del producto:', error.message);
-        });
-      });
-    });
-
-    document.querySelectorAll('.eliminar-producto').forEach(button => {
-      button.addEventListener('click', function() {
-        const productId = this.dataset.id;
-
-        fetch('/eliminar-producto', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({ id: productId })
-        })
-        .then(response => {
-          if (!response.ok) {
-            throw new Error('Error al eliminar el producto del carrito');
-          }
-          Swal.fire({
-            icon: 'success',
-            title: 'Producto eliminado',
-            text: 'El producto ha sido eliminado del carrito',
-            showConfirmButton: false,
-            timer: 1500
-          });
-          setTimeout(() => {
-            window.location.reload();
-          }, 1500);
-        })
-        .catch(error => {
-          console.error('Error al eliminar producto del carrito:', error.message);
-          Swal.fire({
-            icon: 'error',
-            title: 'Error',
-            text: 'Error al eliminar el producto del carrito',
-            confirmButtonText: 'Cerrar'
-          });
-        });
-      });
-    });
-
-    // Inicializar popovers
-    var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
-    var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-      return new bootstrap.Popover(popoverTriggerEl);
-    });
-
-    updateCartItemCount();
-  });
-</script>
-
-<script>
-  window.onscroll = function() {scrollFunction()};
-  
-  function scrollFunction() {
-    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-      document.getElementById("scrollToTopBtn").style.display = "block";
-    } else {
-      document.getElementById("scrollToTopBtn").style.display = "none";
-    }
-    var sections = document.querySelectorAll('.section');
-      sections.forEach(function(section) {
-        if (isSectionInViewport(section)) {
-          section.classList.add('visible');
-        }
-      });
-    }
-
-    document.getElementById("scrollToTopBtn").addEventListener("click", function() {
-      scrollToTop()
-    })
-
-    function scrollToTop() {
-      const body = document.getElementsByTagName("body")[0];
-      body.scrollIntoView({ behavior: "smooth" });
-    }
+      function scrollToTop() {
+        const body = document.getElementsByTagName("body")[0];
+        body.scrollIntoView({ behavior: "smooth" });
+      }
   </script>
 </body>
 </html>

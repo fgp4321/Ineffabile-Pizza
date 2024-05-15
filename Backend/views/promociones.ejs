@@ -78,7 +78,7 @@
             <span class="original-price"><%= promocion.precio_pvp %>€</span>
             <span class="discount-price badge bg-danger"><%= promocion.precio_oferta %>€</span>
           </p>
-          <button class="btn btn-primary btn-lg btn-block btn-add-to-cart" data-id="<%= promocion._id %>">Aprovecha ahora</button>
+          <button class="btn btn-primary btn-lg btn-block btn-add-to-cart" data-id="<%= promocion._id %>" data-category="<%= promocion.categoria_nombre.toLowerCase() %>" data-image="<%= promocion.imagen1 %>">Aprovecha ahora</button>
         </div>
       </div>
       <% }); %>
@@ -91,8 +91,6 @@
                 
     <!-- Botón para volver arriba -->
     <button id="scrollToTopBtn" title="Volver arriba"><i class="fas fa-arrow-up"></i></button>
-
- 
 
   <!-- Incluir el footer -->
   <%- include('./partials/footer.ejs') %>
@@ -113,42 +111,62 @@
           toast.addEventListener('mouseleave', Swal.resumeTimer)
         }
       });
-  
+
       $('.btn-add-to-cart').click(function(event) {
         event.preventDefault();
-        var productId = $(this).data('id'); // Obtener el ID del producto
+        var productId = $(this).data('id');
         var productName = $(this).closest('.product').find('.product-title').text();
-        var productPrice = $(this).closest('.product').find('.discount-price').text(); // Obtener el precio de oferta
-  
-        fetch('/add-to-cart', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
+        var productPrice = parseFloat($(this).closest('.product').find('.discount-price').text().replace('€', ''));
+        var productImage = $(this).data('image');
+        var productCategory = $(this).data('category');
+
+        Swal.fire({
+          title: '¿Cuántas unidades quieres agregar?',
+          input: 'number',
+          inputAttributes: {
+            min: 1,
+            step: 1
           },
-          body: JSON.stringify({
-            id: productId,
-            name: productName,
-            price: productPrice,
-            quantity: 1
-          })
-        })
-        .then(response => {
-          if (response.ok) {
-            updateCartItemCount(); // Asegúrate de que esta función exista y actualice el contador del carrito
-            Toast.fire({
-              icon: 'success',
-              title: '¡Producto agregado al carrito!'
+          inputValue: 1,
+          showCancelButton: true,
+          confirmButtonText: 'Agregar',
+          cancelButtonText: 'Cancelar'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            var quantity = parseInt(result.value);
+            fetch('/add-to-cart', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({
+                id: productId,
+                name: productName,
+                price: productPrice,
+                quantity: quantity,
+                image: productImage,
+                category: productCategory
+              })
+            })
+            .then(response => {
+              if (response.ok) {
+                updateCartItemCount(); // Asegúrate de que esta función exista y actualice el contador del carrito
+                Toast.fire({
+                  icon: 'success',
+                  title: '¡Producto/s agregado/s al carrito!'
+                });
+              } else {
+                throw new Error('Error al agregar producto al carrito');
+              }
+            })
+            .catch(error => {
+              console.error('Error al agregar producto al carrito:', error);
+              Toast.fire({
+                icon: 'error',
+                title: 'Error al agregar producto al carrito'
+              });
             });
-          } else {
-            throw new Error('Error al agregar producto al carrito');
           }
-        })
-        .catch(error => {
-          console.error('Error al agregar producto al carrito:', error);
-          Toast.fire({
-            icon: 'error',
-            title: 'Error al agregar producto al carrito'
-          });
         });
       });
     });
