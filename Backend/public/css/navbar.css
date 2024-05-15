@@ -47,9 +47,17 @@
 .navbar-search button {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
-  background: #000000; /* Color de fondo del botón */
+  background: #ffffff; /* Color de fondo del botón */
   border: none;
-  color: #ffffff; /* Color del icono de búsqueda */
+  color: #000000; /* Color del icono de búsqueda */
+}
+
+.navbar-search button:hover{
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  background: #ffd700; /* Color de fondo del botón */
+  border: none;
+  color: #fff; /* Color del icono de búsqueda */
 }
 
 .dropdown-menu {
