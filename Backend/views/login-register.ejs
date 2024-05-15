@@ -22,7 +22,7 @@
 }
 </style>
 <body>
-    <div class="container-form register">
+    <div class="container-form register hide">
         <div class="information">
             <div class="info-childs">
                 <h2>Bienvenido</h2>
@@ -73,7 +73,7 @@
     </div>
 
 
-    <div class="container-form login hide">
+    <div class="container-form login">
       <div class="information">
           <div class="info-childs">
               <h2>¡Bienvenido de nuevo!</h2>
@@ -88,7 +88,6 @@
       <div class="form-information">
           <div class="form-information-childs">
               <h2>Iniciar Sesión</h2>
-              <!-- Modificación del formulario -->
               <form class="form" action="/api/v2/usuarios/login" method="POST">
                   <label>
                       <i class='bx bx-envelope' ></i>  <i class='bx bx-user' ></i>
@@ -101,6 +100,12 @@
                 </label>
                   <input type="submit" value="Iniciar Sesión">
               </form>
+              <!-- Mostrar mensaje de error si existe -->
+              <% if (typeof error !== 'undefined') { %>
+                <div class="error-message">
+                  <%= error %>
+                </div>
+              <% } %>
               <div class="icons">
                 <a href="/api/v2/usuarios/auth/google" class="google-icon"><i class='bx bxl-google'></i></a>
                 <a href="/api/v2/usuarios/auth/github" class="github-icon"><i class='bx bxl-github'></i></a>
@@ -155,152 +160,3 @@
     </script>
 </body>
 </html>
-<!-- login y registro con bootstrap
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Iniciar Sesión o Registrarse</title>
-  <link rel="stylesheet" href="/css/bootstrap.min.css">
-  <style>
-    .center-form {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 80vh; /* Ajusta la altura mínima para centrar el formulario */
-    }
-
-    .custom-form {
-      max-width: 400px; /* Ajusta el ancho máximo del formulario */
-      width: 100%;
-    }
-
-    .form-group {
-      margin-bottom: 20px; /* Ajusta el espacio entre campos del formulario */
-    }
-  </style>
-</head>
-<body class="bg-light">
-
-  <div class="container center-form">
-    <form class="custom-form" id="loginForm">
-      <h2 class="text-center mb-4">Inicio de Sesión</h2>
-      <div class="form-group">
-        <label for="loginEmail">Correo Electrónico:</label>
-        <input type="email" class="form-control" id="loginEmail" placeholder="tucorreo@example.com" required>
-      </div>
-      <div class="form-group">
-        <label for="loginPassword">Contraseña:</label>
-        <input type="password" class="form-control" id="loginPassword" placeholder="Contraseña" required>
-      </div>
-      <button type="submit" class="btn btn-primary btn-block">Iniciar Sesión</button>
-      <p class="mt-3 text-center">¿Aún no tiene una cuenta? <a href="#" id="showRegisterForm">Regístrese aquí</a>.</p>
-    </form>
-
-    <form class="custom-form" id="registerForm" style="display: none;">
-      <h2 class="text-center mb-4">Registro</h2>
-      <div class="form-group">
-        <label for="registerNombre">Nombre:</label>
-        <input type="text" class="form-control" id="registerNombre" placeholder="Tu nombre" required>
-      </div>
-      <div class="form-group">
-        <label for="registerEmail">Correo Electrónico:</label>
-        <input type="email" class="form-control" id="registerEmail" placeholder="tucorreo@example.com" required>
-      </div>
-      <div class="form-group">
-        <label for="registerPassword">Contraseña:</label>
-        <input type="password" class="form-control" id="registerPassword" placeholder="Contraseña" required>
-      </div>
-      <button type="submit" class="btn btn-primary btn-block">Registrarse</button>
-      <p class="mt-3 text-center">¿Ya tiene una cuenta? <a href="#" id="showLoginForm">Inicie sesión aquí</a>.</p>
-    </form>
-  </div>
-
-  <script src="/js/jquery.min.js"></script>
-  <script src="/js/bootstrap.bundle.min.js"></script>
-  <script>
-    $(document).ready(function() {
-      // Función para mostrar el formulario de registro y ocultar el de inicio de sesión
-      $('#showRegisterForm').click(function(event) {
-        event.preventDefault(); // Evitar el comportamiento de enlace predeterminado
-        $('#loginForm').hide();
-        $('#registerForm').show();
-      });
-
-      // Función para mostrar el formulario de inicio de sesión y ocultar el de registro
-      $('#showLoginForm').click(function(event) {
-        event.preventDefault(); // Evitar el comportamiento de enlace predeterminado
-        $('#registerForm').hide();
-        $('#loginForm').show();
-      });
-
-      // Puedes agregar más JavaScript aquí si es necesario
-    });
-  </script>
-</body>
-</html>
- -->
-
-<!-- Login no bootstrap - no funciona 
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iniciar Sesión o Registrarse</title>
-    <link rel="stylesheet" href="/fontawesome/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11">
-    <link rel="stylesheet" href="/css/login-register.css">
-    <base href="/" />
-</head>
-<body>
-    <div class="container">
-        <div class="form-box">
-            <h1 id="title">Regístrate</h1>
-            <form>
-                <div class="input-group">
-                    <div class="input-field" id="nombreField">
-                        <i class="fa-regular fa-user"></i>
-                        <input type="text" placeholder="Nombre">
-                    </div>
-                    <div class="input-field" id="apellidoField">
-                        <i class="fa-regular fa-user"></i>
-                        <input type="text" placeholder="Apellido">
-                    </div>
-                    <div class="input-field" id="usernameField">
-                        <i class="fa-solid fa-circle-user"></i>
-                        <input type="text" placeholder="Nombre de usuario">
-                    </div>
-                    <div class="input-field" id="emailField">
-                        <i class="fa-regular fa-envelope"></i>
-                        <input type="email" placeholder="Email">
-                    </div>
-                    <div class="input-field" id="passwordField">
-                        <i class="fa-solid fa-key"></i>
-                        <input type="password" placeholder="Contraseña">
-                    </div>
-                    <div class="input-field" id="telefonoField">
-                        <i class="fa-solid fa-phone"></i>
-                        <input type="tel" placeholder="Teléfono">
-                    </div>
-                    <div class="input-field">
-                        <input type="hidden" id="rolField" name="rol" value="USER">
-                    </div>
-                </div>
-                <div class="btn-container">
-                    <div class="btn-field">
-                        <button type="button" id="signupBtn">Registrarse</button>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <script src="/js/jquery.min.js"></script>
-    <script src="/fontawesome/js/all.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-</body>
-</html>
--->

@@ -540,7 +540,9 @@ app.get('/condiciones-generales', (req, res) => {
 });
 
 app.get('/usuarios/login-register', (req, res) => {
-    res.render('login-register.ejs');
+    const error = req.session.error;
+    req.session.error = null; // Limpiar el mensaje de error de la sesión
+    res.render('login-register.ejs', { error });
 });
 
 app.get('/usuarios/personal-area', (req, res) => {

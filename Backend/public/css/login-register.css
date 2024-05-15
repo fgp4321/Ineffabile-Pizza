@@ -195,6 +195,12 @@
     color: #fff;
     box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
 }
+
+.error-message {
+  color: red;
+  font-size: 0.875rem; /* Tamaño de fuente más pequeño */
+  margin-bottom: 15px;
+}
   
   /*RESPONSIVE FORM*/
   

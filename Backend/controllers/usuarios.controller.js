@@ -64,7 +64,8 @@ exports.login = async function(req, res) {
 
         // Si aún así no se encuentra, devolver error
         if (!userFound) {
-            res.status(401).json({"err": "Usuario y/o contraseña incorrectos"});
+            req.session.error = "Usuario y/o contraseña incorrectos";
+            res.redirect('/usuarios/login-register');
             return;
         }
 
@@ -94,10 +95,12 @@ exports.login = async function(req, res) {
                 res.redirect("/usuarios/personal-area");
             }
         } else {
-            res.status(401).json({"err": "Usuario y/o contraseña incorrectos"});
+            req.session.error = "Usuario y/o contraseña incorrectos";
+            res.redirect('/usuarios/login-register');
         }
     } catch (error) {
-        res.status(500).json({"err": "Error interno del servidor"});
+        req.session.error = "Error interno del servidor";
+            res.redirect('/usuarios/login-register');
     }
 };
 
