@@ -405,10 +405,11 @@ app.get('/obtener-cantidad-carrito', (req, res) => {
   
 
 // Ruta para agregar productos al carrito
+// Ruta para agregar productos al carrito
 app.post('/add-to-cart', (req, res) => {
-    const { id, name, price, quantity } = req.body;
+    const { id, name, price, quantity, image, category } = req.body;
 
-    // Obtén el carrito de la sesión
+    // Obtener el carrito de la sesión
     let cart = req.session.cart || [];
 
     // Verificar si el producto ya existe en el carrito
@@ -427,7 +428,9 @@ app.post('/add-to-cart', (req, res) => {
             id: id,
             name: name,
             price: price,
-            quantity: quantity
+            quantity: quantity,
+            image: image.split('/').pop(), // Asegúrate de que solo el nombre de la imagen se guarde
+            category: category
         });
     }
 
@@ -437,6 +440,8 @@ app.post('/add-to-cart', (req, res) => {
     // Devuelve una respuesta exitosa
     res.status(200).send('Producto agregado al carrito');
 });
+
+
 
 
   app.post('/eliminar-producto', (req, res) => {

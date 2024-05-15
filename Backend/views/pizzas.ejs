@@ -163,6 +163,8 @@
         var pizzaId = $(this).closest('.product').find('.btn-details').data('id');
         var pizzaName = $(this).closest('.product').find('.product-title').text();
         var pizzaPrice = parseFloat($(this).closest('.product').find('.price .normal-price').text().replace('€', ''));
+        var pizzaImage = $(this).closest('.product').find('img').attr('src').split('/').pop(); // Solo obtener el nombre de la imagen        var pizzaImage = $(this).closest('.product').find('img').attr('src');
+        var pizzaCategory = 'pizzas';
     
         Swal.fire({
           title: '¿Cuántas unidades quieres agregar?',
@@ -187,7 +189,9 @@
                 id: pizzaId,
                 name: pizzaName,
                 price: pizzaPrice,
-                quantity: quantity
+                quantity: quantity,
+                image: pizzaImage,
+                category: pizzaCategory
               })
             })
             .then(response => {

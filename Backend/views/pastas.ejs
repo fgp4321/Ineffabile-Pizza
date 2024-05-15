@@ -160,6 +160,8 @@ $(document).ready(function() {
     var pastaId = $(this).closest('.product').find('.btn-details').data('id');
     var pastaName = $(this).closest('.product').find('.product-title').text();
     var pastaPrice = parseFloat($(this).closest('.product').find('.price .normal-price').text().replace('€', ''));
+    var pastaImage = $(this).closest('.product').find('img').attr('src').split('/').pop(); // Solo obtener el nombre de la imagen        var pizzaImage = $(this).closest('.product').find('img').attr('src');
+    var pastaCategory = 'pastas';
 
     Swal.fire({
       title: '¿Cuántas unidades quieres agregar?',
@@ -184,7 +186,9 @@ $(document).ready(function() {
             id: pastaId,
             name: pastaName,
             price: pastaPrice,
-            quantity: quantity
+            quantity: quantity,
+            image: pastaImage,
+            category: pastaCategory
           })
         })
         .then(response => {

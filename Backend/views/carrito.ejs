@@ -29,7 +29,7 @@
         <div class="card-body">
           <div class="d-flex justify-content-between align-items-center mb-3">
             <div class="producto-info d-flex align-items-center" data-id="<%= item.id %>">
-              <img src="/images/productos/<%= item.imagen1 %>" alt="<%= item.name %>" class="img-fluid producto-imagen me-3">
+              <img src="/images/<%= item.category %>/<%= item.image %>" alt="<%= item.name %>" class="img-fluid producto-imagen me-3">
               <div>
                 <h5 class="card-title"><%= item.name %></h5>
                 <p class="card-text">Precio: <%= item.price %> €/Ud</p>

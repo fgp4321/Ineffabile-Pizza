@@ -155,6 +155,8 @@
         var bebidaId = $(this).closest('.product').find('.btn-details').data('id');
         var bebidaName = $(this).closest('.product').find('.product-title').text();
         var bebidaPrice = parseFloat($(this).closest('.product').find('.price .normal-price').text().replace('€', ''));
+        var bebidaImage = $(this).closest('.product').find('img').attr('src').split('/').pop(); // Solo obtener el nombre de la imagen        var pizzaImage = $(this).closest('.product').find('img').attr('src');
+        var bebidaCategory = 'bebidas';
     
         Swal.fire({
           title: '¿Cuántas unidades quieres agregar?',
@@ -179,7 +181,9 @@
                 id: bebidaId,
                 name: bebidaName,
                 price: bebidaPrice,
-                quantity: quantity
+                quantity: quantity,
+                image: bebidaImage,
+                category: bebidaCategory
               })
             })
             .then(response => {
