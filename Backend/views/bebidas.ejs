@@ -46,25 +46,29 @@
     </div>
     <br>
     <br>
-  <div class="row">
     <div class="row">
-      <% bebidas.forEach(function(bebida, index) { %>
-      <div class="col-sm-6 col-md-4 col-lg-3">
-        <div class="product">
-          <img src="/images/bebidas/<%= bebida.imagen1 %>" alt="<%= bebida.nombre %>">
-          <div class="product-title"><%= bebida.nombre %></div>
-          <div class="price">
-            <span class="normal-price"><%= bebida.precio_pvp %>€</span>
-          </div>
-          <div class="btn-container">
-            <button class="btn btn-details" data-bs-toggle="modal" data-bs-target="#exampleModal" data-id="<%= bebida._id %>"><i class="far fa-eye"></i></button>
-            <button class="btn btn-add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+      <div class="row">
+        <% bebidas.forEach(function(bebida, index) { %>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="product">
+            <% if (bebida.imagen1.startsWith('http://') || bebida.imagen1.startsWith('https://')) { %>
+              <img src="<%= bebida.imagen1 %>" alt="<%= bebida.nombre %>">
+            <% } else { %>
+              <img src="/images/bebidas/<%= bebida.imagen1 %>" alt="<%= bebida.nombre %>">
+            <% } %>
+            <div class="product-title"><%= bebida.nombre %></div>
+            <div class="price">
+              <span class="normal-price"><%= bebida.precio_pvp %>€</span>
+            </div>
+            <div class="btn-container">
+              <button class="btn btn-details" data-bs-toggle="modal" data-bs-target="#exampleModal" data-id="<%= bebida._id %>"><i class="far fa-eye"></i></button>
+              <button class="btn btn-add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+            </div>
           </div>
         </div>
+        <% }); %>
       </div>
-      <% }); %>
     </div>
-  </div>
 </div>
 
 <!-- Nuevo Modal -->

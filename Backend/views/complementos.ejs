@@ -43,25 +43,29 @@
     </div>
     <br>
     <br>
-  <div class="row">
     <div class="row">
-      <% complementos.forEach(function(complemento, index) { %>
-      <div class="col-sm-6 col-md-4 col-lg-3">
-        <div class="product">
-          <img src="/images/complementos/<%= complemento.imagen1 %>" alt="<%= complemento.nombre %>">
-          <div class="product-title"><%= complemento.nombre %></div>
-          <div class="price">
-            <span class="normal-price"><%= complemento.precio_pvp %>€</span>
-          </div>
-          <div class="btn-container">
-            <button class="btn btn-details" data-bs-toggle="modal" data-bs-target="#exampleModal" data-id="<%= complemento._id %>"><i class="far fa-eye"></i></button>
-            <button class="btn btn-add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+      <div class="row">
+        <% complementos.forEach(function(complemento, index) { %>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="product">
+            <% if (complemento.imagen1.startsWith('http://') || complemento.imagen1.startsWith('https://')) { %>
+              <img src="<%= complemento.imagen1 %>" alt="<%= complemento.nombre %>">
+            <% } else { %>
+              <img src="/images/complementos/<%= complemento.imagen1 %>" alt="<%= complemento.nombre %>">
+            <% } %>
+            <div class="product-title"><%= complemento.nombre %></div>
+            <div class="price">
+              <span class="normal-price"><%= complemento.precio_pvp %>€</span>
+            </div>
+            <div class="btn-container">
+              <button class="btn btn-details" data-bs-toggle="modal" data-bs-target="#exampleModal" data-id="<%= complemento._id %>"><i class="far fa-eye"></i></button>
+              <button class="btn btn-add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+            </div>
           </div>
         </div>
+        <% }); %>
       </div>
-      <% }); %>
     </div>
-  </div>
 </div>
 
 <!-- Modal -->

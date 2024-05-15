@@ -84,7 +84,7 @@
                         <td>{{ product.nombre }}</td>
                         <td style="max-width: 220px;">{{ product.descripcion }}</td> <!-- Estilo para hacer más pequeño el campo de descripción -->
                         <td>{{ product.precio_pvp }}€</td>
-                        <td>{{ isPrecioOfertaAvailable(product) ? product.precio_oferta+"€" : 'No disponible' }}</td> <!-- Mostrar "No disponible" cuando precio_oferta es nulo -->
+                        <td>{{ isPrecioOfertaAvailable(product) ? product.precio_oferta+"" : 'No disponible' }}</td> <!-- Mostrar "No disponible" cuando precio_oferta es nulo -->
                         <td>{{ product.categoria_nombre }}</td>
                         <td>
                             <a href="#" [routerLink]="['/ViewProduct/', product._id]" class="btn">

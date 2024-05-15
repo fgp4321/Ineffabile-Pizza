@@ -43,25 +43,29 @@
     </div>
     <br>
     <br>
-  <div class="row">
     <div class="row">
-      <% pastas.forEach(function(pasta, index) { %>
-      <div class="col-sm-6 col-md-4 col-lg-3">
-        <div class="product">
-          <img src="/images/pastas/<%= pasta.imagen1 %>" alt="<%= pasta.nombre %>">
-          <div class="product-title"><%= pasta.nombre %></div>
-          <div class="price">
-            <span class="normal-price"><%= pasta.precio_pvp %>€</span>
-          </div>
-          <div class="btn-container">
-            <button class="btn btn-details" data-bs-toggle="modal" data-bs-target="#exampleModal" data-id="<%= pasta._id %>"><i class="far fa-eye"></i></button>
-            <button class="btn btn-add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+      <div class="row">
+        <% pastas.forEach(function(pasta, index) { %>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="product">
+            <% if (pasta.imagen1.startsWith('http://') || pasta.imagen1.startsWith('https://')) { %>
+              <img src="<%= pasta.imagen1 %>" alt="<%= pasta.nombre %>">
+            <% } else { %>
+              <img src="/images/pastas/<%= pasta.imagen1 %>" alt="<%= pasta.nombre %>">
+            <% } %>
+            <div class="product-title"><%= pasta.nombre %></div>
+            <div class="price">
+              <span class="normal-price"><%= pasta.precio_pvp %>€</span>
+            </div>
+            <div class="btn-container">
+              <button class="btn btn-details" data-bs-toggle="modal" data-bs-target="#exampleModal" data-id="<%= pasta._id %>"><i class="far fa-eye"></i></button>
+              <button class="btn btn-add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+            </div>
           </div>
         </div>
+        <% }); %>
       </div>
-      <% }); %>
     </div>
-  </div>
 </div>
 
 <!-- Modal -->
