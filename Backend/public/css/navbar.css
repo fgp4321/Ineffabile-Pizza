@@ -1,21 +1,129 @@
 .navbar {
-  position: fixed; /* Hace el navbar fijo */
-  top: 0; /* Se queda en la parte superior */
-  width: 100%; /* Ocupa todo el ancho de la página */
-  height: 120px; /* Altura reducida del navbar */
-  background: linear-gradient(to right, #ff925f, #feb47b, #fcd8ba);
-  background-size: 200% 100%;
-  animation: gradientAnimation 5s ease infinite alternate-reverse;
-  z-index: 1000; /* Asegura que el navbar se mantenga por encima de otros elementos */
+  background: linear-gradient(to right, #ff5f6d, #ffc371);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 10px 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
 }
 
 .navbar-brand img {
-  height: 100px; /* Altura ajustada del logo */
-  width: auto; /* Mantiene la proporción del logo */
+  height: 60px;
+  width: auto;
+}
+
+.navbar-nav .nav-item .nav-link {
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 15px 20px;
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+  color: #ffd700;
+}
+
+.navbar-toggler {
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28255, 255, 255, 0.5%29' stroke-width='2' linecap='round' linejoin='round' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.navbar-search .input-group {
+  width: 250px;
+  padding-right: 35px;
+  margin-top: 8px; /* Centra verticalmente el input con otros elementos del navbar */
 }
 
 .navbar-search input {
-  width: 300px; /* Ancho reducido del input de búsqueda */
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.navbar-search button {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  background: #000000; /* Color de fondo del botón */
+  border: none;
+  color: #ffffff; /* Color del icono de búsqueda */
+}
+
+.dropdown-menu {
+  background: #ffc371;
+}
+
+.dropdown-item {
+  color: #333;
+}
+
+.dropdown-item:hover {
+  background: #ff5f6d;
+  color: #fff;
+}
+
+.dropdown-item.destacado {
+  font-weight: bold;
+  color: #ff5f6d;
+}
+
+.dropdown-item.destacado:hover {
+  background: #ff5f6d;
+  color: #fff;
+}
+
+.dropdown-divider {
+  height: 1px;
+  margin: .5rem 0;
+  overflow: hidden;
+  background-color: #e9ecef;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .navbar-nav .nav-item {
+    text-align: center;
+  }
+  
+  .navbar-nav {
+    margin-top: 10px;
+  }
+  
+  .navbar-search {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  
+  .navbar-search .input-group {
+    width: 100%;
+  }
+}
+
+
+
+/*NAVBAR ORIGINAL
+.navbar {
+  position: fixed; 
+  top: 0; 
+  width: 100%; 
+  height: 120px; 
+  background: linear-gradient(to right, #ff925f, #feb47b, #fcd8ba);
+  background-size: 200% 100%;
+  animation: gradientAnimation 5s ease infinite alternate-reverse;
+  z-index: 1000; 
+}
+
+.navbar-brand img {
+  height: 100px;
+  width: auto; 
+}
+
+.navbar-search input {
+  width: 300px;
 }
 
 #uele > .nav-item{
@@ -32,13 +140,13 @@
 .navbar-search {
   display: flex;
   align-items: center;
-  margin-left: 20px; /* Agrega espacio a la izquierda */
+  margin-left: 20px;
 }
 
 .navbar-search button {
   background-color: transparent;
   border: none;
-  margin-left: -40px; /* Ajusta el margen para superponer el icono de búsqueda en el input */
+  margin-left: -40px; 
 }
 
 #navbarDropdown {
@@ -46,51 +154,51 @@
   margin-right: 20px;
 }
 
-/* Asegúrate de que los enlaces en el menú desplegable se alineen verticalmente */
+
 .navbar-nav {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Centra los elementos horizontalmente en dispositivos móviles */
+  align-items: center;
 }
 
-/* Ajustes para dispositivos móviles */
+
 @media (max-width: 768px) {
   .navbar-nav {
-    width: 100%; /* Ocupa todo el ancho disponible */
+    width: 100%; 
   }
 
   .nav-item {
-    width: 100%; /* Asegura que cada elemento del nav ocupe el ancho completo */
-    text-align: center; /* Centra el texto de cada enlace */
+    width: 100%; 
+    text-align: center; 
   }
 
   .dropdown-menu {
-    text-align: left; /* Alinea el texto a la izquierda en los submenús */
-    width: 100%; /* Hace que el menú desplegable ocupe todo el ancho */
+    text-align: left; 
+    width: 100%; 
   }
 }
 
 .navbar-toggler {
-  margin-right: 15px; /* Añade un margen para evitar que se pegue a otros elementos */
+  margin-right: 15px; 
 }
 
-/* Ajustes específicos para dispositivos con relación de aspecto alrededor de 912 x 1368 */
+
 @media (max-width: 990px) {
   .navbar {
-    height: auto; /* Ajusta la altura del navbar */
-    padding: 10px 0; /* Agrega algo de padding para no saturar los elementos */
+    height: auto; 
+    padding: 10px 0; 
   }
 
   .navbar-brand img {
-    height: 110px; /* Ajusta la altura del logo */
+    height: 110px; 
   }
 
   .navbar-toggler {
-    margin-right: 10px; /* Ajusta el margen del botón del menú */
+    margin-right: 10px;
   }
 
   .navbar-search input {
-    width: 100%; /* Asegura que el campo de búsqueda use todo el ancho disponible */
+    width: 100%;
   }
 }
 
@@ -101,29 +209,29 @@
     height: auto;
   }
   .navbar-brand {
-    display: block; /* Asegura que el logo se muestre */
-    text-align: center; /* Centra el logo horizontalmente */
+    display: block; 
+    text-align: center;
   }
   .navbar-brand img {
     content: url('../images/logo3_onlypizza.png');
-    height: 95px; /* Reduce aún más el tamaño del logo */
-    width: auto; /* Mantiene la proporción del logo */
+    height: 95px; 
+    width: auto;
     margin-left: 70px;
-    display: inline-block; /* Asegura que el logo no ocupe todo el ancho disponible */
+    display: inline-block;
   }
 }
 
 .navbar-search input {
-  width: 100%; /* Ocupa todo el espacio disponible en pantallas pequeñas */
+  width: 100%; 
 }
 @media (min-width: 768px) {
   .navbar-search input {
-    width: 300px; /* Ancho fijo en pantallas grandes */
+    width: 300px; 
   }
 }
 
 .navbar-toggler {
-  border-color: rgba(255,255,255,0.5); /* Asegúrate de que sea visible contra el fondo */
+  border-color: rgba(255,255,255,0.5);
 }
 
 
@@ -135,4 +243,4 @@
   100% {
     background-position: 100% 0;
   }
-}
+}*/

@@ -1,7 +1,119 @@
 <!-- views/partials/navbar.ejs -->
 <link rel="stylesheet" href="/css/navbar.css">
 
-<div style="height: 120px;"></div> <!-- Div vacío para compensar la altura del navbar fijo -->
+<div style="height: 120px;"></div>
+
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <img src="/images/logo3_withoutSlogan.png" alt="Logo">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item mx-auto">
+          <form class="form-inline my-2 my-lg-0 navbar-search" id="searchForm" action="/api/v2/productos/buscar" method="GET">
+            <div class="input-group">
+              <input class="form-control" type="search" placeholder="Buscar productos..." aria-label="Buscar" id="searchQuery" name="query">
+              <button class="btn btn-outline-light" type="submit" id="searchBtn">
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+          </form>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Productos
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item destacado" href="/promociones">Promociones</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/productos/pizzas">Pizzas</a>
+            <a class="dropdown-item" href="/productos/pastas">Pastas</a>
+            <a class="dropdown-item" href="/productos/complementos">Complementos</a>
+            <a class="dropdown-item" href="/productos/bebidas">Bebidas</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/carta" target="_blank">
+            <i class="fa-solid fa-sheet-plastic"></i> Carta
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about-us">
+            <i class="fas fa-info-circle"></i> Sobre Nosotros
+          </a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/usuarios/personal-area">
+            <i class="fa-solid fa-user fa-2x"></i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/carrito">
+            <i class="fa-solid fa-shopping-cart fa-2x"></i>
+            <span id="cartItemCount" class="badge bg-danger position-absolute top-55 start-80 translate-middle" style="display: none;">0</span>
+          </a>          
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<script>
+// Función para obtener la cantidad de productos en el carrito desde el servidor y actualizar el contador
+async function updateCartItemCount() {
+  try {
+    const response = await fetch('/obtener-cantidad-carrito');
+    if (response.ok) {
+      const { itemCount } = await response.json();
+      const cartItemCountElement = document.getElementById('cartItemCount');
+      if (cartItemCountElement) {
+        if (itemCount > 0) {
+          cartItemCountElement.style.display = 'inline-block';
+          cartItemCountElement.textContent = itemCount;
+        } else {
+          cartItemCountElement.style.display = 'none';
+        }
+      }
+    }
+  } catch (error) {
+    console.error('Error al obtener la cantidad de productos en el carrito:', error);
+  }
+}
+
+document.getElementById('searchForm').addEventListener('submit', function(event) {
+  event.preventDefault();
+  const query = document.getElementById('searchQuery').value;
+  window.location.href = `/resultados?query=${encodeURIComponent(query)}`;
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  updateCartItemCount();
+  var searchInput = document.getElementById('searchQuery');
+  var searchButton = document.getElementById('searchBtn');
+
+  searchInput.addEventListener('input', function () {
+      if (searchInput.value.trim() !== '') {
+          searchButton.style.display = 'none';
+      } else {
+          searchButton.style.display = 'block';
+      }
+  });
+});
+</script>
+
+
+
+<!-- NAVBAR ORIGINAL
+  views/partials/navbar.ejs 
+<link rel="stylesheet" href="/css/navbar.css">
+
+<div style="height: 120px;"></div>
 
 <nav class="navbar navbar-expand-lg navbar-light">
   <div class="container">
@@ -35,7 +147,6 @@
             <a class="dropdown-item" href="/productos/bebidas">Bebidas</a>
           </div>
         </li>
-        <!-- Nuevo elemento para el enlace "Acerca de" -->
         
         <li class="nav-item">
           <a class="nav-link" href="/carta" target="_blank">
@@ -110,4 +221,4 @@ document.addEventListener('DOMContentLoaded', function () {
       }
   })
 });
-</script>
+</script>-->

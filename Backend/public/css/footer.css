@@ -1,92 +1,196 @@
-/* Estilos base para el footer */
 .footer {
-    position: static; /* El footer sigue el flujo natural del documento */
+  background: linear-gradient(to right, #ff5f6d, #ffc371);
+  color: #fff;
+  padding: 40px 0;
+  animation: gradientAnimation 5s ease infinite alternate-reverse;
+  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.footer h5 {
+  color: #000000;
+  font-size: 18px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #ffd700;
+  padding-bottom: 10px;
+}
+
+.footer a {
+  color: #fff;
+  transition: color 0.3s ease;
+}
+
+.footer a:hover {
+  color: #ffd700;
+  text-decoration: none;
+}
+
+.footer ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.footer ul li {
+  margin-bottom: 10px;
+}
+
+.footer .input-group {
+  margin-top: 10px;
+}
+
+.footer .btn-outline-danger {
+  color: #fff;
+  border-color: #ffd700;
+}
+
+.footer .btn-outline-danger:hover {
+  background-color: #ffd700;
+  border-color: #ffd700;
+  color: #333;
+}
+
+.social-icon {
+  transition: color 0.3s ease;
+}
+
+.social-icon .fa-instagram {
+  color: #C13584; 
+}
+
+.social-icon .fa-x-twitter {
+  color: #000000; 
+}
+
+.social-icon .fa-youtube {
+  color: #FF0000; 
+}
+
+.social-icon .fa-facebook-f {
+  color: #1877F2; 
+}
+
+.social-icon .fa-linkedin-in {
+  color: #0077B5; 
+}
+
+.social-icon:hover {
+  color: #ffd700;
+}
+
+.footer-text {
+  color: #fff;
+  margin-top: 20px;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    text-align: center;
+  }
+  .footer h5 {
+    text-align: center;
+  }
+  .footer ul {
+    padding-left: 0;
+  }
+  .footer .input-group {
+    justify-content: center;
+  }
+}
+
+/* Estilos base para el footer 
+.footer {
+    position: static; 
     bottom: fixed;
-    width: 100%; /* Ocupa todo el ancho de la página */
-    padding: 40px 0; /* Espaciado vertical ajustado */
+    width: 100%; 
+    padding: 40px 0; 
     background: linear-gradient(to right, #ff925f, #feb47b, #fcd8ba);
     background-size: 200% 100%;
     animation: gradientAnimation 5s ease infinite alternate-reverse;
-    color: #000000; /* Color de texto */
-    z-index: 10; /* Reducido para no superponerse sobre elementos flotantes */
+    color: #000000; 
+    z-index: 10; 
   }
   
   .footer a {
-    color: #000000; /* Mantenemos el rojo para los enlaces */
-    transition: color 0.3s ease; /* Suavidad al cambiar de color */
+    color: #000000; 
+    transition: color 0.3s ease; 
   }
   
   .footer a:hover {
-    color: #dd2222; /* Un rojo más oscuro al pasar el ratón */
-    text-decoration: none; /* Sin subrayado al pasar el ratón */
+    color: #dd2222; 
+    text-decoration: none; 
   }
   
   .footer h5 {
-    color: #000000; /* Títulos en blanco */
-    border-bottom: 1px solid #ff3333; /* Línea debajo del título para destacarlo */
-    padding-bottom: 10px; /* Espacio bajo el título */
+    color: #000000; 
+    border-bottom: 1px solid #ff3333; 
+    padding-bottom: 10px; 
   }
   
-  /* Estilos para las listas */
   .footer ul {
-    list-style: none; /* Sin viñetas */
-    padding-left: 0; /* Sin padding a la izquierda */
+    list-style: none; 
+    padding-left: 0; 
   }
   
   .footer ul li {
-    padding: 5px 0; /* Espaciado entre elementos de la lista */
+    padding: 5px 0; 
   }
   
-  /* Diseño responsivo para el formulario de suscripción */
   .footer .input-group {
-    margin-top: 10px; /* Espacio arriba del grupo de entrada */
+    margin-top: 10px;
   }
   
   .footer .btn-outline-danger {
-    color: #000000; /* Texto blanco en el botón */
-    border-color: #000000; /* Borde blanco */
+    color: #000000; 
+    border-color: #000000; 
   }
   
   .footer .btn-outline-danger:hover {
-    background-color: #ff3333; /* Fondo rojo al pasar el ratón */
-    border-color: #ff3333; /* Borde del mismo color */
+    background-color: #ff3333; 
+    border-color: #ff3333; 
   }
   
-  /* Iconos de redes sociales con sus colores específicos */
+
 .social-icon .fa-instagram {
-    color: #C13584; /* Instagram: gradiente rosa-morado */
+    color: #C13584; 
   }
   
   .social-icon .fa-x-twitter {
-    color: #000000; /* Twitter: azul claro */
+    color: #000000; 
   }
   
   .social-icon .fa-youtube {
-    color: #FF0000; /* YouTube: rojo */
+    color: #FF0000; 
   }
   
   .social-icon .fa-facebook-f {
-    color: #1877F2; /* Facebook: azul */
+    color: #1877F2; 
   }
   
   .social-icon .fa-linkedin-in {
-    color: #0077B5; /* LinkedIn: azul oscuro */
+    color: #0077B5; 
   }
   
   .social-icon {
-    margin: 0 10px; /* Espaciado horizontal */
+    margin: 0 10px; 
   }
   
   .social-icon:hover {
-    opacity: 0.8; /* Efecto de transparencia al pasar el ratón */
+    opacity: 0.8; 
   }
   
-  /* Estilo para el texto de derechos de autor */
   .footer .footer-text {
-    background-color: transparent; /* Quitamos el fondo oscuro redundante */
-    color: #000000; /* Aseguramos el texto blanco */
-    margin-top: 20px; /* Espacio arriba del texto */
-    padding: 10px 0; /* Padding vertical para el texto */
+    background-color: transparent; 
+    color: #000000; 
+    margin-top: 20px; 
+    padding: 10px 0; 
   }
   
   @keyframes fadeIn {
@@ -102,4 +206,4 @@
   
   .fadeIn {
     animation: fadeIn 1s ease forwards;
-  }
+  }*/

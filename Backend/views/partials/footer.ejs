@@ -1,9 +1,99 @@
 <!-- views/partials/footer.ejs -->
 <link rel="stylesheet" href="/css/footer.css">
 <footer class="footer mt-5 fadeIn">
+  <div class="container">
+    <div class="row">
+      <!-- 1º Columna: Productos -->
+      <div class="col-md-2">
+        <h5>Productos</h5>
+        <ul class="list-unstyled">
+          <li><b><a href="/productos/pizzas">Pizzas</a></b></li>
+          <li><b><a href="/productos/pastas">Pastas</a></b></li>
+          <li><b><a href="/productos/complementos">Complementos</a></b></li>
+          <li><b><a href="/productos/bebidas">Bebidas</a></b></li>
+        </ul>
+      </div>
+
+      <!-- 2º Columna: Políticas -->
+      <div class="col-md-2">
+        <h5>Políticas</h5>
+        <ul class="list-unstyled">
+          <li><a href="/politica-privacidad">Política de privacidad</a></li>
+          <li><a href="/avisolegal">Aviso legal</a></li>
+          <li><a href="/alergenos">Tabla de alérgenos</a></li>
+        </ul>
+      </div>
+
+      <!-- 3º Columna: Sobre nosotros -->
+      <div class="col-md-2">
+        <h5>Sobre nosotros</h5>
+        <ul class="list-unstyled">
+          <li><a href="/about-us">Acerca de</a></li>
+          <li><a href="/contacto">Contacto</a></li>
+          <li><a href="/valoraciones">Valóranos</a></li>
+        </ul>
+      </div>
+
+      <!-- 4º Columna: Envíos y devoluciones -->
+      <div class="col-md-3">
+        <h5>Envíos y devoluciones</h5>
+        <ul class="list-unstyled">
+          <li><a href="/envio">Gastos de envío</a></li>
+          <li><a href="/como-comprar">Cómo comprar</a></li>
+          <li><a href="/condiciones-generales">Condiciones generales</a></li>
+          <li><a href="/formas-de-pago">Formas de pago</a></li>
+        </ul>
+      </div>
+
+      <!-- 5º Columna: Subscríbete a nuestro newsletter -->
+      <div class="col-md-3">
+        <h5>Newsletter</h5>
+        <form id="newsletterForm" action="/subscribe" method="post">
+          <div class="input-group">
+            <input type="email" class="form-control" placeholder="Correo electrónico" name="email" required>
+            <div class="input-group-append">
+              <button type="submit" class="btn btn-outline-danger">
+                <i class="fas fa-paper-plane"></i>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Iconos de redes sociales -->
+    <div class="row mt-3">
+      <div class="col text-center">
+        <p>Síguenos:</p>
+        <a href="#" class="social-icon mx-2"><i class="fab fa-instagram fa-lg"></i></a>
+        <a href="https://twitter.com/IneffabilePizza" class="social-icon mx-2"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="https://www.youtube.com/channel/UC5ZPtobTB2W0xqj-hVfNIag" class="social-icon mx-2"><i class="fab fa-youtube fa-lg"></i></a>
+        <a href="#" class="social-icon mx-2"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.linkedin.com/in/ineffabile-pizza-472b42307/" class="social-icon mx-2"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+    <!-- Cuadro de texto con derechos de autor -->
+    <div class="row mt-3">
+      <div class="col text-center">
+        <div class="footer-text text-center">
+          <p>© 2024 INEFFABILE PIZZA, Inc. Todos los derechos reservados</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="/fontawesome/js/all.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.4.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/js/bootstrap.bundle.min.js"></script>
+
+<!-- views/partials/footer.ejs 
+<link rel="stylesheet" href="/css/footer.css">
+<footer class="footer mt-5 fadeIn">
     <div class="container">
       <div class="row">
-        <!-- 1º Columna: Productos -->
         <div class="col-md-2">
           <h5>Productos</h5>
           <ul class="list-unstyled">
@@ -11,11 +101,9 @@
             <li><b><a href="/productos/pastas">Pastas</a></b></li>
             <li><b><a href="/productos/complementos">Complementos</a></b></li>
             <li><b><a href="/productos/bebidas">Bebidas</a></b></li>
-            <!-- Agrega más categorías según sea necesario -->
           </ul>
         </div>
   
-        <!-- 2º Columna: Políticas -->
         <div class="col-md-2">
           <h5>Políticas</h5>
           <ul class="list-unstyled">
@@ -25,7 +113,6 @@
           </ul>
         </div>
   
-        <!-- 3º Columna: Sobre nosotros -->
         <div class="col-md-2">
           <h5>Sobre nosotros</h5>
           <ul class="list-unstyled">
@@ -35,7 +122,6 @@
           </ul>
         </div>
   
-        <!-- 4º Columna: Envíos y devoluciones -->
         <div class="col-md-3">
           <h5>Envíos y devoluciones</h5>
           <ul class="list-unstyled">
@@ -46,7 +132,6 @@
           </ul>
         </div>
   
-        <!-- 5º Columna: Subscríbete a nuestro newsletter -->
         <div class="col-md-3">
           <h5>Newsletter</h5>
           <form id="newsletterForm" action="/subscribe" method="post">
@@ -61,7 +146,6 @@
           </form>
       </div>
   
-      <!-- Iconos de redes sociales -->
       <div class="row mt-3">
         <div class="col text-center">
           <p>Síguenos:</p>
@@ -72,7 +156,7 @@
           <a href="https://www.linkedin.com/in/ineffabile-pizza-472b42307/" class="social-icon mx-2"><i class="fab fa-linkedin-in"></i></a>
         </div>
       </div>
-    <!-- Cuadro de texto con derechos de autor -->
+
     <div class="row mt-3">
       <div class="col text-center">
         <div class="footer-text text-center">
@@ -86,4 +170,4 @@
 <script src="/fontawesome/js/all.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="/js/bootstrap.bundle.min.js"></script>
+<script src="/js/bootstrap.bundle.min.js"></script>-->
