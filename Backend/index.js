@@ -145,7 +145,7 @@ passport.use(new GitHubStrategy({
 
 
 
-const faviconPath = path.join(__dirname, 'public/favicon', 'favicon3.ico');
+const faviconPath = path.join(__dirname, 'public/favicon', 'favicon.png');
 app.use(favicon(faviconPath));
 
 app.set("view_engine","ejs")
