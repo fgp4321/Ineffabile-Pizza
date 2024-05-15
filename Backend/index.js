@@ -442,6 +442,23 @@ app.post('/add-to-cart', (req, res) => {
 });
 
 
+app.post('/update-cantidad', (req, res) => {
+    const { id, quantity } = req.body;
+
+    // Obtener el carrito de la sesión
+    let cart = req.session.cart || [];
+
+    // Actualizar la cantidad del producto en el carrito
+    for (let item of cart) {
+        if (item.id === id) {
+            item.quantity = quantity;
+            break;
+        }
+    }
+
+    req.session.cart = cart; // Guardar el carrito actualizado en la sesión
+    res.sendStatus(200); // Enviar una respuesta exitosa
+});
 
 
   app.post('/eliminar-producto', (req, res) => {
