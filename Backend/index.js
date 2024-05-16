@@ -568,14 +568,27 @@ app.get('/checkout', async (req, res) => {
     }
 
     const cart = req.session.cart || [];
-    let totalPrice = 0;
+    let subtotal = 0;
+    let iva = 0;
+    let shippingCost = 0;
     cart.forEach(item => {
-        totalPrice += parseFloat(item.price) * item.quantity;
+        subtotal += parseFloat(item.price) * item.quantity;
     });
+
+    iva = subtotal * 0.10;
+    let totalPrice = subtotal + iva;
+
+    if (subtotal < 29.90) {
+        shippingCost = 3.99;
+    }
+    totalPrice += shippingCost;
 
     // Incluir usuario y datos del carrito en la renderización
     res.render('checkout.ejs', {
-        totalPrice: totalPrice,
+        subtotal: subtotal.toFixed(2),
+        iva: iva.toFixed(2),
+        shippingCost: shippingCost.toFixed(2),
+        totalPrice: totalPrice.toFixed(2),
         user: req.session.userLogued, // Asumiendo que esta es la estructura
         cart: cart,
         municipios: municipios

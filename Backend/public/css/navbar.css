@@ -1,7 +1,7 @@
 .navbar {
   background: linear-gradient(to right, #ff5f6d, #ffc371);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 10px 0;
+  padding: 5px 0;
   position: fixed;
   top: 0;
   width: 100%;
@@ -9,7 +9,7 @@
 }
 
 .navbar-brand img {
-  height: 80px;
+  height: 75px;
   width: auto; 
 }
 
