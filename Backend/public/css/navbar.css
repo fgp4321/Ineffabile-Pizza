@@ -9,8 +9,8 @@
 }
 
 .navbar-brand img {
-  height: 60px;
-  width: auto;
+  height: 100px;
+  width: auto; 
 }
 
 .navbar-nav .nav-item .nav-link {
