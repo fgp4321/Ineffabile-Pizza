@@ -28,6 +28,7 @@
 
             <% if (userLogued.rol === "ADMIN") { %>
               <a href="http://localhost:4200/Home" class="btn btn-primary">Mantenimiento <i class="fa-solid fa-user-secret"></i></a>
+              <a href="/pedidos" class="btn btn-primary">Gestionar pedidos</a>
             <% } else if (userLogued.rol === "EMPLOYEE") { %>
               <a href="/pedidos" class="btn btn-primary">Gestionar pedidos</a>
             <% } else { %>

@@ -1,7 +1,7 @@
 .navbar {
   background: linear-gradient(to right, #ff5f6d, #ffc371);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 10px 0;
+  padding: 5px 0;
   position: fixed;
   top: 0;
   width: 100%;
@@ -9,8 +9,8 @@
 }
 
 .navbar-brand img {
-  height: 60px;
-  width: auto;
+  height: 75px;
+  width: auto; 
 }
 
 .navbar-nav .nav-item .nav-link {
@@ -47,9 +47,17 @@
 .navbar-search button {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
-  background: #000000; /* Color de fondo del botón */
+  background: #ffffff; /* Color de fondo del botón */
   border: none;
-  color: #ffffff; /* Color del icono de búsqueda */
+  color: #000000; /* Color del icono de búsqueda */
+}
+
+.navbar-search button:hover{
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  background: #ffd700; /* Color de fondo del botón */
+  border: none;
+  color: #fff; /* Color del icono de búsqueda */
 }
 
 .dropdown-menu {

@@ -7,10 +7,27 @@ body {
     padding: 20px;
   }
 
-  h1 {
-    color: #000000;
+  .page-title {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 3rem; /* Tamaño grande para el título */
+    color: #ff3333; /* Color rojo para el título */
+    text-transform: uppercase; /* Convertir el texto a mayúsculas */
+    letter-spacing: 2px; /* Espaciado entre letras */
+    font-weight: bold; /* Texto en negrita */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Sombra de texto */
     margin-bottom: 30px;
+    position: relative; /* Necesario para el pseudo-elemento */
   }
+  
+  .page-title::after {
+    content: ''; /* Contenido vacío */
+    display: block;
+    width: 50px; /* Ancho de la línea decorativa */
+    height: 5px; /* Altura de la línea decorativa */
+    background-color: #FAC171; /* Color de la línea decorativa */
+    margin: 10px auto 0; /* Espaciado */
+  }
+  
 
   .btn-lg {
     font-size: 1.2rem; /* Reducir el tamaño de fuente */

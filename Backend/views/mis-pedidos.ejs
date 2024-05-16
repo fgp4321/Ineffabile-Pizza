@@ -29,9 +29,13 @@
                         <p class="card-text">Estado: <%= pedido.estadoPedido_status %></p>
                         <p>Productos:</p>
                         <ul>
-                            <% pedido.productos_nombre.forEach(producto => { %>
-                                <li><%= producto %></li>
-                            <% }) %>
+                            <% if (pedido.productos && pedido.productos.length > 0) { %>
+                                <% pedido.productos.forEach(producto => { %>
+                                    <li><%= producto.nombre %> (Cantidad: <%= producto.cantidad %>)</li>
+                                <% }) %>
+                            <% } else { %>
+                                <li>No hay productos en este pedido.</li>
+                            <% } %>
                         </ul>
                         <% if (!pedido.isActive) { %>
                             <p class="text-muted">Este pedido ha sido desactivado o finalizado.</p>

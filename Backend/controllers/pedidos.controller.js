@@ -38,15 +38,15 @@ exports.buscarPorId = wrapAsync(async (req, res) => {
 });
 
 exports.crearPedido = wrapAsync(async (req, res) => {
-    const nuevoPedido = req.body
+    const nuevoPedido = req.body;
+
     try {
-        const pedidoCreado = await Pedido.crearPedido(nuevoPedido)
-        res.status(200).json(pedidoCreado)
+        const pedidoCreado = await Pedido.crearPedido(nuevoPedido);
+        res.status(200).json(pedidoCreado);
     } catch (error) {
-        res.status(500).json({ error: "Error al crear el pedido" })
+        res.status(500).json({ error: "Error al crear el pedido" });
     }
 });
-
 
 exports.actualizarPedido = wrapAsync(async (req, res) => {
     const { id } = req.params

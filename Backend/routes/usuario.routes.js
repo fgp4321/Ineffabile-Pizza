@@ -12,8 +12,6 @@ router.put("/editUser/:id", UserController.actualizarUsuario);
 router.delete("/deleteUserByID/:id", UserController.eliminarUsuario);
 
 
-
-
 /*---------- Tradicional ----------*/
 //Crear/Registrar usuario
 router.post('/register', UserController.register);

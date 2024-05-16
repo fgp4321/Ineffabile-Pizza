@@ -50,8 +50,8 @@
                         <p class="card-text">Estado: <%= pedido.estadoPedido_status %></p>
                         <p>Productos:</p>
                         <ul>
-                            <% pedido.productos_nombre.forEach(producto => { %>
-                                <li><%= producto %></li>
+                            <% pedido.productos.forEach(producto => { %>
+                                <li><%= producto.nombre %> (Cantidad: <%= producto.cantidad %>)</li>
                             <% }) %>
                         </ul>
                         <!-- Botón para activar el formulario de edición -->
@@ -75,7 +75,7 @@
                         <!-- Formulario para desactivar usando POST como PUT -->
                         <form action="/pedidos/desactivar/<%= pedido._id %>" method="POST" style="display: inline;">
                             <input type="hidden" name="_method" value="PUT">
-                            <button type="submit" class="btn btn-danger">Desactivar</button>
+                            <button type="submit" class="btn btn-danger">Marcar como completado</button>
                         </form>
                     </div>
                 </div>

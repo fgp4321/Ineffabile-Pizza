@@ -30,7 +30,6 @@
             <label for="municipio" class="form-label">Municipio</label>
             <select class="form-select" id="municipio" name="municipio">
               <option value="" disabled selected>Seleccione un municipio</option>
-              <!-- Asumiendo que tienes una lista de municipios en una variable 'municipios' -->
               <% municipios.forEach(function(municipio) { %>
                 <option value="<%= municipio %>"><%= municipio %></option>
               <% }); %>
@@ -49,7 +48,14 @@
           <!-- Se mostrarán errores aquí -->
           <div id="card-errors" role="alert"></div>
         
-          <button id="pay-button" type="submit" class="btn btn-primary">Pagar <%= totalPrice.toFixed(2) %> € <i class="fa-solid fa-lock"></i></button>
+          <div class="mt-3">
+            <p class="mb-1"><strong>Subtotal:</strong> <%= subtotal %> €</p>
+            <p class="mb-1"><strong>IVA (10%):</strong> <%= iva %> €</p>
+            <p class="mb-1"><strong>Gastos de envío:</strong> <%= shippingCost %> €</p>
+            <p class="mb-1"><strong>Total:</strong> <%= totalPrice %> €</p>
+          </div>
+        
+          <button id="pay-button" type="submit" class="btn btn-primary">Pagar <%= totalPrice %> € <i class="fa-solid fa-lock"></i></button>
           <button id="loading-button" class="btn btn-primary d-none btn-cooldown" type="button" disabled>
             <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
             <span class="visually-hidden">Loading...</span>
@@ -97,58 +103,57 @@
     var loadingButton = document.getElementById('loading-button');
     
     form.addEventListener('submit', function(event) {
-    event.preventDefault();
-    payButton.classList.add('d-none'); // Ocultar botón de pagar
-    loadingButton.classList.remove('d-none'); // Mostrar botón de carga
+      event.preventDefault();
+      payButton.classList.add('d-none'); // Ocultar botón de pagar
+      loadingButton.classList.remove('d-none'); // Mostrar botón de carga
 
-    setTimeout(() => { // Simulación de proceso de carga y pago
-      createOrder();
-    }, 2000); // Retardo de 2 segundos antes de ejecutar createOrder()
-  });
+      setTimeout(() => { // Simulación de proceso de carga y pago
+        createOrder();
+      }, 2000); // Retardo de 2 segundos antes de ejecutar createOrder()
+    });
 
     function createOrder() {
       const pedidoData = {
-        usuario_nombre: '<%= user.username %>', // Asumiendo que el objeto usuario tiene una propiedad username
-        productos_nombre: <%- JSON.stringify(cart.map(item => item.name)) %>,
-        fecha: new Date(),
-        cantidad: <%= cart.reduce((acc, item) => acc + item.quantity, 0) %>,
-        total: '<%= totalPrice.toFixed(2) %>',
-        estadoPedido_status: 'Pendiente'
+          usuario_nombre: '<%= user.username %>', // Asumiendo que el objeto usuario tiene una propiedad username
+          productos: <%- JSON.stringify(cart.map(item => ({ nombre: item.name, cantidad: item.quantity }))) %>,
+          fecha: new Date(),
+          total: '<%= totalPrice %>',
+          estadoPedido_status: 'Pendiente'
       };
 
       fetch('/pedidos/saveOrder', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(pedidoData)
-    })
-    .then(response => response.json())
-    .then(data => {
-      Swal.fire({
-        title: '¡Pago realizado!',
-        text: 'Transferencia completada. Puede ver sus pedidos presionando sobre el botón "Ver mis pedidos" en este mensaje o en su perfil.',
-        icon: 'success',
-        confirmButtonColor: '#3085d6',
-        confirmButtonText: 'Ver mis pedidos'
-      }).then((result) => {
-        if (result.isConfirmed) {
-          window.location.href = '/pedidos/mis-pedidos';
-        }
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(pedidoData)
+      })
+      .then(response => response.json())
+      .then(data => {
+          Swal.fire({
+              title: '¡Pago realizado!',
+              text: 'Transferencia completada. Puede ver sus pedidos presionando sobre el botón "Ver mis pedidos" en este mensaje o en su perfil.',
+              icon: 'success',
+              confirmButtonColor: '#3085d6',
+              confirmButtonText: 'Ver mis pedidos'
+          }).then((result) => {
+              if (result.isConfirmed) {
+                  window.location.href = '/pedidos/mis-pedidos';
+              }
+          });
+          payButton.classList.remove('d-none'); // Volver a mostrar el botón de pago
+          loadingButton.classList.add('d-none'); // Ocultar el botón de carga
+      })
+      .catch(error => {
+          console.error('Error al crear el pedido:', error);
+          Swal.fire({
+              icon: 'error',
+              title: 'Error',
+              text: 'No se pudo procesar tu pago.',
+          });
+          payButton.classList.remove('d-none'); // Volver a mostrar el botón de pago
+          loadingButton.classList.add('d-none'); // Ocultar el botón de carga
       });
-      payButton.classList.remove('d-none'); // Volver a mostrar el botón de pago
-      loadingButton.classList.add('d-none'); // Ocultar el botón de carga
-    })
-    .catch(error => {
-      console.error('Error al crear el pedido:', error);
-      Swal.fire({
-        icon: 'error',
-        title: 'Error',
-        text: 'No se pudo procesar tu pago.',
-      });
-      payButton.classList.remove('d-none'); // Volver a mostrar el botón de pago
-      loadingButton.classList.add('d-none'); // Ocultar el botón de carga
-    });
     }
   </script>
 </body>

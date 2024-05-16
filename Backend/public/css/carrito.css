@@ -83,11 +83,24 @@ body {
     text-align: right;
   }
 
-  .shipping-info {
+  .iva-price{
     font-size: 1rem;
     color: #6c757d;
     text-align: right;
     margin-bottom: 0.5rem;
+  }
+
+  .subtotal-price {
+    font-size: 1.0rem;
+    text-align: right;
+    margin-bottom: 0.5rem;
+  }
+
+  .shipping-info {
+    font-size: 1rem;
+    color: #6c757d;
+    text-align: right;
+    margin-bottom: 1.0rem;
   }
   
   .center-button {
