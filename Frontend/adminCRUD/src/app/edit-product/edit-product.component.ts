@@ -48,7 +48,7 @@ export class EditProductComponent implements OnInit {
   
     if (isValid) {
       // Agregar el símbolo de Euro al precio_oferta antes de enviar los datos
-      this.editProductForm.precio_oferta = (+this.editProductForm.precio_oferta).toFixed(2) + ' €';
+      this.editProductForm.precio_oferta = (+this.editProductForm.precio_oferta).toFixed(2);
       
       this.httpProvider.editProduct(this.productId, this.editProductForm).subscribe(
         async (data) => {
