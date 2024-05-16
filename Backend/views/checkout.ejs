@@ -106,50 +106,49 @@
     }, 2000); // Retardo de 2 segundos antes de ejecutar createOrder()
   });
 
-    function createOrder() {
-      const pedidoData = {
+  function createOrder() {
+    const pedidoData = {
         usuario_nombre: '<%= user.username %>', // Asumiendo que el objeto usuario tiene una propiedad username
-        productos_nombre: <%- JSON.stringify(cart.map(item => item.name)) %>,
+        productos: <%- JSON.stringify(cart.map(item => ({ nombre: item.name, cantidad: item.quantity }))) %>,
         fecha: new Date(),
-        cantidad: <%= cart.reduce((acc, item) => acc + item.quantity, 0) %>,
         total: '<%= totalPrice.toFixed(2) %>',
         estadoPedido_status: 'Pendiente'
-      };
+    };
 
-      fetch('/pedidos/saveOrder', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(pedidoData)
+    fetch('/pedidos/saveOrder', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(pedidoData)
     })
     .then(response => response.json())
     .then(data => {
-      Swal.fire({
-        title: '¡Pago realizado!',
-        text: 'Transferencia completada. Puede ver sus pedidos presionando sobre el botón "Ver mis pedidos" en este mensaje o en su perfil.',
-        icon: 'success',
-        confirmButtonColor: '#3085d6',
-        confirmButtonText: 'Ver mis pedidos'
-      }).then((result) => {
-        if (result.isConfirmed) {
-          window.location.href = '/pedidos/mis-pedidos';
-        }
-      });
-      payButton.classList.remove('d-none'); // Volver a mostrar el botón de pago
-      loadingButton.classList.add('d-none'); // Ocultar el botón de carga
+        Swal.fire({
+            title: '¡Pago realizado!',
+            text: 'Transferencia completada. Puede ver sus pedidos presionando sobre el botón "Ver mis pedidos" en este mensaje o en su perfil.',
+            icon: 'success',
+            confirmButtonColor: '#3085d6',
+            confirmButtonText: 'Ver mis pedidos'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = '/pedidos/mis-pedidos';
+            }
+        });
+        payButton.classList.remove('d-none'); // Volver a mostrar el botón de pago
+        loadingButton.classList.add('d-none'); // Ocultar el botón de carga
     })
     .catch(error => {
-      console.error('Error al crear el pedido:', error);
-      Swal.fire({
-        icon: 'error',
-        title: 'Error',
-        text: 'No se pudo procesar tu pago.',
-      });
-      payButton.classList.remove('d-none'); // Volver a mostrar el botón de pago
-      loadingButton.classList.add('d-none'); // Ocultar el botón de carga
+        console.error('Error al crear el pedido:', error);
+        Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'No se pudo procesar tu pago.',
+        });
+        payButton.classList.remove('d-none'); // Volver a mostrar el botón de pago
+        loadingButton.classList.add('d-none'); // Ocultar el botón de carga
     });
-    }
+}
   </script>
 </body>
 </html>

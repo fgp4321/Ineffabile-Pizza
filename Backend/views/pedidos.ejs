@@ -50,8 +50,8 @@
                         <p class="card-text">Estado: <%= pedido.estadoPedido_status %></p>
                         <p>Productos:</p>
                         <ul>
-                            <% pedido.productos_nombre.forEach(producto => { %>
-                                <li><%= producto %></li>
+                            <% pedido.productos.forEach(producto => { %>
+                                <li><%= producto.nombre %> (Cantidad: <%= producto.cantidad %>)</li>
                             <% }) %>
                         </ul>
                         <!-- Botón para activar el formulario de edición -->
