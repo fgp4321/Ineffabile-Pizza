@@ -1,9 +1,9 @@
 .alergenos-icons i {
-    font-size: 20px;
-    margin: 0 5px;
-  }
+  font-size: 20px;
+  margin: 0 5px;
+}
 
-  @keyframes fadeIn {
+@keyframes fadeIn {
   from {
     opacity: 0;
     transform: translateY(50px);
@@ -16,4 +16,8 @@
 
 .fadeIn {
   animation: fadeIn 1s ease forwards;
+}
+
+.dt-buttons .btn {
+  margin-right: 5px;
 }

@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
     var acceptButton = document.getElementById("accept-cookies");
     var rejectButton = document.getElementById("reject-cookies");
     var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    var expandDetailsButtons = document.querySelectorAll('.expand-details');
 
     // Mostrar el pop-up solo si la cookie 'functional-cookie' no está establecida como 'true'
     if (getCookie("functional-cookie") !== "true") {
@@ -29,13 +30,27 @@ document.addEventListener("DOMContentLoaded", function() {
         cookiePopup.style.display = "none";
     });
 
+    expandDetailsButtons.forEach(function(button) {
+        button.addEventListener("click", function() {
+            var targetId = button.getAttribute("data-target");
+            var target = document.getElementById(targetId);
+            if (target.style.display === "none" || target.style.display === "") {
+                target.style.display = "block";
+                button.textContent = "-";
+            } else {
+                target.style.display = "none";
+                button.textContent = "+";
+            }
+        });
+    });
+
     function getCookie(name) {
         var nameEQ = name + "=";
         var ca = document.cookie.split(';');
-        for(var i=0; i < ca.length; i++) {
+        for(var i = 0; i < ca.length; i++) {
             var c = ca[i];
-            while (c.charAt(0) === ' ') c = c.substring(1,c.length);
-            if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length,c.length);
+            while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+            if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
         }
         return null;
     }

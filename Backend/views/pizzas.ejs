@@ -48,7 +48,7 @@
       <div class="row">
         <% pizzas.forEach(function(pizza, index) { %>
         <div class="col-sm-6 col-md-4 col-lg-3">
-          <div class="product">
+          <div class="product" data-imagen2="<%= pizza.imagen2 ? (pizza.imagen2.startsWith('http://') || pizza.imagen2.startsWith('https://') ? pizza.imagen2 : '/images/pizzas/' + pizza.imagen2) : '' %>">
             <% if (pizza.imagen1.startsWith('http://') || pizza.imagen1.startsWith('https://')) { %>
               <img src="<%= pizza.imagen1 %>" alt="<%= pizza.nombre %>">
             <% } else { %>
@@ -65,7 +65,7 @@
           </div>
         </div>
         <% }); %>
-      </div>
+      </div>          
     </div>
 </div>
 
@@ -221,14 +221,37 @@
       });
     });
     </script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const products = document.querySelectorAll('.product');
+    
+        products.forEach(product => {
+          const imgElement = product.querySelector('img');
+          const originalSrc = imgElement.src;
+          const secondImageSrc = product.getAttribute('data-imagen2');
+    
+          if (secondImageSrc) {
+            product.addEventListener('mouseenter', () => {
+              imgElement.src = secondImageSrc;
+            });
+    
+            product.addEventListener('mouseleave', () => {
+              imgElement.src = originalSrc;
+            });
+          }
+        });
+      });
+    </script>
+    
+    
 <script>
-  $(document).ready(function() {
-    // Inicializar los popovers
-    var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
-    var popoverList = popoverTriggerList.map(function(popoverTriggerEl) {
-      return new bootstrap.Popover(popoverTriggerEl);
-    });
-  });
+      $(document).ready(function() {
+        // Inicializar los popovers
+        var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
+        var popoverList = popoverTriggerList.map(function(popoverTriggerEl) {
+          return new bootstrap.Popover(popoverTriggerEl);
+        });
+      });
 </script>
 <script>
   window.onscroll = function() {scrollFunction()};

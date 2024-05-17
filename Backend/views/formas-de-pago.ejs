@@ -8,7 +8,6 @@
   <link rel="stylesheet" href="/fontawesome/css/all.min.css">
   <link rel="stylesheet" href="/css/formas-de-pago.css">
   <link rel="stylesheet" href="/css/whatsupto.css">
-  
 </head>
 
 <body class="bg-light">
@@ -25,18 +24,18 @@
           <p class="lead">Ofrecemos diversas formas de pago para tu comodidad</p>
         </div>
         <div class="mb-5">
-          <h3 class="fw-bold mb-3">Transferencia Bancaria <i class="fa-solid fa-money-bill-transfer"></i> </h3>
-          <p>Aceptamos transferencias bancarias como método de pago. Puedes realizar una transferencia desde tu banco a nuestra cuenta utilizando los datos que te proporcionaremos al confirmar tu pedido.</p>
-          <img src="/images/transferencia-bancaria.png" alt="Transferencia Bancaria" class="img-fluid img-separation" width="350px">
-          <img src="/images/transferencia-bancaria2.png" alt="Transferencia Bancaria" class="img-fluid" width="250px">
-        </div>
-    </br>
-        <div class="mb-5">
           <h3 class="fw-bold mb-3">Tarjeta de Crédito o Débito <i class="fa-brands fa-cc-visa"></i>  <i class="fa-brands fa-cc-mastercard"></i> <i class="fa-brands fa-cc-stripe"></i></h3>
           <p>Aceptamos pagos con tarjeta de crédito o débito. Asegúrate de tener una de las siguientes tarjetas para realizar tu compra: Maestro, Mastercard o Visa. Utilizamos Stripe como pasarela de pago segura.</p>
-          <img src="/images/metodos-pago.png" alt="Tarjetas de Crédito" class="img-fluid">
+          <img src="/images/metodos-pago.png" alt="Tarjetas de Crédito" class="img-fluid img-small">
+        </div>
+        <br>
+        <br>
+        <div class="mb-5">
+          <h3 class="fw-bold mb-3">Efectivo en el Local <i class="fa-solid fa-money-bill-wave"></i></h3>
+          <p>Si prefieres, puedes pagar en efectivo directamente en nuestro local al recoger tu pedido. Este método de pago no está disponible para pedidos en línea.</p>
         </div>
         <p class="text-center">Si tienes alguna pregunta o necesitas asistencia con los métodos de pago, no dudes en ponerte en contacto con nuestro equipo de atención al cliente.</p>
+        <div class="text-center mt-3"><a href="/contacto" class="btn btn-primary">Contáctanos</a></div>
       </div>
     </div>
   </div>
@@ -44,10 +43,9 @@
   <a href="https://wa.me/+34637053805?text=Contactar%20con%20Ineffabile%20Pizza%20vía%20WhatsApp" class="whatsapp" target="_blank"> 
     <i class="fab fa-whatsapp whatsapp-icon"></i>
   </a>
-              
+
   <!-- Botón para volver arriba -->
   <button id="scrollToTopBtn" title="Volver arriba"><i class="fas fa-arrow-up"></i></button>
-    
 
   <!-- Footer mejorado -->
   <%- include('./partials/footer.ejs') %>
@@ -71,11 +69,11 @@
           }
         });
       }
-  
+
       document.getElementById("scrollToTopBtn").addEventListener("click", function() {
         scrollToTop()
       })
-  
+
       function scrollToTop() {
         const body = document.getElementsByTagName("body")[0];
         body.scrollIntoView({ behavior: "smooth" });

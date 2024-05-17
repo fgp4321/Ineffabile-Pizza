@@ -1,4 +1,3 @@
-<!-- views/envio.ejs -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -13,46 +12,73 @@
 
 <body class="bg-light">
 
-  <!-- Incluir el navbar -->
+  <!-- Navbar mejorado -->
   <%- include('./partials/navbar.ejs') %>
 
   <!-- Contenido de gastos de envío -->
-  <div class="container fadeIn">
-    <h1 class="text-center mt-5"><u>Gastos de Envío</u></h1>
-    <br>
-    <div class="mt-4">
-      <p>Para los pedidos realizados en nuestra pizzería, los gastos de envío se calculan de la siguiente manera:</p>
-      <ul>
-        <li>Si tu pedido alcanza o supera los 29.90€, ¡el envío será gratuito!</li>
-        <li>En caso contrario, se aplicará una tarifa de 3.99€ por gastos de gestión y envío.</li>
-      </ul>
-      <p>Además, nos comprometemos a entregar tu pedido lo más rápido posible. Nuestro equipo de reparto se esfuerza por cumplir con los plazos de entrega, aunque ocasionalmente pueden surgir retrasos debido a factores externos como el tráfico o las condiciones meteorológicas.</p>
-      <p>Si tienes alguna pregunta o necesitas más información sobre nuestros gastos de envío, no dudes en ponerte en contacto con nosotros.</p>
+  <div class="container py-5 fadeIn">
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        <div class="text-center mb-5">
+          <h2 class="fw-bold">Gastos de Envío</h2>
+          <p class="lead">Información sobre nuestras tarifas de envío</p>
+        </div>
+        <div class="mb-5">
+          <h3 class="fw-bold mb-3">1. Envío Gratuito</h3>
+          <p>Si tu pedido alcanza o supera los 29.90€, ¡el envío será gratuito!</p>
+        </div>
+        <div class="mb-5">
+          <h3 class="fw-bold mb-3">2. Tarifa de Envío</h3>
+          <p>Para pedidos menores de 29.90€, se aplicará una tarifa de 3.99€ por gastos de gestión y envío.</p>
+        </div>
+        <div class="mb-5">
+          <h3 class="fw-bold mb-3">3. Tiempos de Entrega</h3>
+          <p>Nos comprometemos a entregar tu pedido lo más rápido posible. Sin embargo, ocasionalmente pueden surgir retrasos debido a factores externos como el tráfico o las condiciones meteorológicas.</p>
+        </div>
+        <p class="text-center">Si tienes alguna pregunta o necesitas más información sobre nuestros gastos de envío, no dudes en ponerte en contacto con nosotros.</p>
+        <div class="text-center mt-3"><a href="/contacto" class="btn btn-primary">Contáctanos</a></div>
+      </div>
     </div>
   </div>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 
-<a href="https://wa.me/+34637053805?text=Contactar%20con%20Ineffabile%20Pizza%20vía%20WhatsApp" class="whatsapp" target="_blank"> 
-  <i class="fab fa-whatsapp whatsapp-icon"></i>
-</a>
-  <!-- Incluir el footer -->
+  <a href="https://wa.me/+34637053805?text=Contactar%20con%20Ineffabile%20Pizza%20vía%20WhatsApp" class="whatsapp" target="_blank"> 
+    <i class="fab fa-whatsapp whatsapp-icon"></i>
+  </a>
+              
+  <!-- Botón para volver arriba -->
+  <button id="scrollToTopBtn" title="Volver arriba"><i class="fas fa-arrow-up"></i></button>
+    
+  <!-- Footer mejorado -->
   <%- include('./partials/footer.ejs') %>
 
   <script src="/fontawesome/js/all.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js"></script>
-  <script src="/js/bootstrap.bundle.min.js"></script>  
-  <!-- Agregar cualquier otro script necesario -->
+  <script src="/js/bootstrap.bundle.min.js"></script>
+  <script>
+    window.onscroll = function() {scrollFunction()};
+    
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("scrollToTopBtn").style.display = "block";
+      } else {
+        document.getElementById("scrollToTopBtn").style.display = "none";
+      }
+      var sections = document.querySelectorAll('.section');
+        sections.forEach(function(section) {
+          if (isSectionInViewport(section)) {
+            section.classList.add('visible');
+          }
+        });
+      }
+  
+      document.getElementById("scrollToTopBtn").addEventListener("click", function() {
+        scrollToTop()
+      })
+  
+      function scrollToTop() {
+        const body = document.getElementsByTagName("body")[0];
+        body.scrollIntoView({ behavior: "smooth" });
+      }
+    </script>
 </body>
 </html>

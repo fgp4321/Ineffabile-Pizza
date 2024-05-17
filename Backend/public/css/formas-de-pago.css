@@ -13,6 +13,12 @@
     animation: fadeIn 1s ease forwards;
 }
 
+.img-small {
+  max-width: 50%; /* Puedes ajustar el porcentaje según el tamaño deseado */
+  height: auto;
+}
+
 .img-separation {
   margin-right: 120px; /* Espacio horizontal entre las imágenes */
 }
+
