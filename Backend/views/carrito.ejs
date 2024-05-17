@@ -19,7 +19,7 @@
   <br>
   <br>
   <div class="container">
-    <h2 class="text-center mb-4">Tu Carrito de Compras</h2>
+    <h2 class="text-center mb-4 page-title">Tu Carrito de Compras</h2>
     <% if (cart.length > 0) { %>
       <% let totalPrice = 0; %>
       <% cart.forEach(function(item) { %>
@@ -48,22 +48,15 @@
           </div>
         </div>
       <% }); %>
-      <!-- Mostrar los gastos de envío si el total es menor a 29.90 € -->
-      <!-- Mostrar el precio subtotal y total -->
-      <!-- Mostrar el precio subtotal, IVA y total -->
       <div class="card mb-3">
         <div class="card-body">
+          <% let shippingCost = totalPrice < 29.90 ? 3.99 : 0; %>
           <% let iva = totalPrice * 0.10; %>
-          <% totalPrice += iva; %>
           <p class="subtotal-price">Subtotal: <%= totalPrice.toFixed(2) %> €</p>
           <p class="iva-price">IVA (10%): <%= iva.toFixed(2) %> €</p>
-          <% if (totalPrice < 29.90) { %>
-            <p class="shipping-info">Gastos de envío: 3.99 €</p>
-            <% totalPrice += 3.99; %>
-          <% } else { %>
-            <p class="shipping-info">Gastos de envío: 0.00 €</p>
-          <% } %>
-          <h5 class="card-title total-price">Total: <%= totalPrice.toFixed(2) %> €</h5>
+          <p class="shipping-info">Gastos de envío: <%= shippingCost.toFixed(2) %> €</p>
+          <% let finalTotal = totalPrice + iva + shippingCost; %>
+          <h5 class="card-title total-price">Total: <%= finalTotal.toFixed(2) %> €</h5>
         </div>
       </div>
 
@@ -93,58 +86,28 @@
   <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script>
-document.addEventListener('DOMContentLoaded', function() {
-  function updateQuantityAndTotal() {
-    let totalPrice = 0;
-    document.querySelectorAll('.cantidad-input').forEach(input => {
-      const itemId = input.dataset.id;
-      const itemPriceElement = document.querySelector(`.producto-info[data-id='${itemId}'] .card-text`);
-      const itemPrice = parseFloat(itemPriceElement.innerText.replace('Precio: ', '').replace(' €/Ud', '').trim());
-      totalPrice += itemPrice * parseInt(input.value);
-    });
+    document.addEventListener('DOMContentLoaded', function() {
+      function updateQuantityAndTotal() {
+        let totalPrice = 0;
+        document.querySelectorAll('.cantidad-input').forEach(input => {
+          const itemId = input.dataset.id;
+          const itemPriceElement = document.querySelector(`.producto-info[data-id='${itemId}'] .card-text`);
+          const itemPrice = parseFloat(itemPriceElement.innerText.replace('Precio: ', '').replace(' €/Ud', '').trim());
+          totalPrice += itemPrice * parseInt(input.value);
+        });
 
-    const subtotal = totalPrice;
-    const iva = subtotal * 0.10;
-    const totalPriceElement = document.querySelector('.card-title.total-price');
-    const shippingInfoElement = document.querySelector('.shipping-info');
-    const subtotalPriceElement = document.querySelector('.subtotal-price');
-    const ivaPriceElement = document.querySelector('.iva-price');
+        const subtotal = totalPrice;
+        const iva = subtotal * 0.10;
+        const shippingCost = subtotal < 29.90 ? 3.99 : 0;
+        const finalTotal = subtotal + iva + shippingCost;
 
-    if (subtotalPriceElement) {
-      subtotalPriceElement.innerText = `Subtotal: ${subtotal.toFixed(2)} €`;
-    }
+        document.querySelector('.subtotal-price').innerText = `Subtotal: ${subtotal.toFixed(2)} €`;
+        document.querySelector('.iva-price').innerText = `IVA (10%): ${iva.toFixed(2)} €`;
+        document.querySelector('.shipping-info').innerText = `Gastos de envío: ${shippingCost.toFixed(2)} €`;
+        document.querySelector('.total-price').innerText = `Total: ${finalTotal.toFixed(2)} €`;
 
-    if (ivaPriceElement) {
-      ivaPriceElement.innerText = `IVA (10%): ${iva.toFixed(2)} €`;
-    }
-
-    if (totalPriceElement) {
-      let total = subtotal + iva;
-      if (subtotal < 29.90) {
-        if (!shippingInfoElement) {
-          const shippingInfo = document.createElement('p');
-          shippingInfo.classList.add('shipping-info');
-          shippingInfo.innerText = 'Gastos de envío: 3.99 €';
-          totalPriceElement.parentNode.insertBefore(shippingInfo, totalPriceElement);
-        } else {
-          shippingInfoElement.innerText = 'Gastos de envío: 3.99 €';
-        }
-        total += 3.99;
-      } else {
-        if (!shippingInfoElement) {
-          const shippingInfo = document.createElement('p');
-          shippingInfo.classList.add('shipping-info');
-          shippingInfo.innerText = 'Gastos de envío: 0.00 €';
-          totalPriceElement.parentNode.insertBefore(shippingInfo, totalPriceElement);
-        } else {
-          shippingInfoElement.innerText = 'Gastos de envío: 0.00 €';
-        }
+        updateCartItemCount();
       }
-      totalPriceElement.innerText = `Total: ${total.toFixed(2)} €`;
-    }
-
-    updateCartItemCount();
-  }
 
       async function updateCartItemCount() {
         try {
