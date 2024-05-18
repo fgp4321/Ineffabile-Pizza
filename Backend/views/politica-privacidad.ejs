@@ -1,4 +1,3 @@
-<!-- views/privacidad.ejs -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -7,39 +6,47 @@
   <title>Política de Privacidad - Ineffabile Pizza</title>
   <link rel="stylesheet" href="/css/bootstrap.min.css">
   <link rel="stylesheet" href="/fontawesome/css/all.min.css">
-  <link rel="stylesheet" href="/css/politica-privacidad.css">
+  <link rel="stylesheet" href="/css/como-comprar.css">
   <link rel="stylesheet" href="/css/whatsupto.css">
-
 </head>
 <body class="bg-light">
 
-  <!-- Incluir el navbar -->
+  <!-- Navbar mejorado -->
   <%- include('./partials/navbar.ejs') %>
 
   <!-- Contenido de la página de Política de Privacidad -->
-  <div class="container fadeIn">
-    <div class="row mt-5">
-      <div class="col-md-12">
-      <h1 class="text-center mt-5">Política de privacidad</h1>
-      <br>
-        <p>En Ineffabile Pizzeria, respetamos y valoramos tu privacidad. Esta Política de Privacidad describe cómo recopilamos, utilizamos y protegemos la información personal que nos proporcionas cuando utilizas nuestro sitio web y nuestros servicios.</p>
-        <h2>Información que recopilamos</h2>
-        <p>Recopilamos información personal cuando realizas una compra en nuestro sitio web, te suscribes a nuestro boletín informativo, completas un formulario de contacto o participas en una encuesta o promoción. Esta información puede incluir tu nombre, dirección de correo electrónico, dirección postal, número de teléfono y detalles de pago.</p>
-        <h2>Uso de la información</h2>
-        <p>Utilizamos la información que recopilamos para procesar tus pedidos, enviar actualizaciones sobre tu pedido, responder a tus consultas y mejorar nuestros productos y servicios. También podemos utilizar tu información para enviarte correos electrónicos promocionales sobre ofertas especiales y nuevos productos, pero siempre tendrás la opción de optar por no recibir estos correos electrónicos.</p>
-        <h2>Seguridad de la información</h2>
-        <p>Tomamos medidas para proteger la seguridad de tu información personal y asegurarnos de que se utilice de manera segura. Utilizamos tecnologías de cifrado para proteger la transmisión de datos confidenciales, y nuestras bases de datos están protegidas por medidas de seguridad físicas y electrónicas.</p>
-        <h2>Divulgación a terceros</h2>
-        <p>No vendemos, intercambiamos ni transferimos tu información personal a terceros sin tu consentimiento, excepto cuando sea necesario para cumplir con la ley, hacer cumplir nuestras políticas o proteger nuestros derechos, propiedad o seguridad.</p>
-        <h2>Actualizaciones de la Política de Privacidad</h2>
-        <p>Podemos actualizar esta Política de Privacidad periódicamente para reflejar cambios en nuestras prácticas de información. Te notificaremos sobre cambios significativos publicando la Política de Privacidad actualizada en nuestro sitio web.</p>
-        <p>Si tienes alguna pregunta o inquietud sobre nuestra Política de Privacidad, no dudes en contactarnos.</p>
+  <div class="container py-5 fadeIn">
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        <div class="text-center mb-5">
+          <h2 class="fw-bold">Política de Privacidad</h2>
+          <p class="lead">Respetamos y valoramos tu privacidad</p>
+        </div>
+        <div class="mb-5">
+          <h3 class="fw-bold mb-3">1. Información que Recopilamos</h3>
+          <p>Recopilamos información personal cuando realizas una compra en nuestro sitio web, te suscribes a nuestro boletín informativo, completas un formulario de contacto o participas en una encuesta o promoción. Esta información puede incluir tu nombre, dirección de correo electrónico, dirección postal, número de teléfono y detalles de pago.</p>
+        </div>
+        <div class="mb-5">
+          <h3 class="fw-bold mb-3">2. Uso de la Información</h3>
+          <p>Utilizamos la información que recopilamos para procesar tus pedidos, enviar actualizaciones sobre tu pedido, responder a tus consultas y mejorar nuestros productos y servicios. También podemos utilizar tu información para enviarte correos electrónicos promocionales sobre ofertas especiales y nuevos productos, pero siempre tendrás la opción de optar por no recibir estos correos electrónicos.</p>
+        </div>
+        <div class="mb-5">
+          <h3 class="fw-bold mb-3">3. Seguridad de la Información</h3>
+          <p>Tomamos medidas para proteger la seguridad de tu información personal y asegurarnos de que se utilice de manera segura. Utilizamos tecnologías de cifrado para proteger la transmisión de datos confidenciales, y nuestras bases de datos están protegidas por medidas de seguridad físicas y electrónicas.</p>
+        </div>
+        <div class="mb-5">
+          <h3 class="fw-bold mb-3">4. Divulgación a Terceros</h3>
+          <p>No vendemos, intercambiamos ni transferimos tu información personal a terceros sin tu consentimiento, excepto cuando sea necesario para cumplir con la ley, hacer cumplir nuestras políticas o proteger nuestros derechos, propiedad o seguridad.</p>
+        </div>
+        <div class="mb-5">
+          <h3 class="fw-bold mb-3">5. Actualizaciones de la Política de Privacidad</h3>
+          <p>Podemos actualizar esta Política de Privacidad periódicamente para reflejar cambios en nuestras prácticas de información. Te notificaremos sobre cambios significativos publicando la Política de Privacidad actualizada en nuestro sitio web.</p>
+        </div>
+        <p class="text-center">Si tienes alguna pregunta o inquietud sobre nuestra Política de Privacidad, no dudes en contactarnos.</p>
+        <div class="text-center mt-3"><a href="/contacto" class="btn btn-primary">Contáctanos</a></div>
       </div>
     </div>
   </div>
-  <br>
-  <br>
-  <br>
 
   <a href="https://wa.me/+34637053805?text=Contactar%20con%20Ineffabile%20Pizza%20vía%20WhatsApp" class="whatsapp" target="_blank"> 
     <i class="fab fa-whatsapp whatsapp-icon"></i>
@@ -52,9 +59,8 @@
   <%- include('./partials/footer.ejs') %>
 
   <script src="/fontawesome/js/all.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js"></script>
   <script src="/js/bootstrap.bundle.min.js"></script>
-
+  <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js"></script>
   <script>
     window.onscroll = function() {scrollFunction()};
     

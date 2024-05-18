@@ -22,7 +22,7 @@
   <!-- Contenido de alergenos -->
   <div class="container fadeIn">
     <br>
-    <h1 class="text-center mt-5"><u>Tabla de Alérgenos</u></h2>
+    <h1 class="text-center mt-5 fw-bold"><u>Tabla de Alérgenos</u></h2>
       <br>
     <div class="mt-4">
       <table id="alergenos-table" class="table table-striped">
@@ -365,8 +365,30 @@
         $('#alergenos-table').DataTable({
             dom: 'lBfrtip',
             buttons: [
-              'pdf', 'csv', 'excel', 'print'
+              {
+                extend: 'pdfHtml5',
+                text: '<i class="fas fa-file-pdf"></i> PDF',
+                className: 'btn btn-danger btn-sm'
+              },
+              {
+                extend: 'excelHtml5',
+                text: '<i class="fas fa-file-excel"></i> Excel',
+                className: 'btn btn-success btn-sm'
+              },
+              {
+                extend: 'csvHtml5',
+                text: '<i class="fas fa-file-excel"></i> CSV',
+                className: 'btn btn-info btn-sm'
+              },
+              {
+                extend: 'print',
+                text: '<i class="fas fa-print"></i> Imprimir',
+                className: 'btn btn-primary btn-sm'
+              }
             ],
+            "language": {
+              "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
+            }
         })
     })
 

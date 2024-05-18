@@ -1,132 +1,167 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f8f9fa;
-  }
-  
-  
-  .card {
-    border: none;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .card-body {
-    padding: 1.5rem;
-  }
-  
-  .producto-info {
-    display: flex;
-    align-items: center;
-  }
-  
-  .producto-imagen {
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
-    border-radius: 8px;
-    margin-right: 15px;
-  }
-  
-  .card-title {
-    font-size: 1.25rem;
-    margin-bottom: 0.5rem;
-  }
-  
-  .card-text {
-    font-size: 1rem;
-    color: #6c757d;
-  }
-  
-  .producto-cantidad {
-    display: flex;
-    align-items: center;
-  }
-  
-  .producto-cantidad button {
-    width: 35px;
-    height: 35px;
-    font-size: 1.25rem;
-    border: none;
-    border-radius: 50%;
-    background-color: #007bff;
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-  }
-  
-  .producto-cantidad input {
-    width: 60px;
-    margin: 0 10px;
-    text-align: center;
-    border: 1px solid #ced4da;
-    border-radius: 5px;
-  }
-  
-  .producto-eliminar button {
-    background-color: #dc3545;
-    border: none;
-    padding: 0.5rem 1rem;
-    color: #fff;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .producto-eliminar button:hover {
-    background-color: #c82333;
-  }
-  
-  .total-price {
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-align: right;
-  }
+  background-color: #f8f9fa;
+}
 
-  .iva-price{
-    font-size: 1rem;
-    color: #6c757d;
-    text-align: right;
-    margin-bottom: 0.5rem;
-  }
+.page-title {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.8rem; /* Tamaño grande para el título */
+  color: #ff3333; /* Color rojo para el título */
+  text-transform: uppercase; /* Convertir el texto a mayúsculas */
+  letter-spacing: 2px; /* Espaciado entre letras */
+  font-weight: bold; /* Texto en negrita */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Sombra de texto */
+  margin-bottom: 30px;
+  position: relative; /* Necesario para el pseudo-elemento */
+}
 
-  .subtotal-price {
-    font-size: 1.0rem;
-    text-align: right;
-    margin-bottom: 0.5rem;
-  }
+.page-title::after {
+  content: ''; /* Contenido vacío */
+  display: block;
+  width: 50px; /* Ancho de la línea decorativa */
+  height: 5px; /* Altura de la línea decorativa */
+  background-color: #FAC171; /* Color de la línea decorativa */
+  margin: 10px auto 0; /* Espaciado */
+}
 
-  .shipping-info {
-    font-size: 1rem;
-    color: #6c757d;
-    text-align: right;
-    margin-bottom: 1.0rem;
-  }
-  
-  .center-button {
-    text-align: center;
-  }
-  
-  .btn-success {
-    background-color: #28a745;
-    border: none;
-    padding: 0.75rem 1.5rem;
-    font-size: 1.25rem;
-    border-radius: 5px;
-    cursor: pointer;
-    color: #fff;
-  }
-  
-  .btn-success:hover {
-    background-color: #218838;
-  }
-  
-  .alert-warning {
-    text-align: center;
-    font-size: 1.25rem;
-  }
-  
-  /* Responsive Design */
+.card {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+.producto-info {
+  display: flex;
+  align-items: center;
+  flex: 2;
+}
+
+.producto-imagen {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-right: 15px;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.card-text {
+  font-size: 1rem;
+  color: #6c757d;
+}
+
+.producto-cantidad {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 200px; /* Máximo ancho para el contenedor de cantidad */
+  margin: 0 auto; /* Centramos el contenedor de cantidad */
+}
+
+.producto-cantidad button {
+  width: 35px;
+  height: 35px;
+  font-size: 1.25rem;
+  border: none;
+  border-radius: 50%;
+  background-color: #ec9853;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.producto-cantidad input {
+  width: 60px;
+  margin: 0 10px;
+  text-align: center;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+}
+
+.producto-eliminar {
+  flex: 0 0 50px; /* Espacio fijo para el botón de eliminar */
+}
+
+.producto-eliminar button {
+  background-color: #dc3545;
+  border: none;
+  padding: 0.5rem 1rem;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.producto-eliminar button:hover {
+  background-color: #c82333;
+}
+
+.total-price {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: right;
+}
+
+.iva-price {
+  font-size: 1rem;
+  color: #6c757d;
+  text-align: right;
+  margin-bottom: 0.5rem;
+}
+
+.subtotal-price {
+  font-size: 1.0rem;
+  text-align: right;
+  margin-bottom: 0.5rem;
+}
+
+.shipping-info {
+  font-size: 1rem;
+  color: #6c757d;
+  text-align: right;
+  margin-bottom: 1.0rem;
+}
+
+.center-button {
+  text-align: center;
+}
+
+.btn-success {
+  background: linear-gradient(to right, #ff5f6d, #ffc371);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1.25rem;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #000000;
+  transition: background 0.5s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-success:hover {
+  background: linear-gradient(to right, #ffc371, #ff5f6d);
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn-success:hover {
+  background-color: #218838;
+}
+
+.alert-warning {
+  text-align: center;
+  font-size: 1.25rem;
+}
+
+/* Responsive Design */
 @media (max-width: 767px) {
   .card-body {
     padding: 1rem;
@@ -173,4 +208,16 @@ body {
     font-size: 1rem;
     padding: 0.5rem 1rem;
   }
+}
+
+/* Quitar flechas del input de número en Chrome, Safari, Edge y Opera */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Quitar flechas del input de número en Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
 }

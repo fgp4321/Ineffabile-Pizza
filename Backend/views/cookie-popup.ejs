@@ -4,13 +4,34 @@
         <p>En Ineffabile Pizza usamos cookies para mejorar tu experiencia, analizar el tráfico y mostrar anuncios personalizados. Configura tus preferencias de cookies aquí:</p>
         <div class="cookie-options">
             <div>
-                <label><input type="checkbox" name="functional" checked disabled> Cookies funcionales (necesarias)</label>
+                <label>
+                    <input type="checkbox" name="functional" checked disabled>
+                    Cookies funcionales (necesarias)
+                    <span class="expand-details" data-target="functional-details">+</span>
+                </label>
+                <div id="functional-details" class="cookie-details">
+                    <p>Las cookies funcionales son necesarias para el correcto funcionamiento del sitio web y no pueden desactivarse en nuestros sistemas.</p>
+                </div>
             </div>
             <div>
-                <label><input type="checkbox" name="analytics"> Cookies analíticas</label>
+                <label>
+                    <input type="checkbox" name="analytics">
+                    Cookies analíticas
+                    <span class="expand-details" data-target="analytics-details">+</span>
+                </label>
+                <div id="analytics-details" class="cookie-details">
+                    <p>Las cookies analíticas nos ayudan a mejorar nuestro sitio web al recopilar y reportar información sobre su uso.</p>
+                </div>
             </div>
             <div>
-                <label><input type="checkbox" name="advertising"> Cookies de publicidad</label>
+                <label>
+                    <input type="checkbox" name="advertising">
+                    Cookies de publicidad
+                    <span class="expand-details" data-target="advertising-details">+</span>
+                </label>
+                <div id="advertising-details" class="cookie-details">
+                    <p>Las cookies de publicidad son utilizadas para mostrarte anuncios relevantes y medir la eficacia de nuestras campañas publicitarias.</p>
+                </div>
             </div>
         </div>
         <div class="cookie-buttons">

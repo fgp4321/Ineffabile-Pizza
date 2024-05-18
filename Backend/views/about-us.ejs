@@ -1,13 +1,12 @@
-<!-- views/about-us.ejs -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sobre Nosotros - Ineffabile Pizza</title>
+  <title>Sobre nosotros - Ineffabile Pizza</title>
   <link rel="stylesheet" href="/css/bootstrap.min.css">
   <link rel="stylesheet" href="/fontawesome/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Flamenco&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/about-us.css">
   <link rel="stylesheet" href="/css/whatsupto.css">
 </head>
@@ -15,16 +14,16 @@
 
   <!-- Incluir el navbar -->
   <%- include('./partials/navbar.ejs') %>
-  <br>
-  <header class="fadeIn">
-    <br>
-    <h1><u>Sobre Nosotros</u></h1>
-    <br>
+
+  <!-- Encabezado -->
+  <header class="text-center py-5 fadeIn">
+    <h1 class="display-4"><u>Nuestra Historia y Tradición</u></h1>
   </header>
-  <br>
+
   <!-- Contenido de la página Sobre Nosotros -->
   <div class="container fadeIn">
-    <div class="row mt-5">
+    <!-- Primera fila -->
+    <div class="row mt-5 align-items-center">
       <div class="col-md-6">
         <img src="/images/about-us1.jpg" class="img-fluid" alt="Imagen 1">
       </div>
@@ -34,7 +33,21 @@
       </div>
     </div>
 
+    <!-- Separador -->
     <div class="row mt-5">
+      <div class="col text-center">
+        <hr class="my-4">
+        <i class="fas fa-pizza-slice fa-3x text-secondary"></i>
+        <span class="icon-separator"></span>
+        <i class="fas fa-utensils fa-3x text-secondary"></i>
+        <span class="icon-separator"></span>
+        <i class="fas fa-champagne-glasses fa-3x text-secondary"></i>
+        <hr class="my-4">
+      </div>
+    </div>
+
+    <!-- Segunda fila -->
+    <div class="row mt-5 align-items-center">
       <div class="col-md-6">
         <h2 class="fw-bold">Nuestra Historia</h2>
         <p>Nuestra historia es una narrativa de amor por la auténtica pizza italiana. En el año 1892, nuestros bisabuelos dieron vida a Ineffabile Pizza en la bulliciosa calle Sax. Desde entonces, cada generación ha llevado adelante el legado familiar, convirtiendo nuestra pizzería en un símbolo de tradición y excelencia gastronómica en Villena. A lo largo de los años, hemos honrado la herencia de nuestros antepasados, refinando constantemente nuestras recetas y técnicas de cocina para ofrecer una experiencia culinaria incomparable. En cada rebanada de pizza, se puede saborear la dedicación y el orgullo que hemos mantenido vivos durante más de un siglo.</p>
@@ -44,9 +57,10 @@
       </div>
     </div>
 
+    <!-- Slogan -->
     <div class="row mt-5">
-      <blockquote class="blockquote">
-        <div class="col-md-12 text-center">
+      <blockquote class="blockquote text-center">
+        <div class="col-md-12">
           <h1 class="font-italic display-4" id="slogan">La auténtica tradición italiana en cada bocado</h1>
           <footer class="blockquote-footer"><cite title="Source Title">Ineffabile Pizza</cite></footer>
         </div>
@@ -57,10 +71,9 @@
   <a href="https://wa.me/+34637053805?text=Contactar%20con%20Ineffabile%20Pizza%20vía%20WhatsApp" class="whatsapp" target="_blank"> 
     <i class="fab fa-whatsapp whatsapp-icon"></i>
   </a>
-              
+
   <!-- Botón para volver arriba -->
   <button id="scrollToTopBtn" title="Volver arriba"><i class="fas fa-arrow-up"></i></button>
-    
 
   <!-- Incluir el footer -->
   <%- include('./partials/footer.ejs') %>

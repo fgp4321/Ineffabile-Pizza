@@ -18,6 +18,22 @@
 
 .cookie-options div {
     margin: 10px;
+    position: relative;
+}
+
+.cookie-details {
+    display: none;
+    margin-top: 10px;
+    background-color: #f1f1f1;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: left;
+}
+
+.expand-details {
+    cursor: pointer;
+    color: blue;
+    margin-left: 10px;
 }
 
 .cookie-buttons .cookie-button {

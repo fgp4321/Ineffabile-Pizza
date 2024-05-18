@@ -46,6 +46,7 @@ body {
     border-color: #ff3333;
   }
 
+
   .btn-primary:hover {
     background-color: #ff6a6a;
     border-color: #ff6a6a;
@@ -58,6 +59,7 @@ body {
     margin-bottom: 20px;
     background-color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
 
   /*.product img {
@@ -77,9 +79,14 @@ body {
 
 
   .product img {
-    width: 300;   /* Ajusta el ancho al contenedor */
-    height: 200px; /* Ajusta la altura específica para la imagen */
-    object-fit: cover;
+    width: 100%; /* Asegura que la imagen ocupe todo el ancho del contenedor */
+    height: auto; /* Mantiene la proporción de la imagen */
+    object-fit: cover; /* Cubre el área disponible sin perder la proporción */
+  }
+  
+  .product:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   }
 
   .product-title {

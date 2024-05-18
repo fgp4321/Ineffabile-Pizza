@@ -1,32 +1,45 @@
-#slogan {
-    font-family: 'Flamenco', cursive; /* Aplica la fuente Flamenco al div del eslogan */
-  }
-
-  /* Opcional: si deseas que el resto del texto tenga una fuente diferente, puedes aplicarla a nivel global */
-  body {
-    font-family: Arial, sans-serif; /* Otra fuente para el resto del texto */
-  }
-
-  img{
-    border-radius: 10px;
-  }
-
-  @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.fadeIn {
-  animation: fadeIn 1s ease forwards;
+body {
+  font-family: 'Merriweather', serif;
+  background-color: #f8f9fa;
 }
 
 header {
-  text-align: center;
-  margin-top: 20px;
+  font-family: 'Merriweather', sans-serif;
+}
+
+h1, h2, p {
+  margin-bottom: 1.5rem;
+}
+
+hr.my-4 {
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1.5rem 0;
+}
+
+.fa-pizza-slice, .fa-utensils, .fa-champagne-glasses {
+  margin: 0 10px;
+}
+
+.icon-separator {
+  display: inline-block;
+  width: 40px; /* Más corta */
+  height: 3px; /* Más gruesa */
+  background-color: #ccc;
+  margin: 0 10px;
+  vertical-align: middle;
+}
+
+
+#slogan {
+  font-family: 'Merriweather', serif;
+  font-style: italic;
+}
+
+blockquote {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding: 1rem 2rem;
+  border-left: 5px solid #ccc;
+  background: #f9f9f9;
 }
