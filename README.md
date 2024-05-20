@@ -108,10 +108,8 @@ Esto iniciará el servidor de desarrollo frontend y podrás acceder a la aplicac
 2. Crear bases de datos:
 - cd Backend/seeds
 - node usuarios.seed.js
-- node categorias.seed.js
 - node pedidos.seed.js
 - node productos.seed.js
-- node estado-pedido.seed.js
 
 3. Ejecución Backend:
 Con nodemon (recomendado para desarrollo):
