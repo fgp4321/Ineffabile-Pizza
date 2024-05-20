@@ -1,3 +1,4 @@
+// web-api.service.ts
 import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from "@angular/common/http";
 import { Observable, throwError } from "rxjs";
@@ -52,7 +53,7 @@ export class WebApiService {
   put(url: string, model: any): Observable<any> {
     const httpOptions = {
       headers: new HttpHeaders({
-        'Content-Type': 'application/json'
+        // 'Content-Type': 'application/json' // Eliminar esta línea para permitir que el navegador establezca el tipo de contenido para FormData
       }), 
       observe: "response" as 'body'
     };
@@ -67,22 +68,22 @@ export class WebApiService {
     );
   }
   
-// DELETE call
-delete(url: string): Observable<any> {
-  const httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json'
-    }),
-    observe: "response" as 'body'
-  };
-  return this.httpClient.delete(
-    url,
-    httpOptions
-  ).pipe(
-    map((response: any) => this.ReturnResponseData(response)),
-    catchError(this.handleError)
-  );
-}
+  // DELETE call
+  delete(url: string): Observable<any> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      }),
+      observe: "response" as 'body'
+    };
+    return this.httpClient.delete(
+      url,
+      httpOptions
+    ).pipe(
+      map((response: any) => this.ReturnResponseData(response)),
+      catchError(this.handleError)
+    );
+  }
 
   private ReturnResponseData(response: any) {
     return response;

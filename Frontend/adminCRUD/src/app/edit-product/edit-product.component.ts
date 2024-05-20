@@ -11,47 +11,92 @@ import { HttpProviderService } from "../Service/http-provider.service";
 })
 export class EditProductComponent implements OnInit {
 
-  editProductForm: productForm = new productForm()
+  editProductForm: ProductForm = new ProductForm();
+  selectedFile: File | null = null;
 
   @ViewChild("productForm")
-  productForm!: NgForm
+  productForm!: NgForm;
 
-  isSubmitted: boolean = false
-  productId: any
+  isSubmitted: boolean = false;
+  productId: any;
+  imagenActual: string = '';
 
-  constructor(private toastr: ToastrService, private route: ActivatedRoute, private router: Router, private httpProvider: HttpProviderService) { }
+  constructor(
+    private toastr: ToastrService, 
+    private route: ActivatedRoute, 
+    private router: Router, 
+    private httpProvider: HttpProviderService
+  ) { }
 
   ngOnInit(): void {
-    this.productId = this.route.snapshot.params["productId"]
-    this.getProductDetailByID()
+    this.productId = this.route.snapshot.params["productId"];
+    this.getProductDetailByID();
   }
 
-  getProductDetailByID(){
-    this.httpProvider.getProductDetailByID(this.productId).subscribe((data: any)=>{
-      if (data != null && data.body != null) {
-        var resultData = data.body
-        if (resultData) {
-          this.editProductForm.nombre = resultData.nombre;
-          this.editProductForm.descripcion = resultData.descripcion;
-          this.editProductForm.precio_pvp = resultData.precio_pvp;
-          this.editProductForm.precio_oferta = resultData.precio_oferta;
-          this.editProductForm.categoria_nombre = resultData.categoria_nombre;
-          this.editProductForm.imagen1 = resultData.imagen1;
+  onFileChange(event: any) {
+    this.selectedFile = event.target.files[0];
+  }
+
+  getProductDetailByID() {
+    this.httpProvider.getProductDetailByID(this.productId).subscribe(
+      (data: any) => {
+        if (data != null && data.body != null) {
+          var resultData = data.body;
+          if (resultData) {
+            this.editProductForm.nombre = resultData.nombre;
+            this.editProductForm.descripcion = resultData.descripcion;
+            this.editProductForm.precio_pvp = resultData.precio_pvp;
+            this.editProductForm.precio_oferta = resultData.precio_oferta;
+            this.editProductForm.categoria_nombre = resultData.categoria_nombre;
+            this.editProductForm.imagen1 = resultData.imagen1;
+            this.imagenActual = this.getImagePath(resultData); // Añadir la ruta de la imagen actual
+          }
         }
+      },
+      (error: any) => {
+        console.error('Error obteniendo detalles del producto:', error);
       }
-    },
-    (error:any) => { })
+    );
+  }
+
+  getImagePath(product: any): string {
+    if (product.imagen1.startsWith('http://') || product.imagen1.startsWith('https://')) {
+        return product.imagen1;
+    }
+    let basePath = 'http://localhost:9100/images/';
+    switch (product.categoria_nombre) {
+        case 'Bebidas':
+            return basePath + 'bebidas/' + product.imagen1;
+        case 'Complementos':
+            return basePath + 'complementos/' + product.imagen1;
+        case 'Pastas':
+            return basePath + 'pastas/' + product.imagen1;
+        case 'Pizzas':
+            return basePath + 'pizzas/' + product.imagen1;
+        default:
+            return basePath + 'otros/' + product.imagen1;  // Para categorías no especificadas
+    }
   }
 
   EditProduct(isValid: any) {
     this.isSubmitted = true;
-  
+
     if (isValid) {
-      // Agregar el símbolo de Euro al precio_oferta antes de enviar los datos
-      this.editProductForm.precio_oferta = (+this.editProductForm.precio_oferta).toFixed(2);
-      
-      this.httpProvider.editProduct(this.productId, this.editProductForm).subscribe(
-        async (data) => {
+      const formData = new FormData();
+      formData.append('nombre', this.editProductForm.nombre);
+      formData.append('descripcion', this.editProductForm.descripcion);
+      formData.append('precio_pvp', this.editProductForm.precio_pvp);
+      formData.append('precio_oferta', this.editProductForm.precio_oferta);
+      formData.append('categoria_nombre', this.editProductForm.categoria_nombre);
+
+      if (this.selectedFile) {
+        formData.append('imagen1', this.selectedFile);
+      } else {
+        formData.append('imagen1', this.editProductForm.imagen1);
+      }
+
+      this.httpProvider.editProduct(this.productId, formData).subscribe(
+        (data: any) => {
           if (data != null && data.body != null) {
             var resultData = data.body;
             this.toastr.success(`Producto: "${resultData.nombre}" modificado correctamente.`);
@@ -60,7 +105,7 @@ export class EditProductComponent implements OnInit {
             }, 500);
           }
         },
-        async (error) => {
+        (error: any) => {
           this.toastr.error(error.message);
           setTimeout(() => {
             this.router.navigate(['/Home']);
@@ -71,7 +116,7 @@ export class EditProductComponent implements OnInit {
   }
 }
 
-export class productForm {
+export class ProductForm {
   nombre: string = "";
   descripcion: string = "";
   precio_pvp: string = "";

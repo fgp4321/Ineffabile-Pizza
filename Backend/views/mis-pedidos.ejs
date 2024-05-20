@@ -21,7 +21,7 @@
                         <% if (pedido.isActive) { %>
                             <span class="badge bg-success">Activo</span>
                         <% } else { %>
-                            <span class="badge bg-warning text-dark">Desactivado</span>
+                            <span class="badge bg-warning text-dark">Finalizado</span>
                         <% } %>
                     </div>
                     <div class="card-body">
@@ -38,7 +38,7 @@
                             <% } %>
                         </ul>
                         <% if (!pedido.isActive) { %>
-                            <p class="text-muted">Este pedido ha sido desactivado o finalizado.</p>
+                            <p class="text-muted">Este pedido ha finalizado.</p>
                         <% } %>
                     </div>
                 </div>

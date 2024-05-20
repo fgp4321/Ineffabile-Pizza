@@ -72,11 +72,8 @@
                             </form>
                         </div>
 
-                        <!-- Formulario para desactivar usando POST como PUT -->
-                        <form action="/pedidos/desactivar/<%= pedido._id %>" method="POST" style="display: inline;">
-                            <input type="hidden" name="_method" value="PUT">
-                            <button type="submit" class="btn btn-danger">Marcar como completado</button>
-                        </form>
+                        <!-- Botón para marcar como completado con pop-up de confirmación -->
+                        <button type="button" class="btn btn-danger" onclick="confirmarCompletado('<%= pedido._id %>')">Marcar como completado</button>
                     </div>
                 </div>
             <% }) %>
@@ -90,6 +87,28 @@
 
     <%- include('./partials/footer.ejs') %>
 
+    <!-- Modal de confirmación -->
+    <div class="modal fade" id="confirmarModal" tabindex="-1" aria-labelledby="confirmarModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmarModalLabel">Confirmar Acción</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ¿Está seguro de que desea marcar este pedido como completado?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <form id="formConfirmarCompletado" method="POST">
+                        <input type="hidden" name="_method" value="PUT">
+                        <button type="submit" class="btn btn-danger">Marcar como completado</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         function mostrarFormularioEdicion(idPedido, estadoActual) {
             var div = document.getElementById('formulario-edicion-' + idPedido);
@@ -97,16 +116,19 @@
             var select = div.querySelector('select[name="estadoPedido_status"]');
             select.value = estadoActual; // Establece el valor actual del estado
         }
-    </script>
-    <script>
+
         function toggleFilterMenu() {
             var filterMenu = document.getElementById('filterMenu');
             filterMenu.style.display = filterMenu.style.display === 'block' ? 'none' : 'block';
         }
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js"></script>
-    <script>
+
+        function confirmarCompletado(idPedido) {
+            var modal = new bootstrap.Modal(document.getElementById('confirmarModal'));
+            var form = document.getElementById('formConfirmarCompletado');
+            form.action = "/pedidos/desactivar/" + idPedido;
+            modal.show();
+        }
+
         window.onscroll = function() {scrollFunction()};
         
         function scrollFunction() {
@@ -121,16 +143,19 @@
                 section.classList.add('visible');
               }
             });
-          }
+        }
       
-          document.getElementById("scrollToTopBtn").addEventListener("click", function() {
+        document.getElementById("scrollToTopBtn").addEventListener("click", function() {
             scrollToTop()
-          })
+        })
       
-          function scrollToTop() {
+        function scrollToTop() {
             const body = document.getElementsByTagName("body")[0];
             body.scrollIntoView({ behavior: "smooth" });
-          }
-        </script>
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js"></script>
 </body>
 </html>

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
 import { HttpProviderService } from "../Service/http-provider.service";
-import { WebApiService } from "../Service/web-api.service";
 import { ToastrService } from "ngx-toastr";
 
 @Component({
@@ -11,17 +10,21 @@ import { ToastrService } from "ngx-toastr";
 })
 export class ViewProductComponent implements OnInit {
 
-  productId: any
-  productDetail: any = []
+  productId: any;
+  productDetail: any = [];
 
-  constructor(private toastr: ToastrService, public webApiService: WebApiService, private route: ActivatedRoute, private httpProvider: HttpProviderService) { }
+  constructor(
+    private toastr: ToastrService,
+    private route: ActivatedRoute,
+    private httpProvider: HttpProviderService
+  ) { }
 
   ngOnInit(): void {
-    this.productId = this.route.snapshot.params['productId']
+    this.productId = this.route.snapshot.params['productId'];
     this.getProductDetailByID();
   }
 
-  getProductDetailByID(){
+  getProductDetailByID() {
     this.httpProvider.getProductDetailByID(this.productId).subscribe(
       (data: any) => {
         if (data != null && data.body != null) {
@@ -34,7 +37,7 @@ export class ViewProductComponent implements OnInit {
         }
       },
       (error: any) => {
-        console.error('Error obteniendo detalles del usuario:', error);
+        console.error('Error obteniendo detalles del producto:', error);
       }
     );
   }
@@ -42,22 +45,22 @@ export class ViewProductComponent implements OnInit {
   getImagePath(product: any): string {
     // Comprobar si la imagen ya es una URL válida
     if (product.imagen1.startsWith('http://') || product.imagen1.startsWith('https://')) {
-        return product.imagen1;
+      return product.imagen1;
     }
 
-    // Si no es una URL, construir la ruta basada en la categoría
-    let basePath = '/assets/';
-    switch (product.categoria_nombre) {
-        case 'Bebidas':
-            return basePath + 'bebidas/' + product.imagen1;
-        case 'Complementos':
-            return basePath + 'complementos/' + product.imagen1;
-        case 'Pastas':
-            return basePath + 'pastas/' + product.imagen1;
-        case 'Pizzas':
-            return basePath + 'pizzas/' + product.imagen1;
-        default:
-            return basePath + 'otros/' + product.imagen1;  // Para categorías no especificadas
+    // Construir la ruta basada en la URL del backend
+    let basePath = 'http://localhost:9100/images/';
+    switch (product.categoria_nombre.toLowerCase()) {
+      case 'bebidas':
+        return basePath + 'bebidas/' + product.imagen1;
+      case 'complementos':
+        return basePath + 'complementos/' + product.imagen1;
+      case 'pastas':
+        return basePath + 'pastas/' + product.imagen1;
+      case 'pizzas':
+        return basePath + 'pizzas/' + product.imagen1;
+      default:
+        return basePath + 'otros/' + product.imagen1;  // Para categorías no especificadas
     }
   }
 }

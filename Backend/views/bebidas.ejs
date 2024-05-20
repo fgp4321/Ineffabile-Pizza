@@ -9,30 +9,25 @@
   <link rel="stylesheet" href="/css/bebidas.css">
   <link rel="stylesheet" href="/css/whatsupto.css">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-
-  <!-- Agregar cualquier otra hoja de estilos necesaria -->
 </head>
 
 <body>
 
-  <!-- Incluir el navbar -->
   <%- include('./partials/navbar.ejs') %>
 
-  <!-- Contenido de la página -->
-<div class="container fadeIn">
-  <nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="/">Home</a></li>
-      <li class="breadcrumb-item"><a href="/productos">Categorias</a></li>
-      <li class="breadcrumb-item active" aria-current="page">Bebidas</li>
-    </ol>
-  </nav>
-  <br>
-  <br>
-  <h1 class="page-title text-center mb-4">Nuestras Bebidas</h1>
+  <div class="container fadeIn">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/productos">Categorias</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Bebidas</li>
+      </ol>
+    </nav>
+    <br>
+    <br>
+    <h1 class="page-title text-center mb-4">Nuestras Bebidas</h1>
     <div class="container center-form">  
       <div class="row">
-        <!-- Botones de opciones -->
         <div class="col-md text-center">
           <a href="/productos/pizzas" class="btn btn-primary btn-lg">Pizzas</a>
         </div>
@@ -47,15 +42,10 @@
     <br>
     <br>
     <div class="row">
-      <div class="row">
-        <% bebidas.forEach(function(bebida, index) { %>
+      <% bebidas.forEach(function(bebida) { %>
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="product">
-            <% if (bebida.imagen1.startsWith('http://') || bebida.imagen1.startsWith('https://')) { %>
-              <img src="<%= bebida.imagen1 %>" alt="<%= bebida.nombre %>">
-            <% } else { %>
-              <img src="/images/bebidas/<%= bebida.imagen1 %>" alt="<%= bebida.nombre %>">
-            <% } %>
+            <img src="/images/bebidas/<%= bebida.imagen1 %>" alt="<%= bebida.nombre %>">
             <div class="product-title"><%= bebida.nombre %></div>
             <div class="price">
               <span class="normal-price"><%= bebida.precio_pvp %>€</span>
@@ -66,56 +56,50 @@
             </div>
           </div>
         </div>
-        <% }); %>
-      </div>
+      <% }); %>
     </div>
-</div>
+  </div>
 
-<!-- Nuevo Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Detalles de la Pizza</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img src="" class="d-block w-100 img-carousel" alt="" id="modal-img1">
-            </div>
-          </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Detalles de la Bebida</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <h4 class="modal-bebida-title mt-3" id="modalTitle"></h4>
-        <p class="modal-bebida-description"></p>
-        <p class="modal-bebida-price"></p>
-      </div>
-      <div class="modal-footer">
-        <!-- Botón de ayuda con popover -->
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <div class="modal-body">
+          <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="" class="d-block w-100 img-carousel" alt="" id="modal-img1">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+          <h4 class="modal-bebida-title mt-3" id="modalTitle"></h4>
+          <p class="modal-bebida-description"></p>
+          <p class="modal-bebida-price"></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<a href="https://wa.me/+34637053805?text=Contactar%20con%20Ineffabile%20Pizza%20vía%20WhatsApp" class="whatsapp" target="_blank"> 
-  <i class="fab fa-whatsapp whatsapp-icon"></i>
-</a>
-            
-<!-- Botón para volver arriba -->
-<button id="scrollToTopBtn" title="Volver arriba"><i class="fas fa-arrow-up"></i></button>
-  
+  <a href="https://wa.me/+34637053805?text=Contactar%20con%20Ineffabile%20Pizza%20vía%20WhatsApp" class="whatsapp" target="_blank"> 
+    <i class="fab fa-whatsapp whatsapp-icon"></i>
+  </a>
 
-  <!-- Incluir el footer -->
+  <button id="scrollToTopBtn" title="Volver arriba"><i class="fas fa-arrow-up"></i></button>
+
   <%- include('./partials/footer.ejs') %>
 
   <script src="/fontawesome/js/all.min.js"></script>
@@ -134,14 +118,14 @@
             $('.modal-bebida-title').text(data.nombre);
             $('.modal-bebida-description').text(data.descripcion);
             $('.modal-bebida-price').html(`<span class="badge bg-success">${data.precio_pvp}€</span>`);
-            $('#bebidaDetailsModal').modal('show');
+            $('#exampleModal').modal('show');
           })
           .catch(error => {
             console.error('Error al obtener los detalles de la bebida:', error);
             alert('Error al obtener los detalles de la bebida');
           });
       });
-    
+
       const Toast = Swal.mixin({
         toast: true,
         position: 'top-end',
@@ -153,15 +137,15 @@
           toast.addEventListener('mouseleave', Swal.resumeTimer)
         }
       });
-    
+
       $('.btn-add-to-cart').click(function(event) {
         event.preventDefault();
         var bebidaId = $(this).closest('.product').find('.btn-details').data('id');
         var bebidaName = $(this).closest('.product').find('.product-title').text();
         var bebidaPrice = parseFloat($(this).closest('.product').find('.price .normal-price').text().replace('€', ''));
-        var bebidaImage = $(this).closest('.product').find('img').attr('src').split('/').pop(); // Solo obtener el nombre de la imagen        var pizzaImage = $(this).closest('.product').find('img').attr('src');
+        var bebidaImage = $(this).closest('.product').find('img').attr('src').split('/').pop(); // Solo obtener el nombre de la imagen
         var bebidaCategory = 'bebidas';
-    
+
         Swal.fire({
           title: '¿Cuántas unidades quieres agregar?',
           input: 'number',
@@ -212,22 +196,16 @@
         });
       });
     });
-    </script>
-<script>
-  window.onscroll = function() {scrollFunction()};
-  
-  function scrollFunction() {
-    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-      document.getElementById("scrollToTopBtn").style.display = "block";
-    } else {
-      document.getElementById("scrollToTopBtn").style.display = "none";
-    }
-    var sections = document.querySelectorAll('.section');
-      sections.forEach(function(section) {
-        if (isSectionInViewport(section)) {
-          section.classList.add('visible');
-        }
-      });
+  </script>
+  <script>
+    window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("scrollToTopBtn").style.display = "block";
+      } else {
+        document.getElementById("scrollToTopBtn").style.display = "none";
+      }
     }
 
     document.getElementById("scrollToTopBtn").addEventListener("click", function() {
@@ -238,6 +216,6 @@
       const body = document.getElementsByTagName("body")[0];
       body.scrollIntoView({ behavior: "smooth" });
     }
-</script>
+  </script>
 </body>
 </html>

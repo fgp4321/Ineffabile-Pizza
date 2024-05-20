@@ -8,13 +8,19 @@ const jwt = require("jsonwebtoken")
 //AUTENTICACIÓN
 //-REGISTER
 exports.register = wrapAsync(async function(req, res) {
-    const { nombre, apellido, username, email, password, telefono } = req.body;
+    const { nombre, apellido, username, email, password, repeatPassword, telefono } = req.body;
+
+    // Validar que las contraseñas coincidan
+    if (password !== repeatPassword) {
+        req.session.error = "Las contraseñas no coinciden";
+        return res.redirect("/usuarios/login-register");
+    }
 
     // Verificar si el usuario ya existe en la base de datos
     const existingUser = await User.buscarPorEmail(email);
     if (existingUser) {
-        res.redirect("/usuarios/login-register");
-        return; // Detener la ejecución del controlador si el usuario ya existe
+        req.session.error = "El usuario ya existe";
+        return res.redirect("/usuarios/login-register");
     }
 
     // Crear un nuevo usuario utilizando la función del modelo
