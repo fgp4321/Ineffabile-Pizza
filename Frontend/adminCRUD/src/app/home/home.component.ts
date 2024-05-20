@@ -12,116 +12,127 @@ import { ProductDeleteModalComponent } from '../product-delete-modal/product-del
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-
 export class HomeComponent implements OnInit {
-  closeResult = ''
-  userList: any = []
-  productList: any = []
-  paginatedProductList: any = []
-  currentPage: number = 1
-  pageSize: number = 5
+  closeResult = '';
+  userList: any = [];
+  productList: any = [];
+  paginatedProductList: any = [];
+  currentPage: number = 1;
+  pageSize: number = 5;
 
-  constructor(private router: Router, private modalService: NgbModal, private toastr: ToastrService, private httpProvider: HttpProviderService, private ngZone: NgZone) { }
+  constructor(
+    private router: Router,
+    private modalService: NgbModal,
+    private toastr: ToastrService,
+    private httpProvider: HttpProviderService,
+    private ngZone: NgZone
+  ) {}
 
   ngOnInit(): void {
-    this.getAllUser()
-    this.getAllProduct()
+    this.getAllUser();
+    this.getAllProduct();
   }
 
   async getAllUser() {
-    this.httpProvider.getAllUser().subscribe((data: any) => {
-      if (data != null && data.body != null) {
-        var resultData = data.body
-        if (resultData) {
-          this.userList = resultData
+    this.httpProvider.getAllUser().subscribe(
+      (data: any) => {
+        if (data != null && data.body != null) {
+          var resultData = data.body;
+          if (resultData) {
+            this.userList = resultData;
+          }
         }
-      }
-    },
-    (error: any) => {
-      if (error) {
-        if (error.status == 404) {
-          if (error.error && error.error.message) {
-            this.userList = []
+      },
+      (error: any) => {
+        if (error) {
+          if (error.status == 404) {
+            if (error.error && error.error.message) {
+              this.userList = [];
+            }
           }
         }
       }
-    })
+    );
   }
 
   AddUser() {
-    this.router.navigate(['AddUser'])
+    this.router.navigate(['AddUser']);
   }
 
   deleteUserConfirmation(user: any) {
     this.modalService
-      .open(UserDeleteModalComponent, { ariaLabelledBy: 'modal-basic-title' }) // Usar el componente modal de usuario
+      .open(UserDeleteModalComponent, { ariaLabelledBy: 'modal-basic-title' })
       .result.then(
         (result) => {
           this.deleteUser(user);
         },
-        (reason) => { }
+        (reason) => {}
       );
   }
 
   deleteUser(user: any) {
-    this.httpProvider.deleteUserByID(user._id).subscribe((data: any) => {
-      if (data != null && data.body != null) {
-        var resultData = data.body
-        this.toastr.success(`Usuario con nombre "${resultData.nombre}" eliminado correctamente.`);
-        //Para refrescar
-        this.getAllUser();
-      }
-    },
-    (error: any) => { })
+    this.httpProvider.deleteUserByID(user._id).subscribe(
+      (data: any) => {
+        if (data != null && data.body != null) {
+          var resultData = data.body;
+          this.toastr.success(`Usuario con nombre "${resultData.nombre}" eliminado correctamente.`);
+          this.getAllUser();
+        }
+      },
+      (error: any) => {}
+    );
   }
 
   async getAllProduct() {
-    this.httpProvider.getAllProduct().subscribe((data: any) => {
-      if (data != null && data.body != null) {
-        var resultData = data.body
-        if (resultData) {
-          this.productList = resultData
-          this.updatePaginatedProductList()
+    this.httpProvider.getAllProduct().subscribe(
+      (data: any) => {
+        if (data != null && data.body != null) {
+          var resultData = data.body;
+          if (resultData) {
+            this.productList = resultData;
+            this.updatePaginatedProductList();
+          }
         }
-      }
-    },
-    (error: any) => {
-      if (error) {
-        if (error.status == 404) {
-          if (error.error && error.error.message) {
-            this.productList = []
-            this.updatePaginatedProductList()
+      },
+      (error: any) => {
+        if (error) {
+          if (error.status == 404) {
+            if (error.error && error.error.message) {
+              this.productList = [];
+              this.updatePaginatedProductList();
+            }
           }
         }
       }
-    })
+    );
   }
 
   AddProduct() {
-    this.router.navigate(['AddProduct'])
+    this.router.navigate(['AddProduct']);
   }
 
   deleteProductConfirmation(product: any) {
     this.modalService
-      .open(ProductDeleteModalComponent, { ariaLabelledBy: 'modal-basic-title' }) // Usar el componente modal de producto
+      .open(ProductDeleteModalComponent, { ariaLabelledBy: 'modal-basic-title' })
       .result.then(
         (result) => {
           this.deleteProduct(product);
         },
-        (reason) => { }
+        (reason) => {}
       );
   }
 
   deleteProduct(product: any) {
-    this.httpProvider.deleteProductByID(product._id).subscribe((data: any) => {
-      if (data != null && data.body != null) {
-        var resultData = data.body
-        this.toastr.success(`Producto con nombre "${resultData.nombre}" eliminado correctamente.`);
-        //Para refrescar
-        this.getAllProduct();
-      }
-    },
-    (error: any) => { })
+    this.httpProvider.deleteProductByID(product._id).subscribe(
+      (data: any) => {
+        if (data != null && data.body != null) {
+          var resultData = data.body;
+          this.toastr.success(`Producto con nombre "${resultData.nombre}" eliminado correctamente.`);
+          this.getAllProduct();
+        }
+      },
+      (error: any) => {}
+    );
   }
 
   isPrecioOfertaAvailable(product: any): boolean {
@@ -133,7 +144,9 @@ export class HomeComponent implements OnInit {
   }
 
   get pages(): number[] {
-    return Array(this.totalPages).fill(0).map((x, i) => i + 1);
+    return Array(this.totalPages)
+      .fill(0)
+      .map((x, i) => i + 1);
   }
 
   changePage(page: number): void {
