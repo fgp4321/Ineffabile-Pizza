@@ -15,8 +15,10 @@ import { ProductDeleteModalComponent } from '../product-delete-modal/product-del
 export class HomeComponent implements OnInit {
   closeResult = '';
   userList: any = [];
+  paginatedUserList: any = [];
   productList: any = [];
   paginatedProductList: any = [];
+  currentUserPage: number = 1;
   currentPage: number = 1;
   pageSize: number = 5;
 
@@ -40,6 +42,7 @@ export class HomeComponent implements OnInit {
           var resultData = data.body;
           if (resultData) {
             this.userList = resultData;
+            this.updatePaginatedUserList();
           }
         }
       },
@@ -48,6 +51,7 @@ export class HomeComponent implements OnInit {
           if (error.status == 404) {
             if (error.error && error.error.message) {
               this.userList = [];
+              this.updatePaginatedUserList();
             }
           }
         }
@@ -139,18 +143,18 @@ export class HomeComponent implements OnInit {
     return product.precio_oferta !== null && product.precio_oferta !== undefined;
   }
 
-  get totalPages(): number {
+  get totalProductPages(): number {
     return Math.ceil(this.productList.length / this.pageSize);
   }
 
-  get pages(): number[] {
-    return Array(this.totalPages)
+  get productPages(): number[] {
+    return Array(this.totalProductPages)
       .fill(0)
       .map((x, i) => i + 1);
   }
 
-  changePage(page: number): void {
-    if (page < 1 || page > this.totalPages) {
+  changeProductPage(page: number): void {
+    if (page < 1 || page > this.totalProductPages) {
       return;
     }
     this.currentPage = page;
@@ -161,5 +165,29 @@ export class HomeComponent implements OnInit {
     const startIndex = (this.currentPage - 1) * this.pageSize;
     const endIndex = startIndex + this.pageSize;
     this.paginatedProductList = this.productList.slice(startIndex, endIndex);
+  }
+
+  get totalUserPages(): number {
+    return Math.ceil(this.userList.length / this.pageSize);
+  }
+
+  get userPages(): number[] {
+    return Array(this.totalUserPages)
+      .fill(0)
+      .map((x, i) => i + 1);
+  }
+
+  changeUserPage(page: number): void {
+    if (page < 1 || page > this.totalUserPages) {
+      return;
+    }
+    this.currentUserPage = page;
+    this.updatePaginatedUserList();
+  }
+
+  updatePaginatedUserList(): void {
+    const startIndex = (this.currentUserPage - 1) * this.pageSize;
+    const endIndex = startIndex + this.pageSize;
+    this.paginatedUserList = this.userList.slice(startIndex, endIndex);
   }
 }

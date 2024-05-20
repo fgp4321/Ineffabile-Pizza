@@ -71,27 +71,27 @@ exports.crearProducto = wrapAsync(async (req, res) => {
 
 
 exports.actualizarProducto = wrapAsync(async (req, res) => {
-    const { id } = req.params;
-    const { nombre, descripcion, precio_pvp, precio_oferta, categoria_nombre } = req.body;
-    let imagen1 = req.body.imagen1;
-  
-    if (req.file) {
-      imagen1 = req.file.filename;
+  const { id } = req.params;
+  const { nombre, descripcion, precio_pvp, precio_oferta, categoria_nombre } = req.body;
+  let imagen1 = req.body.imagen1;
+
+  if (req.file) {
+    imagen1 = req.file.filename;
+  }
+
+  const datosActualizados = { nombre, descripcion, precio_pvp, precio_oferta, categoria_nombre, imagen1 };
+
+  try {
+    const productoActualizado = await Producto.actualizarProducto(id, datosActualizados);
+    if (productoActualizado) {
+      res.status(200).json(productoActualizado);
+    } else {
+      res.status(404).json({ msg: "Producto no encontrado" });
     }
-  
-    const datosActualizados = { nombre, descripcion, precio_pvp, precio_oferta, categoria_nombre, imagen1 };
-  
-    try {
-      const productoActualizado = await Producto.actualizarProducto(id, datosActualizados);
-      if (productoActualizado) {
-        res.status(200).json(productoActualizado);
-      } else {
-        res.status(404).json({ msg: "Producto no encontrado" });
-      }
-    } catch (error) {
-      res.status(500).json({ error: "Error al actualizar el producto" });
-    }
-  });
+  } catch (error) {
+    res.status(500).json({ error: "Error al actualizar el producto" });
+  }
+});
 
 exports.eliminarProducto = wrapAsync(async (req, res) => {
     const { id } = req.params
