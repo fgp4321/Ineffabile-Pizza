@@ -106,3 +106,28 @@ exports.eliminarProducto = wrapAsync(async (req, res) => {
         res.status(500).json({ error: "Error al eliminar el producto" })
     }
 })
+
+/*
+// Nuevo método para la búsqueda de productos
+exports.buscarProductos = wrapAsync(async (req, res) => {
+  const { query } = req.query;
+  try {
+      const { body } = await esClient.search({
+          index: 'productos',
+          body: {
+              query: {
+                  match: {
+                      nombre: {
+                          query: query,
+                          operator: 'and'
+                      }
+                  }
+              }
+          }
+      });
+      const hits = body.hits.hits.map(hit => hit._source);
+      res.status(200).json(hits);
+  } catch (error) {
+      res.status(500).json({ error: "Error en la búsqueda de productos" });
+  }
+});*/
