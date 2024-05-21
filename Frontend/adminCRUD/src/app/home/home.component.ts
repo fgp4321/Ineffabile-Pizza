@@ -140,8 +140,9 @@ export class HomeComponent implements OnInit {
   }
 
   isPrecioOfertaAvailable(product: any): boolean {
-    return product.precio_oferta !== null && product.precio_oferta !== undefined;
+    return product.precio_oferta !== null && product.precio_oferta !== undefined && product.precio_oferta !== '';
   }
+  
 
   get totalProductPages(): number {
     return Math.ceil(this.productList.length / this.pageSize);
