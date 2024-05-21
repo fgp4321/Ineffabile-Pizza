@@ -4,13 +4,14 @@ const AppError = require("../utils/AppError")
 
 exports.obtenerPedidosPorUsuario = wrapAsync(async (req, res) => {
     try {
-            const pedidos = await Pedido.find({ usuario_nombre: req.session.userLogued.username });
-            res.render('mis-pedidos.ejs', { pedidos });
-        } catch (error) {
-            console.error("Error al obtener pedidos por usuario:", error);
-            res.status(500).json({ error: "Error interno al obtener pedidos" });
-        }
-    });
+        const pedidos = await Pedido.find({ usuario_nombre: req.session.userLogued.username }).sort({ fecha: -1 });
+        res.render('mis-pedidos.ejs', { pedidos });
+    } catch (error) {
+        console.error("Error al obtener pedidos por usuario:", error);
+        res.status(500).json({ error: "Error interno al obtener pedidos" });
+    }
+});
+
 
 exports.obtenerTodosPedidos = wrapAsync(async (req, res) => {
     const sortOrder = req.query.sort || 'desc'; // Recibe el parámetro de ordenamiento, por defecto 'desc'

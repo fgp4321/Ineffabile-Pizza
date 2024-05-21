@@ -21,6 +21,7 @@ export class HomeComponent implements OnInit {
   currentUserPage: number = 1;
   currentPage: number = 1;
   pageSize: number = 5;
+  searchQuery: string = '';
 
   constructor(
     private router: Router,
@@ -140,7 +141,29 @@ export class HomeComponent implements OnInit {
   }
 
   isPrecioOfertaAvailable(product: any): boolean {
-    return product.precio_oferta !== null && product.precio_oferta !== undefined;
+    return product.precio_oferta !== null && product.precio_oferta !== undefined && product.precio_oferta !== '';
+  }
+
+  searchProducts() {
+    if (this.searchQuery.trim() === '') {
+      this.getAllProduct();
+    } else {
+      this.httpProvider.searchProducts(this.searchQuery).subscribe(
+        (data: any) => {
+          if (data != null && data.body != null) {
+            var resultData = data.body;
+            if (resultData) {
+              this.productList = resultData;
+              this.updatePaginatedProductList();
+            }
+          }
+        },
+        (error: any) => {
+          this.productList = [];
+          this.updatePaginatedProductList();
+        }
+      );
+    }
   }
 
   get totalProductPages(): number {

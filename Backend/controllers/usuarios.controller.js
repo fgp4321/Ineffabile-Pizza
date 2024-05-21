@@ -5,6 +5,8 @@ const AppError = require("../utils/AppError")
 const bcrypt = require("bcrypt")
 const jwt = require("jsonwebtoken")
 
+//const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
 //AUTENTICACIÓN
 //-REGISTER
 exports.register = wrapAsync(async function(req, res) {
@@ -15,6 +17,12 @@ exports.register = wrapAsync(async function(req, res) {
         req.session.error = "Las contraseñas no coinciden";
         return res.redirect("/usuarios/login-register");
     }
+
+    /*// Validar la seguridad de la contraseña
+    if (!passwordRegex.test(password)) {
+        req.session.error = "La contraseña debe tener al menos 8 caracteres, un número y un carácter especial.";
+        return res.redirect("/usuarios/login-register");
+    }*/
 
     // Verificar si el usuario ya existe en la base de datos
     const existingUser = await User.buscarPorEmail(email);
@@ -42,7 +50,6 @@ exports.register = wrapAsync(async function(req, res) {
     }
 
     // Iniciar sesión automáticamente tras el registro
-    // Crear token JWT
     const token = jwt.sign(
         { userId: userCreated._id, check: true },
         process.env.JWT_PASS,

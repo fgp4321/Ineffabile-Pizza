@@ -82,6 +82,11 @@
             </button>
           </div>
         </div>
+        <div class="row mt-3">
+          <div class="col-sm-12">
+            <input type="text" class="form-control" placeholder="Buscar producto..." [(ngModel)]="searchQuery" (ngModelChange)="searchProducts()">
+          </div>
+        </div>
       </div>
       <table class="table table-striped table-hover table-bordered table-content">
         <thead>

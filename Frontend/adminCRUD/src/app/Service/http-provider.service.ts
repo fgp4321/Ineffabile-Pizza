@@ -23,6 +23,7 @@ var productHttpLink = {
   getProductDetailByID: apiUrl + "/api/v2/productos/getProductDetailByID",
   saveProduct: apiUrl + "/api/v2/productos/saveProduct",
   editProduct: apiUrl + "/api/v2/productos/editProduct",
+  searchProducts: apiUrl + "/api/v2/productos/buscarProductos" // Añadir enlace de búsqueda
 }
 
 //API Pedidos
@@ -136,6 +137,16 @@ export class HttpProviderService {
       })
     );
   }
+
+  public searchProducts(query: string): Observable<any> {
+    return this.webApiService.get(`${productHttpLink.searchProducts}?query=${query}`).pipe(
+      catchError(error => {
+        console.error('Error en la solicitud searchProducts:', error);
+        return throwError(error);
+      })
+    );
+  }
+
 
 
 //-----------------------------------------------------------------------

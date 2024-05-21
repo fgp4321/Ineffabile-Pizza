@@ -12,6 +12,7 @@ router.delete("/deleteProductByID/:id", ProductoController.eliminarProducto);
 
 router.get("/productos/:categoria", ProductoController.obtenerProductosPorCategoria);
 
-
+// Añadir ruta para buscar productos
+router.get("/buscarProductos", ProductoController.buscarProductosPorNombre);
 
 module.exports = router
