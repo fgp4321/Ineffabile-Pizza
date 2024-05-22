@@ -51,15 +51,20 @@ exports.register = wrapAsync(async function(req, res) {
 
     // Iniciar sesión automáticamente tras el registro
     const token = jwt.sign(
-        { userId: userCreated._id, check: true },
+        { userId: userCreated._id, role: userCreated.rol, check: true },
         process.env.JWT_PASS,
         { expiresIn: '1d' }
     );
     req.session.jwtToken = token;
     req.session.userLogued = userCreated;
 
-    // Redireccionar a la página de área personal
-    res.redirect("/usuarios/personal-area");
+    // Asegurarse de que la sesión se guarde antes de redirigir
+    req.session.save((err) => {
+        if (err) {
+            throw new AppError("Error al guardar la sesión", 500);
+        }
+        res.redirect("/usuarios/personal-area");
+    })
 });
 
 

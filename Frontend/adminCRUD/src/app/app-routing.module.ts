@@ -10,6 +10,8 @@ import { AddProductComponent } from "./add-product/add-product.component";
 import { EditProductComponent } from "./edit-product/edit-product.component";
 import { ViewProductComponent } from "./view-product/view-product.component";
 
+//import { AuthGuard } from './Service/auth.guard';  // Importar el AuthGuard
+
 const routes: Routes = [
   { path: '', redirectTo: 'Home', pathMatch: 'full' },
   { path: 'Home', component: HomeComponent },
