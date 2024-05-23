@@ -4,6 +4,9 @@ const passport = require('passport');
 const rutasProtegidasJWT = require("../middlewares/jwt.mw");
 const router = express.Router();
 
+const upload = require('../middlewares/multerUserProfilePhoto');
+const User = require('../models/usuarios.model');
+
 /**
  * @swagger
  * tags:
@@ -224,5 +227,9 @@ router.get('/auth/github/callback',
     req.session.userLogued = req.user;
     res.redirect('/usuarios/personal-area');
 });
+
+
+router.post('/upload-profile-pic', upload.single('profilePic'), UserController.uploadProfilePic);
+
 
 module.exports = router

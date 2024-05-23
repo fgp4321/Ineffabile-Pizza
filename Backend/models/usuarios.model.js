@@ -33,6 +33,10 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
         enum: ["ADMIN","USER","EMPLOYEE"]
+    },
+    imageUrl: {
+        type: String,
+        default: '/images/utils/profiles/perfil.jpg' // Campo para la URL de la imagen de perfil
     }
 })
 
