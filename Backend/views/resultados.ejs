@@ -33,7 +33,7 @@
                                 <h3 class="h5 fw-bold"><%= producto._source.nombre %></h3>
                                 <p><%= producto._source.descripcion %></p>
                                 <!-- Botón que redirige a la categoría específica del producto -->
-                                <a href="/productos/<%= producto._source.categoria_nombre.toLowerCase() %>" class="btn btn-primary">Ver más en <%= producto._source.categoria_nombre %></a>
+                                <a href="/productos/<%= producto._source.categoria_nombre.toLowerCase() %>" class="btn btn-warning">Ver más en <%= producto._source.categoria_nombre %></a>
                             </div>
                         </div>
                     </li>

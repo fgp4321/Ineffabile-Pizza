@@ -152,13 +152,27 @@ body {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-.btn-success:hover {
-  background-color: #218838;
+.btn-increment,
+.btn-decrement {
+  background: linear-gradient(to right, #ff5f6d, #ffc371);
 }
+
+.btn-increment:hover,
+.btn-decrement:hover {
+  background: #ffc107;
+}
+
 
 .alert-warning {
   text-align: center;
   font-size: 1.25rem;
+}
+
+.btn-increment,
+.btn-decrement{
+  background-color: #ffc107; /* Color de fondo al hacer hover/focus */
+  border-color: #ffc107; /* Color de borde al hacer hover/focus */
+  color: #000; /* Cambiar el color del texto si es necesario */
 }
 
 /* Responsive Design */

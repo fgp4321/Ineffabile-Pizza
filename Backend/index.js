@@ -214,27 +214,25 @@ app.post('/contacto', (req, res) => {
     const { nombre, email, mensaje } = req.body;
     console.log('Recibido:', nombre, email, mensaje);  
 
+    if (!email) {
+        console.error('No se definió el destinatario');
+        res.status(400).send('Error: No se definió el destinatario');
+        return;
+    }
+
     // Configura las opciones del correo electrónico
     transporter.sendMail({
-        from: 'no-reply@ineffabilepizza.com', // El correo del remitente sigue siendo el mismo
-        to: email, // Ahora el destinatario será el correo que el usuario ingresó en el formulario
-        subject: `Gracias por tu mensaje!, ${nombre}`, // Personalizas el asunto para responder
-        text: `Hola ${nombre},
-    
-    Gracias por contactarnos. Hemos recibido tu mensaje y te responderemos lo antes posible.
-    
-    Mensaje recibido:
-    ${mensaje}
-    
-    Saludos,
-    Equipo de Ineffabile Pizza`
+        from: 'no-reply@ineffabilepizza.com',
+        to: email,
+        subject: `Gracias por tu mensaje, ${nombre}`,
+        text: `Hola ${nombre},\n\nGracias por contactarnos. Hemos recibido tu mensaje y te responderemos lo antes posible.\n\nMensaje recibido:\n${mensaje}\n\nSaludos,\nEquipo de Ineffabile Pizza`
     }, (err, info) => {
         if (err) {
             console.error('Error al enviar el correo: ', err);
             res.status(500).send('Error al enviar el mensaje');
         } else {
             console.log('Correo enviado: ', info);
-            res.redirect('/contacto/success'); // Asegúrate de tener esta ruta configurada para mostrar un mensaje de éxito.
+            res.redirect('/contacto/success');
         }
     });
 });
