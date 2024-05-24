@@ -1,4 +1,4 @@
-//Conexiones BBDD
+//Conexión BBDD
 const mongoConn = require("./config/mongoDB.config")
 
 //Middlewares
@@ -16,8 +16,12 @@ const errorHandler = require("./middlewares/errorHandler.mw")
 const cookieParser = require("cookie-parser")
 const session = require("express-session")
 const methodOverride = require('method-override');
+//GOOGLE & GITHUB
 const passport = require('passport');
+//MAIL
 const nodemailer = require('nodemailer');
+//DOCS
+const { swaggerUi, swaggerDocs } = require('./swagger');
 
 //Listado de municipios para la vista de checkout
 const municipios = [ "Agost", "Agres", "Aigües", "Alacant/Alicante", "Albatera", "Alcalalí", "Alcocer de Planes", "Alcoleja", "Alcoy/Alcoi", "Alfàs del Pi (l')", "Alfondeguilla", "Algorfa", "Algueña", "Alicante/Alacant", "Almoradí", "Almudaina", "Alqueria d'Asnar (l')", "Altea", "Aspe", "Balones", "Banyeres de Mariola", "Benasau", "Beneixama", "Benejúzar", "Benferri", "Beniarbeig", "Beniardá", "Beniarrés", "Benidoleig", "Benidorm", "Benifallim", "Benifato", "Benigembla", "Benijófar", "Benilloba", "Benillup", "Benimantell", "Benimarfull", "Benimassot", "Benimeli", "Benissa", "Benitachell/Poble Nou de Benitatxell (el)", "Biar", "Bigastro", "Bolulla", "Busot", "Callosa d'en Sarrià", "Callosa de Segura", "Calpe/Calp", "Campello (el)", "Campo de Mirra/Camp de Mirra (el)", "Cañada", "Castalla", "Castell de Castells", "Catral", "Cocentaina", "Confrides", "Cox", "Crevillent", "Daya Nueva", "Daya Vieja", "Dénia", "Dolores", "Elche/Elx", "Elda", "Facheca", "Famorca", "Finestrat", "Fondó de les Neus (el)/Hondón de las Nieves", "Formentera del Segura", "Gata de Gorgos", "Gorga", "Granja de Rocamora", "Guardamar del Segura", "Hondón de los Frailes", "Ibi", "Jacarilla", "Jávea/Xàbia", "Jijona/Xixona", "Llíber", "Lorcha/Orxa (l')", "Millena", "Monforte del Cid", "Monóvar/Monòver", "Montesinos (Los)", "Murla", "Muro de Alcoy", "Mutxamel", "Novelda", "Nucia (la)", "Ondara", "Onil", "Orba", "Orihuela", "Orxeta", "Parcent", "Pedreguer", "Pego", "Penàguila", "Petrer", "Pilar de la Horadada", "Pinós (el)/Pinoso", "Planes", "Poblets (els)", "Polop", "Quatretondeta", "Rafal", "Ràfol d'Almúnia (el)", "Redován", "Relleu", "Rojales", "Romana (la)", "Sagra", "Salinas", "San Fulgencio", "San Isidro", "San Miguel de Salinas", "San Vicente del Raspeig/Sant Vicent del Raspeig", "Sanet y Negrals", "Sant Joan d'Alacant", "Santa Pola", "Sax", "Sella", "Senija", "Tàrbena", "Teulada", "Tibi", "Tollos", "Tormos", "Torremanzanas/Torre de les Maçanes (la)", "Torrevieja", "Vall d'Alcalà (la)", "Vall d'Ebo (la)", "Vall de Gallinera", "Vall de Laguar (la)", "Verger (el)", "Villajoyosa/Vila Joiosa (la)", "Villena" ];
@@ -75,6 +79,8 @@ const corsOptions = {
     credentials: true
 }
 app.use(cors(corsOptions))
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 app.use(cookieParser("passwordforcookies"))
 app.use(session({
@@ -214,27 +220,25 @@ app.post('/contacto', (req, res) => {
     const { nombre, email, mensaje } = req.body;
     console.log('Recibido:', nombre, email, mensaje);  
 
+    if (!email) {
+        console.error('No se definió el destinatario');
+        res.status(400).send('Error: No se definió el destinatario');
+        return;
+    }
+
     // Configura las opciones del correo electrónico
     transporter.sendMail({
-        from: 'no-reply@ineffabilepizza.com', // El correo del remitente sigue siendo el mismo
-        to: email, // Ahora el destinatario será el correo que el usuario ingresó en el formulario
-        subject: `Gracias por tu mensaje!, ${nombre}`, // Personalizas el asunto para responder
-        text: `Hola ${nombre},
-    
-    Gracias por contactarnos. Hemos recibido tu mensaje y te responderemos lo antes posible.
-    
-    Mensaje recibido:
-    ${mensaje}
-    
-    Saludos,
-    Equipo de Ineffabile Pizza`
+        from: 'no-reply@ineffabilepizza.com',
+        to: email,
+        subject: `Gracias por tu mensaje, ${nombre}`,
+        text: `Hola ${nombre},\n\nGracias por contactarnos. Hemos recibido tu mensaje y te responderemos lo antes posible.\n\nMensaje recibido:\n${mensaje}\n\nSaludos,\nEquipo de Ineffabile Pizza`
     }, (err, info) => {
         if (err) {
             console.error('Error al enviar el correo: ', err);
             res.status(500).send('Error al enviar el mensaje');
         } else {
             console.log('Correo enviado: ', info);
-            res.redirect('/contacto/success'); // Asegúrate de tener esta ruta configurada para mostrar un mensaje de éxito.
+            res.redirect('/contacto/success');
         }
     });
 });
@@ -378,7 +382,7 @@ app.get('/productos/bebidas', async (req, res) => {
     }
 });
 
-app.get('/promociones', rutasProtegidasJWT(['ADMIN', 'EMPLOYEE', 'USER']), async (req, res) => {
+app.get('/promociones', rutasProtegidasJWT(['USER']), async (req, res) => {
     try {
         const response = await fetch('http://localhost:9100/api/v2/productos/getAllProduct');
         const productos = await response.json();
@@ -661,6 +665,7 @@ app.use(errorHandler)
 //Levantar el server
 app.listen(port,()=>{
     mongoConn.establecerConexion()
-    console.log("http://localhost:9100")
+    console.log("Aplicación -> "+"http://localhost:9100")
+    console.log("Documentación -> http://localhost:9100/api-docs")
     logger.access.debug(`http://localhost:9100`)
 })

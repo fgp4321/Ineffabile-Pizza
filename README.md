@@ -87,6 +87,16 @@ curl --request DELETE \
 - Ejecución de script: 
 Una vez creado el índice, ejecutaremos el script situado en Elasticsearch/ para indexar todos los documentos en el índice previamente creado.
 
+Sistemas Linux
+```bash
+./script.sh
+```
+
+Sistemas Windows
+```bash
+script.bat
+```
+
 Para comprobar que todo ha ido correctamente, visitaremos http://localhost:9200/productos/_search o haremos una petición GET a esta URL y se deberían de ver todos los productos indexados en JSON.
 
 

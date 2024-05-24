@@ -96,9 +96,10 @@ body {
   }
 
   .price {
-    font-size: 16px;
+    font-size: 20px;
     color: #28a745; /* Verde para el precio en oferta */
     margin-bottom: 5px;
+    font-weight: bold;
   }
 
   .original-price {

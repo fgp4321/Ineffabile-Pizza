@@ -30,7 +30,6 @@ function rutasProtegidasJWT(rolesPermitidos = []) {
         } else {
             res.redirect("/usuarios/login-register");
         }
-        
     };
 }
 

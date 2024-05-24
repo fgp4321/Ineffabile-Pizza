@@ -14,6 +14,7 @@ var userHttpLink = {
   getUserDetailByID: apiUrl + "/api/v2/usuarios/getUserDetailByID",
   saveUser: apiUrl + "/api/v2/usuarios/saveUser",
   editUser: apiUrl + "/api/v2/usuarios/editUser",
+  searchUsers: apiUrl + "/api/v2/usuarios/buscarUsuarios" // Añadir enlace de búsqueda
 }
 
 //API Productos
@@ -82,6 +83,15 @@ export class HttpProviderService {
     return this.webApiService.put(`${userHttpLink.editUser}/${userId}`, model).pipe(
       catchError(error => {
         console.error('Error en la solicitud editUser:', error);
+        return throwError(error);
+      })
+    );
+  }
+
+  public searchUsers(query: string): Observable<any> {
+    return this.webApiService.get(`${userHttpLink.searchUsers}?query=${query}`).pipe(
+      catchError(error => {
+        console.error('Error en la solicitud searchUsers:', error);
         return throwError(error);
       })
     );

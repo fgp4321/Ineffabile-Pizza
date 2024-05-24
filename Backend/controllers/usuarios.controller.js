@@ -18,12 +18,6 @@ exports.register = wrapAsync(async function(req, res) {
         return res.redirect("/usuarios/login-register");
     }
 
-    /*// Validar la seguridad de la contraseña
-    if (!passwordRegex.test(password)) {
-        req.session.error = "La contraseña debe tener al menos 8 caracteres, un número y un carácter especial.";
-        return res.redirect("/usuarios/login-register");
-    }*/
-
     // Verificar si el usuario ya existe en la base de datos
     const existingUser = await User.buscarPorEmail(email);
     if (existingUser) {
@@ -40,7 +34,8 @@ exports.register = wrapAsync(async function(req, res) {
         email,
         password: hashedPassword,
         telefono,
-        rol: 'USER'
+        rol: 'USER',
+        imageUrl: '/images/utils/profiles/perfil.jpg' // URL de la imagen de perfil por defecto
     };
 
     const userCreated = await User.crearUsuario(nuevoUsuario);
@@ -51,16 +46,22 @@ exports.register = wrapAsync(async function(req, res) {
 
     // Iniciar sesión automáticamente tras el registro
     const token = jwt.sign(
-        { userId: userCreated._id, check: true },
+        { userId: userCreated._id, role: userCreated.rol, check: true },
         process.env.JWT_PASS,
         { expiresIn: '1d' }
     );
     req.session.jwtToken = token;
-    req.session.userLogued = userCreated;
+    req.session.userLogued = userCreated; // Asegúrate de que la sesión incluya la URL de la imagen de perfil
 
-    // Redireccionar a la página de área personal
-    res.redirect("/usuarios/personal-area");
+    // Asegurarse de que la sesión se guarde antes de redirigir
+    req.session.save((err) => {
+        if (err) {
+            throw new AppError("Error al guardar la sesión", 500);
+        }
+        res.redirect("/usuarios/personal-area");
+    });
 });
+
 
 
 exports.login = async function(req, res) {
@@ -212,3 +213,39 @@ exports.eliminarUsuario = wrapAsync(async (req, res) => {
         res.status(500).json({ error: "Error al eliminar el usuario" })
     }
 })
+
+exports.buscarUsuariosPorNombre = wrapAsync(async (req, res) => {
+    const { query } = req.query;
+    try {
+        const usuarios = await User.find({ nombre: { $regex: query, $options: "i" } });
+        res.status(200).json(usuarios);
+    } catch (error) {
+        res.status(500).json({ error: "Error al buscar usuarios" });
+    }
+});
+
+exports.uploadProfilePic = wrapAsync(async (req, res) => {
+    try {
+        const userId = req.session.userLogued._id; // Usando el ID del usuario desde la sesión
+        const imageUrl = `/images/utils/profiles/${req.file.filename}`;
+        console.log(imageUrl);
+        console.log(userId);
+
+        // Actualizar la URL de la imagen en la base de datos
+        await User.findByIdAndUpdate(userId, { imageUrl: imageUrl });
+
+        // Actualizar la sesión del usuario con la nueva URL de la imagen
+        req.session.userLogued.imageUrl = imageUrl;
+
+        // Asegurarse de que la sesión se guarde antes de redirigir
+        req.session.save((err) => {
+            if (err) {
+                throw new AppError("Error al guardar la sesión", 500);
+            }
+            res.json({ imageUrl: imageUrl }); // Responder con la nueva URL de la imagen
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error al subir la imagen de perfil');
+    }
+});

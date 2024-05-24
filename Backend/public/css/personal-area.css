@@ -1,47 +1,80 @@
 body {
-    background-color: #f8f9fa;
-    /*background: linear-gradient(to right, #ff5f6d, #ffc371);
-    color: #fff;
-    padding: 40px 0;
-    animation: gradientAnimation 5s ease infinite alternate-reverse;
-    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);*/
-  }
+  background-color: #f8f9fa;
+}
 
-  .card {
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
+.card {
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
-  .card-img-top {
-    width: 150px;
-    height: 150px;
-    margin: 0 auto;
-    border-radius: 50%;
-    object-fit: cover;
-  }
+.card-img-top {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto;
+  border-radius: 50%;
+  object-fit: cover;
+  position: relative;
+}
 
-  .card-title {
-    font-size: 1.5rem;
-  }
+.upload-icon {
+  position: absolute;
+  top: 120px;
+  left: 60%;
+  transform: translateX(-50%);
+  background-color: #ffffff;
+  border: 2px solid #dc3545;
+  border-radius: 50%;
+  padding: 10px;
+  cursor: pointer;
+  color: #dc3545;
+}
 
-  .card-text {
-    font-size: 1.1rem;
-    color: #6c757d;
-  }
+.upload-icon:hover {
+  background-color: #dc3545;
+  color: #ffffff;
+}
 
-  .btn-primary {
-    background-color: #dc3545;
-    border-color: #dc3545;
-    font-size: 1.2rem;
-  }
+.card-title {
+  font-size: 1.5rem;
+}
 
-  .btn-primary:hover {
-    background-color: #c82333;
-    border-color: #bd2130;
-  }
+.card-text {
+  font-size: 1.1rem;
+  color: #6c757d;
+}
 
-  .welcome-title {
-    font-size: 2rem;
-    color: #dc3545;
-    margin-bottom: 20px;
-  }
+.btn-primary {
+  background-color: #dc3545;
+  border-color: #dc3545;
+  font-size: 1.2rem;
+}
+
+.btn-primary:hover {
+  background-color: #c82333;
+  border-color: #bd2130;
+}
+
+.welcome-title {
+  font-size: 2rem;
+  color: #dc3545;
+  margin-bottom: 20px;
+}
+
+#profilePic {
+  display: none;
+}
+
+#uploadBtn {
+  display: none; /* Ocultar el botón por defecto */
+}
+
+#uploadLabel {
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+}
+
+#uploadIcon {
+  display: block;
+  margin: 0 auto;
+}

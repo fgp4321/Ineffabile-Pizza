@@ -21,7 +21,8 @@
         <div class="card text-center">
           <br>
           <h2 class="welcome-title">¡Bienvenido, <%= userLogued.nombre %>!</h2>
-          <img src="<%= userLogued.imageUrl || '/images/perfil.jpg' %>" class="card-img-top mt-4" alt="Foto de Perfil">
+          <img id="profilePicImg" src="<%= userLogued.imageUrl %>" class="card-img-top mt-4" alt="Foto de Perfil">
+          <i class="fas fa-camera upload-icon" id="uploadIcon"></i>
           <div class="card-body">
             <h5 class="card-title"><%= userLogued.nombre %> <%= userLogued.apellido %></h5>
             <p class="card-text">Nombre de Usuario: <%= userLogued.username %></p>
@@ -37,6 +38,13 @@
 
             <form action="/api/v2/usuarios/logout" method="POST" style="display: inline;">
               <button type="submit" class="btn btn-primary"><i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión</button>
+            </form>
+
+            <!-- Formulario para subir imagen de perfil -->
+            <form id="uploadProfilePicForm" enctype="multipart/form-data" class="mt-3">
+              <input type="file" class="form-control-file" id="profilePic" name="profilePic" accept="image/*" required>
+              <label id="uploadLabel" for="profilePic">Seleccionar Imagen</label>
+              <button id="uploadBtn" type="submit" class="btn btn-primary mt-2">Subir Imagen</button>
             </form>
           </div>
         </div>
@@ -63,7 +71,35 @@
 
   <script src="/fontawesome/js/all.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js"></script>
-  <script src="/js/bootstrap.bundle.min.js"></script>  
-  <!-- Agregar cualquier otro script necesario -->
+  <script src="/js/bootstrap.bundle.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    // Script para manejar la subida de la imagen de perfil
+    document.getElementById('uploadProfilePicForm').addEventListener('submit', async function(event) {
+      event.preventDefault();
+      
+      const formData = new FormData(this);
+      const response = await fetch('/api/v2/usuarios/upload-profile-pic', {
+        method: 'POST',
+        body: formData
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        document.getElementById('profilePicImg').src = data.imageUrl;
+      } else {
+        alert('Error al subir la imagen de perfil');
+      }
+    });
+
+    document.getElementById('uploadIcon').addEventListener('click', function() {
+      document.getElementById('profilePic').click();
+    });
+
+    document.getElementById('profilePic').addEventListener('change', function() {
+      document.getElementById('uploadLabel').innerText = this.files[0].name;
+      document.getElementById('uploadBtn').style.display = 'inline-block';
+    });
+  </script>
 </body>
 </html>

@@ -30,6 +30,8 @@
     "passport-google-oauth": "^2.0.0",
     "path": "^0.12.7",
     "serve-favicon": "^2.5.0",
-    "stripe": "^15.2.0"
+    "stripe": "^15.2.0",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.0"
   }
 }
