@@ -21,16 +21,8 @@
         <div class="card text-center">
           <br>
           <h2 class="welcome-title">¡Bienvenido, <%= userLogued.nombre %>!</h2>
-          <% if (userLogued.googleId) { %>
-            <!-- Si es un usuario de Google, mostrar la imagen de perfil de Google -->
-            <img id="profilePicImg" src="<%= userLogued.imageUrl %>" class="card-img-top mt-4" alt="Foto de Perfil">
-          <% } else if (userLogued.githubId) { %>
-            <!-- Si es un usuario de GitHub, mostrar la imagen de perfil de GitHub -->
-            <img id="profilePicImg" src="<%= userLogued.imageUrl %>" class="card-img-top mt-4" alt="Foto de Perfil">
-          <% } else { %>
-            <!-- Si es un usuario normal, mostrar la imagen de perfil predeterminada -->
-            <img id="profilePicImg" src="<%= userLogued.imageUrl %>" class="card-img-top mt-4" alt="Foto de Perfil">
-          <% } %>  
+          <img id="profilePicImg" src="<%= userLogued.imageUrl %>" class="card-img-top mt-4" alt="Foto de Perfil">
+          <i class="fas fa-camera upload-icon" id="uploadIcon"></i>
           <div class="card-body">
             <h5 class="card-title"><%= userLogued.nombre %> <%= userLogued.apellido %></h5>
             <p class="card-text">Nombre de Usuario: <%= userLogued.username %></p>
@@ -50,13 +42,10 @@
 
             <!-- Formulario para subir imagen de perfil -->
             <form id="uploadProfilePicForm" enctype="multipart/form-data" class="mt-3">
-              <div class="form-group">
-                <label for="profilePic">Cambiar foto de perfil:</label>
-                <input type="file" class="form-control-file" id="profilePic" name="profilePic" accept="image/*" required>
-              </div>
-              <button type="submit" class="btn btn-primary mt-2">Subir Imagen</button>
+              <input type="file" class="form-control-file" id="profilePic" name="profilePic" accept="image/*" required>
+              <label id="uploadLabel" for="profilePic">Seleccionar Imagen</label>
+              <button id="uploadBtn" type="submit" class="btn btn-primary mt-2">Subir Imagen</button>
             </form>
-
           </div>
         </div>
 
@@ -101,6 +90,15 @@
       } else {
         alert('Error al subir la imagen de perfil');
       }
+    });
+
+    document.getElementById('uploadIcon').addEventListener('click', function() {
+      document.getElementById('profilePic').click();
+    });
+
+    document.getElementById('profilePic').addEventListener('change', function() {
+      document.getElementById('uploadLabel').innerText = this.files[0].name;
+      document.getElementById('uploadBtn').style.display = 'inline-block';
     });
   </script>
 </body>

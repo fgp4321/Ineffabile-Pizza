@@ -214,6 +214,16 @@ exports.eliminarUsuario = wrapAsync(async (req, res) => {
     }
 })
 
+exports.buscarUsuariosPorNombre = wrapAsync(async (req, res) => {
+    const { query } = req.query;
+    try {
+        const usuarios = await User.find({ nombre: { $regex: query, $options: "i" } });
+        res.status(200).json(usuarios);
+    } catch (error) {
+        res.status(500).json({ error: "Error al buscar usuarios" });
+    }
+});
+
 exports.uploadProfilePic = wrapAsync(async (req, res) => {
     try {
         const userId = req.session.userLogued._id; // Usando el ID del usuario desde la sesión

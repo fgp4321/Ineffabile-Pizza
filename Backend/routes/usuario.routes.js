@@ -180,7 +180,58 @@ router.put("/editUser/:id", /*rutasProtegidasJWT(['ADMIN']),*/UserController.act
  */ 
 router.delete("/deleteUserByID/:id", /*rutasProtegidasJWT(['ADMIN']),*/UserController.eliminarUsuario);
 
-
+/**
+ * @swagger
+ * /api/v2/usuarios/buscarUsuarios:
+ *   get:
+ *     summary: Buscar usuarios por nombre
+ *     tags: [Usuarios]
+ *     parameters:
+ *       - in: query
+ *         name: nombre
+ *         required: true
+ *         description: Nombre del usuario a buscar
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: Productos encontrados con éxito
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 type: object
+ *                 properties:
+ *               nombre:
+ *                 type: string
+ *                 description: Nombre del usuario
+ *               apellido:
+ *                 type: string
+ *                 description: Apellido del usuario
+ *               username:
+ *                 type: string
+ *                 description: Nombre de usuario único
+ *               email:
+ *                 type: string
+ *                 description: Correo electrónico del usuario
+ *               password:
+ *                 type: string
+ *                 description: Contraseña del usuario
+ *               telefono:
+ *                 type: integer
+ *                 description: Número de teléfono del usuario
+ *               rol:
+ *                 type: string
+ *                 description: Rol del usuario (por ejemplo, 'ADMIN', 'USER', etc.)
+ *       400:
+ *         description: Solicitud incorrecta
+ *       404:
+ *         description: Usuarios no encontrados
+ *       500:
+ *         description: Error interno del servidor
+ */
+router.get("/buscarUsuarios", UserController.buscarUsuariosPorNombre);
 
 
 /*---------- Tradicional ----------*/

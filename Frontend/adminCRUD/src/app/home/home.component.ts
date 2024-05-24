@@ -21,7 +21,8 @@ export class HomeComponent implements OnInit {
   currentUserPage: number = 1;
   currentPage: number = 1;
   pageSize: number = 5;
-  searchQuery: string = '';
+  searchQueryUser: string = '';
+  searchQueryProduct: string = '';
 
   constructor(
     private router: Router,
@@ -58,6 +59,28 @@ export class HomeComponent implements OnInit {
         }
       }
     );
+  }
+
+  searchUsers() {
+    if (this.searchQueryUser.trim() === '') {
+      this.getAllUser();
+    } else {
+      this.httpProvider.searchUsers(this.searchQueryUser).subscribe(
+        (data: any) => {
+          if (data != null && data.body != null) {
+            var resultData = data.body;
+            if (resultData) {
+              this.userList = resultData;
+              this.updatePaginatedUserList();
+            }
+          }
+        },
+        (error: any) => {
+          this.productList = [];
+          this.updatePaginatedUserList();
+        }
+      );
+    }
   }
 
   AddUser() {
@@ -145,10 +168,10 @@ export class HomeComponent implements OnInit {
   }
 
   searchProducts() {
-    if (this.searchQuery.trim() === '') {
+    if (this.searchQueryProduct.trim() === '') {
       this.getAllProduct();
     } else {
-      this.httpProvider.searchProducts(this.searchQuery).subscribe(
+      this.httpProvider.searchProducts(this.searchQueryProduct).subscribe(
         (data: any) => {
           if (data != null && data.body != null) {
             var resultData = data.body;
