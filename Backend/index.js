@@ -382,7 +382,7 @@ app.get('/productos/bebidas', async (req, res) => {
     }
 });
 
-app.get('/promociones', rutasProtegidasJWT(['USER']), async (req, res) => {
+app.get('/promociones', rutasProtegidasJWT(['ADMIN', 'EMPLOYEE', 'USER']), async (req, res) => {
     try {
         const response = await fetch('http://localhost:9100/api/v2/productos/getAllProduct');
         const productos = await response.json();
@@ -635,7 +635,7 @@ app.get('/pedidos', (req, res) => {
 });
 
 app.get('*', (req, res) => {
-    res.render('error.ejs');
+    res.render('error404.ejs');
 })
 
 /*
