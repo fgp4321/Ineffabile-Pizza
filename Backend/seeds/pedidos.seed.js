@@ -12,8 +12,12 @@ const ejecutar = async()=>{
 
     const pedidos = [
         {
-            usuario_nombre: "Mario",
-            productos_nombre: ["Pizza 4 quesos", "Pizza Vegetal", "Patatas alioli"],
+            usuario_nombre: "user",
+            productos: [
+                { nombre: "Pizza 4 quesos", cantidad: 1 },
+                { nombre: "Pizza Vegetal", cantidad: 1 },
+                { nombre: "Patatas alioli", cantidad: 1 }
+            ],
             fecha: new Date(),
             cantidad: 3,
             total: "24.20",
@@ -21,24 +25,30 @@ const ejecutar = async()=>{
             isActive: false
         },
         {
-            usuario_nombre: "Alex",
-            productos_nombre: ["Macarrones a la boloñesa", "Pizza atún", "Alitas de pollo"],
+            usuario_nombre: "user",
+            productos: [
+                { nombre: "Macarrones a la boloñesa", cantidad: 1 },
+                { nombre: "Pizza atún", cantidad: 1 },
+                { nombre: "Alitas de pollo", cantidad: 1 }
+            ],
             fecha: new Date(),
             cantidad: 3,
             total: "27.50",
             estadoPedido_status: "Preparado",
-            isActive: false
+            isActive: true
         },
         {
-            usuario_nombre: "Fran",
-            productos_nombre: ["Espaguetis a la carbonara"],
+            usuario_nombre: "user",
+            productos: [
+                { nombre: "Espaguetis a la carbonara", cantidad: 1 }
+            ],
             fecha: new Date(),
             cantidad: 1,
             total: "8.50",
             estadoPedido_status: "Listo",
-            isActive: false
+            isActive: true
         }
-    ]
+    ];
 
     await Pedido.insertMany(pedidos)
     .then((res)=>{

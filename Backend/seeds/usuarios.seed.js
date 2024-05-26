@@ -11,11 +11,12 @@ const ejecutar = async () => {
             {
                 nombre: "user_nombre",
                 apellido: "user_apellido",
-                username: "user56",
+                username: "user",
                 email: "user@gmail.com",
                 password: "user",
                 telefono: 687256871,
-                rol: "USER"
+                rol: "USER",
+                imageUrl:"/images/utils/profiles/perfil.jpg"
             },
             {
                 nombre: "Encargado",
@@ -24,7 +25,8 @@ const ejecutar = async () => {
                 email: "encargado@gmail.com",
                 password: "encargado",
                 telefono: 693235687,
-                rol: "EMPLOYEE"
+                rol: "EMPLOYEE",
+                imageUrl:"/images/utils/profiles/perfil.jpg"
             },
             {
                 nombre: "Admin",
@@ -33,7 +35,8 @@ const ejecutar = async () => {
                 email: "admin@gmail.com",
                 password: "admin",
                 telefono: 655288769,
-                rol: "ADMIN"
+                rol: "ADMIN",
+                imageUrl:"/images/utils/profiles/perfil.jpg"
             }
         ];
 
