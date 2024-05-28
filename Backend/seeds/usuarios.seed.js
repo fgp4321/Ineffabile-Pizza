@@ -26,7 +26,7 @@ const ejecutar = async () => {
                 password: "encargado",
                 telefono: 693235687,
                 rol: "EMPLOYEE",
-                imageUrl:"/images/utils/profiles/perfil.jpg"
+                imageUrl:"/images/utils/profiles/ineffabile.png"
             },
             {
                 nombre: "Admin",
@@ -36,7 +36,7 @@ const ejecutar = async () => {
                 password: "admin",
                 telefono: 655288769,
                 rol: "ADMIN",
-                imageUrl:"/images/utils/profiles/perfil.jpg"
+                imageUrl:"/images/utils/profiles/ineffabile.png"
             }
         ];
 

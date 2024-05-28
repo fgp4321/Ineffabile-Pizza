@@ -168,7 +168,7 @@ router.put("/editOrder/:id", rutasProtegidasJWT(['ADMIN', 'EMPLOYEE']),PedidoCon
 router.delete("/deleteOrderByID/:id", rutasProtegidasJWT(['ADMIN', 'EMPLOYEE']),PedidoController.eliminarPedido);
 
 //PEDIDOS por USUARIO
-router.get("/mis-pedidos", PedidoController.obtenerPedidosPorUsuario);
+router.get("/mis-pedidos", rutasProtegidasJWT(['ADMIN', 'EMPLOYEE', 'USER']), PedidoController.obtenerPedidosPorUsuario);
 
 //Empleado
 router.get("/", rutasProtegidasJWT(['ADMIN', 'EMPLOYEE']),PedidoController.obtenerTodosPedidos);

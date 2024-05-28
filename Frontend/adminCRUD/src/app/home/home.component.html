@@ -56,6 +56,11 @@
       <!-- Paginación -->
       <ul class="pagination">
         <li class="page-item" [class.disabled]="currentUserPage === 1">
+          <a class="page-link" (click)="changeUserPage(1)" aria-label="First">
+            <span aria-hidden="true">&laquo;&laquo;</span>
+          </a>
+        </li>
+        <li class="page-item" [class.disabled]="currentUserPage === 1">
           <a class="page-link" (click)="changeUserPage(currentUserPage - 1)" aria-label="Previous">
             <span aria-hidden="true">&laquo;</span>
           </a>
@@ -68,7 +73,13 @@
             <span aria-hidden="true">&raquo;</span>
           </a>
         </li>
+        <li class="page-item" [class.disabled]="currentUserPage === totalUserPages">
+          <a class="page-link" (click)="changeUserPage(totalUserPages)" aria-label="Last">
+            <span aria-hidden="true">&raquo;&raquo;</span>
+          </a>
+        </li>
       </ul>
+      
     </div>
   </div>
 </div>
@@ -131,6 +142,11 @@
       <!-- Paginación -->
       <ul class="pagination">
         <li class="page-item" [class.disabled]="currentPage === 1">
+          <a class="page-link" (click)="changeProductPage(1)" aria-label="First">
+            <span aria-hidden="true">&laquo;&laquo;</span>
+          </a>
+        </li>
+        <li class="page-item" [class.disabled]="currentPage === 1">
           <a class="page-link" (click)="changeProductPage(currentPage - 1)" aria-label="Previous">
             <span aria-hidden="true">&laquo;</span>
           </a>
@@ -143,7 +159,13 @@
             <span aria-hidden="true">&raquo;</span>
           </a>
         </li>
+        <li class="page-item" [class.disabled]="currentPage === totalProductPages">
+          <a class="page-link" (click)="changeProductPage(totalProductPages)" aria-label="Last">
+            <span aria-hidden="true">&raquo;&raquo;</span>
+          </a>
+        </li>
       </ul>
+      
     </div>
   </div>
 </div>

@@ -11,7 +11,7 @@
                     </div>
                 </div>
             </div>
-            <form #userForm="ngForm">
+            <form #userForm="ngForm" (ngSubmit)="AddUser(userForm.form.valid)">
                 <div class="table-content">
                     <div class="form-group p-10 row">
                         <div class="col-sm-3">
@@ -22,7 +22,7 @@
                             <div *ngIf="nombre.errors && isSubmitted" class="alert alert-danger validationError">
                                 <div [hidden]="!nombre.errors?.['required']">
                                     Nombre es un campo obligatorio
-                                </div>                                
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -34,7 +34,7 @@
                             <input type="text" class="form-control" id="apellido" required maxlength="255" [(ngModel)]="addUserForm.apellido" name="apellido" #apellido="ngModel">
                             <div *ngIf="apellido.errors && isSubmitted" class="alert alert-danger validationError">
                                 <div [hidden]="!apellido.errors?.['required']">
-                                    Apellido es un campo obligatorio 
+                                    Apellido es un campo obligatorio
                                 </div>
                             </div>
                         </div>
@@ -118,15 +118,15 @@
                         </div>
                         <div class="col-sm-9">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" id="admin" [(ngModel)]="addUserForm.rol" name="rol" value="ADMIN">
+                                <input class="form-check-input" type="radio" id="admin" [(ngModel)]="addUserForm.rol" name="rol" value="ADMIN" required>
                                 <label class="form-check-label" for="admin">Admin</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" id="user" [(ngModel)]="addUserForm.rol" name="rol" value="USER">
+                                <input class="form-check-input" type="radio" id="user" [(ngModel)]="addUserForm.rol" name="rol" value="USER" required>
                                 <label class="form-check-label" for="user">User</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" id="employee" [(ngModel)]="addUserForm.rol" name="rol" value="EMPLOYEE">
+                                <input class="form-check-input" type="radio" id="employee" [(ngModel)]="addUserForm.rol" name="rol" value="EMPLOYEE" required>
                                 <label class="form-check-label" for="employee">Empleado</label>
                             </div>
                             <div *ngIf="!addUserForm.rol && isSubmitted" class="alert alert-danger validationError">
@@ -135,10 +135,9 @@
                         </div>
                     </div>
                     
-                    
                 </div>
                 <div class="table-footer">
-                    <button class="btn btn-success" (click)="AddUser(userForm.form.valid)">Guardar</button>
+                    <button class="btn btn-success" type="submit">Guardar</button>
                 </div>
             </form>
         </div>
