@@ -140,22 +140,13 @@ Esto iniciará el servidor de desarrollo frontend y podrás acceder a la aplicac
 npm i
 ```
 
-2. Crear bases de datos:
+2. Accede a /seeds para poblar las bases de datos:
 
 ```bash
-cd Backend/seeds
-```
-```bash
-node usuarios.seed.js
-```
-```bash
-node pedidos.seed.js
-```
-```bash
-node productos.seed.js
+node usuarios.seed.js && node pedidos.seed.js && node productos.seed.js
 ```
 
-3. Ejecución Backend:
+3. Situado en ./Backend, ejecutar el servidor:
 
 Con nodemon (recomendado para desarrollo):
 ```bash
