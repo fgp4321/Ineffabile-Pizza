@@ -23,14 +23,14 @@ Antes de comenzar, asegúrate de tener instaladas las siguientes herramientas:
 ## 1. Elasticsearch
 *Es preferible seguir la guía "Guia-Docker-Elasticsearch.pdf" situada en Elasticsearch/ para realizar todos los pasos.
 
-1. Para empezar a crear documentos e índices en elasticsearch se tendrán que seguir los siguientes pasos:
+Para empezar a crear documentos e índices en elasticsearch se tendrán que seguir los siguientes pasos:
 
 - Levantar servicio: 
 Antes de crear el índice, levantaremos el servicio de elasticsearch con Docker. Para ello nos situaremos en el directorio elasticsearch-site/ y ejecutaremos: docker-compose up
 Este comando levantará elasticsearch y estará disponible para realizar búsquedas. Si hay algún problema puede seguir la guía "Guia-Docker-Elasticsearch.pdf"
 
 <details>
-<summary>- Creación de índice: </summary>
+- <summary> Creación de índice: </summary>
 
 Para crear el índice, abriremos nuestra aplicacion para solicitudes API y se copiará todo el contenido de mapping.txt en el JSON del body de la petición y como URL se indicará "http://localhost:9200/productos" en método PUT. Insomnia permite copiar cURLs para agilizar el proceso. También puede copiar directamente el código cURL aqui abajo:
 ```bash
@@ -122,31 +122,50 @@ cp .env.example .env
 ## 3. Configuración del Frontend
 
 1. Abre una terminal en Frontend/adminCRUD e instala las dependencias.
-- npm i -force
+```bash
+npm i -force
+```
 
 2. Una vez que hayas configurado el frontend, puedes ejecutar la aplicación con el siguiente comando:
-- npx ng serve
+```bash
+npx ng serve
+```
 
 Esto iniciará el servidor de desarrollo frontend y podrás acceder a la aplicación desde http://localhost:4200/ en tu navegador.
 
 
 ## 4. Configuración del Backend
 1. Abre una terminal en Backend/ e instala las dependencias.
-- npm i
+```bash
+npm i
+```
 
 2. Crear bases de datos:
-- cd Backend/seeds
-- node usuarios.seed.js
-- node pedidos.seed.js
-- node productos.seed.js
+
+```bash
+cd Backend/seeds
+```
+```bash
+node usuarios.seed.js
+```
+```bash
+node pedidos.seed.js
+```
+```bash
+node productos.seed.js
+```
 
 3. Ejecución Backend:
+
 Con nodemon (recomendado para desarrollo):
-- nodemon index.js
-
+```bash
+nodemon index.js
+```
 Con Node.js:
-- node index.js
 
+```bash
+node index.js
+```
 
 Esto iniciará el servidor de desarrollo backend y podrás acceder a la aplicación desde http://localhost:9100/ en tu navegador.
 
