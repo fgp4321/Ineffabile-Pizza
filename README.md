@@ -29,7 +29,9 @@ Antes de comenzar, asegúrate de tener instaladas las siguientes herramientas:
 Antes de crear el índice, levantaremos el servicio de elasticsearch con Docker. Para ello nos situaremos en el directorio elasticsearch-site/ y ejecutaremos: docker-compose up
 Este comando levantará elasticsearch y estará disponible para realizar búsquedas. Si hay algún problema puede seguir la guía "Guia-Docker-Elasticsearch.pdf"
 
-- Creación de índice: 
+<details>
+<summary>- Creación de índice: </summary>
+
 Para crear el índice, abriremos nuestra aplicacion para solicitudes API y se copiará todo el contenido de mapping.txt en el JSON del body de la petición y como URL se indicará "http://localhost:9200/productos" en método PUT. Insomnia permite copiar cURLs para agilizar el proceso. También puede copiar directamente el código cURL aqui abajo:
 ```bash
 curl --request PUT \
@@ -83,6 +85,7 @@ curl --request PUT \
 }
 '
 ```
+</details>
 
 - En caso de haber creado el índice sin el mapeo, podemos eliminar el índice copiando el siguiente codigo cURL:
 ```bash
