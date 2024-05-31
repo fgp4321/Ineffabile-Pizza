@@ -3,13 +3,22 @@
 ## Descripción
 Este repositorio contiene el código fuente de Ineffabile Pizza, una aplicación web desarrollada con Angular en el frontend y Node.js & Express en el backend.
 
+Destacamos que el backend de la aplicación está construido con Node.js y Express, mientras que la parte pública de la aplicación se ha desarrollado utilizando vistas EJS, HTML, CSS y JavaScript. El backoffice de la aplicación se ha implementado utilizando Angular. Además, hemos integrado Elasticsearch para mejorar las búsquedas de productos en la web.
+
+## Demo
+![Home](https://i.imgur.com/rV2JYTc.png)
+![Pizzas](https://i.imgur.com/7ymOPwX.png)
+![Carrito](https://i.imgur.com/RuGXDG7.png)
+![Backoffice](https://i.imgur.com/XiayJ8t.png)
+
 ## Requisitos
-Asegúrate de tener instaladas las siguientes herramientas antes de comenzar:
-- Node.js v14.15.5 & v21.6.0 (Recomendado utilizar NVM para gestionar las versiones de NodeJS).
-- Docker & Docker-compose.
-- Insomnia u otra aplicación para solicitudes API.
-- Angular CLI v13.2
-- Nodemon (Opcional para compilación).
+Antes de comenzar, asegúrate de tener instaladas las siguientes herramientas:
+
+- Node.js v14.15.5 o superior (Se recomienda el uso de NVM para gestionar las versiones de Node.js).
+- Docker y Docker Compose para el entorno de desarrollo y despliegue.
+- Insomnia u otra herramienta similar para realizar solicitudes a la API.
+- Angular CLI v13.2 para el desarrollo del frontend.
+- Nodemon (opcional) para facilitar el proceso de desarrollo y compilación en el backend.
 
 ## 1. Elasticsearch
 *Es preferible seguir la guía "Guia-Docker-Elasticsearch.pdf" situada en Elasticsearch/ para realizar todos los pasos.
@@ -101,7 +110,7 @@ Para comprobar que todo ha ido correctamente, visitaremos http://localhost:9200/
 
 
 ## 2. Variables de Entorno
-Estando situados en la carpeta raíz, copiaremos el archivo .env.example a .env y modificaremos el contenido del archivo para indicar nuestras credenciales.
+Estando situados en ./Backend, copiaremos el archivo .env.example a .env y modificaremos el contenido del archivo para indicar nuestras credenciales.
 ```bash
 cp .env.example .env
 ```
