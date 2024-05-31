@@ -21,7 +21,7 @@ const ejecutar = async () => {
             {
                 nombre: "Encargado",
                 apellido: "Encargado",
-                username: "Encargado",
+                username: "encargado",
                 email: "encargado@gmail.com",
                 password: "encargado",
                 telefono: 693235687,
@@ -31,7 +31,7 @@ const ejecutar = async () => {
             {
                 nombre: "Admin",
                 apellido: "Admin",
-                username: "Admin",
+                username: "admin",
                 email: "admin@gmail.com",
                 password: "admin",
                 telefono: 655288769,

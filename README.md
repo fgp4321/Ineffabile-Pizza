@@ -11,7 +11,7 @@ Asegúrate de tener instaladas las siguientes herramientas antes de comenzar:
 - Angular CLI v13.2
 - Nodemon (Opcional para compilación).
 
-## Elasticsearch
+## 1. Elasticsearch
 *Es preferible seguir la guía "Guia-Docker-Elasticsearch.pdf" situada en Elasticsearch/ para realizar todos los pasos.
 
 1. Para empezar a crear documentos e índices en elasticsearch se tendrán que seguir los siguientes pasos:
@@ -100,7 +100,14 @@ script.bat
 Para comprobar que todo ha ido correctamente, visitaremos http://localhost:9200/productos/_search o haremos una petición GET a esta URL y se deberían de ver todos los productos indexados en JSON.
 
 
-## Configuración del Frontend
+## 2. Variables de Entorno
+Estando situados en la carpeta raíz, copiaremos el archivo .env.example a .env y modificaremos el contenido del archivo para indicar nuestras credenciales.
+```bash
+cp .env.example .env
+```
+
+
+## 3. Configuración del Frontend
 
 1. Abre una terminal en Frontend/adminCRUD e instala las dependencias.
 - npm i -force
@@ -111,7 +118,7 @@ Para comprobar que todo ha ido correctamente, visitaremos http://localhost:9200/
 Esto iniciará el servidor de desarrollo frontend y podrás acceder a la aplicación desde http://localhost:4200/ en tu navegador.
 
 
-## Configuración del Backend
+## 4. Configuración del Backend
 1. Abre una terminal en Backend/ e instala las dependencias.
 - npm i
 
@@ -130,3 +137,5 @@ Con Node.js:
 
 
 Esto iniciará el servidor de desarrollo backend y podrás acceder a la aplicación desde http://localhost:9100/ en tu navegador.
+
+Si desea ver o probar las APIs funcionales de Ineffabile Pizza, podrá visitar la documentación desde http://localhost:9100/api-docs en tu navegador.

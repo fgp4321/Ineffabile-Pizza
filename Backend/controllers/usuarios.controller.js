@@ -228,8 +228,6 @@ exports.uploadProfilePic = wrapAsync(async (req, res) => {
     try {
         const userId = req.session.userLogued._id; // Usando el ID del usuario desde la sesión
         const imageUrl = `/images/utils/profiles/${req.file.filename}`;
-        console.log(imageUrl);
-        console.log(userId);
 
         // Actualizar la URL de la imagen en la base de datos
         await User.findByIdAndUpdate(userId, { imageUrl: imageUrl });

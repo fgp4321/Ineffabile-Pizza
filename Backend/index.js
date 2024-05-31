@@ -28,15 +28,14 @@ const municipios = [ "Agost", "Agres", "Aigües", "Alacant/Alicante", "Albatera"
 
 // Configura el transportador de correo
 let transporter = nodemailer.createTransport({
-    host: 'smtp.mailtrap.io',  // Asegúrate que es el host correcto
+    host: 'smtp.mailtrap.io',  
     port: 2525,
-    secure: false, // true for 465, false for other ports
+    secure: false, 
     auth: {
-        user: '449c743180a194', // Usa las credenciales de tu cuenta Mailtrap
-        pass: '4b244a205637fe'
+        user: process.env.MAILTRAP_USER,
+        pass: process.env.MAILTRAP_PASS
     }
 });
-
 
 //Google OAuth2
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
@@ -46,13 +45,13 @@ const GitHubStrategy = require('passport-github').Strategy;
 
 
 const app = express()
-const port = process.env.PORT || 9100
+const port = process.env.PORT
 
 const usuarioRoutes = require("./routes/usuario.routes")
 const productoRoutes = require("./routes/producto.routes")
 const pedidoRoutes = require("./routes/pedido.routes")
 
-const version = "v2"
+const version = process.env.VERSION
 
 //Elasticsearch
 const { Client } = require('@elastic/elasticsearch');
@@ -82,12 +81,12 @@ app.use(cors(corsOptions))
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
-app.use(cookieParser("passwordforcookies"))
+app.use(cookieParser(process.env.COOKIE_SECRET));
 app.use(session({
-    secret: "secret-key",
+    secret: process.env.SESSION_SECRET,
     resave: false,
-    saveUninitialized: true,
-}))
+    saveUninitialized: true
+}));
 
 app.use(express.urlencoded({extended:true}))
 app.use(express.json())
@@ -635,7 +634,7 @@ app.get('/pedidos', (req, res) => {
 });
 
 app.get('*', (req, res) => {
-    res.render('error404.ejs');
+    res.status(404).sendFile(path.join(__dirname, 'public', 'html', '404.html'));
 })
 
 /*
