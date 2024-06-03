@@ -113,7 +113,7 @@ Para comprobar que todo ha ido correctamente, visitaremos http://localhost:9200/
 
 
 ## 2. Variables de Entorno
-Estando situados en ./Backend, copiaremos el archivo .env.example a .env y modificaremos el contenido del archivo para indicar nuestras credenciales.
+Estando situados en ./Backend, generaremos el archivo .env.example a .env y modificaremos el contenido del archivo para indicar nuestras credenciales.
 ```bash
 cp .env.example .env
 ```
