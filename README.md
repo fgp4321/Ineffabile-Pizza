@@ -161,3 +161,9 @@ node index.js
 Esto iniciará el servidor de desarrollo backend y podrás acceder a la aplicación desde http://localhost:9100/ en tu navegador.
 
 Si desea ver o probar las APIs funcionales de Ineffabile Pizza, podrá visitar la documentación desde http://localhost:9100/api-docs en tu navegador.
+
+
+## 5. Despliegue en producción
+* Este proyecto ha sido desplegado en producción a través de Vercel pero esta en fase Beta ya que hay algunas funcionalidades que no se realizan correctamente. Actualmente, es solo una versión para ver el UI de Ineffabile Pizza. Próximamente, se realizarán las correcciones correspondientes para que la app funcione correctamente en Vercel.
+
+https://ineffabile-pizza.vercel.app/
