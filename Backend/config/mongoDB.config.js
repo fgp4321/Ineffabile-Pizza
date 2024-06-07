@@ -2,7 +2,7 @@ const mongoose = require("mongoose")
 const mongoConn = mongoose.createConnection()
 
 mongoConn.conectarMongoDB = async()=>{
-    return mongoose.connect("mongodb://127.0.0.1:27017/Ineffabile")
+    return mongoose.connect(process.env.MONGODB_URI)
 }
 
 mongoConn.establecerConexion = async()=>{
